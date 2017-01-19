@@ -40,4 +40,4 @@ Todo:
 
 Thanks hehe.
 
-[Additional acknowledgements](.Pods/Target Support Files/Pods-Haha Stream)
+[Additional acknowledgements](blob/master/Pods/Target%20Support%20Files/Pods-Haha%20Stream/Pods-Haha%20Stream-acknowledgements.markdown)
