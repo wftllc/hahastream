@@ -1,0 +1,6 @@
+framework module Pods_HahaStreamUnitTests {
+  umbrella header "Pods-HahaStreamUnitTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

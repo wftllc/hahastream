@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gB0-dQ-nUc">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Account-->
+        <scene sceneID="lh0-vg-3oi">
+            <objects>
+                <viewController storyboardIdentifier="login" title="Account" id="gB0-dQ-nUc" customClass="LoginViewController" customModule="Haha_Stream" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="23P-0j-2ar"/>
+                        <viewControllerLayoutGuide type="bottom" id="RYS-nL-3DF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vn4-ll-MLc">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hehe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMp-Go-YWf">
+                                <rect key="frame" x="872" y="112" width="177" height="91"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hehelogopadded750" translatesAutoresizingMaskIntoConstraints="NO" id="6oa-Ve-HF6">
+                                <rect key="frame" x="798" y="253" width="325" height="325"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="325" id="5n3-Nj-yMD"/>
+                                    <constraint firstAttribute="width" constant="325" id="feB-pG-qzR"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="API Key" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIH-ig-abk">
+                                <rect key="frame" x="815" y="628" width="292" height="91"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="textfieldPrimaryActionTriggered:" destination="gB0-dQ-nUc" eventType="primaryActionTriggered" id="8Aj-R9-Djx"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit &quot;My Account&quot; at hehestreams.xyz to find your API key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yg-5A-rgC">
+                                <rect key="frame" x="585" y="752" width="750" height="35"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgW-NG-wIt">
+                                <rect key="frame" x="540" y="839" width="840" height="131"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Sign in to Hehestreams"/>
+                                <connections>
+                                    <action selector="signinDidTap:" destination="gB0-dQ-nUc" eventType="primaryActionTriggered" id="krk-4f-IEO"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QTQ-ix-RWt">
+                                <rect key="frame" x="1408" y="872" width="64" height="64"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="IgW-NG-wIt" firstAttribute="top" secondItem="BIH-ig-abk" secondAttribute="bottom" constant="120" id="IGs-qk-GEQ"/>
+                            <constraint firstItem="kMp-Go-YWf" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="OAx-1l-0Uj"/>
+                            <constraint firstItem="6oa-Ve-HF6" firstAttribute="top" secondItem="kMp-Go-YWf" secondAttribute="bottom" constant="50" id="She-MQ-M4k"/>
+                            <constraint firstItem="QTQ-ix-RWt" firstAttribute="centerY" secondItem="IgW-NG-wIt" secondAttribute="centerY" id="YbI-nK-1oX"/>
+                            <constraint firstItem="4yg-5A-rgC" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="afY-Tp-kgm"/>
+                            <constraint firstItem="IgW-NG-wIt" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="bk1-2u-sQR"/>
+                            <constraint firstItem="4yg-5A-rgC" firstAttribute="centerY" secondItem="BIH-ig-abk" secondAttribute="bottom" constant="50" id="hRH-aP-Ryc"/>
+                            <constraint firstItem="6oa-Ve-HF6" firstAttribute="centerY" secondItem="Vn4-ll-MLc" secondAttribute="centerY" constant="-125" id="mWV-nh-Nhw"/>
+                            <constraint firstItem="BIH-ig-abk" firstAttribute="top" secondItem="6oa-Ve-HF6" secondAttribute="bottom" constant="50" id="sNe-w5-rSc"/>
+                            <constraint firstItem="QTQ-ix-RWt" firstAttribute="leading" secondItem="IgW-NG-wIt" secondAttribute="trailing" constant="28" id="sq1-5z-qqM"/>
+                            <constraint firstItem="BIH-ig-abk" firstAttribute="centerX" secondItem="6oa-Ve-HF6" secondAttribute="centerX" id="tIJ-Gj-sHj"/>
+                            <constraint firstItem="6oa-Ve-HF6" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="yvR-7C-cWu"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Account" id="TqW-lD-RCp"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="QTQ-ix-RWt" id="15n-9y-kf3"/>
+                        <outlet property="imageView" destination="6oa-Ve-HF6" id="zHP-tW-XV4"/>
+                        <outlet property="signinButton" destination="IgW-NG-wIt" id="SoJ-H5-luo"/>
+                        <outlet property="textField" destination="BIH-ig-abk" id="ZqK-CU-zYJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BiJ-d2-bFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4790" y="490"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="hehelogopadded750" width="750" height="750"/>
+    </resources>
+</document>

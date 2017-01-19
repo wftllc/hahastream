@@ -1,0 +1,678 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230CF2731E2EA31A001C0606 /* Assets.xcassets */; };
+		230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF27D1E2EA433001C0606 /* HahaService.swift */; };
+		230CF2881E2EA711001C0606 /* HahaStreamServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF2871E2EA711001C0606 /* HahaStreamServiceTests.swift */; };
+		230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */; };
+		23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEA1E30602500E276EB /* AppDelegate.swift */; };
+		23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEB1E30602500E276EB /* AppProvider.swift */; };
+		23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEC1E30602500E276EB /* AppRouter.swift */; };
+		23DBFAF21E30603000E276EB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DBFAF01E30603000E276EB /* Login.storyboard */; };
+		23DBFAF31E30603000E276EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF11E30603000E276EB /* LoginViewController.swift */; };
+		23DBFAF61E30603900E276EB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DBFAF41E30603900E276EB /* Home.storyboard */; };
+		23DBFAF71E30603900E276EB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF51E30603900E276EB /* HomeViewController.swift */; };
+		23DBFAFD1E30604200E276EB /* DateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF81E30604200E276EB /* DateListViewController.swift */; };
+		23DBFAFE1E30604200E276EB /* GamesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF91E30604200E276EB /* GamesViewCell.swift */; };
+		23DBFAFF1E30604200E276EB /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAFA1E30604200E276EB /* GamesViewController.swift */; };
+		23DBFB001E30604200E276EB /* Sport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DBFAFB1E30604200E276EB /* Sport.storyboard */; };
+		23DBFB011E30604200E276EB /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAFC1E30604200E276EB /* SportViewController.swift */; };
+		23DBFB071E30607000E276EB /* FromDictable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB021E30607000E276EB /* FromDictable.swift */; };
+		23DBFB081E30607000E276EB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB031E30607000E276EB /* Game.swift */; };
+		23DBFB091E30607000E276EB /* HahaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB041E30607000E276EB /* HahaError.swift */; };
+		23DBFB0A1E30607000E276EB /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB051E30607000E276EB /* Sport.swift */; };
+		23DBFB0B1E30607000E276EB /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB061E30607000E276EB /* Stream.swift */; };
+		23DBFB111E311C1F00E276EB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB0F1E311C1F00E276EB /* Date.swift */; };
+		23DBFB121E311C1F00E276EB /* ViewControllerErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB101E311C1F00E276EB /* ViewControllerErrors.swift */; };
+		3F69EA497F60AD6E30D7BAA9 /* Pods_HahaStreamUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8F884DFF693A84A64CB7B5 /* Pods_HahaStreamUnitTests.framework */; };
+		E40B0FE8D5C36811466D2DD8 /* Pods_Haha_Stream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E8E50259AC4BE738873F72 /* Pods_Haha_Stream.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		230CF28A1E2EA711001C0606 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 230CF2611E2EA31A001C0606 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 230CF2681E2EA31A001C0606;
+			remoteInfo = "Haha Stream";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		230CF2691E2EA31A001C0606 /* Haha Stream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haha Stream.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		230CF2731E2EA31A001C0606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		230CF2751E2EA31A001C0606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		230CF27D1E2EA433001C0606 /* HahaService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HahaService.swift; path = HahaService/HahaService.swift; sourceTree = "<group>"; };
+		230CF2851E2EA711001C0606 /* HahaStreamUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HahaStreamUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		230CF2871E2EA711001C0606 /* HahaStreamServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HahaStreamServiceTests.swift; sourceTree = "<group>"; };
+		230CF2891E2EA711001C0606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HahaProvider.swift; path = HahaService/HahaProvider.swift; sourceTree = "<group>"; };
+		23DBFAEA1E30602500E276EB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Features/Application/AppDelegate.swift; sourceTree = "<group>"; };
+		23DBFAEB1E30602500E276EB /* AppProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppProvider.swift; path = Features/Application/AppProvider.swift; sourceTree = "<group>"; };
+		23DBFAEC1E30602500E276EB /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRouter.swift; path = Features/Application/AppRouter.swift; sourceTree = "<group>"; };
+		23DBFAF01E30603000E276EB /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Features/Login/Login.storyboard; sourceTree = "<group>"; };
+		23DBFAF11E30603000E276EB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Features/Login/LoginViewController.swift; sourceTree = "<group>"; };
+		23DBFAF41E30603900E276EB /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Features/Home/Home.storyboard; sourceTree = "<group>"; };
+		23DBFAF51E30603900E276EB /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Features/Home/HomeViewController.swift; sourceTree = "<group>"; };
+		23DBFAF81E30604200E276EB /* DateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateListViewController.swift; path = Features/Sport/DateListViewController.swift; sourceTree = "<group>"; };
+		23DBFAF91E30604200E276EB /* GamesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GamesViewCell.swift; path = Features/Sport/GamesViewCell.swift; sourceTree = "<group>"; };
+		23DBFAFA1E30604200E276EB /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GamesViewController.swift; path = Features/Sport/GamesViewController.swift; sourceTree = "<group>"; };
+		23DBFAFB1E30604200E276EB /* Sport.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Sport.storyboard; path = Features/Sport/Sport.storyboard; sourceTree = "<group>"; };
+		23DBFAFC1E30604200E276EB /* SportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SportViewController.swift; path = Features/Sport/SportViewController.swift; sourceTree = "<group>"; };
+		23DBFB021E30607000E276EB /* FromDictable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FromDictable.swift; path = HahaService/Models/FromDictable.swift; sourceTree = "<group>"; };
+		23DBFB031E30607000E276EB /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = HahaService/Models/Game.swift; sourceTree = "<group>"; };
+		23DBFB041E30607000E276EB /* HahaError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HahaError.swift; path = HahaService/Models/HahaError.swift; sourceTree = "<group>"; };
+		23DBFB051E30607000E276EB /* Sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sport.swift; path = HahaService/Models/Sport.swift; sourceTree = "<group>"; };
+		23DBFB061E30607000E276EB /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = HahaService/Models/Stream.swift; sourceTree = "<group>"; };
+		23DBFB0F1E311C1F00E276EB /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		23DBFB101E311C1F00E276EB /* ViewControllerErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerErrors.swift; sourceTree = "<group>"; };
+		48E8E50259AC4BE738873F72 /* Pods_Haha_Stream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haha_Stream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		539728FC1EEC4FF7101EB772 /* Pods-HahaStreamUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HahaStreamUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		81A4AC4D58EE3FC972EF61F3 /* Pods-Haha Stream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haha Stream.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Haha Stream/Pods-Haha Stream.debug.xcconfig"; sourceTree = "<group>"; };
+		97D996BDD1273D20B05E984F /* Pods-Haha Stream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haha Stream.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haha Stream/Pods-Haha Stream.release.xcconfig"; sourceTree = "<group>"; };
+		E75F4C1D75835102C2340A0F /* Pods-HahaStreamUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HahaStreamUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA8F884DFF693A84A64CB7B5 /* Pods_HahaStreamUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HahaStreamUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		230CF2661E2EA31A001C0606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40B0FE8D5C36811466D2DD8 /* Pods_Haha_Stream.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		230CF2821E2EA711001C0606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F69EA497F60AD6E30D7BAA9 /* Pods_HahaStreamUnitTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		230CF2601E2EA31A001C0606 = {
+			isa = PBXGroup;
+			children = (
+				230CF26B1E2EA31A001C0606 /* Haha Stream */,
+				230CF2861E2EA711001C0606 /* HahaStreamUnitTests */,
+				230CF26A1E2EA31A001C0606 /* Products */,
+				DE7BE6BC4677E98AEDA6F08A /* Pods */,
+				3E7635665C6BDC747EE4EBB9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		230CF26A1E2EA31A001C0606 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				230CF2691E2EA31A001C0606 /* Haha Stream.app */,
+				230CF2851E2EA711001C0606 /* HahaStreamUnitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		230CF26B1E2EA31A001C0606 /* Haha Stream */ = {
+			isa = PBXGroup;
+			children = (
+				23DBFAE21E305D5900E276EB /* Features */,
+				230CF27C1E2EA40F001C0606 /* HahaService */,
+				23DBFB0E1E311C1F00E276EB /* Extensions */,
+				230CF2731E2EA31A001C0606 /* Assets.xcassets */,
+				230CF2751E2EA31A001C0606 /* Info.plist */,
+			);
+			path = "Haha Stream";
+			sourceTree = "<group>";
+		};
+		230CF27C1E2EA40F001C0606 /* HahaService */ = {
+			isa = PBXGroup;
+			children = (
+				230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */,
+				230CF27D1E2EA433001C0606 /* HahaService.swift */,
+				238F0D911E30350F00AF9351 /* Models */,
+			);
+			name = HahaService;
+			sourceTree = "<group>";
+		};
+		230CF2861E2EA711001C0606 /* HahaStreamUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				230CF2871E2EA711001C0606 /* HahaStreamServiceTests.swift */,
+				230CF2891E2EA711001C0606 /* Info.plist */,
+			);
+			path = HahaStreamUnitTests;
+			sourceTree = "<group>";
+		};
+		238F0D911E30350F00AF9351 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				23DBFB021E30607000E276EB /* FromDictable.swift */,
+				23DBFB031E30607000E276EB /* Game.swift */,
+				23DBFB041E30607000E276EB /* HahaError.swift */,
+				23DBFB051E30607000E276EB /* Sport.swift */,
+				23DBFB061E30607000E276EB /* Stream.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		23DBFAE21E305D5900E276EB /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				23DBFAE31E305D6B00E276EB /* Application */,
+				23DBFAE61E305DDF00E276EB /* Login */,
+				23DBFAE51E305DC900E276EB /* Home */,
+				23DBFAE41E305DA400E276EB /* Sport */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		23DBFAE31E305D6B00E276EB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				23DBFAEA1E30602500E276EB /* AppDelegate.swift */,
+				23DBFAEB1E30602500E276EB /* AppProvider.swift */,
+				23DBFAEC1E30602500E276EB /* AppRouter.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		23DBFAE41E305DA400E276EB /* Sport */ = {
+			isa = PBXGroup;
+			children = (
+				23DBFAFB1E30604200E276EB /* Sport.storyboard */,
+				23DBFAF81E30604200E276EB /* DateListViewController.swift */,
+				23DBFAF91E30604200E276EB /* GamesViewCell.swift */,
+				23DBFAFA1E30604200E276EB /* GamesViewController.swift */,
+				23DBFAFC1E30604200E276EB /* SportViewController.swift */,
+			);
+			name = Sport;
+			sourceTree = "<group>";
+		};
+		23DBFAE51E305DC900E276EB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				23DBFAF41E30603900E276EB /* Home.storyboard */,
+				23DBFAF51E30603900E276EB /* HomeViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		23DBFAE61E305DDF00E276EB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				23DBFAF01E30603000E276EB /* Login.storyboard */,
+				23DBFAF11E30603000E276EB /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		23DBFB0E1E311C1F00E276EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23DBFB0F1E311C1F00E276EB /* Date.swift */,
+				23DBFB101E311C1F00E276EB /* ViewControllerErrors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3E7635665C6BDC747EE4EBB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				48E8E50259AC4BE738873F72 /* Pods_Haha_Stream.framework */,
+				EA8F884DFF693A84A64CB7B5 /* Pods_HahaStreamUnitTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE7BE6BC4677E98AEDA6F08A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81A4AC4D58EE3FC972EF61F3 /* Pods-Haha Stream.debug.xcconfig */,
+				97D996BDD1273D20B05E984F /* Pods-Haha Stream.release.xcconfig */,
+				E75F4C1D75835102C2340A0F /* Pods-HahaStreamUnitTests.debug.xcconfig */,
+				539728FC1EEC4FF7101EB772 /* Pods-HahaStreamUnitTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		230CF2681E2EA31A001C0606 /* Haha Stream */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 230CF2781E2EA31A001C0606 /* Build configuration list for PBXNativeTarget "Haha Stream" */;
+			buildPhases = (
+				F5B467B61F51514B32D3FA75 /* [CP] Check Pods Manifest.lock */,
+				230CF2651E2EA31A001C0606 /* Sources */,
+				230CF2661E2EA31A001C0606 /* Frameworks */,
+				230CF2671E2EA31A001C0606 /* Resources */,
+				254CD0CEB6A54C042757C5B8 /* [CP] Embed Pods Frameworks */,
+				B4710AE7BC68052BB73648E6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Haha Stream";
+			productName = "Haha Stream";
+			productReference = 230CF2691E2EA31A001C0606 /* Haha Stream.app */;
+			productType = "com.apple.product-type.application";
+		};
+		230CF2841E2EA711001C0606 /* HahaStreamUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 230CF28C1E2EA711001C0606 /* Build configuration list for PBXNativeTarget "HahaStreamUnitTests" */;
+			buildPhases = (
+				5B9D8F46F8A0CC7AC3005CBB /* [CP] Check Pods Manifest.lock */,
+				230CF2811E2EA711001C0606 /* Sources */,
+				230CF2821E2EA711001C0606 /* Frameworks */,
+				230CF2831E2EA711001C0606 /* Resources */,
+				1BBF3712916F9C02B46B6BED /* [CP] Embed Pods Frameworks */,
+				5826E59C050AF562AB546529 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				230CF28B1E2EA711001C0606 /* PBXTargetDependency */,
+			);
+			name = HahaStreamUnitTests;
+			productName = HahaStreamUnitTests;
+			productReference = 230CF2851E2EA711001C0606 /* HahaStreamUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		230CF2611E2EA31A001C0606 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "WFT Productions LLC";
+				TargetAttributes = {
+					230CF2681E2EA31A001C0606 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					230CF2841E2EA711001C0606 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9MQ56B2838;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 230CF2681E2EA31A001C0606;
+					};
+				};
+			};
+			buildConfigurationList = 230CF2641E2EA31A001C0606 /* Build configuration list for PBXProject "Haha Stream" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 230CF2601E2EA31A001C0606;
+			productRefGroup = 230CF26A1E2EA31A001C0606 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				230CF2681E2EA31A001C0606 /* Haha Stream */,
+				230CF2841E2EA711001C0606 /* HahaStreamUnitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		230CF2671E2EA31A001C0606 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23DBFAF61E30603900E276EB /* Home.storyboard in Resources */,
+				23DBFAF21E30603000E276EB /* Login.storyboard in Resources */,
+				230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */,
+				23DBFB001E30604200E276EB /* Sport.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		230CF2831E2EA711001C0606 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BBF3712916F9C02B46B6BED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		254CD0CEB6A54C042757C5B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Haha Stream/Pods-Haha Stream-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5826E59C050AF562AB546529 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B9D8F46F8A0CC7AC3005CBB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B4710AE7BC68052BB73648E6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Haha Stream/Pods-Haha Stream-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5B467B61F51514B32D3FA75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		230CF2651E2EA31A001C0606 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23DBFAFF1E30604200E276EB /* GamesViewController.swift in Sources */,
+				23DBFAF31E30603000E276EB /* LoginViewController.swift in Sources */,
+				230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */,
+				23DBFB071E30607000E276EB /* FromDictable.swift in Sources */,
+				23DBFB0B1E30607000E276EB /* Stream.swift in Sources */,
+				230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */,
+				23DBFB091E30607000E276EB /* HahaError.swift in Sources */,
+				23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */,
+				23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */,
+				23DBFAFD1E30604200E276EB /* DateListViewController.swift in Sources */,
+				23DBFB081E30607000E276EB /* Game.swift in Sources */,
+				23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */,
+				23DBFB011E30604200E276EB /* SportViewController.swift in Sources */,
+				23DBFAFE1E30604200E276EB /* GamesViewCell.swift in Sources */,
+				23DBFB111E311C1F00E276EB /* Date.swift in Sources */,
+				23DBFB121E311C1F00E276EB /* ViewControllerErrors.swift in Sources */,
+				23DBFB0A1E30607000E276EB /* Sport.swift in Sources */,
+				23DBFAF71E30603900E276EB /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		230CF2811E2EA711001C0606 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				230CF2881E2EA711001C0606 /* HahaStreamServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		230CF28B1E2EA711001C0606 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 230CF2681E2EA31A001C0606 /* Haha Stream */;
+			targetProxy = 230CF28A1E2EA711001C0606 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		230CF2761E2EA31A001C0606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Debug;
+		};
+		230CF2771E2EA31A001C0606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		230CF2791E2EA31A001C0606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81A4AC4D58EE3FC972EF61F3 /* Pods-Haha Stream.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Haha Stream/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wftllc.Haha-Stream";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		230CF27A1E2EA31A001C0606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97D996BDD1273D20B05E984F /* Pods-Haha Stream.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Haha Stream/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wftllc.Haha-Stream";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		230CF28D1E2EA711001C0606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E75F4C1D75835102C2340A0F /* Pods-HahaStreamUnitTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9MQ56B2838;
+				INFOPLIST_FILE = HahaStreamUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wftllc.HahaStreamUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Haha Stream.app/Haha Stream";
+			};
+			name = Debug;
+		};
+		230CF28E1E2EA711001C0606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 539728FC1EEC4FF7101EB772 /* Pods-HahaStreamUnitTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9MQ56B2838;
+				INFOPLIST_FILE = HahaStreamUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wftllc.HahaStreamUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Haha Stream.app/Haha Stream";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		230CF2641E2EA31A001C0606 /* Build configuration list for PBXProject "Haha Stream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				230CF2761E2EA31A001C0606 /* Debug */,
+				230CF2771E2EA31A001C0606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		230CF2781E2EA31A001C0606 /* Build configuration list for PBXNativeTarget "Haha Stream" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				230CF2791E2EA31A001C0606 /* Debug */,
+				230CF27A1E2EA31A001C0606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		230CF28C1E2EA711001C0606 /* Build configuration list for PBXNativeTarget "HahaStreamUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				230CF28D1E2EA711001C0606 /* Debug */,
+				230CF28E1E2EA711001C0606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 230CF2611E2EA31A001C0606 /* Project object */;
+}
