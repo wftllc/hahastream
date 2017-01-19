@@ -40,4 +40,6 @@ Todo:
 
 Thanks hehe.
 
+There's another AppleTV app available here: [https://github.com/mwcurry/hehe]
+
 [Additional acknowledgements](blob/master/Pods/Target%20Support%20Files/Pods-Haha%20Stream/Pods-Haha%20Stream-acknowledgements.markdown)
