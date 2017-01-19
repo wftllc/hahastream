@@ -1,12 +1,10 @@
 # Haha Stream
 
-A native Hehestreams Apple TV/tvOS app. Need to know how to sideload to use it.
+A native Hehestreams Apple TV/tvOS app. Need to know how to sideload to use it. Only NBA is known to work.
 
 # Device Support
 
 This has been tested on tvOS 10.1/Apple TV 4th gen.
-
-Only NBA is known to work.
 
 # Build instructions
 
