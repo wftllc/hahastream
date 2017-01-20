@@ -40,7 +40,6 @@ final class Game: NSObject, FromDictable {
 	//TODO: move team to its own class
 	
 	static func fromDictionary(_ dict:[String: Any]) -> Game? {
-		print(dict)
 		guard let uuid = dict["uuid"] as? String else { return nil }
 		
 		guard let free = dict["free"] as? Bool else { return nil }

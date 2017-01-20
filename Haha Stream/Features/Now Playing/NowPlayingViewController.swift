@@ -55,6 +55,10 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 		self.collectionView?.reloadData();
 		self.provider.getCurrentGames(success: { (games) in
 			self.games = games.sorted(by: self.gameSort);
+			for game in self.games {
+				print("\(game.title): \(game.ready ? "ready, " : ""))\(game.startDate)")
+			}
+//			print(self.games)
 			self.collectionView?.reloadData();
 		}, apiError: apiErrorClosure,
 		   networkFailure: networkFailureClosure
@@ -69,24 +73,17 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 			return false;
 		}
 		
-		
-		if a.startDate < b.startDate {
-			return true;
+		if a.startDate != b.startDate {
+			return a.startDate < b.startDate
 		}
 		
-		if a.sport.name < b.sport.name {
-			return true;
+		if a.sport.name != b.sport.name {
+			return a.sport.name < b.sport.name;
 		}
 		
 		if a.title < b.title {
 			return true;
 		}
-		
-//		if let aName = a.homeTeamName, let bName = b.homeTeamName {
-//			if aName < bName {
-//				return true;
-//			}
-//		}
 		
 		return false;
 	}

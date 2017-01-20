@@ -42,19 +42,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtK-vF-xAj" userLabel="Middle View">
-                                <rect key="frame" x="0.0" y="150" width="1920" height="780"/>
+                                <rect key="frame" x="0.0" y="150" width="1920" height="930"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="glo-om-2zi">
-                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="780"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="930"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="80" minimumInteritemSpacing="0.0" id="9o5-Q7-2rL">
                                             <size key="itemSize" width="600" height="410"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="50" minY="0.0" maxX="75" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="50" minY="40" maxX="75" maxY="20"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NowPlayingViewCell" id="E6Y-nl-jKm" customClass="NowPlayingViewCell" customModule="Haha_Stream" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="185" width="600" height="410"/>
+                                                <rect key="frame" x="50" y="40" width="600" height="410"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="410"/>
@@ -133,7 +133,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Toronto @ New York" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3m-r7-K4w" userLabel="Title Label">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Toronto @ New York" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3m-r7-K4w" userLabel="Title Label">
                                                                                 <rect key="frame" x="0.0" y="13" width="600" height="46"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                                 <nil key="textColor"/>
@@ -202,23 +202,14 @@
                                     <constraint firstItem="glo-om-2zi" firstAttribute="leading" secondItem="TtK-vF-xAj" secondAttribute="leading" id="tUE-47-x8n"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wO1-2y-ELZ" userLabel="Bottom View">
-                                <rect key="frame" x="0.0" y="930" width="1920" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="10j-AJ-lxx"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="H38-P0-X2G" firstAttribute="leading" secondItem="cXU-hH-MQd" secondAttribute="leading" id="3db-c4-O5m"/>
                             <constraint firstAttribute="trailing" secondItem="H38-P0-X2G" secondAttribute="trailing" id="486-1k-jhy"/>
-                            <constraint firstItem="wO1-2y-ELZ" firstAttribute="leading" secondItem="cXU-hH-MQd" secondAttribute="leading" id="8hM-dR-OHd"/>
-                            <constraint firstAttribute="trailing" secondItem="wO1-2y-ELZ" secondAttribute="trailing" id="9T0-2q-T54"/>
                             <constraint firstItem="H38-P0-X2G" firstAttribute="top" secondItem="Dx6-PH-ThX" secondAttribute="bottom" id="D93-nG-qU2"/>
                             <constraint firstItem="TtK-vF-xAj" firstAttribute="top" secondItem="H38-P0-X2G" secondAttribute="bottom" id="FQQ-MK-eXv"/>
-                            <constraint firstItem="wO1-2y-ELZ" firstAttribute="top" secondItem="TtK-vF-xAj" secondAttribute="bottom" id="GwU-xv-5vu"/>
-                            <constraint firstItem="Bdx-2M-ndH" firstAttribute="top" secondItem="wO1-2y-ELZ" secondAttribute="bottom" id="cMa-lc-ub1"/>
                             <constraint firstAttribute="trailing" secondItem="TtK-vF-xAj" secondAttribute="trailing" id="vW5-6r-vhJ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="TtK-vF-xAj" secondAttribute="bottom" id="vdZ-zV-QRJ"/>
                             <constraint firstItem="TtK-vF-xAj" firstAttribute="leading" secondItem="cXU-hH-MQd" secondAttribute="leading" id="wBC-3X-RZy"/>
                         </constraints>
                     </view>
