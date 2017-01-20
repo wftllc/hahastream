@@ -1,8 +1,10 @@
 # Haha Stream
 
-A native Hehestreams Apple TV/tvOS app. Need to know how to sideload to use it. Only NBA is known to work.
+A native Hehestreams Apple TV/tvOS app. Need to know how to sideload to use it. 
 
 # Device Support
+
+Requires 4th generation Apple TV (the new one, for tvOS support).
 
 This has been tested on tvOS 10.1/Apple TV 4th gen.
 
@@ -28,7 +30,6 @@ Get your API key:
 
 Todo: 
 
-- Test other sports (NFL especially prob has issue w/date format)
 - Implement custom seek behavior for livestreams
 - ...
 

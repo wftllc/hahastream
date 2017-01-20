@@ -56,6 +56,7 @@
 		230CF2851E2EA711001C0606 /* HahaStreamUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HahaStreamUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		230CF2891E2EA711001C0606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HahaProvider.swift; path = HahaService/HahaProvider.swift; sourceTree = "<group>"; };
+		233F4C121E32B05600786A5C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		2355AD511E32926800EAEF02 /* NowPlaying.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NowPlaying.storyboard; sourceTree = "<group>"; };
 		2355AD521E32926800EAEF02 /* NowPlayingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewCell.swift; sourceTree = "<group>"; };
 		2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 		230CF26B1E2EA31A001C0606 /* Haha Stream */ = {
 			isa = PBXGroup;
 			children = (
+				233F4C121E32B05600786A5C /* README.md */,
 				23DBFAE21E305D5900E276EB /* Features */,
 				230CF27C1E2EA40F001C0606 /* HahaService */,
 				23DBFB0E1E311C1F00E276EB /* Extensions */,
