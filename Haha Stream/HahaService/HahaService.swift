@@ -6,7 +6,9 @@ enum HahaService {
 	case getGames(sport: String, year: Int, month: Int, day: Int);
 //	case getGamesByDate(sport: String, year: Int, month: Int, day: Int);
 	case getSports;
+	case getChannels(sport: String);
 	case getStreams(sport: String, gameUUID: String);
+	case getStreamForChannel(sport: String, channelId: Int);
 }
 
 extension HahaService: TargetType {
@@ -22,6 +24,10 @@ extension HahaService: TargetType {
 			return "/\(sport.urlEscaped)/games";
 		case .getStreams(let sport, let uuid):
 			return "/\(sport.urlEscaped)/games/\(uuid.urlEscaped)/streams";
+		case .getChannels(let sport):
+			return "/\(sport.urlEscaped)/channels";
+		case .getStreamForChannel(let sport, let channelId):
+			return "/\(sport.urlEscaped)/channels/\(channelId)";
 		}
 	}
 

@@ -14,6 +14,7 @@ class HahaProviderTest: XCTestCase {
 	var provider: HahaProvider!;
 	override func setUp() {
 		super.setUp()
+		self.continueAfterFailure = false;
 		let apiKey = loadApiKey()
 		XCTAssertNotNil(apiKey)
 		self.provider = HahaProvider(apiKey: apiKey);
@@ -25,6 +26,38 @@ class HahaProviderTest: XCTestCase {
 		super.tearDown()
 	}
 	
+	
+	func testChannels() {
+		let exp = expectation(description: "wait")
+		var channels:[Channel] = []
+		provider.getChannels(success: { (channelsRes) in
+			channels = channelsRes;
+			exp.fulfill()
+		}, apiError: { (error) in
+			XCTFail("apiError: \(error)")
+			exp.fulfill()
+		}, networkFailure: { (error) in
+			XCTFail("networkFailure: \(error)")
+			exp.fulfill()
+		})
+		waitForExpectations(timeout: 25, handler: nil)
+		print(channels)
+		XCTAssertGreaterThan(channels.count, 0)
+		for channel in channels {
+			if( channel.active ) {
+				let exp = expectation(description: "wait")
+				provider.getStream(channel: channel, success: { (streams) in
+					exp.fulfill()
+				}, apiError: { (error) in
+					XCTFail("apiError: \(error)")
+				}, networkFailure: { (error) in
+					XCTFail("networkFailure: \(error)")
+				})
+				waitForExpectations(timeout: 25, handler: nil)
+			}
+		}
+	}
+	
 	func testNowPlaying() {
 		let exp = expectation(description: "wait")
 		var games:[Game] = []
@@ -33,13 +66,14 @@ class HahaProviderTest: XCTestCase {
 			exp.fulfill()
 		}, apiError: { (error) in
 			XCTFail("apiError: \(error)")
+			exp.fulfill()
 		}, networkFailure: { (error) in
 			XCTFail("networkFailure: \(error)")
+			exp.fulfill()
 		})
 		waitForExpectations(timeout: 25, handler: nil)
 		print(games)
 		XCTAssertGreaterThan(games.count, 0)
-		
 	}
 	func testSportsGamesStreamFetchingFlow() {
 		var exp = expectation(description: "wait")
@@ -56,7 +90,7 @@ class HahaProviderTest: XCTestCase {
 		
 		print(sports)
 		XCTAssertGreaterThan(sports.count, 0)
-
+		
 		for sport in sports {
 			//just make sure the failure callbacks don't get hit.
 			exp = expectation(description: "fetch \(sport.name) games" )
@@ -71,7 +105,7 @@ class HahaProviderTest: XCTestCase {
 			})
 			waitForExpectations(timeout: 25, handler: nil)
 		}
-
+		
 	}
 	
 	func loadApiKey() -> String? {

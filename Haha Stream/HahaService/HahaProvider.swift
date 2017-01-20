@@ -34,30 +34,7 @@ class HahaProvider:NSObject {
 		self.provider = MoyaProvider<HahaService>(endpointClosure: endpointClosure);
 		
 	}
-	
-	func get<T:FromDictable>(endpoint: HahaService,
-	         success successCallback: @escaping ([T]) -> Void,
-	         apiError errorCallback: @escaping (Any) -> Void,
-	         networkFailure failureCallback: @escaping (MoyaError) -> Void
-		) {
-		request(endpoint: endpoint,
-		        success: { dictionaries in
-							var array: [T] = [];
-							for dict in dictionaries {
-								guard let object = T.fromDictionary(dict) else {
-									print("couldn't parse",dict);
-									continue;
-								}
-								array.append(object)
-							}
-							successCallback(array);
-		},
-		        apiError: errorCallback,
-		        networkFailure: failureCallback
-		);
-		
-	}
-	
+
 	func getSports(
 		success successCallback: @escaping ([Sport]) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
@@ -100,6 +77,43 @@ class HahaProvider:NSObject {
 		         networkFailure: failureCallback);
 	}
 	
+	func getChannels(
+		success successCallback: @escaping ([Channel]) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		)
+	{
+		self.getSports(success: { (sports) in
+			DispatchQueue.global().async {
+				var allChannels:[Channel] = []
+				let semaphore = DispatchSemaphore(value: 0);
+				for sport in sports {
+					self.get(endpoint: HahaService.getChannels(sport: sport.name.lowercased()),
+					         success: { (channels: [Channel]) in
+										for channel in channels {
+											channel.sport = sport;
+										}
+										allChannels.append(contentsOf: channels);
+										semaphore.signal()
+					}, apiError: { (error) in
+						semaphore.signal()
+					}, networkFailure: { (error) in
+						semaphore.signal()
+					});
+				}
+				for _ in 1...sports.count {
+					semaphore.wait()
+				}
+				DispatchQueue.main.async {
+					successCallback(allChannels)
+				}
+			}
+		}, apiError: errorCallback, networkFailure: failureCallback);
+	}
+	
+	
+	//TODO: combine all nowPlaying calls into one call
+	
 	func getCurrentGames(
 		success successCallback: @escaping ([Game]) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
@@ -117,12 +131,8 @@ class HahaProvider:NSObject {
 						semaphore.signal()
 					}, apiError: { (error) in
 						semaphore.signal()
-						errorCallback(error)
-						return;
 					}, networkFailure: { (error) in
 						semaphore.signal()
-						failureCallback(error)
-						return;
 					});
 				}
 				for _ in 1...sports.count {
@@ -134,6 +144,7 @@ class HahaProvider:NSObject {
 			}
 		}, apiError: errorCallback, networkFailure: failureCallback);
 	}
+	
 	func getStreams(
 		sport: Sport,
 		game: Game,
@@ -152,6 +163,68 @@ class HahaProvider:NSObject {
 		         networkFailure: failureCallback);
 	}
 	
+	func getStream(
+		channel: Channel,
+		success successCallback: @escaping (Stream?) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		)
+	{
+		
+		let endpoint = HahaService.getStreamForChannel(sport: channel.sport!.name.lowercased(), channelId: channel.identifier);
+		
+		self.getOne(endpoint: endpoint,
+		         success: successCallback,
+		         apiError: errorCallback,
+		         networkFailure: failureCallback);
+	}
+	
+	
+	func get<T:FromDictable>(endpoint: HahaService,
+	         success successCallback: @escaping ([T]) -> Void,
+	         apiError errorCallback: @escaping (Any) -> Void,
+	         networkFailure failureCallback: @escaping (MoyaError) -> Void
+		) {
+		request(endpoint: endpoint,
+		        success: { dictionaries in
+							var array: [T] = [];
+							for dict in dictionaries {
+								guard let object = T.fromDictionary(dict) else {
+									print("couldn't parse",dict);
+									continue;
+								}
+								array.append(object)
+							}
+							successCallback(array);
+		},
+		        apiError: errorCallback,
+		        networkFailure: failureCallback
+		);
+	}
+	
+	func getOne<T:FromDictable>(endpoint: HahaService,
+	            success successCallback: @escaping (T?) -> Void,
+	            apiError errorCallback: @escaping (Any) -> Void,
+	            networkFailure failureCallback: @escaping (MoyaError) -> Void
+		) {
+		requestOne(endpoint: endpoint,
+		           success: { dict in
+								
+								if let object = T.fromDictionary(dict as [String: AnyObject]) {
+									successCallback(object);
+								}
+								else {
+									print("couldn't parse \(dict)");
+									successCallback(nil);
+								}
+		},
+		           apiError: errorCallback,
+		           networkFailure: failureCallback
+		);
+		
+	}
+	
+
 	func request(
 		endpoint: HahaService,
 		success successCallback: @escaping ([[String: AnyObject]]) -> Void,
@@ -168,16 +241,6 @@ class HahaProvider:NSObject {
 					guard let array = json as? [[String: AnyObject]] else {
 						throw MoyaError.jsonMapping(response);
 					}
-					//					for dictMaybe in array {
-					//						guard let dict = dictMaybe as? [String: AnyObject] else {
-					//							throw SimpleError.error;
-					//						}
-					//						guard let sport = Sport.fromDictionary(dict) else {
-					//							print("couldn't parse",dict);
-					//							continue;
-					//						}
-					//						print(sport);
-					//					}
 					successCallback(array);
 				}
 				catch {
@@ -198,4 +261,40 @@ class HahaProvider:NSObject {
 			}
 		}
 	}
-}
+
+	func requestOne(
+		endpoint: HahaService,
+		success successCallback: @escaping ([String: AnyObject]) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		)
+	{
+		self.provider.request(endpoint) { result in
+			switch(result) {
+			case let .success(moyaResponse):
+				do {
+					let response = try moyaResponse.filterSuccessfulStatusCodes();
+					let json = try response.mapJSON();
+					guard let dict = json as? [String: AnyObject] else {
+						throw MoyaError.jsonMapping(response);
+					}
+					successCallback(dict);
+				}
+				catch {
+					let originalError = error;
+					do {
+						let json = try moyaResponse.mapJSON()
+						let dict = json as! [String: AnyObject]
+						let hahaError = HahaError.fromDictionary(dict)!
+						hahaError.underlyingResponse = moyaResponse;
+						errorCallback(hahaError);
+					}
+					catch {
+						errorCallback(originalError)
+					}
+				}
+			case let .failure(error):
+				failureCallback(error)
+			}
+		}
+	}}
