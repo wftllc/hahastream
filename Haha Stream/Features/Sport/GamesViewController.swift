@@ -141,8 +141,14 @@ class GamesViewController: UIViewController, DateListDelegate, UICollectionViewD
 	
 	func selectGame(_ game: Game) {
 		//TODO: Show loading here
+		
 		provider.getStreams(sport: sport, game: game, success: { (streams) in
-			self.showStreamChoiceAlert(game: game, streams: streams);
+			if streams.count == 1 {
+				self.playURL(streams.first!.url)
+			}
+			else {
+				self.showStreamChoiceAlert(game: game, streams: streams)
+			}
 		}, apiError: apiErrorClosure,
 		   networkFailure: networkFailureClosure
 		)
