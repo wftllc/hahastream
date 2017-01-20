@@ -100,7 +100,13 @@ class GamesViewController: UIViewController, DateListDelegate, UICollectionViewD
 //		cell.timeLabel.text = dateFormatter.string(from: game.startDate);
 		cell.homeImageView.kf.setImage(with: game.homeTeamLogoURL);
 		cell.awayImageView.kf.setImage(with: game.awayTeamLogoURL);
-		cell.titleLabel.text = "\(game.awayTeamName) @ \(game.homeTeamName)"
+		if( ["NBA"].contains(self.sport.name) && game.awayTeamName != nil && game.homeTeamName != nil) {
+			//shorten game titles
+			cell.titleLabel.text = "\(game.awayTeamName!) @ \(game.homeTeamName!)"
+		}
+		else {
+			cell.titleLabel.text = game.title
+		}
 		if(game.ready) {
 			cell.updateTimeLabel(withDate: game.startDate);
 			cell.startAnimating(date: game.startDate)
@@ -134,6 +140,7 @@ class GamesViewController: UIViewController, DateListDelegate, UICollectionViewD
 	}
 	
 	func selectGame(_ game: Game) {
+		//TODO: Show loading here
 		provider.getStreams(sport: sport, game: game, success: { (streams) in
 			self.showStreamChoiceAlert(game: game, streams: streams);
 		}, apiError: apiErrorClosure,
@@ -144,7 +151,13 @@ class GamesViewController: UIViewController, DateListDelegate, UICollectionViewD
 	/// Shows an alert with "OK" and "Cancel" buttons.
 	func showStreamChoiceAlert(game: Game, streams: [Stream]) {
 		let title = "Choose Stream"
-		let message = "\(game.awayTeam) at \(game.homeTeam)";
+		let message: String;
+		if let awayTeam = game.awayTeam, let homeTeam = game.homeTeam {
+			message = "\(awayTeam) at \(homeTeam)";
+		}
+		else {
+			message = game.title;
+		}
 
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		for stream in streams {

@@ -10,7 +10,10 @@ class HomeViewController: UITabBarController {
 		
 		self.provider.getSports(success: { (sports) in
 			for sport in sports {
-				viewControllers.append(self.appRouter.viewController(forSport: sport))
+				let tabBarItem = UITabBarItem(title: sport.name, image: nil, selectedImage: nil)
+				let vc = self.appRouter.viewController(forSport: sport)
+				vc.tabBarItem = tabBarItem
+				viewControllers.append(vc)				
 			}
 			viewControllers.append(self.appRouter.loginViewController())
 			self.setViewControllers(viewControllers, animated: false)
@@ -24,7 +27,7 @@ class HomeViewController: UITabBarController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
+	/*
 	override var preferredFocusEnvironments: [UIFocusEnvironment] {
 		let def = super.preferredFocusEnvironments;
 		guard let vcs = self.viewControllers else {
@@ -41,5 +44,6 @@ class HomeViewController: UITabBarController {
 			return def;
 		}
 	}
+*/
 	
 }

@@ -6,9 +6,6 @@ class SportViewController: UISplitViewController {
 	;
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		self.tabBarItem.title = sport.name;
-		// Do any additional setup after loading the view.
 	}
 	
 	override func didReceiveMemoryWarning() {
