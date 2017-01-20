@@ -2,6 +2,7 @@ import Foundation
 import Moya
 
 enum HahaService {
+	case getGamesNoDate(sport: String);
 	case getGames(sport: String, year: Int, month: Int, day: Int);
 //	case getGamesByDate(sport: String, year: Int, month: Int, day: Int);
 	case getSports;
@@ -16,6 +17,8 @@ extension HahaService: TargetType {
 		case .getSports:
 			return "users/login";
 		case .getGames(let sport, _, _, _):
+			return "/\(sport.urlEscaped)/games";
+		case .getGamesNoDate(let sport):
 			return "/\(sport.urlEscaped)/games";
 		case .getStreams(let sport, let uuid):
 			return "/\(sport.urlEscaped)/games/\(uuid.urlEscaped)/streams";

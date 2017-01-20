@@ -18,14 +18,15 @@ import Foundation
 
 final class Game: NSObject, FromDictable {
 	public var uuid: String;
-	public var homeTeam: String;
-	public var homeTeamLogoURL: URL;
-	public var awayTeam: String;
-	public var awayTeamLogoURL: URL;
-	public var free: Bool;
+	public var title: String;
 	public var ready: Bool;
 	public var startDate: Date;
-	public var title: String;
+	public var free: Bool;
+	
+	public var homeTeam: String?;
+	public var homeTeamLogoURL: URL?;
+	public var awayTeam: String?;
+	public var awayTeamLogoURL: URL?;
 	
 	static var dateFormatter: DateFormatter = {
 		let df = DateFormatter();
@@ -34,31 +35,46 @@ final class Game: NSObject, FromDictable {
 		return df;
 	}()
 	
+	//TODO: move team to its own class
+	
 	static func fromDictionary(_ dict:[String: Any]) -> Game? {
+		print(dict)
 		guard let uuid = dict["uuid"] as? String else { return nil }
-		guard let homeTeamDict = dict["home_team"] as? [String: Any] else { return nil }
-		guard let homeTeam = homeTeamDict["display_name"] as? String else { return nil }
-		guard let homeTeamLogoURL = URL(string: (homeTeamDict["logo_url"] as? String ?? "")) else { return nil }
-		guard let awayTeamDict = dict["away_team"] as? [String: Any] else { return nil }
-		guard let awayTeam = awayTeamDict["display_name"] as? String else { return nil }
-		guard let awayTeamLogoURL = URL(string: (awayTeamDict["logo_url"] as? String ?? "")) else { return nil }
+		
 		guard let free = dict["free"] as? Bool else { return nil }
 		guard let ready = dict["ready"] as? Bool else { return nil }
 		guard let title = dict["title"] as? String else { return nil }
 		guard let startDateString = dict["start"] as? String else { return nil }
 		guard let date = self.dateFormatter.date(from: startDateString) else { return nil }
-		return Game.init(uuid: uuid, homeTeam: homeTeam, homeTeamLogoURL: homeTeamLogoURL, awayTeam: awayTeam, awayTeamLogoURL: awayTeamLogoURL, free: free, ready: ready, startDate: date, title: title);
+		
+		let homeTeamDict = dict["home_team"] as? [String: Any]
+		let homeTeam = homeTeamDict?["display_name"] as? String
+		let homeTeamLogoURL = URL(string: (homeTeamDict?["logo_url"] as? String ?? ""))
+		let awayTeamDict = dict["away_team"] as? [String: Any]
+		let awayTeam = awayTeamDict?["display_name"] as? String
+		let awayTeamLogoURL = URL(string: (awayTeamDict?["logo_url"] as? String ?? ""))
+		return Game.init(uuid: uuid,
+		                 title: title,
+		                 ready: ready,
+		                 startDate: date,
+		                 free: free,
+		                 homeTeam: homeTeam,
+		                 homeTeamLogoURL: homeTeamLogoURL,
+		                 awayTeam: awayTeam,
+		                 awayTeamLogoURL: awayTeamLogoURL
+		);
 	}
 	
 	init(uuid: String,
-		homeTeam: String,
-		homeTeamLogoURL: URL,
-		awayTeam: String,
-		awayTeamLogoURL: URL,
-		free: Bool,
-		ready: Bool,
-		startDate: Date,
-		title: String) {
+	     title: String,
+	     ready: Bool,
+	     startDate: Date,
+	     free: Bool,
+	     homeTeam: String?,
+	     homeTeamLogoURL: URL?,
+	     awayTeam: String?,
+	     awayTeamLogoURL: URL?
+		) {
 		self.uuid = uuid;
 		self.homeTeam = homeTeam;
 		self.homeTeamLogoURL = homeTeamLogoURL;
@@ -71,20 +87,21 @@ final class Game: NSObject, FromDictable {
 	}
 	
 	override var description : String {
-		return "\(awayTeam) @ \(homeTeam), \(ready), \(startDate)";
+		return "\(title); \(awayTeam) @ \(homeTeam), \(ready), \(startDate)";
 	}
 	
-	public func cutNameInHalf(_ name: String) -> String {
+	public func cutNameInHalf(_ theName: String?) -> String? {
+		guard let name = theName else { return nil }
 		let halfwayPoint = (name.characters.count - 1) / 2
 		let halfwayIndex = name.index(name.startIndex, offsetBy: halfwayPoint)
 		let fixedHomeTeam = name.substring(to:halfwayIndex)
 		return fixedHomeTeam
 	}
-	public var homeTeamName: String {
+	public var homeTeamName: String? {
 		return cutNameInHalf(homeTeam);
 	}
-
-	public var awayTeamName: String {
+	
+	public var awayTeamName: String? {
 		return cutNameInHalf(awayTeam);
 	}
 }

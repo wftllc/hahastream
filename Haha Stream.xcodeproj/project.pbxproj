@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230CF2731E2EA31A001C0606 /* Assets.xcassets */; };
 		230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF27D1E2EA433001C0606 /* HahaService.swift */; };
-		230CF2881E2EA711001C0606 /* HahaStreamServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF2871E2EA711001C0606 /* HahaStreamServiceTests.swift */; };
 		230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */; };
 		23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEA1E30602500E276EB /* AppDelegate.swift */; };
 		23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEB1E30602500E276EB /* AppProvider.swift */; };
@@ -30,6 +29,8 @@
 		23DBFB0B1E30607000E276EB /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB061E30607000E276EB /* Stream.swift */; };
 		23DBFB111E311C1F00E276EB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB0F1E311C1F00E276EB /* Date.swift */; };
 		23DBFB121E311C1F00E276EB /* ViewControllerErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB101E311C1F00E276EB /* ViewControllerErrors.swift */; };
+		23F6951D1E3270CA00B8E4FB /* HahaProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6951C1E3270CA00B8E4FB /* HahaProviderTest.swift */; };
+		23F6951F1E3274FC00B8E4FB /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23F6951E1E3274FC00B8E4FB /* Config.plist */; };
 		3F69EA497F60AD6E30D7BAA9 /* Pods_HahaStreamUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8F884DFF693A84A64CB7B5 /* Pods_HahaStreamUnitTests.framework */; };
 		E40B0FE8D5C36811466D2DD8 /* Pods_Haha_Stream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E8E50259AC4BE738873F72 /* Pods_Haha_Stream.framework */; };
 /* End PBXBuildFile section */
@@ -50,7 +51,6 @@
 		230CF2751E2EA31A001C0606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230CF27D1E2EA433001C0606 /* HahaService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HahaService.swift; path = HahaService/HahaService.swift; sourceTree = "<group>"; };
 		230CF2851E2EA711001C0606 /* HahaStreamUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HahaStreamUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		230CF2871E2EA711001C0606 /* HahaStreamServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HahaStreamServiceTests.swift; sourceTree = "<group>"; };
 		230CF2891E2EA711001C0606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HahaProvider.swift; path = HahaService/HahaProvider.swift; sourceTree = "<group>"; };
 		23DBFAEA1E30602500E276EB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Features/Application/AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +72,9 @@
 		23DBFB061E30607000E276EB /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = HahaService/Models/Stream.swift; sourceTree = "<group>"; };
 		23DBFB0F1E311C1F00E276EB /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		23DBFB101E311C1F00E276EB /* ViewControllerErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerErrors.swift; sourceTree = "<group>"; };
+		23F6951B1E3270CA00B8E4FB /* HahaStreamUnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HahaStreamUnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		23F6951C1E3270CA00B8E4FB /* HahaProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HahaProviderTest.swift; sourceTree = "<group>"; };
+		23F6951E1E3274FC00B8E4FB /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		48E8E50259AC4BE738873F72 /* Pods_Haha_Stream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haha_Stream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		539728FC1EEC4FF7101EB772 /* Pods-HahaStreamUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HahaStreamUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		81A4AC4D58EE3FC972EF61F3 /* Pods-Haha Stream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haha Stream.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Haha Stream/Pods-Haha Stream.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,8 +148,10 @@
 		230CF2861E2EA711001C0606 /* HahaStreamUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				230CF2871E2EA711001C0606 /* HahaStreamServiceTests.swift */,
 				230CF2891E2EA711001C0606 /* Info.plist */,
+				23F6951E1E3274FC00B8E4FB /* Config.plist */,
+				23F6951C1E3270CA00B8E4FB /* HahaProviderTest.swift */,
+				23F6951B1E3270CA00B8E4FB /* HahaStreamUnitTests-Bridging-Header.h */,
 			);
 			path = HahaStreamUnitTests;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 					230CF2841E2EA711001C0606 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 9MQ56B2838;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 230CF2681E2EA31A001C0606;
 					};
@@ -344,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F6951F1E3274FC00B8E4FB /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				230CF2881E2EA711001C0606 /* HahaStreamServiceTests.swift in Sources */,
+				23F6951D1E3270CA00B8E4FB /* HahaProviderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,11 +623,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9MQ56B2838;
 				INFOPLIST_FILE = HahaStreamUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wftllc.HahaStreamUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HahaStreamUnitTests/HahaStreamUnitTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Haha Stream.app/Haha Stream";
 			};
@@ -632,11 +642,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9MQ56B2838;
 				INFOPLIST_FILE = HahaStreamUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wftllc.HahaStreamUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HahaStreamUnitTests/HahaStreamUnitTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Haha Stream.app/Haha Stream";
 			};

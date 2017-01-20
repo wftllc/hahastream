@@ -6,6 +6,7 @@ final class Sport: NSObject, FromDictable {
 	public var status: Bool;
 	
 	static func fromDictionary(_ dict:[String: Any]) -> Sport? {
+		print(dict)
 		guard let name = dict["name"] as? String else { return nil }
 		guard let path = dict["path"] as? String else { return nil }
 		guard let status = dict["status"] as? Bool else { return nil }
