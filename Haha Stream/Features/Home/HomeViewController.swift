@@ -10,8 +10,10 @@ class HomeViewController: UITabBarController {
 		
 		viewControllers.append(self.appRouter.nowPlayingViewController());
 		
-		self.provider.getSports(success: { (sports) in
-			
+		self.provider.getSports(success: { (theSports) in
+			let sports = theSports.sorted(by: { (a, b) -> Bool in
+				return a.name < b.name
+			})
 			for sport in sports {
 				let tabBarItem = UITabBarItem(title: sport.name, image: nil, selectedImage: nil)
 				let vc = self.appRouter.viewController(forSport: sport)
