@@ -28,6 +28,8 @@ final class Game: NSObject, FromDictable {
 	public var awayTeam: String?;
 	public var awayTeamLogoURL: URL?;
 	
+	public var sport: Sport!;
+	
 	static var dateFormatter: DateFormatter = {
 		let df = DateFormatter();
 		df.locale = Locale(identifier: "en_US_POSIX");
@@ -103,5 +105,9 @@ final class Game: NSObject, FromDictable {
 	
 	public var awayTeamName: String? {
 		return cutNameInHalf(awayTeam);
+	}
+	
+	public var singleImageURL: URL? {
+		return URL(string: "https://logos.hehestreams.xyz/image/vue_channels/\(self.uuid).png")
 	}
 }

@@ -25,6 +25,22 @@ class HahaProviderTest: XCTestCase {
 		super.tearDown()
 	}
 	
+	func testNowPlaying() {
+		let exp = expectation(description: "wait")
+		var games:[Game] = []
+		provider.getCurrentGames(success: { (gamesRes) in
+			games = gamesRes;
+			exp.fulfill()
+		}, apiError: { (error) in
+			XCTFail("apiError: \(error)")
+		}, networkFailure: { (error) in
+			XCTFail("networkFailure: \(error)")
+		})
+		waitForExpectations(timeout: 25, handler: nil)
+		print(games)
+		XCTAssertGreaterThan(games.count, 0)
+		
+	}
 	func testSportsGamesStreamFetchingFlow() {
 		var exp = expectation(description: "wait")
 		var sports: [Sport] = []

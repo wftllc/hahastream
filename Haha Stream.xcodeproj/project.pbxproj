@@ -10,6 +10,9 @@
 		230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230CF2731E2EA31A001C0606 /* Assets.xcassets */; };
 		230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF27D1E2EA433001C0606 /* HahaService.swift */; };
 		230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */; };
+		2355AD541E32926800EAEF02 /* NowPlaying.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2355AD511E32926800EAEF02 /* NowPlaying.storyboard */; };
+		2355AD551E32926800EAEF02 /* NowPlayingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD521E32926800EAEF02 /* NowPlayingViewCell.swift */; };
+		2355AD561E32926800EAEF02 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */; };
 		23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEA1E30602500E276EB /* AppDelegate.swift */; };
 		23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEB1E30602500E276EB /* AppProvider.swift */; };
 		23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEC1E30602500E276EB /* AppRouter.swift */; };
@@ -53,6 +56,9 @@
 		230CF2851E2EA711001C0606 /* HahaStreamUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HahaStreamUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		230CF2891E2EA711001C0606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HahaProvider.swift; path = HahaService/HahaProvider.swift; sourceTree = "<group>"; };
+		2355AD511E32926800EAEF02 /* NowPlaying.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NowPlaying.storyboard; sourceTree = "<group>"; };
+		2355AD521E32926800EAEF02 /* NowPlayingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewCell.swift; sourceTree = "<group>"; };
+		2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		23DBFAEA1E30602500E276EB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Features/Application/AppDelegate.swift; sourceTree = "<group>"; };
 		23DBFAEB1E30602500E276EB /* AppProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppProvider.swift; path = Features/Application/AppProvider.swift; sourceTree = "<group>"; };
 		23DBFAEC1E30602500E276EB /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRouter.swift; path = Features/Application/AppRouter.swift; sourceTree = "<group>"; };
@@ -156,6 +162,17 @@
 			path = HahaStreamUnitTests;
 			sourceTree = "<group>";
 		};
+		2355AD501E32926800EAEF02 /* Now Playing */ = {
+			isa = PBXGroup;
+			children = (
+				2355AD511E32926800EAEF02 /* NowPlaying.storyboard */,
+				2355AD521E32926800EAEF02 /* NowPlayingViewCell.swift */,
+				2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */,
+			);
+			name = "Now Playing";
+			path = "Features/Now Playing";
+			sourceTree = "<group>";
+		};
 		238F0D911E30350F00AF9351 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +191,7 @@
 				23DBFAE31E305D6B00E276EB /* Application */,
 				23DBFAE61E305DDF00E276EB /* Login */,
 				23DBFAE51E305DC900E276EB /* Home */,
+				2355AD501E32926800EAEF02 /* Now Playing */,
 				23DBFAE41E305DA400E276EB /* Sport */,
 			);
 			name = Features;
@@ -343,6 +361,7 @@
 				23DBFAF21E30603000E276EB /* Login.storyboard in Resources */,
 				230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */,
 				23DBFB001E30604200E276EB /* Sport.storyboard in Resources */,
+				2355AD541E32926800EAEF02 /* NowPlaying.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +487,9 @@
 				23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */,
 				23DBFB011E30604200E276EB /* SportViewController.swift in Sources */,
 				23DBFAFE1E30604200E276EB /* GamesViewCell.swift in Sources */,
+				2355AD551E32926800EAEF02 /* NowPlayingViewCell.swift in Sources */,
 				23DBFB111E311C1F00E276EB /* Date.swift in Sources */,
+				2355AD561E32926800EAEF02 /* NowPlayingViewController.swift in Sources */,
 				23DBFB121E311C1F00E276EB /* ViewControllerErrors.swift in Sources */,
 				23DBFB0A1E30607000E276EB /* Sport.swift in Sources */,
 				23DBFAF71E30603900E276EB /* HomeViewController.swift in Sources */,

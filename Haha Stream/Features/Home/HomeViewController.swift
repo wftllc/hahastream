@@ -8,6 +8,8 @@ class HomeViewController: UITabBarController {
 		
 		var viewControllers:[UIViewController] = []
 		
+		viewControllers.append(self.appRouter.nowPlayingViewController());
+		
 		self.provider.getSports(success: { (sports) in
 			for sport in sports {
 				let tabBarItem = UITabBarItem(title: sport.name, image: nil, selectedImage: nil)

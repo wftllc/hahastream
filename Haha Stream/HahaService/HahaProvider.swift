@@ -83,17 +83,57 @@ class HahaProvider:NSObject {
 			let dateComponents = calendar.dateComponents(targetComponents, from: forcedDate);
 			
 			endpoint = HahaService.getGames(sport: sport.name.lowercased(),
-																					year: dateComponents.year!, month: dateComponents.month!, day: dateComponents.day!)
+			                                year: dateComponents.year!, month: dateComponents.month!, day: dateComponents.day!)
 		}
 		else {
 			endpoint = HahaService.getGamesNoDate(sport: sport.name.lowercased())
 		}
+		
 		self.get(endpoint: endpoint,
-		         success: successCallback,
+		         success: { (games: [Game]) in
+							for game in games {
+								game.sport = sport;
+							}
+							successCallback(games);
+		},
 		         apiError: errorCallback,
 		         networkFailure: failureCallback);
 	}
 	
+	func getCurrentGames(
+		success successCallback: @escaping ([Game]) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		) {
+		
+		
+		self.getSports(success: { (sports) in
+			DispatchQueue.global().async {
+				var allGames:[Game] = []
+				let semaphore = DispatchSemaphore(value: 0);
+				for sport in sports {
+					self.getGames(sport: sport, date: nil, success: { (games) in
+						allGames.append(contentsOf: games);
+						semaphore.signal()
+					}, apiError: { (error) in
+						semaphore.signal()
+						errorCallback(error)
+						return;
+					}, networkFailure: { (error) in
+						semaphore.signal()
+						failureCallback(error)
+						return;
+					});
+				}
+				for _ in 1...sports.count {
+					semaphore.wait()
+				}
+				DispatchQueue.main.async {
+					successCallback(allGames)
+				}
+			}
+		}, apiError: errorCallback, networkFailure: failureCallback);
+	}
 	func getStreams(
 		sport: Sport,
 		game: Game,
