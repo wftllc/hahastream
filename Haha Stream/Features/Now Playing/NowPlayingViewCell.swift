@@ -52,7 +52,7 @@ class NowPlayingViewCell: UICollectionViewCell {
 
 	func updateTimeLabel(withDate date: Date) {
 		if( date.timeIntervalSinceNow < -4.0*60*60 ) {
-			timeLabel.text = "Complete";
+			timeLabel.text = "";
 		}
 		else {
 //			timeLabel.text = "Now Playing (\(date.elapsedTimeString))";
@@ -99,13 +99,13 @@ class NowPlayingViewCell: UICollectionViewCell {
 	
 	
 	override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-		print("viewcell.didUpdateFocus from", context.previouslyFocusedView, "to", context.nextFocusedView);
-		if let cell = context.nextFocusedView as? GamesViewCell {
+//		print("viewcell.didUpdateFocus from", context.previouslyFocusedView, "to", context.nextFocusedView);
+		if let cell = context.nextFocusedView as? NowPlayingViewCell {
 			coordinator.addCoordinatedAnimations({() -> Void in
 				cell.showFocused()
 			}, completion: { _ in })
 		}
-		if let cell = context.previouslyFocusedView as? GamesViewCell {
+		if let cell = context.previouslyFocusedView as? NowPlayingViewCell {
 			coordinator.addCoordinatedAnimations({() -> Void in
 				cell.clearFocused();
 			}, completion: { _ in })

@@ -69,6 +69,7 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 			return false;
 		}
 		
+		
 		if a.startDate < b.startDate {
 			return true;
 		}
@@ -77,11 +78,15 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 			return true;
 		}
 		
-		if let aName = a.homeTeamName, let bName = b.homeTeamName {
-			if aName < bName {
-				return true;
-			}
+		if a.title < b.title {
+			return true;
 		}
+		
+//		if let aName = a.homeTeamName, let bName = b.homeTeamName {
+//			if aName < bName {
+//				return true;
+//			}
+//		}
 		
 		return false;
 	}

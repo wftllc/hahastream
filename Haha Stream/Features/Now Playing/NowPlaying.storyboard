@@ -88,7 +88,7 @@
                                                                                                 <constraint firstAttribute="width" secondItem="H6V-NH-qGN" secondAttribute="height" multiplier="1:1" id="Fis-KN-gg9"/>
                                                                                             </constraints>
                                                                                         </imageView>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QQi-fG-GG5" userLabel="imageView">
+                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QQi-fG-GG5" userLabel="imageView">
                                                                                             <rect key="frame" x="25" y="20" width="550" height="263"/>
                                                                                         </imageView>
                                                                                     </subviews>
