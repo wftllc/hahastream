@@ -4,12 +4,26 @@ import AVKit
 
 private let reuseIdentifier = "NowPlayingViewCell"
 
+
 class NowPlayingViewController: UIViewController, DateListDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+	
+	struct Item {
+		public var game: Game?
+		public var channel: Channel?
+		init(game: Game) {
+			self.game = game
+		}
+		init(channel: Channel) {
+			self.channel = channel
+		}
+		
+	}
+	
 	@IBOutlet weak var collectionView: UICollectionView!
 	
 	public var provider: HahaProvider!;
 	public var date: Date!;
-	public var games: [Game]!;
+	public var items: [Item]!;
 	@IBOutlet weak var dateLabel: UILabel!
 	
 	var timeFormatter: DateFormatter = {
@@ -32,7 +46,7 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 		print("nowPlayingViewController.viewDidLoad()");
 		super.viewDidLoad()
 		
-		self.games = [];
+		self.items = [];
 		// Uncomment the following line to preserve selection between presentations
 		// self.clearsSelectionOnViewWillAppear = false
 		
@@ -51,15 +65,39 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 	}
 	
 	func refreshData() {
-		self.games = [];
+		self.items = [];
 		self.collectionView?.reloadData();
 		self.provider.getCurrentGames(success: { (games) in
-			self.games = games.sorted(by: self.gameSort);
-			for game in self.games {
+			let games = games.sorted(by: self.gameSort);
+			for game in games {
 				print("\(game.title): \(game.ready ? "ready, " : ""))\(game.startDate)")
 			}
-//			print(self.games)
-			self.collectionView?.reloadData();
+			self.provider.getChannels(success: { (channels) in
+				let channels = channels.filter({ (channel) -> Bool in
+					return channel.active
+				}).sorted(by: { (a, b) -> Bool in
+					return a.title < b.title;
+				});
+				for game in games {
+					//first ready games
+					if game.ready && game.sport.name.lowercased() != "vcs" {
+						self.items.append(Item(game: game));
+					}
+				}
+				for channel in channels {
+					//now available channels
+					if( channel.active ) {
+						self.items.append(Item(channel: channel))
+					}
+				}
+				for game in games {
+					//now remaining games
+					if !(game.ready && game.sport.name.lowercased() != "vcs") {
+						self.items.append(Item(game: game));
+					}
+				}
+				self.collectionView?.reloadData();
+			}, apiError: self.apiErrorClosure, networkFailure: self.networkFailureClosure)
 		}, apiError: apiErrorClosure,
 		   networkFailure: networkFailureClosure
 		)
@@ -90,48 +128,56 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 	
 	// MARK: UICollectionViewDataSource
 	
-	 func numberOfSections(in collectionView: UICollectionView) -> Int {
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return 1
 	}
 	
-	 func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return self.games.count;
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return self.items.count;
 	}
 	
-	 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NowPlayingViewCell;
-		let game = games[indexPath.item];
-//		cell.homeTeamLabel.text = game.homeTeam;
-//		cell.awayTeamLabel.text = game.awayTeam;
-//		cell.timeLabel.text = dateFormatter.string(from: game.startDate);
-		if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {
-			cell.homeImageView.kf.setImage(with: homeImageURL);
-			cell.awayImageView.kf.setImage(with: awayImageURL);
-			cell.singleImageView.image = nil
+		let item = items[indexPath.item];
+		
+		if let game = item.game {
+			if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {
+				cell.homeImageView.kf.setImage(with: homeImageURL);
+				cell.awayImageView.kf.setImage(with: awayImageURL);
+				cell.singleImageView.image = nil
+			}
+			else {
+				cell.homeImageView.image = nil
+				cell.awayImageView.image = nil
+				cell.singleImageView.kf.setImage(with: game.singleImageURL,
+				                                 placeholder: Image.init(named: "hehelogo750.png"),
+				                                 options: nil,
+				                                 progressBlock: nil,
+				                                 completionHandler: nil)
+				//			cell.singleImageView.kf.setImage(with: game.singleImageURL)
+			}
+			if( ["NBA"].contains(game.sport.name) && game.awayTeamName != nil && game.homeTeamName != nil) {
+				//shorten game titles
+				cell.titleLabel.text = "\(game.awayTeamName!) @ \(game.homeTeamName!)"
+			}
+			else {
+				cell.titleLabel.text = game.title
+			}
+			if(game.ready) {
+				cell.updateTimeLabel(withDate: game.startDate);
+				cell.startAnimating(date: game.startDate)
+			}
+			else {
+				cell.timeLabel.text = timeFormatter.string(from: game.startDate);
+			}
 		}
 		else {
+			let channel = item.channel!
+			cell.titleLabel.text = channel.title
+			cell.timeLabel.text = nil;
 			cell.homeImageView.image = nil
 			cell.awayImageView.image = nil
-			cell.singleImageView.kf.setImage(with: game.singleImageURL,
-			                                 placeholder: Image.init(named: "hehelogo750.png"),
-			                                 options: nil,
-			                                 progressBlock: nil,
-			                                 completionHandler: nil)
-//			cell.singleImageView.kf.setImage(with: game.singleImageURL)
-		}
-		if( ["NBA"].contains(game.sport.name) && game.awayTeamName != nil && game.homeTeamName != nil) {
-			//shorten game titles
-			cell.titleLabel.text = "\(game.awayTeamName!) @ \(game.homeTeamName!)"
-		}
-		else {
-			cell.titleLabel.text = game.title
-		}
-		if(game.ready) {
-			cell.updateTimeLabel(withDate: game.startDate);
-			cell.startAnimating(date: game.startDate)
-		}
-		else {
-			cell.timeLabel.text = timeFormatter.string(from: game.startDate);
+			cell.singleImageView.image = nil
 		}
 		return cell
 	}
@@ -145,19 +191,45 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 	}
 	// MARK: UICollectionViewDelegate
 	
-	 func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+	func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
 		return true
 	}
 	
-	 func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
+	func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
 		return true;
 	}
-
-	 func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let game = games[indexPath.item];
-		selectGame(game)
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let item = items[indexPath.item];
+		selectItem(item)
 	}
 	
+	func selectItem(_ item: Item) {
+		if let game = item.game {
+			selectGame(game);
+		}
+		else {
+			selectChannel(item.channel!);
+		}
+	}
+
+	
+	//todo put this stream playing stuff into an extension
+	func selectChannel(_ channel: Channel) {
+		//TODO: Show loading here
+		
+		provider.getStream(channel: channel, success: { (stream) in
+			if let stream = stream {
+				self.playURL(stream.url)
+			}
+			else {
+				self.showAlert(title: "No Stream", message: "Couldn't find stream for \(channel.title)");
+			}
+		}, apiError: apiErrorClosure,
+		   networkFailure: networkFailureClosure
+		)
+	}
+
 	//todo put this stream playing stuff into an extension
 	func selectGame(_ game: Game) {
 		//TODO: Show loading here
@@ -184,15 +256,15 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 		else {
 			message = game.title;
 		}
-
+		
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		for stream in streams {
 			// Create the actions.
-//			print("available stream \(stream)")
+			//			print("available stream \(stream)")
 			let title = "\(stream.source) stream";
 			let acceptAction = UIAlertAction(title: title, style: .default) { _ in
 				//if stream expires in less than one second, refresh and play it
-//				print("play stream \(stream)")
+				//				print("play stream \(stream)")
 				if( stream.expiresAt.timeIntervalSinceNow <= 1 ) {
 					self.playStream(source: stream.source, game: game);
 				}
@@ -236,7 +308,7 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 		present(controller, animated: true) {
 			player.play()
 		}
-
+		
 	}
 	/*
 	// Uncomment this method to specify if the specified item should be selected

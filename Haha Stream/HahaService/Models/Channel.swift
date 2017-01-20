@@ -16,7 +16,6 @@ final class Channel: NSObject, FromDictable {
 	public var active: Bool;
 	
 	static func fromDictionary(_ dict:[String: Any]) -> Channel? {
-		print(dict)
 		guard let identifier = dict["id"] as? Int else { return nil }
 		guard let title = dict["title"] as? String else { return nil }
 		let notes = dict["notes"] as? String

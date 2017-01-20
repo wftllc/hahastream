@@ -47,7 +47,6 @@ class HahaProviderTest: XCTestCase {
 			if( channel.active ) {
 				let exp = expectation(description: "wait")
 				provider.getStream(channel: channel, success: { (stream) in
-					print(stream)
 					exp.fulfill()
 				}, apiError: { (error) in
 					XCTFail("apiError: \(error)")
