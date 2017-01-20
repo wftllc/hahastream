@@ -6,6 +6,7 @@ private let reuseIdentifier = "NowPlayingViewCell"
 
 
 class NowPlayingViewController: UIViewController, DateListDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+	//TODO: add timer-based refresh
 	
 	struct Item {
 		public var game: Game?
