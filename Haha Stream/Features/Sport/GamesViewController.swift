@@ -4,14 +4,15 @@ import AVKit
 
 private let reuseIdentifier = "GamesViewCell"
 
-class GamesViewController: UIViewController, DateListDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class GamesViewController: HahaViewController, DateListDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+
 	@IBOutlet weak var collectionView: UICollectionView!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var dateLabel: UILabel!
 	
 	public var sport: Sport!;
-	public var provider: HahaProvider!;
 	public var date: Date!;
 	public var games: [Game]!;
-	@IBOutlet weak var dateLabel: UILabel!
 	
 	var timeFormatter: DateFormatter = {
 		let df = DateFormatter();
@@ -30,24 +31,16 @@ class GamesViewController: UIViewController, DateListDelegate, UICollectionViewD
 	}()
 	
 	override func viewDidLoad() {
-		print("gamesViewController.viewDidLoad()");
 		super.viewDidLoad()
 		
 		self.games = [];
-		// Uncomment the following line to preserve selection between presentations
-		// self.clearsSelectionOnViewWillAppear = false
-		
-		// Register cell classes
-		//		self.collectionView!.register(GamesViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 		self.date = Date();
 		
 		refreshData();
-		// Do any additional setup after loading the view.
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 	
 	func dateListDidSelect(date: Date) {
@@ -56,6 +49,7 @@ class GamesViewController: UIViewController, DateListDelegate, UICollectionViewD
 	}
 	
 	func refreshData() {
+		self.activityIndicator.startAnimating()
 		let calString = self.dateFormatter.string(from: self.date);
 		let dateText:String;
 		if( date.isToday ) {
@@ -72,10 +66,12 @@ class GamesViewController: UIViewController, DateListDelegate, UICollectionViewD
 		}
 		self.dateLabel.text = dateText;
 		self.games = [];
+		
 		self.collectionView?.reloadData();
 		self.provider.getGames(sport: sport, date: date!, success: { (games) in
 			self.games = games;
 			self.collectionView?.reloadData();
+			self.activityIndicator.stopAnimating()
 		}, apiError: apiErrorClosure,
 		   networkFailure: networkFailureClosure
 		)
@@ -139,86 +135,7 @@ class GamesViewController: UIViewController, DateListDelegate, UICollectionViewD
 		selectGame(game)
 	}
 	
-	func selectGame(_ game: Game) {
-		//TODO: Show loading here
-		
-		provider.getStreams(sport: sport, game: game, success: { (streams) in
-			if streams.count == 1 {
-				self.playURL(streams.first!.url)
-			}
-			else {
-				self.showStreamChoiceAlert(game: game, streams: streams)
-			}
-		}, apiError: apiErrorClosure,
-		   networkFailure: networkFailureClosure
-		)
-	}
 	
-	/// Shows an alert with "OK" and "Cancel" buttons.
-	func showStreamChoiceAlert(game: Game, streams: [Stream]) {
-		let title = "Choose Stream"
-		let message: String;
-		if let awayTeam = game.awayTeam, let homeTeam = game.homeTeam {
-			message = "\(awayTeam) at \(homeTeam)";
-		}
-		else {
-			message = game.title;
-		}
-
-		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		for stream in streams {
-			// Create the actions.
-//			print("available stream \(stream)")
-			let title = "\(stream.source) stream";
-			let acceptAction = UIAlertAction(title: title, style: .default) { _ in
-				//if stream expires in less than one second, refresh and play it
-//				print("play stream \(stream)")
-				if( stream.expiresAt.timeIntervalSinceNow <= 1 ) {
-					self.playStream(source: stream.source, game: game);
-				}
-				else {
-					self.playURL(stream.url);
-				}
-			}
-			alertController.addAction(acceptAction)
-		}
-		
-		let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
-		let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel)
-		alertController.addAction(cancelAction)
-		
-		present(alertController, animated: true, completion: nil)
-	}
-	
-	func playStream(source: String, game: Game) {
-		provider.getStreams(sport: sport, game: game, success: { (streams) in
-			for stream in streams {
-				if( stream.source == source ) {
-					self.playURL(stream.url);
-					return;
-				}
-			}
-			self.showAlert(title: "Stream not Found", message: "A matching stream could not be found. Please try again.");
-		}, apiError: apiErrorClosure,
-		   networkFailure: networkFailureClosure
-		)
-		
-	}
-	
-	func playURL(_ url: URL) {
-		// Create an AVPlayer, passing it the HTTP Live Streaming URL.
-		let player = AVPlayer(url: url)
-		
-		// Create a new AVPlayerViewController and pass it a reference to the player.
-		let controller = AVPlayerViewController()
-		controller.player = player
-		
-		// Modally present the player and call the player's play() method when complete.
-		present(controller, animated: true) {
-			player.play()
-		}
-
-	}
 	/*
 	// Uncomment this method to specify if the specified item should be selected
 	override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {

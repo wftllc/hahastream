@@ -1,7 +1,6 @@
 import UIKit
 
-class HomeViewController: UITabBarController {
-	public var provider: HahaProvider!
+class HomeViewController: HahaTabBarController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

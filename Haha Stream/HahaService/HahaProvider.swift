@@ -76,7 +76,39 @@ class HahaProvider:NSObject {
 		         apiError: errorCallback,
 		         networkFailure: failureCallback);
 	}
-	
+
+	func getChannels(
+		sports: [Sport],
+		success successCallback: @escaping ([Channel]) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		)
+	{
+		DispatchQueue.global().async {
+			var allChannels:[Channel] = []
+			let semaphore = DispatchSemaphore(value: 0);
+			for sport in sports {
+				self.get(endpoint: HahaService.getChannels(sport: sport.name.lowercased()),
+				         success: { (channels: [Channel]) in
+									for channel in channels {
+										channel.sport = sport;
+									}
+									allChannels.append(contentsOf: channels);
+									semaphore.signal()
+				}, apiError: { (error) in
+					semaphore.signal()
+				}, networkFailure: { (error) in
+					semaphore.signal()
+				});
+			}
+			for _ in 1...sports.count {
+				semaphore.wait()
+			}
+			DispatchQueue.main.async {
+				successCallback(allChannels)
+			}
+		}
+	}
 	func getChannels(
 		success successCallback: @escaping ([Channel]) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
@@ -84,49 +116,29 @@ class HahaProvider:NSObject {
 		)
 	{
 		self.getSports(success: { (sports) in
-			DispatchQueue.global().async {
-				var allChannels:[Channel] = []
-				let semaphore = DispatchSemaphore(value: 0);
-				for sport in sports {
-					self.get(endpoint: HahaService.getChannels(sport: sport.name.lowercased()),
-					         success: { (channels: [Channel]) in
-										for channel in channels {
-											channel.sport = sport;
-										}
-										allChannels.append(contentsOf: channels);
-										semaphore.signal()
-					}, apiError: { (error) in
-						semaphore.signal()
-					}, networkFailure: { (error) in
-						semaphore.signal()
-					});
-				}
-				for _ in 1...sports.count {
-					semaphore.wait()
-				}
-				DispatchQueue.main.async {
-					successCallback(allChannels)
-				}
-			}
+			self.getChannels(sports: sports, success: successCallback, apiError: errorCallback, networkFailure: failureCallback);
 		}, apiError: errorCallback, networkFailure: failureCallback);
 	}
 	
 	
-	//TODO: combine all nowPlaying calls into one call
-	
-	func getCurrentGames(
-		success successCallback: @escaping ([Game]) -> Void,
+	func getNowPlaying(
+		success successCallback: @escaping ([NowPlayingItem]) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
 		networkFailure failureCallback: @escaping (MoyaError) -> Void
 		) {
-		
-		
+		//get all sports, then get all games for today and the next/prev day if it is within 4 hrs
 		self.getSports(success: { (sports) in
 			DispatchQueue.global().async {
 				var allGames:[Game] = []
+				var allChannels:[Channel] = []
 				let semaphore = DispatchSemaphore(value: 0);
 				for sport in sports {
-					self.getGames(sport: sport, date: nil, success: { (games) in
+					var date = Date();
+					//if 4 hours earlier is yesterday, let's get those games instead
+					if( Calendar.current.isDateInYesterday(Date(timeIntervalSinceNow:-4*60*60)) ) {
+						date.addTimeInterval(-4*60*60);
+					}
+					self.getGames(sport: sport, date: date, success: { (games) in
 						allGames.append(contentsOf: games);
 						semaphore.signal()
 					}, apiError: { (error) in
@@ -135,16 +147,58 @@ class HahaProvider:NSObject {
 						semaphore.signal()
 					});
 				}
-				for _ in 1...sports.count {
+				self.getChannels(sports: sports, success: { (channels) in
+					allChannels.append(contentsOf:channels)
+					semaphore.signal()
+				}, apiError: { (error) in
+					semaphore.signal()
+				}, networkFailure: { (error) in
+					semaphore.signal()
+				});
+				for _ in 1...sports.count+1 {
 					semaphore.wait()
 				}
+				
+				let results = self.processNowPlaying(games: allGames, channels: allChannels)
 				DispatchQueue.main.async {
-					successCallback(allGames)
+					successCallback(results)
 				}
 			}
 		}, apiError: errorCallback, networkFailure: failureCallback);
 	}
 	
+	func processNowPlaying(games: [Game], channels: [Channel]) -> [NowPlayingItem] {
+		var results: [NowPlayingItem] = [];
+
+		//this goes like: current games => channels => upcoming games
+		let channels = channels.filter{ $0.active }.sorted{ $0.title < $1.title }
+		
+		//let's get all the "ready" and "active" games, meaning
+		//games that are ready and <4 hrs old
+		let readyGames = games.filter{ $0.active && $0.sport.name.lowercased() != "vcs" }
+		let upcomingGames = games.filter{ $0.upcoming && $0.sport.name.lowercased() != "vcs" }
+		
+		results.append(contentsOf: readyGames.sorted(by: gameSort).map{ NowPlayingItem(game: $0) })
+		results.append(contentsOf: channels.map { NowPlayingItem(channel: $0) })
+		results.append(contentsOf: upcomingGames.sorted(by: gameSort).map{ NowPlayingItem(game: $0) })
+		
+		return results;
+	}
+	
+	func gameSort(_ a: Game, _ b: Game) -> Bool {
+		if a.startDate != b.startDate {
+			return a.startDate < b.startDate
+		}
+		if a.sport.name != b.sport.name {
+			return a.sport.name < b.sport.name;
+		}
+		if a.title < b.title {
+			return true;
+		}
+		
+		return false;
+	}
+
 	func getStreams(
 		sport: Sport,
 		game: Game,

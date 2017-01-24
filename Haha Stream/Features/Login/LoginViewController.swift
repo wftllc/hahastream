@@ -1,8 +1,6 @@
 import UIKit
 
-class LoginViewController: UIViewController {
-	
-	public var provider: HahaProvider!;
+class LoginViewController: HahaViewController, UITextFieldDelegate {
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var textField: UITextField!
@@ -10,7 +8,9 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var signinButton: UIButton!
 	
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var apiKeyDisplayLabel: UILabel!
 	
+	@IBOutlet var textfieldAccessoryView: UIView!
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -21,6 +21,8 @@ class LoginViewController: UIViewController {
 		self.imageView.layer.shadowOpacity = 0.5;
 
 		self.textField.text = AppProvider.apiKey;
+		self.textField.inputAccessoryView = self.textfieldAccessoryView;
+		self.apiKeyDisplayLabel.text = self.textField.text
 	}
 	
 	override var preferredFocusEnvironments: [UIFocusEnvironment] {
@@ -32,10 +34,13 @@ class LoginViewController: UIViewController {
 	}
 	
 	@IBAction func textfieldPrimaryActionTriggered(_ sender: Any) {
-		print("textfieldPrimaryActionTriggered");
 		if( self.textField.text!.lengthOfBytes(using: .utf8) >= 6 ) {
-			
+			submitAPIKey(self.textField.text!)
 		}
+	}
+
+	@IBAction func textFieldEditingChanged(_ sender: UITextField) {
+		self.apiKeyDisplayLabel.text = sender.text
 	}
 	
 	func showLoading() {
@@ -49,16 +54,14 @@ class LoginViewController: UIViewController {
 		self.textField.isEnabled = true;
 		self.signinButton.isEnabled = true;
 	}
-		
-	@IBAction func signinDidTap(_ sender: Any) {
-		print("signinDidTap");
-		guard let text = self.textField.text else { return }
+	
+	func submitAPIKey(_ text: String) {
 		if( text.lengthOfBytes(using: .utf8) >= 1 ) {
 			showLoading();
 			self.provider.apiKey = text;
 			self.provider.getSports(success: { (sports) in
 				self.hideLoading()
-				AppProvider.apiKey = self.textField.text
+				AppProvider.apiKey = text
 				self.appRouter.handleLoginComplete();
 			}, apiError: { (error) in
 				self.hideLoading()
@@ -68,6 +71,10 @@ class LoginViewController: UIViewController {
 				self.handleNetworkError(error);
 			})
 		}
+	}
+
+	@IBAction func signinDidTap(_ sender: Any) {
+		textField.becomeFirstResponder()
 	}
 	
 	

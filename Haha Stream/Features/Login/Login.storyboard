@@ -7,6 +7,8 @@
         <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,35 +25,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hehe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMp-Go-YWf">
-                                <rect key="frame" x="872" y="112" width="177" height="91"/>
+                                <rect key="frame" x="872" y="99" width="177" height="91"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hehelogopadded750" translatesAutoresizingMaskIntoConstraints="NO" id="6oa-Ve-HF6">
-                                <rect key="frame" x="798" y="253" width="325" height="325"/>
+                                <rect key="frame" x="710" y="270" width="500" height="500"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="325" id="5n3-Nj-yMD"/>
-                                    <constraint firstAttribute="width" constant="325" id="feB-pG-qzR"/>
+                                    <constraint firstAttribute="width" secondItem="6oa-Ve-HF6" secondAttribute="height" multiplier="1:1" id="aKE-KH-Iop"/>
+                                    <constraint firstAttribute="width" constant="500" id="feB-pG-qzR"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="API Key" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIH-ig-abk">
-                                <rect key="frame" x="815" y="628" width="292" height="91"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
-                                <connections>
-                                    <action selector="textfieldPrimaryActionTriggered:" destination="gB0-dQ-nUc" eventType="primaryActionTriggered" id="8Aj-R9-Djx"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit &quot;My Account&quot; at hehestreams.xyz to find your API key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yg-5A-rgC">
-                                <rect key="frame" x="585" y="752" width="750" height="35"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgW-NG-wIt">
-                                <rect key="frame" x="540" y="839" width="840" height="131"/>
+                                <rect key="frame" x="540" y="850" width="840" height="131"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Sign in to Hehestreams"/>
@@ -60,34 +47,78 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QTQ-ix-RWt">
-                                <rect key="frame" x="1408" y="872" width="64" height="64"/>
+                                <rect key="frame" x="1408" y="883" width="64" height="64"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="API Key" textAlignment="justified" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIH-ig-abk">
+                                <rect key="frame" x="20" y="20" width="292" height="91"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="textFieldEditingChanged:" destination="gB0-dQ-nUc" eventType="editingChanged" id="Rj2-he-0X5"/>
+                                    <action selector="textfieldPrimaryActionTriggered:" destination="gB0-dQ-nUc" eventType="primaryActionTriggered" id="8Aj-R9-Djx"/>
+                                    <outlet property="delegate" destination="gB0-dQ-nUc" id="ble-2X-vra"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="IgW-NG-wIt" firstAttribute="top" secondItem="BIH-ig-abk" secondAttribute="bottom" constant="120" id="IGs-qk-GEQ"/>
                             <constraint firstItem="kMp-Go-YWf" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="OAx-1l-0Uj"/>
-                            <constraint firstItem="6oa-Ve-HF6" firstAttribute="top" secondItem="kMp-Go-YWf" secondAttribute="bottom" constant="50" id="She-MQ-M4k"/>
+                            <constraint firstItem="BIH-ig-abk" firstAttribute="top" secondItem="23P-0j-2ar" secondAttribute="bottom" constant="20" id="VC2-J4-7x4"/>
+                            <constraint firstItem="kMp-Go-YWf" firstAttribute="top" secondItem="23P-0j-2ar" secondAttribute="bottom" constant="99" id="WkH-Vc-zga"/>
                             <constraint firstItem="QTQ-ix-RWt" firstAttribute="centerY" secondItem="IgW-NG-wIt" secondAttribute="centerY" id="YbI-nK-1oX"/>
-                            <constraint firstItem="4yg-5A-rgC" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="afY-Tp-kgm"/>
                             <constraint firstItem="IgW-NG-wIt" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="bk1-2u-sQR"/>
-                            <constraint firstItem="4yg-5A-rgC" firstAttribute="centerY" secondItem="BIH-ig-abk" secondAttribute="bottom" constant="50" id="hRH-aP-Ryc"/>
-                            <constraint firstItem="6oa-Ve-HF6" firstAttribute="centerY" secondItem="Vn4-ll-MLc" secondAttribute="centerY" constant="-125" id="mWV-nh-Nhw"/>
-                            <constraint firstItem="BIH-ig-abk" firstAttribute="top" secondItem="6oa-Ve-HF6" secondAttribute="bottom" constant="50" id="sNe-w5-rSc"/>
+                            <constraint firstItem="6oa-Ve-HF6" firstAttribute="centerY" secondItem="Vn4-ll-MLc" secondAttribute="centerY" constant="-20" id="mWV-nh-Nhw"/>
                             <constraint firstItem="QTQ-ix-RWt" firstAttribute="leading" secondItem="IgW-NG-wIt" secondAttribute="trailing" constant="28" id="sq1-5z-qqM"/>
-                            <constraint firstItem="BIH-ig-abk" firstAttribute="centerX" secondItem="6oa-Ve-HF6" secondAttribute="centerX" id="tIJ-Gj-sHj"/>
+                            <constraint firstItem="IgW-NG-wIt" firstAttribute="top" secondItem="6oa-Ve-HF6" secondAttribute="bottom" constant="80" id="uWl-NR-7GS"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="BIH-ig-abk" secondAttribute="leading" id="va2-ND-bkL"/>
                             <constraint firstItem="6oa-Ve-HF6" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="yvR-7C-cWu"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" id="TqW-lD-RCp"/>
                     <connections>
                         <outlet property="activityIndicator" destination="QTQ-ix-RWt" id="15n-9y-kf3"/>
+                        <outlet property="apiKeyDisplayLabel" destination="W6c-Hq-2BP" id="F69-fh-21G"/>
                         <outlet property="imageView" destination="6oa-Ve-HF6" id="zHP-tW-XV4"/>
                         <outlet property="signinButton" destination="IgW-NG-wIt" id="SoJ-H5-luo"/>
                         <outlet property="textField" destination="BIH-ig-abk" id="ZqK-CU-zYJ"/>
+                        <outlet property="textfieldAccessoryView" destination="OMf-tb-bxW" id="eYY-1u-KQO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BiJ-d2-bFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="OMf-tb-bxW">
+                    <rect key="frame" x="0.0" y="0.0" width="1920" height="400"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit &quot;My Account&quot; at hehestreams.xyz to find it." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yg-5A-rgC">
+                            <rect key="frame" x="441" y="144" width="1038" height="58"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your API Key" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssf-16-m16">
+                            <rect key="frame" x="658" y="45" width="605" height="91"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6c-Hq-2BP">
+                            <rect key="frame" x="870" y="288" width="180" height="91"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="W6c-Hq-2BP" firstAttribute="centerX" secondItem="OMf-tb-bxW" secondAttribute="centerX" id="25x-QT-k0T"/>
+                        <constraint firstItem="4yg-5A-rgC" firstAttribute="top" secondItem="Ssf-16-m16" secondAttribute="bottom" constant="8" id="8bW-2o-33x"/>
+                        <constraint firstItem="Ssf-16-m16" firstAttribute="top" secondItem="OMf-tb-bxW" secondAttribute="top" constant="45" id="Ev5-ND-vGT"/>
+                        <constraint firstItem="Ssf-16-m16" firstAttribute="centerX" secondItem="OMf-tb-bxW" secondAttribute="centerX" id="QIl-uZ-J18"/>
+                        <constraint firstAttribute="bottom" secondItem="W6c-Hq-2BP" secondAttribute="baseline" constant="40" id="Xpi-Ib-u26"/>
+                        <constraint firstItem="4yg-5A-rgC" firstAttribute="centerX" secondItem="OMf-tb-bxW" secondAttribute="centerX" id="xBg-p2-Yrr"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="-4790" y="490"/>
         </scene>

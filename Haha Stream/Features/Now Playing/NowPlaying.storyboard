@@ -202,18 +202,24 @@
                                     <constraint firstItem="glo-om-2zi" firstAttribute="leading" secondItem="TtK-vF-xAj" secondAttribute="leading" id="tUE-47-x8n"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V4s-GP-enG">
+                                <rect key="frame" x="928" y="508" width="64" height="64"/>
+                            </activityIndicatorView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="H38-P0-X2G" firstAttribute="leading" secondItem="cXU-hH-MQd" secondAttribute="leading" id="3db-c4-O5m"/>
                             <constraint firstAttribute="trailing" secondItem="H38-P0-X2G" secondAttribute="trailing" id="486-1k-jhy"/>
                             <constraint firstItem="H38-P0-X2G" firstAttribute="top" secondItem="Dx6-PH-ThX" secondAttribute="bottom" id="D93-nG-qU2"/>
                             <constraint firstItem="TtK-vF-xAj" firstAttribute="top" secondItem="H38-P0-X2G" secondAttribute="bottom" id="FQQ-MK-eXv"/>
+                            <constraint firstItem="V4s-GP-enG" firstAttribute="centerY" secondItem="cXU-hH-MQd" secondAttribute="centerY" id="Pww-zj-7DN"/>
+                            <constraint firstItem="V4s-GP-enG" firstAttribute="centerX" secondItem="cXU-hH-MQd" secondAttribute="centerX" id="R7n-3E-7nD"/>
                             <constraint firstAttribute="trailing" secondItem="TtK-vF-xAj" secondAttribute="trailing" id="vW5-6r-vhJ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="TtK-vF-xAj" secondAttribute="bottom" id="vdZ-zV-QRJ"/>
                             <constraint firstItem="TtK-vF-xAj" firstAttribute="leading" secondItem="cXU-hH-MQd" secondAttribute="leading" id="wBC-3X-RZy"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="V4s-GP-enG" id="SYv-Ci-iGw"/>
                         <outlet property="collectionView" destination="glo-om-2zi" id="eNt-7E-t0q"/>
                         <outlet property="dateLabel" destination="wv0-mh-6pg" id="HJr-VT-Mwe"/>
                     </connections>

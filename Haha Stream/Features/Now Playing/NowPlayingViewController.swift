@@ -5,26 +5,14 @@ import AVKit
 private let reuseIdentifier = "NowPlayingViewCell"
 
 
-class NowPlayingViewController: UIViewController, DateListDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
-	//TODO: add timer-based refresh
-	
-	struct Item {
-		public var game: Game?
-		public var channel: Channel?
-		init(game: Game) {
-			self.game = game
-		}
-		init(channel: Channel) {
-			self.channel = channel
-		}
-		
-	}
+class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+	let RefreshTimeInterval: TimeInterval = 300;
+	var timer: Timer?;
 	
 	@IBOutlet weak var collectionView: UICollectionView!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
-	public var provider: HahaProvider!;
-	public var date: Date!;
-	public var items: [Item]!;
+	public var items: [NowPlayingItem]!;
 	@IBOutlet weak var dateLabel: UILabel!
 	
 	var timeFormatter: DateFormatter = {
@@ -43,6 +31,7 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 		return df;
 	}()
 	
+	//TODO - show something when no current results
 	override func viewDidLoad() {
 		print("nowPlayingViewController.viewDidLoad()");
 		super.viewDidLoad()
@@ -50,81 +39,40 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 		self.items = [];
 		// Uncomment the following line to preserve selection between presentations
 		// self.clearsSelectionOnViewWillAppear = false
-		
-		refreshData();
-		// Do any additional setup after loading the view.
+
+		self.activityIndicator.startAnimating();
+		self.collectionView?.reloadData()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		refreshData()
+		startTimer()
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillAppear(animated);
+		self.timer?.invalidate();
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
-	
-	func dateListDidSelect(date: Date) {
-		self.date = date;
-		refreshData();
+		
+	func startTimer() {
+		self.timer?.invalidate()
+		self.timer = Timer.scheduledTimer(withTimeInterval: RefreshTimeInterval, repeats: true) { (timer) in
+			self.refreshData()
+		};
 	}
-	
-	func refreshData() {
-		self.items = [];
-		self.collectionView?.reloadData();
-		self.provider.getCurrentGames(success: { (games) in
-			let games = games.sorted(by: self.gameSort);
-			for game in games {
-				print("\(game.title): \(game.ready ? "ready, " : ""))\(game.startDate)")
-			}
-			self.provider.getChannels(success: { (channels) in
-				let channels = channels.filter({ (channel) -> Bool in
-					return channel.active
-				}).sorted(by: { (a, b) -> Bool in
-					return a.title < b.title;
-				});
-				for game in games {
-					//first ready games
-					if game.ready && game.sport.name.lowercased() != "vcs" {
-						self.items.append(Item(game: game));
-					}
-				}
-				for channel in channels {
-					//now available channels
-					if( channel.active ) {
-						self.items.append(Item(channel: channel))
-					}
-				}
-				for game in games {
-					//now remaining games
-					if !(game.ready && game.sport.name.lowercased() != "vcs") {
-						self.items.append(Item(game: game));
-					}
-				}
-				self.collectionView?.reloadData();
-			}, apiError: self.apiErrorClosure, networkFailure: self.networkFailureClosure)
+		func refreshData() {
+		self.provider.getNowPlaying(success: { (items) in
+			self.activityIndicator.stopAnimating()
+			self.items = items;
+			self.collectionView?.reloadData();
 		}, apiError: apiErrorClosure,
 		   networkFailure: networkFailureClosure
 		)
-	}
-	
-	func gameSort(_ a: Game, _ b: Game) -> Bool {
-		if( a.ready && !b.ready ) {
-			return true;
-		}
-		else if( !a.ready && b.ready ) {
-			return false;
-		}
-		
-		if a.startDate != b.startDate {
-			return a.startDate < b.startDate
-		}
-		
-		if a.sport.name != b.sport.name {
-			return a.sport.name < b.sport.name;
-		}
-		
-		if a.title < b.title {
-			return true;
-		}
-		
-		return false;
 	}
 	
 	// MARK: UICollectionViewDataSource
@@ -183,29 +131,29 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 		return cell
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forNowPlayingItemAt indexPath: IndexPath) {
 		
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+	func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forNowPlayingItemAt indexPath: IndexPath) {
 		
 	}
 	// MARK: UICollectionViewDelegate
 	
-	func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+	func collectionView(_ collectionView: UICollectionView, shouldHighlightNowPlayingItemAt indexPath: IndexPath) -> Bool {
 		return true
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
+	func collectionView(_ collectionView: UICollectionView, canFocusNowPlayingItemAt indexPath: IndexPath) -> Bool {
 		return true;
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let item = items[indexPath.item];
-		selectItem(item)
+		selectNowPlayingItem(item)
 	}
 	
-	func selectItem(_ item: Item) {
+	func selectNowPlayingItem(_ item: NowPlayingItem) {
 		if let game = item.game {
 			selectGame(game);
 		}
@@ -215,102 +163,23 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 	}
 
 	
-	//todo put this stream playing stuff into an extension
 	func selectChannel(_ channel: Channel) {
-		//TODO: Show loading here
+		showLoading(animated: true);
 		
 		provider.getStream(channel: channel, success: { (stream) in
-			if let stream = stream {
-				self.playURL(stream.url)
-			}
-			else {
-				self.showAlert(title: "No Stream", message: "Couldn't find stream for \(channel.title)");
-			}
+			self.hideLoading(animated: true, completion: {
+				if let stream = stream {
+					self.playURL(stream.url)
+				}
+				else {
+					self.showAlert(title: "No Stream", message: "Couldn't find stream for \(channel.title)");
+				}
+			});
 		}, apiError: apiErrorClosure,
 		   networkFailure: networkFailureClosure
 		)
 	}
 
-	//todo put this stream playing stuff into an extension
-	func selectGame(_ game: Game) {
-		//TODO: Show loading here
-		
-		provider.getStreams(sport: game.sport, game: game, success: { (streams) in
-			if streams.count == 1 {
-				self.playURL(streams.first!.url)
-			}
-			else {
-				self.showStreamChoiceAlert(game: game, streams: streams)
-			}
-		}, apiError: apiErrorClosure,
-		   networkFailure: networkFailureClosure
-		)
-	}
-	
-	/// Shows an alert with "OK" and "Cancel" buttons.
-	func showStreamChoiceAlert(game: Game, streams: [Stream]) {
-		let title = "Choose Stream"
-		let message: String;
-		if let awayTeam = game.awayTeam, let homeTeam = game.homeTeam {
-			message = "\(awayTeam) at \(homeTeam)";
-		}
-		else {
-			message = game.title;
-		}
-		
-		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		for stream in streams {
-			// Create the actions.
-			//			print("available stream \(stream)")
-			let title = "\(stream.source) stream";
-			let acceptAction = UIAlertAction(title: title, style: .default) { _ in
-				//if stream expires in less than one second, refresh and play it
-				//				print("play stream \(stream)")
-				if( stream.expiresAt.timeIntervalSinceNow <= 1 ) {
-					self.playStream(source: stream.source, game: game);
-				}
-				else {
-					self.playURL(stream.url);
-				}
-			}
-			alertController.addAction(acceptAction)
-		}
-		
-		let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
-		let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel)
-		alertController.addAction(cancelAction)
-		
-		present(alertController, animated: true, completion: nil)
-	}
-	
-	func playStream(source: String, game: Game) {
-		provider.getStreams(sport: game.sport, game: game, success: { (streams) in
-			for stream in streams {
-				if( stream.source == source ) {
-					self.playURL(stream.url);
-					return;
-				}
-			}
-			self.showAlert(title: "Stream not Found", message: "A matching stream could not be found. Please try again.");
-		}, apiError: apiErrorClosure,
-		   networkFailure: networkFailureClosure
-		)
-	}
-	
-	func playURL(_ url: URL) {
-		// Create an AVPlayer, passing it the HTTP Live Streaming URL.
-		let player = AVPlayer(url: url)
-		
-		// Create a new AVPlayerViewController and pass it a reference to the player.
-		let controller = AVPlayerViewController()
-		controller.player = player
-		
-		// Modally present the player and call the player's play() method when complete.
-		present(controller, animated: true) {
-			player.play()
-		}
-		
-	}
 	/*
 	// Uncomment this method to specify if the specified item should be selected
 	override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -320,15 +189,15 @@ class NowPlayingViewController: UIViewController, DateListDelegate, UICollection
 	
 	/*
 	// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-	override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+	override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForNowPlayingItemAt indexPath: IndexPath) -> Bool {
 	return false
 	}
 	
-	override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+	override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forNowPlayingItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
 	return false
 	}
 	
-	override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+	override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forNowPlayingItemAt indexPath: IndexPath, withSender sender: Any?) {
 	
 	}
 	*/

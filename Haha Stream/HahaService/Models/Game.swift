@@ -17,6 +17,8 @@ import Foundation
 */
 
 final class Game: NSObject, FromDictable {
+	let MaximumTimeIntervalToBeConsideredActive:TimeInterval = -4*60*60;
+	
 	public var uuid: String;
 	public var title: String;
 	public var ready: Bool;
@@ -29,6 +31,14 @@ final class Game: NSObject, FromDictable {
 	public var awayTeamLogoURL: URL?;
 	
 	public var sport: Sport!;
+	
+	public var active: Bool {
+		return ready && startDate.timeIntervalSinceNow > MaximumTimeIntervalToBeConsideredActive
+	}
+	
+	public var upcoming: Bool {
+		return startDate.timeIntervalSinceNow > 0;
+	}
 	
 	static var dateFormatter: DateFormatter = {
 		let df = DateFormatter();
