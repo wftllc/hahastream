@@ -88,7 +88,6 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NowPlayingViewCell;
 		let item = items[indexPath.item];
-		VCS(name: "name", uuid: "uuid")
 		
 		if let game = item.game {
 			if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {
@@ -100,7 +99,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 				cell.homeImageView.image = nil
 				cell.awayImageView.image = nil
 				cell.singleImageView.kf.setImage(with: game.singleImageURL,
-				                                 placeholder: Image.init(named: "hehelogo750.png"),
+				                                 placeholder: Image(named: "hehelogo-transparent-750.png"),
 				                                 options: nil,
 				                                 progressBlock: nil,
 				                                 completionHandler: nil)
@@ -127,7 +126,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 			cell.timeLabel.text = nil;
 			cell.homeImageView.image = nil
 			cell.awayImageView.image = nil
-			cell.singleImageView.image = nil
+			cell.singleImageView.image = Image(named: "hehelogo-transparent-750.png")
 		}
 		return cell
 	}

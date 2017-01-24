@@ -1,4 +1,5 @@
 import UIKit
+import AVKit
 
 class AppRouter: NSObject {
 	var hahaProvider: HahaProvider!;
@@ -41,9 +42,21 @@ class AppRouter: NSObject {
 	
 	func vcsViewController() -> VCSViewController {
 		let vc = UIStoryboard(name: "VCS", bundle: nil).instantiateInitialViewController() as! VCSViewController;
-		vc.provider = hahaProvider;
+		
+		vc.provider = self.hahaProvider;
+		
+		let splitViewController = vc;
+		let leftNavController = splitViewController.viewControllers.first as! UINavigationController
+		let masterViewController = leftNavController.topViewController as! VCSChannelListViewController
+		let detailViewController = splitViewController.viewControllers.last as? AVPlayerViewController
+		masterViewController.delegate = splitViewController;
+		//		masterViewController.sport = sport;
+//		detailViewController.sport = sport;
+		masterViewController.provider = self.hahaProvider;
+		splitViewController.provider = self.hahaProvider
 		return vc;
 	}
+
 	
 	func loginViewController() -> LoginViewController {
 		let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController;
@@ -72,6 +85,8 @@ class AppRouter: NSObject {
 		detailViewController.provider = self.hahaProvider;
 		return vc;
 	}
+
+	
 	
 	func goToScreen(forSport sport: Sport) {
 		self.window?.rootViewController = viewController(forSport: sport);

@@ -6,24 +6,29 @@ class HomeViewController: HahaTabBarController {
 		super.viewDidLoad()
 		
 		var viewControllers:[UIViewController] = []
-		
+
 		viewControllers.append(self.appRouter.nowPlayingViewController());
 		
 		self.provider.getSports(success: { (theSports) in
 			let sports = theSports.sorted(by: { (a, b) -> Bool in
 				return a.name < b.name
 			})
+
+			var haveVCS = false;
 			for sport in sports {
 				let tabBarItem = UITabBarItem(title: sport.name, image: nil, selectedImage: nil)
 				let vc:UIViewController
 				if sport.name.lowercased() == "vcs" {
-					vc = self.appRouter.vcsViewController()
+					haveVCS = true
 				}
 				else {
 					vc = self.appRouter.viewController(forSport: sport)
+					vc.tabBarItem = tabBarItem
+					viewControllers.append(vc)
 				}
-				vc.tabBarItem = tabBarItem
-				viewControllers.append(vc)				
+			}
+			if haveVCS {
+				viewControllers.append(self.appRouter.vcsViewController())
 			}
 			viewControllers.append(self.appRouter.loginViewController())
 			self.setViewControllers(viewControllers, animated: false)

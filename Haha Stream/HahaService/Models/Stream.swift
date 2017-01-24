@@ -29,7 +29,6 @@ channel stream:
 	public var expiresAt: Date;
 	
 	static func fromDictionary(_ dict:[String: Any]) -> Stream? {
-		print(dict);
 		guard let source = dict["source"] as? String else { return nil }
 		guard let url = URL(string: (dict["url"] as? String ?? "")) else { return nil }
 		let active = dict["active"] as? Bool ?? false //only in channel streams

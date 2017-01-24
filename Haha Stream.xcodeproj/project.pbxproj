@@ -19,15 +19,15 @@
 		23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */; };
 		23C1DE421E372A3600E53954 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		23C1DE441E372B1B00E53954 /* ViewController+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */; };
+		23C1DE461E372DDF00E53954 /* VCSChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE451E372DDF00E53954 /* VCSChannelListViewController.swift */; };
+		23C1DE481E372F6C00E53954 /* VCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE471E372F6C00E53954 /* VCSViewController.swift */; };
+		23C1DE4A1E37371800E53954 /* VCSChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE491E37371800E53954 /* VCSChannelListCell.swift */; };
 		23C626B21E341A2F00BDDACE /* VCS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C626AF1E341A2F00BDDACE /* VCS.storyboard */; };
-		23C626B31E341A2F00BDDACE /* VCSViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626B01E341A2F00BDDACE /* VCSViewCell.swift */; };
-		23C626B41E341A2F00BDDACE /* VCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626B11E341A2F00BDDACE /* VCSViewController.swift */; };
 		23C626B71E3426DA00BDDACE /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626B61E3426DA00BDDACE /* PlayerViewController.swift */; };
 		23C626B91E3426EB00BDDACE /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C626B81E3426EB00BDDACE /* Player.storyboard */; };
 		23C626BB1E342B2100BDDACE /* ViewController+Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626BA1E342B2100BDDACE /* ViewController+Player.swift */; };
 		23C626C01E34350E00BDDACE /* ViewController+Haha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626BF1E34350E00BDDACE /* ViewController+Haha.swift */; };
-		23C626C21E34383600BDDACE /* HahaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626C11E34383600BDDACE /* HahaViewController.swift */; };
-		23C626C51E3438AD00BDDACE /* HahaTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626C41E3438AD00BDDACE /* HahaTabBarController.swift */; };
+		23C626C21E34383600BDDACE /* HahaViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626C11E34383600BDDACE /* HahaViewControllers.swift */; };
 		23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEA1E30602500E276EB /* AppDelegate.swift */; };
 		23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEB1E30602500E276EB /* AppProvider.swift */; };
 		23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEC1E30602500E276EB /* AppRouter.swift */; };
@@ -80,15 +80,15 @@
 		23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerOverlayView.xib; path = Features/Player/PlayerOverlayView.xib; sourceTree = "<group>"; };
 		23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerOverlayView.swift; path = Features/Player/PlayerOverlayView.swift; sourceTree = "<group>"; };
 		23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Errors.swift"; sourceTree = "<group>"; };
+		23C1DE451E372DDF00E53954 /* VCSChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSChannelListViewController.swift; sourceTree = "<group>"; };
+		23C1DE471E372F6C00E53954 /* VCSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSViewController.swift; sourceTree = "<group>"; };
+		23C1DE491E37371800E53954 /* VCSChannelListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSChannelListCell.swift; sourceTree = "<group>"; };
 		23C626AF1E341A2F00BDDACE /* VCS.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VCS.storyboard; sourceTree = "<group>"; };
-		23C626B01E341A2F00BDDACE /* VCSViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSViewCell.swift; sourceTree = "<group>"; };
-		23C626B11E341A2F00BDDACE /* VCSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSViewController.swift; sourceTree = "<group>"; };
 		23C626B61E3426DA00BDDACE /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = Features/Player/PlayerViewController.swift; sourceTree = "<group>"; };
 		23C626B81E3426EB00BDDACE /* Player.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Player.storyboard; path = Features/Player/Player.storyboard; sourceTree = "<group>"; };
 		23C626BA1E342B2100BDDACE /* ViewController+Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+Player.swift"; path = "Features/Player/ViewController+Player.swift"; sourceTree = "<group>"; };
 		23C626BF1E34350E00BDDACE /* ViewController+Haha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Haha.swift"; sourceTree = "<group>"; };
-		23C626C11E34383600BDDACE /* HahaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HahaViewController.swift; sourceTree = "<group>"; };
-		23C626C41E3438AD00BDDACE /* HahaTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HahaTabBarController.swift; sourceTree = "<group>"; };
+		23C626C11E34383600BDDACE /* HahaViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HahaViewControllers.swift; sourceTree = "<group>"; };
 		23DBFAEA1E30602500E276EB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Features/Application/AppDelegate.swift; sourceTree = "<group>"; };
 		23DBFAEB1E30602500E276EB /* AppProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppProvider.swift; path = Features/Application/AppProvider.swift; sourceTree = "<group>"; };
 		23DBFAEC1E30602500E276EB /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRouter.swift; path = Features/Application/AppRouter.swift; sourceTree = "<group>"; };
@@ -223,8 +223,9 @@
 			isa = PBXGroup;
 			children = (
 				23C626AF1E341A2F00BDDACE /* VCS.storyboard */,
-				23C626B01E341A2F00BDDACE /* VCSViewCell.swift */,
-				23C626B11E341A2F00BDDACE /* VCSViewController.swift */,
+				23C1DE451E372DDF00E53954 /* VCSChannelListViewController.swift */,
+				23C1DE491E37371800E53954 /* VCSChannelListCell.swift */,
+				23C1DE471E372F6C00E53954 /* VCSViewController.swift */,
 			);
 			name = VCS;
 			path = Features/VCS;
@@ -245,8 +246,7 @@
 		23C626BC1E342C0900BDDACE /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				23C626C11E34383600BDDACE /* HahaViewController.swift */,
-				23C626C41E3438AD00BDDACE /* HahaTabBarController.swift */,
+				23C626C11E34383600BDDACE /* HahaViewControllers.swift */,
 				23C626BF1E34350E00BDDACE /* ViewController+Haha.swift */,
 				23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */,
 			);
@@ -548,14 +548,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23C1DE461E372DDF00E53954 /* VCSChannelListViewController.swift in Sources */,
 				23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */,
-				23C626C21E34383600BDDACE /* HahaViewController.swift in Sources */,
+				23C626C21E34383600BDDACE /* HahaViewControllers.swift in Sources */,
 				23DBFAFF1E30604200E276EB /* GamesViewController.swift in Sources */,
 				23DBFAF31E30603000E276EB /* LoginViewController.swift in Sources */,
+				23C1DE481E372F6C00E53954 /* VCSViewController.swift in Sources */,
 				230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */,
 				23DBFB071E30607000E276EB /* FromDictable.swift in Sources */,
 				23E746301E33F9AE00498A08 /* VCS.swift in Sources */,
-				23C626B41E341A2F00BDDACE /* VCSViewController.swift in Sources */,
 				23DBFB0B1E30607000E276EB /* Stream.swift in Sources */,
 				230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */,
 				23C1DE421E372A3600E53954 /* (null) in Sources */,
@@ -567,6 +568,7 @@
 				23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */,
 				23DBFAFD1E30604200E276EB /* DateListViewController.swift in Sources */,
 				23DBFB081E30607000E276EB /* Game.swift in Sources */,
+				23C1DE4A1E37371800E53954 /* VCSChannelListCell.swift in Sources */,
 				23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */,
 				23C626C01E34350E00BDDACE /* ViewController+Haha.swift in Sources */,
 				23DBFB011E30604200E276EB /* SportViewController.swift in Sources */,
@@ -575,8 +577,6 @@
 				2355AD551E32926800EAEF02 /* NowPlayingViewCell.swift in Sources */,
 				23DBFB111E311C1F00E276EB /* Date.swift in Sources */,
 				2355AD561E32926800EAEF02 /* NowPlayingViewController.swift in Sources */,
-				23C626C51E3438AD00BDDACE /* HahaTabBarController.swift in Sources */,
-				23C626B31E341A2F00BDDACE /* VCSViewCell.swift in Sources */,
 				23C1DE441E372B1B00E53954 /* ViewController+Errors.swift in Sources */,
 				23DBFB0A1E30607000E276EB /* Sport.swift in Sources */,
 				23DBFAF71E30603900E276EB /* HomeViewController.swift in Sources */,
