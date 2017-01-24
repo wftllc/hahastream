@@ -52,7 +52,7 @@ class NowPlayingViewCell: UICollectionViewCell {
 
 	func updateTimeLabel(withDate date: Date) {
 		if( date.timeIntervalSinceNow < -4.0*60*60 ) {
-			timeLabel.text = "";
+			timeLabel.text = "Complete";
 		}
 		else {
 //			timeLabel.text = "Now Playing (\(date.elapsedTimeString))";
