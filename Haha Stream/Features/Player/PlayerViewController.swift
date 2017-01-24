@@ -16,6 +16,7 @@ class SeekOperation {
 	var initialMediaTime: CMTime
 	//	var targetMediaTime: CMTime
 	var increment: Int
+	
 	/*
 	tells is this op is still active. a seek is active if < SeekUxTimeSeconds
 	have elapsed since the seek completed
@@ -62,6 +63,7 @@ class PlayerViewController: AVPlayerViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		requiresLinearPlayback = false;
@@ -80,6 +82,8 @@ class PlayerViewController: AVPlayerViewController {
 		self.view.addGestureRecognizer(swipeRecognizerL)
 		swipeRecognizerR.direction = .right
 		self.view.addGestureRecognizer(swipeRecognizerR)
+		
+		setupObservers()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -98,9 +102,47 @@ class PlayerViewController: AVPlayerViewController {
 			});
 		}
 		
+		debugItem()
 		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 10.5) {
+			self.debugItem()
+		}
+		//FIXME: remove
+		player?.isMuted = true
 	}
 	
+	func debugItem() {
+		print("=============DEBUG ITEM==============")
+		guard let item = self.player?.currentItem else { return }
+		print(item)
+		print("duration",item.duration.desc)
+		print(item.asset)
+		print("tracks",item.tracks)
+		print("timeMetadata",item.timedMetadata)
+		print("loadedKeys",item.automaticallyLoadedAssetKeys)
+		print("canFF",item.canPlayFastForward)
+		print("canFR",item.canPlayFastReverse)
+		print("forwardEndTime",item.forwardPlaybackEndTime.desc)
+		print("reverseEndTime",item.reversePlaybackEndTime.desc)
+		for tr in item.seekableTimeRanges {
+			if let tr = tr as CMTimeRange? {
+				print("seekableTime")
+				CMTimeRangeShow(tr)
+			}
+			else {
+				print("seekableTime ", tr)
+			}
+		}
+		print("currentDate",item.currentDate())
+		print("currentTime",item.currentTime().desc)
+		print(item.canUseNetworkResourcesForLiveStreamingWhilePaused)
+		print("externalMetadata",item.externalMetadata)
+		
+		print("--asset--")
+		let asset = item.asset
+		print("duration",asset.duration.desc)
+		print("metadata",asset.metadata)
+	}
 	
 	func seekBy(_ increment: Int) {
 		guard let player = self.player else {
@@ -164,17 +206,85 @@ class PlayerViewController: AVPlayerViewController {
 		print("scrubbed from \(oldTime.seconds) to \(targetTime.seconds)");
 	}
 	
+//mark - player kvo
 	
+	var playerContext = true
+	var playerStatusContext = true
+	var playerAssetDurationContext = true
 	
-	/*
-	// MARK: - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	// Get the new view controller using segue.destinationViewController.
-	// Pass the selected object to the new view controller.
+	deinit {
+			removeObservers()
 	}
-	*/
+
 	
+	func removeObservers() {
+		self.removeObserver(self, forKeyPath: #keyPath(player))
+	}
+	
+	func setupObservers() {
+		
+		self.addObserver(self, forKeyPath: #keyPath(player), options: [.initial, .new], context:&playerContext)
+	}
+	
+	func observePlayer(_ player: AVPlayer) {
+		//player.status
+		player.addObserver(self, forKeyPath: "status", options: [.initial, .new], context: &playerStatusContext)
+		
+		player.addObserver(self, forKeyPath: "player.currentItem.duration", options: [.initial, .new], context: &playerAssetDurationContext)
+	}
+	
+
+	func unobservePlayer(_ player: AVPlayer? ){
+		guard let player = player else { return }
+		player.removeObserver(self, forKeyPath: "status")
+		player.removeObserver(self, forKeyPath: "player.currentItem.duration")
+	}
+	override func observeValue(forKeyPath keyPath: String?,
+	                           of object: Any?,
+	                           change: [NSKeyValueChangeKey : Any]?,
+	                           context: UnsafeMutableRawPointer?) {
+		// Only handle observations for the playerItemContext
+		if context == nil {
+			super.observeValue(forKeyPath: keyPath,
+			                   of: object,
+			                   change: change,
+			                   context: context)
+			return
+		}
+
+		if context == &playerContext {
+			if let newPlayer = change?[.newKey] as? AVPlayer {
+				print("new player!", newPlayer);
+				unobservePlayer(change?[.oldKey] as? AVPlayer)
+				observePlayer(newPlayer)
+				
+			}
+		}
+		else if context == &playerStatusContext {
+			if let statusNumber = change?[.newKey] as? NSNumber {
+				let newStatus = AVPlayerItemStatus(rawValue: statusNumber.intValue)!
+				print("new status!", newStatus.rawValue);
+			}
+		}
+		else if context == &playerAssetDurationContext {
+			print("duration", self.player?.currentItem?.duration.desc ?? "nada")
+			//TODO: setup scrubbing and UX as needed
+		}
+		
+	}
+	
+}
+
+
+extension CMTime {
+	var desc: String {
+		
+		var o = flags.contains(.valid) ? "valid" : "invalid"
+		if flags.contains(.indefinite) { o.append(", indefinite") }
+		if flags.contains(.negativeInfinity) { o.append(", -inf") }
+		if flags.contains(.positiveInfinity) { o.append(", +inf") }
+		var s = String(format:"%@, %.0f sec", o, seconds )
+		return s;
+	}
 }
 
