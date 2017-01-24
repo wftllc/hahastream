@@ -37,6 +37,17 @@
                BlueprintName = "HahaStreamUnitTests"
                ReferencedContainer = "container:Haha Stream.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "HahaProviderTest/testChannels()">
+               </Test>
+               <Test
+                  Identifier = "HahaProviderTest/testNowPlaying()">
+               </Test>
+               <Test
+                  Identifier = "HahaProviderTest/testSportsGamesStreamFetchingFlow()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

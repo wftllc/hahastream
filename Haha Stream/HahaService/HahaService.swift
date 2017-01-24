@@ -9,10 +9,11 @@ enum HahaService {
 	case getChannels(sport: String);
 	case getStreams(sport: String, gameUUID: String);
 	case getStreamForChannel(sport: String, channelId: Int);
+	case scrapeVCSChannels;
 }
 
 extension HahaService: TargetType {
-	var baseURL: URL { return URL(string: "https://hehestreams.xyz/api/v1")! }
+	var baseURL: URL { return URL(string: "http://hehestreams.xyz/api/v1")! }
 	
 	var path: String {
 		switch self {
@@ -28,6 +29,8 @@ extension HahaService: TargetType {
 			return "/\(sport.urlEscaped)/channels";
 		case .getStreamForChannel(let sport, let channelId):
 			return "/\(sport.urlEscaped)/channels/\(channelId)";
+		case .scrapeVCSChannels:
+			return "vcs"
 		}
 	}
 

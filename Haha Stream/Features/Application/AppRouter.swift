@@ -39,6 +39,11 @@ class AppRouter: NSObject {
 		self.window?.rootViewController = vc;
 	}
 	
+	func vcsViewController() -> VCSViewController {
+		let vc = UIStoryboard(name: "VCS", bundle: nil).instantiateInitialViewController() as! VCSViewController;
+		vc.provider = hahaProvider;
+		return vc;
+	}
 	
 	func loginViewController() -> LoginViewController {
 		let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController;

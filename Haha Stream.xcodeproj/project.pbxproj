@@ -17,6 +17,11 @@
 		2355AD561E32926800EAEF02 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */; };
 		23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */; };
 		23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */; };
+		23C1DE421E372A3600E53954 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		23C1DE441E372B1B00E53954 /* ViewController+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */; };
+		23C626B21E341A2F00BDDACE /* VCS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C626AF1E341A2F00BDDACE /* VCS.storyboard */; };
+		23C626B31E341A2F00BDDACE /* VCSViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626B01E341A2F00BDDACE /* VCSViewCell.swift */; };
+		23C626B41E341A2F00BDDACE /* VCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626B11E341A2F00BDDACE /* VCSViewController.swift */; };
 		23C626B71E3426DA00BDDACE /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626B61E3426DA00BDDACE /* PlayerViewController.swift */; };
 		23C626B91E3426EB00BDDACE /* Player.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C626B81E3426EB00BDDACE /* Player.storyboard */; };
 		23C626BB1E342B2100BDDACE /* ViewController+Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626BA1E342B2100BDDACE /* ViewController+Player.swift */; };
@@ -41,7 +46,7 @@
 		23DBFB0A1E30607000E276EB /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB051E30607000E276EB /* Sport.swift */; };
 		23DBFB0B1E30607000E276EB /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB061E30607000E276EB /* Stream.swift */; };
 		23DBFB111E311C1F00E276EB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB0F1E311C1F00E276EB /* Date.swift */; };
-		23DBFB121E311C1F00E276EB /* ViewController+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB101E311C1F00E276EB /* ViewController+Errors.swift */; };
+		23E746301E33F9AE00498A08 /* VCS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E7462F1E33F9AE00498A08 /* VCS.swift */; };
 		23F6951D1E3270CA00B8E4FB /* HahaProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6951C1E3270CA00B8E4FB /* HahaProviderTest.swift */; };
 		23F6951F1E3274FC00B8E4FB /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23F6951E1E3274FC00B8E4FB /* Config.plist */; };
 		3F69EA497F60AD6E30D7BAA9 /* Pods_HahaStreamUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8F884DFF693A84A64CB7B5 /* Pods_HahaStreamUnitTests.framework */; };
@@ -74,6 +79,10 @@
 		2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerOverlayView.xib; path = Features/Player/PlayerOverlayView.xib; sourceTree = "<group>"; };
 		23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerOverlayView.swift; path = Features/Player/PlayerOverlayView.swift; sourceTree = "<group>"; };
+		23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Errors.swift"; sourceTree = "<group>"; };
+		23C626AF1E341A2F00BDDACE /* VCS.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VCS.storyboard; sourceTree = "<group>"; };
+		23C626B01E341A2F00BDDACE /* VCSViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSViewCell.swift; sourceTree = "<group>"; };
+		23C626B11E341A2F00BDDACE /* VCSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSViewController.swift; sourceTree = "<group>"; };
 		23C626B61E3426DA00BDDACE /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = Features/Player/PlayerViewController.swift; sourceTree = "<group>"; };
 		23C626B81E3426EB00BDDACE /* Player.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Player.storyboard; path = Features/Player/Player.storyboard; sourceTree = "<group>"; };
 		23C626BA1E342B2100BDDACE /* ViewController+Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+Player.swift"; path = "Features/Player/ViewController+Player.swift"; sourceTree = "<group>"; };
@@ -98,7 +107,7 @@
 		23DBFB051E30607000E276EB /* Sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sport.swift; path = HahaService/Models/Sport.swift; sourceTree = "<group>"; };
 		23DBFB061E30607000E276EB /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stream.swift; path = HahaService/Models/Stream.swift; sourceTree = "<group>"; };
 		23DBFB0F1E311C1F00E276EB /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		23DBFB101E311C1F00E276EB /* ViewController+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+Errors.swift"; path = "../../Extensions/ViewController+Errors.swift"; sourceTree = "<group>"; };
+		23E7462F1E33F9AE00498A08 /* VCS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VCS.swift; path = HahaService/Models/VCS.swift; sourceTree = "<group>"; };
 		23F6951B1E3270CA00B8E4FB /* HahaStreamUnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HahaStreamUnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		23F6951C1E3270CA00B8E4FB /* HahaProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HahaProviderTest.swift; sourceTree = "<group>"; };
 		23F6951E1E3274FC00B8E4FB /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
@@ -203,10 +212,22 @@
 				2307A8BF1E3442B3002F0061 /* NowPlayingItem.swift */,
 				23DBFB041E30607000E276EB /* HahaError.swift */,
 				23DBFB051E30607000E276EB /* Sport.swift */,
+				23E7462F1E33F9AE00498A08 /* VCS.swift */,
 				233F4C131E32B5E100786A5C /* Channel.swift */,
 				23DBFB061E30607000E276EB /* Stream.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		23C626AE1E341A2F00BDDACE /* VCS */ = {
+			isa = PBXGroup;
+			children = (
+				23C626AF1E341A2F00BDDACE /* VCS.storyboard */,
+				23C626B01E341A2F00BDDACE /* VCSViewCell.swift */,
+				23C626B11E341A2F00BDDACE /* VCSViewController.swift */,
+			);
+			name = VCS;
+			path = Features/VCS;
 			sourceTree = "<group>";
 		};
 		23C626B51E3426B600BDDACE /* Player */ = {
@@ -227,7 +248,7 @@
 				23C626C11E34383600BDDACE /* HahaViewController.swift */,
 				23C626C41E3438AD00BDDACE /* HahaTabBarController.swift */,
 				23C626BF1E34350E00BDDACE /* ViewController+Haha.swift */,
-				23DBFB101E311C1F00E276EB /* ViewController+Errors.swift */,
+				23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */,
 			);
 			name = Core;
 			path = Features/Core;
@@ -242,6 +263,7 @@
 				23DBFAE61E305DDF00E276EB /* Login */,
 				23DBFAE51E305DC900E276EB /* Home */,
 				2355AD501E32926800EAEF02 /* Now Playing */,
+				23C626AE1E341A2F00BDDACE /* VCS */,
 				23DBFAE41E305DA400E276EB /* Sport */,
 			);
 			name = Features;
@@ -414,6 +436,7 @@
 				2355AD541E32926800EAEF02 /* NowPlaying.storyboard in Resources */,
 				23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */,
 				23C626B91E3426EB00BDDACE /* Player.storyboard in Resources */,
+				23C626B21E341A2F00BDDACE /* VCS.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,8 +554,11 @@
 				23DBFAF31E30603000E276EB /* LoginViewController.swift in Sources */,
 				230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */,
 				23DBFB071E30607000E276EB /* FromDictable.swift in Sources */,
+				23E746301E33F9AE00498A08 /* VCS.swift in Sources */,
+				23C626B41E341A2F00BDDACE /* VCSViewController.swift in Sources */,
 				23DBFB0B1E30607000E276EB /* Stream.swift in Sources */,
 				230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */,
+				23C1DE421E372A3600E53954 /* (null) in Sources */,
 				23DBFB091E30607000E276EB /* HahaError.swift in Sources */,
 				233F4C141E32B5E100786A5C /* Channel.swift in Sources */,
 				23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */,
@@ -550,7 +576,8 @@
 				23DBFB111E311C1F00E276EB /* Date.swift in Sources */,
 				2355AD561E32926800EAEF02 /* NowPlayingViewController.swift in Sources */,
 				23C626C51E3438AD00BDDACE /* HahaTabBarController.swift in Sources */,
-				23DBFB121E311C1F00E276EB /* ViewController+Errors.swift in Sources */,
+				23C626B31E341A2F00BDDACE /* VCSViewCell.swift in Sources */,
+				23C1DE441E372B1B00E53954 /* ViewController+Errors.swift in Sources */,
 				23DBFB0A1E30607000E276EB /* Sport.swift in Sources */,
 				23DBFAF71E30603900E276EB /* HomeViewController.swift in Sources */,
 			);

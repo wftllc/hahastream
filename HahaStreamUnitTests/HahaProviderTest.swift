@@ -26,6 +26,22 @@ class HahaProviderTest: XCTestCase {
 		super.tearDown()
 	}
 	
+	func testVCSScraping() {
+		let exp = expectation(description: "wait")
+		var vcses:[VCS] = []
+		self.provider.getVCSChannels(success: { (result) in
+			vcses = result
+			exp.fulfill()
+		}, apiError: { (error) in
+			XCTFail("apiError: \(error)")
+			exp.fulfill()
+		}, networkFailure: { (error) in
+			XCTFail("networkFailure: \(error)")
+			exp.fulfill()
+		});
+		waitForExpectations(timeout: 25, handler: nil)
+	}
+	
 	
 	func testChannels() {
 		let exp = expectation(description: "wait")

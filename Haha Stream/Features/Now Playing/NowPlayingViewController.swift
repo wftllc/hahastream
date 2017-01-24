@@ -88,6 +88,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NowPlayingViewCell;
 		let item = items[indexPath.item];
+		VCS(name: "name", uuid: "uuid")
 		
 		if let game = item.game {
 			if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {

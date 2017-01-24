@@ -15,7 +15,13 @@ class HomeViewController: HahaTabBarController {
 			})
 			for sport in sports {
 				let tabBarItem = UITabBarItem(title: sport.name, image: nil, selectedImage: nil)
-				let vc = self.appRouter.viewController(forSport: sport)
+				let vc:UIViewController
+				if sport.name.lowercased() == "vcs" {
+					vc = self.appRouter.vcsViewController()
+				}
+				else {
+					vc = self.appRouter.viewController(forSport: sport)
+				}
 				vc.tabBarItem = tabBarItem
 				viewControllers.append(vc)				
 			}
