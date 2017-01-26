@@ -94,19 +94,13 @@ class PlayerViewController: AVPlayerViewController {
 		self.overlayView.alpha = 1.0;
 		self.overlayView.label.alpha = 0.0;
 		self.overlayView.visualEffectView.alpha = 0.0;
-		UIView.animate(withDuration: 0.5, delay: 1, options:[], animations: {
-			self.overlayView.visualEffectView.alpha = 1.0;
-		}) { (finished) in
-			UIView.animate(withDuration: 0.5, delay: 3, animations: {
-				self.overlayView.visualEffectView.alpha = 0.0;
-			});
-		}
-		
+		/*
 		debugItem()
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 10.5) {
-			self.debugItem()
+		self.debugItem()
 		}
+		*/
 		//FIXME: remove
 		player?.isMuted = true
 	}
@@ -144,6 +138,18 @@ class PlayerViewController: AVPlayerViewController {
 		print("metadata",asset.metadata)
 	}
 	
+	var once = false;
+	func showIntro() {
+		if once { return }
+		once = true;
+		UIView.animate(withDuration: 0.5, delay: 1, options:[], animations: {
+			self.overlayView.visualEffectView.alpha = 1.0;
+		}) { (finished) in
+			UIView.animate(withDuration: 0.5, delay: 3, animations: {
+				self.overlayView.visualEffectView.alpha = 0.0;
+			});
+		}
+	}
 	func seekBy(_ increment: Int) {
 		guard let player = self.player else {
 			return;
@@ -206,39 +212,54 @@ class PlayerViewController: AVPlayerViewController {
 		print("scrubbed from \(oldTime.seconds) to \(targetTime.seconds)");
 	}
 	
-//mark - player kvo
+	//mark - player kvo
 	
+	var selfContext = true
 	var playerContext = true
-	var playerStatusContext = true
-	var playerAssetDurationContext = true
+	var playerItemContext = true
 	
 	deinit {
-			removeObservers()
+		removeObservers()
 	}
-
+	
 	
 	func removeObservers() {
-		self.removeObserver(self, forKeyPath: #keyPath(player))
+		unobservePlayer(player)
+		self.removeObserver(self, forKeyPath: #keyPath(player), context: &selfContext)
 	}
 	
 	func setupObservers() {
-		
-		self.addObserver(self, forKeyPath: #keyPath(player), options: [.initial, .new], context:&playerContext)
+		self.addObserver(self, forKeyPath: #keyPath(player), options: [.initial, .new, .old], context:&selfContext)
 	}
 	
-	func observePlayer(_ player: AVPlayer) {
-		//player.status
-		player.addObserver(self, forKeyPath: "status", options: [.initial, .new], context: &playerStatusContext)
-		
-		player.addObserver(self, forKeyPath: "player.currentItem.duration", options: [.initial, .new], context: &playerAssetDurationContext)
-	}
-	
-
-	func unobservePlayer(_ player: AVPlayer? ){
+	func observePlayer(_ player: AVPlayer?) {
+		print("observePlayer \(player)")
 		guard let player = player else { return }
-		player.removeObserver(self, forKeyPath: "status")
-		player.removeObserver(self, forKeyPath: "player.currentItem.duration")
+		player.addObserver(self, forKeyPath: "status", options: [.initial, .new, .old], context: &playerContext)
+		player.addObserver(self, forKeyPath: "currentItem", options: [.initial, .new, .old], context: &playerContext)
 	}
+	
+	func unobservePlayer(_ player: AVPlayer? ){
+		print("unobservePlayer \(player)")
+		guard let player = player else { return }
+		unobservePlayerItem(player.currentItem)
+		player.removeObserver(self, forKeyPath: "status", context: &playerContext)
+		player.removeObserver(self, forKeyPath: "currentItem", context: &playerContext)
+	}
+	
+	func observePlayerItem(_ item: AVPlayerItem?) {
+		print("observePlayerItem \(item)")
+		guard let item = item else { return }
+		item.addObserver(self, forKeyPath: "duration", options: [.initial, .new, .old], context: &playerItemContext)
+	}
+	
+	func unobservePlayerItem(_ item: AVPlayerItem?) {
+		print("unobservePlayerItem \(item)")
+		guard let item = item else { return }
+		item.removeObserver(self, forKeyPath: "duration", context: &playerItemContext)
+	}
+	
+	
 	override func observeValue(forKeyPath keyPath: String?,
 	                           of object: Any?,
 	                           change: [NSKeyValueChangeKey : Any]?,
@@ -251,30 +272,38 @@ class PlayerViewController: AVPlayerViewController {
 			                   context: context)
 			return
 		}
-
-		if context == &playerContext {
-			if let newPlayer = change?[.newKey] as? AVPlayer {
-				print("new player!", newPlayer);
-				unobservePlayer(change?[.oldKey] as? AVPlayer)
-				observePlayer(newPlayer)
+		
+		if context == &selfContext {
+			unobservePlayer(change?[.oldKey] as? AVPlayer)
+			observePlayer(change?[.newKey] as? AVPlayer)
+		}
+		else if context == &playerContext {
+			if keyPath == "status" {
+				if let statusNumber = change?[.newKey] as? NSNumber {
+					let newStatus = AVPlayerItemStatus(rawValue: statusNumber.intValue)!
+					print("new status!", newStatus.rawValue);
+				}
+			}
+			else if keyPath == "currentItem" {
+				unobservePlayerItem(change?[.oldKey] as? AVPlayerItem)
+				observePlayerItem(change?[.newKey] as? AVPlayerItem)
+			}
+			
+		}
+		else if context == &playerItemContext {
+			guard let duration = change?[.newKey] as? CMTime else { return }
+			print("duration", duration.desc)
+			
+			DispatchQueue.main.async {
 				
+				self.showIntro()
 			}
-		}
-		else if context == &playerStatusContext {
-			if let statusNumber = change?[.newKey] as? NSNumber {
-				let newStatus = AVPlayerItemStatus(rawValue: statusNumber.intValue)!
-				print("new status!", newStatus.rawValue);
-			}
-		}
-		else if context == &playerAssetDurationContext {
-			print("duration", self.player?.currentItem?.duration.desc ?? "nada")
-			//TODO: setup scrubbing and UX as needed
 		}
 		
+		
+		
 	}
-	
 }
-
 
 extension CMTime {
 	var desc: String {
@@ -283,7 +312,7 @@ extension CMTime {
 		if flags.contains(.indefinite) { o.append(", indefinite") }
 		if flags.contains(.negativeInfinity) { o.append(", -inf") }
 		if flags.contains(.positiveInfinity) { o.append(", +inf") }
-		var s = String(format:"%@, %.0f sec", o, seconds )
+		let s = String(format:"%@, %.0f sec", o, seconds )
 		return s;
 	}
 }
