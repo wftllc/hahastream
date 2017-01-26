@@ -58,6 +58,7 @@ extension Kingfisher where Base: ImageView {
                          completionHandler: CompletionHandler? = nil) -> RetrieveImageTask
     {
         guard let resource = resource else {
+            base.image = placeholder
             completionHandler?(nil, nil, .none, nil)
             return .empty
         }
@@ -73,7 +74,7 @@ extension Kingfisher where Base: ImageView {
         
         setWebURL(resource.downloadURL)
 
-        if shouldPreloadAllGIF() {
+        if base.shouldPreloadAllGIF() {
             options.append(.preloadAllGIFData)
         }
         
@@ -136,10 +137,6 @@ extension Kingfisher where Base: ImageView {
      */
     public func cancelDownloadTask() {
         imageTask?.downloadTask?.cancel()
-    }
-    
-    func shouldPreloadAllGIF() -> Bool {
-        return true
     }
 }
 
@@ -284,6 +281,8 @@ extension ImageView {
     fileprivate func kf_setImageTask(_ task: RetrieveImageTask?) { kf.setImageTask(task) }
     @available(*, deprecated, message: "Extensions directly on image views are deprecated.", renamed: "kf.setWebURL")
     fileprivate func kf_setWebURL(_ url: URL) { kf.setWebURL(url) }
-    @available(*, deprecated, message: "Extensions directly on image views are deprecated.", renamed: "kf.shouldPreloadAllGIF")
-    func shouldPreloadAllGIF() -> Bool { return kf.shouldPreloadAllGIF() }
+}
+
+extension ImageView {
+    func shouldPreloadAllGIF() -> Bool { return true }
 }
