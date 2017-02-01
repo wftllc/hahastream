@@ -3,6 +3,44 @@ import UIKit
 import AVKit
 
 extension HahaViewController {
+	
+	func selectGame(_ gameUUID: String, sport: String) {
+		showLoading(animated: true)
+		provider.getGame(sportName: sport, gameUUID: gameUUID, success: { (game) in
+			guard let game = game else {
+				self.hideLoading(animated: true, completion: {
+					self.showAlert(title: "Game not Found", message: "A matching game could not be found. Please try again.");
+				})
+				return;
+			}
+			//just put in the sport by hand, since it's not returned by api
+			game.sport = Sport(name: sport, path: "", status: true)
+			self.selectGame(game);
+		}, apiError: apiErrorClosure,
+		   networkFailure: networkFailureClosure
+		)
+	}
+	
+	func selectChannel(_ identifier: Int, sport: String) {
+		showLoading(animated: true)
+		//fake it!
+		let channel = Channel(identifier: identifier, title: "\(sport) channel", notes: nil, active: true);
+		channel.sport = Sport(name: sport, path: "", status: true);
+		
+		provider.getStream(channel: channel, success: { (stream) in
+			self.hideLoading(animated: true, completion: {
+				if let stream = stream {
+					self.playURL(stream.url)
+				}
+				else {
+					self.showAlert(title: "No Stream", message: "Couldn't find stream for \(channel.title)");
+				}
+			});
+		}, apiError: apiErrorClosure,
+		   networkFailure: networkFailureClosure
+		)
+	}
+	
 	func selectGame(_ game: Game) {
 		showLoading(animated: true)
 		provider.getStreams(sport: game.sport, game: game, success: { (streams) in
@@ -37,6 +75,9 @@ extension HahaViewController {
 	}
 	
 
+	func onStreamChoiceCanceled() {
+		
+	}
 	/// Shows an alert with "OK" and "Cancel" buttons.
 	func showStreamChoiceAlert(game: Game, streams: [Stream]) {
 		let title = "Choose Stream"
@@ -67,7 +108,9 @@ extension HahaViewController {
 		}
 		
 		let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
-		let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel)
+		let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { _ in
+			self.onStreamChoiceCanceled()
+		}
 		alertController.addAction(cancelAction)
 		
 		present(alertController, animated: true, completion: nil)

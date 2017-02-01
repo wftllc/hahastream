@@ -101,8 +101,8 @@ class PlayerViewController: AVPlayerViewController {
 		self.debugItem()
 		}
 		*/
-		//FIXME: remove
-		player?.isMuted = true
+//		FIXME: remove
+//		player?.isMuted = true
 	}
 	
 	func debugItem() {
@@ -112,7 +112,7 @@ class PlayerViewController: AVPlayerViewController {
 		print("duration",item.duration.desc)
 		print(item.asset)
 		print("tracks",item.tracks)
-		print("timeMetadata",item.timedMetadata)
+		print("timeMetadata \(item.timedMetadata)")
 		print("loadedKeys",item.automaticallyLoadedAssetKeys)
 		print("canFF",item.canPlayFastForward)
 		print("canFR",item.canPlayFastReverse)
@@ -127,7 +127,7 @@ class PlayerViewController: AVPlayerViewController {
 				print("seekableTime ", tr)
 			}
 		}
-		print("currentDate",item.currentDate())
+		print("currentDate \(item.currentDate())")
 		print("currentTime",item.currentTime().desc)
 		print(item.canUseNetworkResourcesForLiveStreamingWhilePaused)
 		print("externalMetadata",item.externalMetadata)
@@ -160,7 +160,7 @@ class PlayerViewController: AVPlayerViewController {
 			self.seekOperation = SeekOperation(initialMediaTime: player.currentTime(), increment: 0)
 		}
 		
-		guard var seekOp = self.seekOperation else { return }
+		guard let seekOp = self.seekOperation else { return }
 		
 		seekOp.incrementBy(increment);
 		

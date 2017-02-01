@@ -4,7 +4,8 @@ import Moya
 enum HahaService {
 	case getGamesNoDate(sport: String);
 	case getGames(sport: String, year: Int, month: Int, day: Int);
-//	case getGamesByDate(sport: String, year: Int, month: Int, day: Int);
+	case getGame(sport: String, uuid: String)
+	//	case getGamesByDate(sport: String, year: Int, month: Int, day: Int);
 	case getSports;
 	case getChannels(sport: String);
 	case getStreams(sport: String, gameUUID: String);
@@ -19,6 +20,8 @@ extension HahaService: TargetType {
 		switch self {
 		case .getSports:
 			return "users/login";
+		case .getGame(let sport, let uuid):
+			return "/\(sport.urlEscaped)/games/\(uuid.urlEscaped)";
 		case .getGames(let sport, _, _, _):
 			return "/\(sport.urlEscaped)/games";
 		case .getGamesNoDate(let sport):
@@ -33,7 +36,7 @@ extension HahaService: TargetType {
 			return "vcs"
 		}
 	}
-
+	
 	var method: Moya.Method {
 		switch self {
 			
@@ -45,8 +48,8 @@ extension HahaService: TargetType {
 	var parameters: [String: Any]? {
 		switch self {
 		case .getGames(_, let year, let month, let day):
-				return [
-					"date": String(format: "%4d-%1d-%1d", year, month, day)
+			return [
+				"date": String(format: "%4d-%1d-%1d", year, month, day)
 			]
 			
 		default:
@@ -68,7 +71,7 @@ extension HahaService: TargetType {
 			return "".utf8Encoded;
 		}
 	}
-
+	
 }
 
 // MARK: - Helpers

@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		0C6C2653EECAA533DD114CE29079640B /* AccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6E756F8983B7285783D85095566243 /* AccessTokenPlugin.swift */; };
 		0E9CC28AC8E34FE8E1C87E933E04BC7A /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921F8521EA36AEFA45E2FDD5AB207F54 /* ImageProcessor.swift */; };
+		10452E884C1755088981E539B7422BD6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0535C9835334435E174CED08C41F47 /* Foundation.framework */; };
 		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E14C8E8D8E3B82AD65C0CAB09EE65F8 /* Timeline.swift */; };
 		179523942E7D1E3EB210EF05E2C7AE79 /* Kingfisher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CEEB93CE4B5B64DA0C74A86055876C8 /* Kingfisher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19FAF6873559665BCBDABF0D516A64A4 /* MultiTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F099D28C33367172A1EAA70675081CF /* MultiTarget.swift */; };
 		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 01EE3147D26059656A19D99A4BBC0C27 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C30DB5B070E6DD8B246711550128361 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0535C9835334435E174CED08C41F47 /* Foundation.framework */; };
+		22CE3392376B2207E308166E2B76540D /* Pods-Haha Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B053AEB19620994CF8BBF935B2882E /* Pods-Haha Extension-dummy.m */; };
 		2E5E570FFC49EF98550401421A243C0F /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D4187E05082187DD0B498E35903E96 /* CacheSerializer.swift */; };
 		33395912F2FFA355C4C36B7EDEAA3DA7 /* ImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D848462078C7F90B396A2E3BE8A1B6E9 /* ImageView+Kingfisher.swift */; };
 		33A14E817C0FA585D5DA3A55E453299D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F7C8B0716C3E247DB5AA3A05ED375 /* Image.swift */; };
@@ -23,13 +25,12 @@
 		362D09614DDFE12D6B1A169D07E34955 /* MoyaProvider+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C27D519CB34838063E2D972787FF287 /* MoyaProvider+Defaults.swift */; };
 		3680A1C5C7F2F9AE6593A06D37616D28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0535C9835334435E174CED08C41F47 /* Foundation.framework */; };
 		378B44CAA91C2106076668FDE72E1E02 /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D051FC79EB2C005E117B91C1DE2C86 /* KingfisherOptionsInfo.swift */; };
-		3AFB7CC8F1C58E94923CFF76358D56BF /* Pods-Haha Stream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D9DC9DF3AAC37AE88E00D2277F46B3 /* Pods-Haha Stream-dummy.m */; };
+		3AFB7CC8F1C58E94923CFF76358D56BF /* Pods-Haha Stream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A04C73ECC95586CFBAD5A60F8E15A12 /* Pods-Haha Stream-dummy.m */; };
 		4089E39F76F86466B8DDD39A1C1ABB6B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C956740416F22E8C7FC21FE2B3A5DA /* Filter.swift */; };
 		41B9CF925588AE88F40DF1498C85BB3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0535C9835334435E174CED08C41F47 /* Foundation.framework */; };
 		42352574494E4F44BF4D19F6A32D14BF /* Moya-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D49D86F3B3EFF067B72A556FD4F137 /* Moya-dummy.m */; };
 		427547AF904D47523AE2A5C8DD1296FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0535C9835334435E174CED08C41F47 /* Foundation.framework */; };
 		4418C8657F31E73C66BF9578205DC3C7 /* MoyaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C1A95F67FEC70D29560A5D7044F56 /* MoyaError.swift */; };
-		4D3D7C39FCDD7CA51B35CC0282FCD747 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0535C9835334435E174CED08C41F47 /* Foundation.framework */; };
 		4FB1845AF74A773450E84C90E293CF2A /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33405D0F21D5E237462FEF3555B2E311 /* NetworkLoggerPlugin.swift */; };
 		52A280AB4852FDE92DF09B5E79D5C2AA /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389696FE344FA7CAE62405744A302CCD /* Indicator.swift */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FB0D054F6DF3289CBD3E29A2984FB /* Request.swift */; };
@@ -51,13 +52,13 @@
 		7E6E34C212041337189F111719D26698 /* MoyaProvider+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727B25DC926630C123D9FA5109232DF /* MoyaProvider+Internal.swift */; };
 		8554FDD63A222310587233F10F1B2D85 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60863424FCE890C8B9E3D0A9A8E8BBA2 /* Image.swift */; };
 		86B7DA678C8705523C300947117C0706 /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273057E046AA56420BAE466F977B4ADE /* ImageTransition.swift */; };
-		8AC3CE943CB3122E2F1D1060297AEEC6 /* Pods-Haha Stream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EAB4C8005EAFF63AF90F96762DFD218 /* Pods-Haha Stream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8AC3CE943CB3122E2F1D1060297AEEC6 /* Pods-Haha Stream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B6820B1580A79BC0C810C785D3AFDE /* Pods-Haha Stream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8CED94AE88BEA7A90E564677A1015CEA /* Pods-HahaStreamUnitTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 83701F1C2604045E181EB84A65050B18 /* Pods-HahaStreamUnitTests-dummy.m */; };
 		8DA7E6883118CB3C8132B64D3D43AE0B /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03198597FE9783EC391A5E02A425E03C /* Resource.swift */; };
 		9A006942DB4789D53C45C8D1670E3054 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6EC2107B01B4AF1A8B72E190BDC8B /* TargetType.swift */; };
 		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09BB0E29550B178000465C4CA31F76B /* AFError.swift */; };
 		9F826F893E86EB86591B637A1CE4B13A /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CC54075A55A9E1EB17A75F2E359F45 /* String+MD5.swift */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9B9E30D29538E8ECB08AFF3DA7EB6C /* NetworkReachabilityManager.swift */; };
-		A842886D3979357E4DB1309B24FA0BAD /* Pods-HahaStreamUnitTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B446E571BF71330E3E91B1AE8D5A26 /* Pods-HahaStreamUnitTests-dummy.m */; };
 		A8F35D1EBAEF99D38F02A0B8CA5D8FBE /* Kingfisher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C5961E4EB55D16CAFF491D463DDF59 /* Kingfisher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDBD69317E6BA935DF9E94E854B115 /* Alamofire-dummy.m */; };
 		AD426863BAEE08020637C16D563F4679 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0535C9835334435E174CED08C41F47 /* Foundation.framework */; };
@@ -73,15 +74,17 @@
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF595AD410485B1F33FA8A0B64ACADD /* Response.swift */; };
 		CF6C7CEF81CB840D6ABC54F45FBA37C3 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889C5E6722BEBD4B666087E7B863810C /* Cancellable.swift */; };
 		D2096F894CEB71E86585445E1A6BB15E /* MoyaAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDD7C6C3407676A1BA94D8E8CC060EA /* MoyaAvailability.swift */; };
+		D940D97AD91C5F521FD15C82F9248DA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0535C9835334435E174CED08C41F47 /* Foundation.framework */; };
 		DC6080C64C269628C3F5107BE87055E2 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F801AF90F64A2C774C5DA23E92D47158 /* ImageDownloader.swift */; };
 		DD7659D3BD5BFBE56442531B651CD704 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C74A77E28A1F190214645024856A6F8 /* Alamofire.framework */; };
 		E101BB35F7C470411D1963A68D528593 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7058829E0B3448A3A923A72A01E83A53 /* Result.framework */; };
 		E6AC3124324A09BCE9B7AADBDAF31F72 /* Moya-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CB9E0575794954FA0260764C3961FCE3 /* Moya-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA816A580C3858934ED6FE92040C26DD /* RequestModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEBC910358625731ED4CC5461C5FD0C /* RequestModifier.swift */; };
 		EBC5840E357A651E7AA35FC19AB5C006 /* NetworkActivityPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D671AB6F12BFF4C620BCE9479CD4F8D /* NetworkActivityPlugin.swift */; };
+		EDE08E3A3BF66620FF48F00ACD047724 /* Pods-HahaStreamUnitTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D1CEA6886A890D6E51EB50E373EABF6 /* Pods-HahaStreamUnitTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE89512E8D36E67CDC525DB9D5BBF5A7 /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3512A3186A440A74A553029D0790C2F4 /* UIButton+Kingfisher.swift */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7968C2E99B8E838B518003B1BCBCB0C7 /* Notifications.swift */; };
-		F2A5B841FB764DAA2AB09B2771DC1981 /* Pods-HahaStreamUnitTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6230DF1E94421EF6E4FC83C98A903EF0 /* Pods-HahaStreamUnitTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F089E104306A0C7EE5C21BB0C5897067 /* Pods-Haha Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A01823B355ACAA32D5B483C2753E6C14 /* Pods-Haha Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4DC51B4DACF9A6BD61201BC3A8529F8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B691663A07CC4AAA2A83386ED33ECE /* Response.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B82DA5BF5F595A292908F74F8605A0 /* ResponseSerialization.swift */; };
 		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4367ACFB2BBD85B6178CC737AE240443 /* Alamofire.swift */; };
@@ -96,14 +99,14 @@
 			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
 			remoteInfo = Alamofire;
 		};
-		0B3DBE75D05B4AB93D9A077F3F299BE3 /* PBXContainerItemProxy */ = {
+		0BDBBADB33C82E81BFD44C6E3C6F8B41 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
-			remoteInfo = Alamofire;
+			remoteGlobalIDString = 52ACA0236F086E72B74F0A090A743D41;
+			remoteInfo = Moya;
 		};
-		0BDBBADB33C82E81BFD44C6E3C6F8B41 /* PBXContainerItemProxy */ = {
+		1E6212DBBF532A9143B20A197A03E4CA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -138,19 +141,26 @@
 			remoteGlobalIDString = C4944FEC314D1A66588651D006273ADE;
 			remoteInfo = Kingfisher;
 		};
-		9869F1F9C5A6059A2D76F46F94547ABD /* PBXContainerItemProxy */ = {
+		A073C7B5F91EB8BA3CBF64F0964069FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
+		};
+		CFFC0A5DD9E0EF6B362DF7EC2E18C6F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4944FEC314D1A66588651D006273ADE;
+			remoteInfo = Kingfisher;
+		};
+		FEB89F2667CB40A2BCA7578EBDCB955C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1215771836B84E9F9899950098D2FF80;
 			remoteInfo = Result;
-		};
-		AFC21617013C07EF72572FFCA51A842F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52ACA0236F086E72B74F0A090A743D41;
-			remoteInfo = Moya;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -159,115 +169,126 @@
 		01EE3147D26059656A19D99A4BBC0C27 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
 		02C5961E4EB55D16CAFF491D463DDF59 /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
 		03198597FE9783EC391A5E02A425E03C /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/Resource.swift; sourceTree = "<group>"; };
+		06DB95FD3178F6FA3A9F3FFBF1E46D96 /* Pods-Haha Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Haha Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		084697C57EFBA25694BEFDC5D0001EE1 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		093D01BCE3D3F476B93F9503B1E665D0 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		0C74A77E28A1F190214645024856A6F8 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B959D512583FC713C3A3DBA2704764 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		129269C252155713E6A047E360D3968A /* Pods-HahaStreamUnitTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HahaStreamUnitTests-frameworks.sh"; sourceTree = "<group>"; };
 		15D051FC79EB2C005E117B91C1DE2C86 /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherOptionsInfo.swift; path = Sources/KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
+		17BB5644BDFA938259FB512EF45C8854 /* Pods-Haha Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Haha Extension-acknowledgements.plist"; sourceTree = "<group>"; };
 		1BF595AD410485B1F33FA8A0B64ACADD /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		1D0A1D0B4DF1F188CBA9B11E286E87B2 /* Pods-Haha Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Haha Extension.release.xcconfig"; sourceTree = "<group>"; };
 		1F099D28C33367172A1EAA70675081CF /* MultiTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiTarget.swift; path = Sources/Moya/MultiTarget.swift; sourceTree = "<group>"; };
-		20B446E571BF71330E3E91B1AE8D5A26 /* Pods-HahaStreamUnitTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HahaStreamUnitTests-dummy.m"; sourceTree = "<group>"; };
-		20BF249B56D6F14DE1D16903EC27EFD6 /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Result.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2404A4E4D5BA573DB9C3B93B566626D8 /* Kingfisher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.xcconfig; sourceTree = "<group>"; };
 		273057E046AA56420BAE466F977B4ADE /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/ImageTransition.swift; sourceTree = "<group>"; };
 		278F5FCB8F852B8275B6CEFEF98F646E /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		2B0A98FAD901DDDAA5375C7322EEF39D /* ThreadHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadHelper.swift; path = Sources/ThreadHelper.swift; sourceTree = "<group>"; };
 		2BF6EC2107B01B4AF1A8B72E190BDC8B /* TargetType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TargetType.swift; path = Sources/Moya/TargetType.swift; sourceTree = "<group>"; };
-		2CFEB62CE3B27B2A7F49958729B0C638 /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Moya.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EB986E0AAF4760AC4FFCE3F2C886652 /* Pods-HahaStreamUnitTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HahaStreamUnitTests-frameworks.sh"; sourceTree = "<group>"; };
+		2DA0FE8DBF6316CC46F0FF94B87BCB1D /* Pods-Haha Stream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Haha Stream.debug.xcconfig"; sourceTree = "<group>"; };
 		30D4187E05082187DD0B498E35903E96 /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/CacheSerializer.swift; sourceTree = "<group>"; };
+		3303CACDEDE1A5B442B1B0D8A24AFBD4 /* Pods-HahaStreamUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HahaStreamUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		33405D0F21D5E237462FEF3555B2E311 /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkLoggerPlugin.swift; path = Sources/Moya/Plugins/NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
 		3512A3186A440A74A553029D0790C2F4 /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Kingfisher.swift"; path = "Sources/UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
 		389696FE344FA7CAE62405744A302CCD /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Indicator.swift; sourceTree = "<group>"; };
+		3DCDAA748EDFF3724E1488224E3FAC77 /* Pods-Haha Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Haha Extension-frameworks.sh"; sourceTree = "<group>"; };
 		412BE5A134CE27DE2F48F88E411A5EA1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		430E5EBF6D07C154D952892F5EAB90EC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4367ACFB2BBD85B6178CC737AE240443 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
-		460BA1691E6CFE5693C09EA63944564C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47F631ED45DD7A6442BEB95586AE0F80 /* Pods-HahaStreamUnitTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HahaStreamUnitTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		43B6820B1580A79BC0C810C785D3AFDE /* Pods-Haha Stream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Haha Stream-umbrella.h"; sourceTree = "<group>"; };
+		4562DEE9F18165894D62FABD6A12540E /* Pods-Haha Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Haha Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		478471EBDF812CAA31FA9917542AE596 /* Pods-Haha Stream-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Haha Stream-acknowledgements.plist"; sourceTree = "<group>"; };
+		48F8D4F70AE7F92969A924AAF24A672F /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A0535C9835334435E174CED08C41F47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4A9FB58936A94AEEF6169E71FF2B55FF /* Moya-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Moya-prefix.pch"; sourceTree = "<group>"; };
-		4C033A1095D4ACBF131FC2BC7A796948 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEEB93CE4B5B64DA0C74A86055876C8 /* Kingfisher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kingfisher.h; path = Sources/Kingfisher.h; sourceTree = "<group>"; };
 		4D671AB6F12BFF4C620BCE9479CD4F8D /* NetworkActivityPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkActivityPlugin.swift; path = Sources/Moya/Plugins/NetworkActivityPlugin.swift; sourceTree = "<group>"; };
+		4FC42EFE2D246D8FF9CD26EFF9BBC637 /* Pods-Haha Stream-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Haha Stream-resources.sh"; sourceTree = "<group>"; };
 		4FDD7C6C3407676A1BA94D8E8CC060EA /* MoyaAvailability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MoyaAvailability.swift; path = Sources/Moya/MoyaAvailability.swift; sourceTree = "<group>"; };
 		53C1886F7DADE8051597935537CB8B05 /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Box.swift; path = Sources/Box.swift; sourceTree = "<group>"; };
 		57BE9F6AA449F703AAD4B0D91C7551D1 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		58FAC6C96A843A4D65A62CC637AEDC5C /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Result.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59EA906087483326EEA0A0B92E1A4783 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/ImagePrefetcher.swift; sourceTree = "<group>"; };
 		5A9FB0D054F6DF3289CBD3E29A2984FB /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		5DEBF4D4DEAD724D0706F9D8AE049BEF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60863424FCE890C8B9E3D0A9A8E8BBA2 /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Moya/Image.swift; sourceTree = "<group>"; };
-		6230DF1E94421EF6E4FC83C98A903EF0 /* Pods-HahaStreamUnitTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HahaStreamUnitTests-umbrella.h"; sourceTree = "<group>"; };
+		617F1C3B9920B1A9125104289CF757BF /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62629F8AEE3A294D003B55526BB6B273 /* Pods_Haha_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Haha_Extension.framework; path = "Pods-Haha Extension.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D49D86F3B3EFF067B72A556FD4F137 /* Moya-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Moya-dummy.m"; sourceTree = "<group>"; };
 		688BE643B277E17ADA08148BC84E0567 /* Result-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Result-dummy.m"; sourceTree = "<group>"; };
+		6A04C73ECC95586CFBAD5A60F8E15A12 /* Pods-Haha Stream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Haha Stream-dummy.m"; sourceTree = "<group>"; };
+		6A3AB1C49C0EAFD094590505C6A75AF0 /* Pods-Haha Stream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Haha Stream.modulemap"; sourceTree = "<group>"; };
 		6B6E756F8983B7285783D85095566243 /* AccessTokenPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AccessTokenPlugin.swift; path = Sources/Moya/Plugins/AccessTokenPlugin.swift; sourceTree = "<group>"; };
+		6D1CEA6886A890D6E51EB50E373EABF6 /* Pods-HahaStreamUnitTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HahaStreamUnitTests-umbrella.h"; sourceTree = "<group>"; };
 		7058829E0B3448A3A923A72A01E83A53 /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71580AEF803A4A5F6B9F04C76A85D0BB /* Result-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Result-prefix.pch"; sourceTree = "<group>"; };
 		740151A7F020AA965F1D2E9F09A6D1DD /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		742E72EF05261AC57EF4326D93172D2C /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
 		74EDB0D81667B8C4992B6A2C3131E9EA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76B053AEB19620994CF8BBF935B2882E /* Pods-Haha Extension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Haha Extension-dummy.m"; sourceTree = "<group>"; };
 		7968C2E99B8E838B518003B1BCBCB0C7 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		79B691663A07CC4AAA2A83386ED33ECE /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Sources/Moya/Response.swift; sourceTree = "<group>"; };
 		7AFBF4303CD7866AFB52FBEEF91E7687 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
-		7B5965C567C0D024A6FA399726E7C484 /* Pods-Haha Stream-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Haha Stream-frameworks.sh"; sourceTree = "<group>"; };
 		7E512316020BCD1F1865D25A47C03E6B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		809048DDF87A85C34513FAB64C7DE295 /* Pods_HahaStreamUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HahaStreamUnitTests.framework; path = "Pods-HahaStreamUnitTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		837CC03FBEC930E23224C84A5C57AF51 /* Pods-Haha Stream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Haha Stream.modulemap"; sourceTree = "<group>"; };
-		847E4D92B865268C1D6892B94D70565C /* Pods-Haha Stream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Haha Stream.debug.xcconfig"; sourceTree = "<group>"; };
+		7FF8BE9B5B9473AC98152FB3CF573579 /* Pods-Haha Stream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Haha Stream.release.xcconfig"; sourceTree = "<group>"; };
+		83701F1C2604045E181EB84A65050B18 /* Pods-HahaStreamUnitTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HahaStreamUnitTests-dummy.m"; sourceTree = "<group>"; };
 		84C956740416F22E8C7FC21FE2B3A5DA /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
 		862A4B197A5EACBEA7E90CFFAD084B3F /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Sources/Moya/MultipartFormData.swift; sourceTree = "<group>"; };
 		889C5E6722BEBD4B666087E7B863810C /* Cancellable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cancellable.swift; path = Sources/Moya/Cancellable.swift; sourceTree = "<group>"; };
-		88F7D3E2CBB99949D53422423C5FA57D /* Pods-HahaStreamUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HahaStreamUnitTests.release.xcconfig"; sourceTree = "<group>"; };
-		892C79BC1BE072417AF469E71CCA427D /* Pods-HahaStreamUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HahaStreamUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		88D372C4655111B32FC5BF14A979E155 /* Pods-Haha Extension-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Haha Extension-resources.sh"; sourceTree = "<group>"; };
+		8B0DC5A5AD8743731D4E086E1C68DD3D /* Pods-Haha Stream-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Haha Stream-frameworks.sh"; sourceTree = "<group>"; };
 		8CAEC783B41E6D51A5C8E20348BF60BE /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Result/Result.swift; sourceTree = "<group>"; };
-		8DCD6E67A4A9B9C61C3BE019BAF63713 /* Pods-Haha Stream-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Haha Stream-resources.sh"; sourceTree = "<group>"; };
-		8EAB4C8005EAFF63AF90F96762DFD218 /* Pods-Haha Stream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Haha Stream-umbrella.h"; sourceTree = "<group>"; };
-		90D9DC9DF3AAC37AE88E00D2277F46B3 /* Pods-Haha Stream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Haha Stream-dummy.m"; sourceTree = "<group>"; };
 		921F8521EA36AEFA45E2FDD5AB207F54 /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/ImageProcessor.swift; sourceTree = "<group>"; };
 		9381427B2C41A35E6F27FE88D88CAE93 /* Result-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Result-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		987B2E9E29D0517668BBBCE0CF4D5DE4 /* Moya+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Moya+Alamofire.swift"; path = "Sources/Moya/Moya+Alamofire.swift"; sourceTree = "<group>"; };
-		9ACD97A34CCDD288EFEA6D898912D8D3 /* Pods-Haha Stream-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Haha Stream-acknowledgements.plist"; sourceTree = "<group>"; };
 		9C27D519CB34838063E2D972787FF287 /* MoyaProvider+Defaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MoyaProvider+Defaults.swift"; path = "Sources/Moya/MoyaProvider+Defaults.swift"; sourceTree = "<group>"; };
 		9E14C8E8D8E3B82AD65C0CAB09EE65F8 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
 		9E2BBD45A732DDB9A99F1EEE3254C287 /* CredentialsPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CredentialsPlugin.swift; path = Sources/Moya/Plugins/CredentialsPlugin.swift; sourceTree = "<group>"; };
-		9E569780E8B7B057C66FBF2A555B86D3 /* Pods-HahaStreamUnitTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HahaStreamUnitTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		9F6F7C8A2C6D1A9D0AC34428AC419ACF /* Moya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Moya.framework; path = Moya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A01823B355ACAA32D5B483C2753E6C14 /* Pods-Haha Extension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Haha Extension-umbrella.h"; sourceTree = "<group>"; };
 		A108C0ADC25D78020456A3CABA0E3515 /* Result.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Result.modulemap; sourceTree = "<group>"; };
 		A32C6CA236F3630BE88E2A91B8498385 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
+		A556313FD89CE6EFE061735CD263FC2E /* Pods-Haha Extension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Haha Extension.modulemap"; sourceTree = "<group>"; };
 		A6359CD003D3F9DFB744C361F6767831 /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/AnimatedImageView.swift; sourceTree = "<group>"; };
+		A64D2D53F5F0CAE4A47EAED68DBAA44D /* Pods-HahaStreamUnitTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HahaStreamUnitTests-resources.sh"; sourceTree = "<group>"; };
 		A9E53D3A534B998E55F951DCEC5F1DF0 /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Kingfisher.modulemap; sourceTree = "<group>"; };
 		AAEBC910358625731ED4CC5461C5FD0C /* RequestModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestModifier.swift; path = Sources/RequestModifier.swift; sourceTree = "<group>"; };
 		AE38E4A99AAF9E3084803582D8AD6AF3 /* MoyaProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MoyaProvider.swift; path = Sources/Moya/MoyaProvider.swift; sourceTree = "<group>"; };
-		AE94C54E047244051B17A866A9039CF1 /* Pods-Haha Stream-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Haha Stream-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AF3D106F8812CD19CE20603D24EC8B8B /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
 		B04F7C8B0716C3E247DB5AA3A05ED375 /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Image.swift; sourceTree = "<group>"; };
 		B5B793508AE930727EF719E428B2C9D6 /* Moya.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Moya.modulemap; sourceTree = "<group>"; };
 		B87992419B12A69AB1D095D6E0460091 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		BB1C9312DBAC1BA0FE36BC27D60216CD /* Pods-HahaStreamUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HahaStreamUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BD5A8E7641E0E3729956D92746799F68 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
-		BFF84452B3162F69F3CA1C3E202DDF41 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF4581DB417B1A4785D798A83D5B5BE6 /* Pods-HahaStreamUnitTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HahaStreamUnitTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C3A0618027F0646CDFEBFCE2343364AE /* Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kingfisher.swift; path = Sources/Kingfisher.swift; sourceTree = "<group>"; };
-		C75F7570683425F61E2CA95EF730359C /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9E0575794954FA0260764C3961FCE3 /* Moya-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Moya-umbrella.h"; sourceTree = "<group>"; };
 		CBE003F91FAFB48C966C863A83415FE3 /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/ImageCache.swift; sourceTree = "<group>"; };
 		CE9AD098F07BD6BA5B47E8F498844843 /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/KingfisherManager.swift; sourceTree = "<group>"; };
-		CFC1C97BE76E28EF54DADDC619FA4601 /* Pods_Haha_Stream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Haha_Stream.framework; path = "Pods-Haha Stream.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0BDBD69317E6BA935DF9E94E854B115 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		D0D749EFF883810025E0E36A9738948A /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		D727B25DC926630C123D9FA5109232DF /* MoyaProvider+Internal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MoyaProvider+Internal.swift"; path = "Sources/Moya/MoyaProvider+Internal.swift"; sourceTree = "<group>"; };
+		D7EE0251EB4E4E4C3B9B4AD21020E2DA /* Pods-Haha Stream-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Haha Stream-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D848462078C7F90B396A2E3BE8A1B6E9 /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageView+Kingfisher.swift"; path = "Sources/ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		DBBB32D50836BF9838AA314107E1A4D3 /* Pods-HahaStreamUnitTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HahaStreamUnitTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		DE6BDBDD69F944E292948C37F52C977D /* Pods-HahaStreamUnitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-HahaStreamUnitTests.modulemap"; sourceTree = "<group>"; };
 		E0223011E03B40B2519C80112154E4C3 /* Result.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Result.xcconfig; sourceTree = "<group>"; };
 		E1B85B5D8E310EDCD81021750CBD1EC6 /* Moya.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Moya.xcconfig; sourceTree = "<group>"; };
 		E2B82DA5BF5F595A292908F74F8605A0 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
-		E31E619FDFB92C6DB45F2C6FF54A833D /* Pods-HahaStreamUnitTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HahaStreamUnitTests-resources.sh"; sourceTree = "<group>"; };
 		E4CC54075A55A9E1EB17A75F2E359F45 /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/String+MD5.swift"; sourceTree = "<group>"; };
+		E4D5FD72EF0D33872B9EBA1E979575F6 /* Pods_Haha_Stream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Haha_Stream.framework; path = "Pods-Haha Stream.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5C6C073B38CF77680B89C87651AC71D /* Pods_HahaStreamUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HahaStreamUnitTests.framework; path = "Pods-HahaStreamUnitTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA9B9E30D29538E8ECB08AFF3DA7EB6C /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		EBFA3E02FAFF95C526B10858FB24FEB3 /* Endpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Endpoint.swift; path = Sources/Moya/Endpoint.swift; sourceTree = "<group>"; };
-		ECB1F2D7E575FE7E510CEB8674A07B9A /* Pods-HahaStreamUnitTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-HahaStreamUnitTests.modulemap"; sourceTree = "<group>"; };
 		EE806AF7F495BD518B8E95B42863076B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F09BB0E29550B178000465C4CA31F76B /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
-		F0A8CFBC410D745FB35AA68BDDDE2A8F /* Pods-Haha Stream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Haha Stream.release.xcconfig"; sourceTree = "<group>"; };
 		F29E5E6EA42B96E596A09A29A327667D /* Kingfisher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-prefix.pch"; sourceTree = "<group>"; };
 		F32FC69B8D579E729EA0C3CBA25FC452 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4BDBF9237A3D33E57A41F4904FB0872 /* ResultProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResultProtocol.swift; path = Result/ResultProtocol.swift; sourceTree = "<group>"; };
 		F801AF90F64A2C774C5DA23E92D47158 /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Sources/ImageDownloader.swift; sourceTree = "<group>"; };
 		F87E9CDD17FEC4201907BAED8EFDF1FF /* Plugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Plugin.swift; path = Sources/Moya/Plugin.swift; sourceTree = "<group>"; };
+		FED5586EE9BA05699833C213255C912B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,11 +310,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		69493AA3699A005825A2739BA7FD994F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D940D97AD91C5F521FD15C82F9248DA0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99195E4207764744AEC07ECCBCD550EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1C30DB5B070E6DD8B246711550128361 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A2B5CC60A54D68B031573733A9697C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10452E884C1755088981E539B7422BD6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,51 +351,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F37A82FD9BBB1AB5AAB6CB7BA5388644 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4D3D7C39FCDD7CA51B35CC0282FCD747 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		027213E88701D8030145052D93DAE13E /* Pods-Haha Stream */ = {
+		24C307808012F309E123633236AF7CD6 /* Pods-Haha Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BFF84452B3162F69F3CA1C3E202DDF41 /* Info.plist */,
-				837CC03FBEC930E23224C84A5C57AF51 /* Pods-Haha Stream.modulemap */,
-				AE94C54E047244051B17A866A9039CF1 /* Pods-Haha Stream-acknowledgements.markdown */,
-				9ACD97A34CCDD288EFEA6D898912D8D3 /* Pods-Haha Stream-acknowledgements.plist */,
-				90D9DC9DF3AAC37AE88E00D2277F46B3 /* Pods-Haha Stream-dummy.m */,
-				7B5965C567C0D024A6FA399726E7C484 /* Pods-Haha Stream-frameworks.sh */,
-				8DCD6E67A4A9B9C61C3BE019BAF63713 /* Pods-Haha Stream-resources.sh */,
-				8EAB4C8005EAFF63AF90F96762DFD218 /* Pods-Haha Stream-umbrella.h */,
-				847E4D92B865268C1D6892B94D70565C /* Pods-Haha Stream.debug.xcconfig */,
-				F0A8CFBC410D745FB35AA68BDDDE2A8F /* Pods-Haha Stream.release.xcconfig */,
+				5DEBF4D4DEAD724D0706F9D8AE049BEF /* Info.plist */,
+				A556313FD89CE6EFE061735CD263FC2E /* Pods-Haha Extension.modulemap */,
+				4562DEE9F18165894D62FABD6A12540E /* Pods-Haha Extension-acknowledgements.markdown */,
+				17BB5644BDFA938259FB512EF45C8854 /* Pods-Haha Extension-acknowledgements.plist */,
+				76B053AEB19620994CF8BBF935B2882E /* Pods-Haha Extension-dummy.m */,
+				3DCDAA748EDFF3724E1488224E3FAC77 /* Pods-Haha Extension-frameworks.sh */,
+				88D372C4655111B32FC5BF14A979E155 /* Pods-Haha Extension-resources.sh */,
+				A01823B355ACAA32D5B483C2753E6C14 /* Pods-Haha Extension-umbrella.h */,
+				06DB95FD3178F6FA3A9F3FFBF1E46D96 /* Pods-Haha Extension.debug.xcconfig */,
+				1D0A1D0B4DF1F188CBA9B11E286E87B2 /* Pods-Haha Extension.release.xcconfig */,
 			);
-			name = "Pods-Haha Stream";
-			path = "Target Support Files/Pods-Haha Stream";
+			name = "Pods-Haha Extension";
+			path = "Target Support Files/Pods-Haha Extension";
 			sourceTree = "<group>";
 		};
-		32505548D9DB052F99FB0EB465158ED5 /* Pods-HahaStreamUnitTests */ = {
+		4795512B98309C78EA3AE2D4D79BD6BF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				460BA1691E6CFE5693C09EA63944564C /* Info.plist */,
-				ECB1F2D7E575FE7E510CEB8674A07B9A /* Pods-HahaStreamUnitTests.modulemap */,
-				47F631ED45DD7A6442BEB95586AE0F80 /* Pods-HahaStreamUnitTests-acknowledgements.markdown */,
-				9E569780E8B7B057C66FBF2A555B86D3 /* Pods-HahaStreamUnitTests-acknowledgements.plist */,
-				20B446E571BF71330E3E91B1AE8D5A26 /* Pods-HahaStreamUnitTests-dummy.m */,
-				2EB986E0AAF4760AC4FFCE3F2C886652 /* Pods-HahaStreamUnitTests-frameworks.sh */,
-				E31E619FDFB92C6DB45F2C6FF54A833D /* Pods-HahaStreamUnitTests-resources.sh */,
-				6230DF1E94421EF6E4FC83C98A903EF0 /* Pods-HahaStreamUnitTests-umbrella.h */,
-				892C79BC1BE072417AF469E71CCA427D /* Pods-HahaStreamUnitTests.debug.xcconfig */,
-				88F7D3E2CBB99949D53422423C5FA57D /* Pods-HahaStreamUnitTests.release.xcconfig */,
+				617F1C3B9920B1A9125104289CF757BF /* Alamofire.framework */,
+				48F8D4F70AE7F92969A924AAF24A672F /* Kingfisher.framework */,
+				9F6F7C8A2C6D1A9D0AC34428AC419ACF /* Moya.framework */,
+				62629F8AEE3A294D003B55526BB6B273 /* Pods_Haha_Extension.framework */,
+				E4D5FD72EF0D33872B9EBA1E979575F6 /* Pods_Haha_Stream.framework */,
+				E5C6C073B38CF77680B89C87651AC71D /* Pods_HahaStreamUnitTests.framework */,
+				58FAC6C96A843A4D65A62CC637AEDC5C /* Result.framework */,
 			);
-			name = "Pods-HahaStreamUnitTests";
-			path = "Target Support Files/Pods-HahaStreamUnitTests";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		5D62A44AD6514CB32A6C37736FCDA619 /* tvOS */ = {
@@ -387,8 +412,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				A6ADA834D758015BA81D4031AD139178 /* Frameworks */,
 				72CB7EB239F5BA76B0BC2F581DD0BD45 /* Pods */,
-				D22488C5FAA4E7AD2FE61A5F599A5EF6 /* Products */,
-				E5EA96288111414BB9FE5CCCE7598EBE /* Targets Support Files */,
+				4795512B98309C78EA3AE2D4D79BD6BF /* Products */,
+				912989A387A6F8E92E5BF2822BAD52C2 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -404,6 +429,52 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Kingfisher";
+			sourceTree = "<group>";
+		};
+		82D4BAE2DF8E4E735A6F57EE1E5339BF /* Pods-HahaStreamUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				FED5586EE9BA05699833C213255C912B /* Info.plist */,
+				DE6BDBDD69F944E292948C37F52C977D /* Pods-HahaStreamUnitTests.modulemap */,
+				BF4581DB417B1A4785D798A83D5B5BE6 /* Pods-HahaStreamUnitTests-acknowledgements.markdown */,
+				DBBB32D50836BF9838AA314107E1A4D3 /* Pods-HahaStreamUnitTests-acknowledgements.plist */,
+				83701F1C2604045E181EB84A65050B18 /* Pods-HahaStreamUnitTests-dummy.m */,
+				129269C252155713E6A047E360D3968A /* Pods-HahaStreamUnitTests-frameworks.sh */,
+				A64D2D53F5F0CAE4A47EAED68DBAA44D /* Pods-HahaStreamUnitTests-resources.sh */,
+				6D1CEA6886A890D6E51EB50E373EABF6 /* Pods-HahaStreamUnitTests-umbrella.h */,
+				BB1C9312DBAC1BA0FE36BC27D60216CD /* Pods-HahaStreamUnitTests.debug.xcconfig */,
+				3303CACDEDE1A5B442B1B0D8A24AFBD4 /* Pods-HahaStreamUnitTests.release.xcconfig */,
+			);
+			name = "Pods-HahaStreamUnitTests";
+			path = "Target Support Files/Pods-HahaStreamUnitTests";
+			sourceTree = "<group>";
+		};
+		84B73687ACDBC4B540719269E6BAC6AB /* Pods-Haha Stream */ = {
+			isa = PBXGroup;
+			children = (
+				430E5EBF6D07C154D952892F5EAB90EC /* Info.plist */,
+				6A3AB1C49C0EAFD094590505C6A75AF0 /* Pods-Haha Stream.modulemap */,
+				D7EE0251EB4E4E4C3B9B4AD21020E2DA /* Pods-Haha Stream-acknowledgements.markdown */,
+				478471EBDF812CAA31FA9917542AE596 /* Pods-Haha Stream-acknowledgements.plist */,
+				6A04C73ECC95586CFBAD5A60F8E15A12 /* Pods-Haha Stream-dummy.m */,
+				8B0DC5A5AD8743731D4E086E1C68DD3D /* Pods-Haha Stream-frameworks.sh */,
+				4FC42EFE2D246D8FF9CD26EFF9BBC637 /* Pods-Haha Stream-resources.sh */,
+				43B6820B1580A79BC0C810C785D3AFDE /* Pods-Haha Stream-umbrella.h */,
+				2DA0FE8DBF6316CC46F0FF94B87BCB1D /* Pods-Haha Stream.debug.xcconfig */,
+				7FF8BE9B5B9473AC98152FB3CF573579 /* Pods-Haha Stream.release.xcconfig */,
+			);
+			name = "Pods-Haha Stream";
+			path = "Target Support Files/Pods-Haha Stream";
+			sourceTree = "<group>";
+		};
+		912989A387A6F8E92E5BF2822BAD52C2 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				24C307808012F309E123633236AF7CD6 /* Pods-Haha Extension */,
+				84B73687ACDBC4B540719269E6BAC6AB /* Pods-Haha Stream */,
+				82D4BAE2DF8E4E735A6F57EE1E5339BF /* Pods-HahaStreamUnitTests */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		988C50537594FF95C0BFAE1C663DF175 /* Core */ = {
@@ -476,19 +547,6 @@
 			path = Result;
 			sourceTree = "<group>";
 		};
-		D22488C5FAA4E7AD2FE61A5F599A5EF6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4C033A1095D4ACBF131FC2BC7A796948 /* Alamofire.framework */,
-				C75F7570683425F61E2CA95EF730359C /* Kingfisher.framework */,
-				2CFEB62CE3B27B2A7F49958729B0C638 /* Moya.framework */,
-				CFC1C97BE76E28EF54DADDC619FA4601 /* Pods_Haha_Stream.framework */,
-				809048DDF87A85C34513FAB64C7DE295 /* Pods_HahaStreamUnitTests.framework */,
-				20BF249B56D6F14DE1D16903EC27EFD6 /* Result.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		E0F362603922C971A13228447D572928 /* Kingfisher */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,15 +603,6 @@
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
-		E5EA96288111414BB9FE5CCCE7598EBE /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				027213E88701D8030145052D93DAE13E /* Pods-Haha Stream */,
-				32505548D9DB052F99FB0EB465158ED5 /* Pods-HahaStreamUnitTests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 		EE291093B777E61D1E6B518F1B3FABF6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,11 +651,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2346043700F52904837179F2DB01AEBF /* Headers */ = {
+		2B6316BE718B15543EC6DB8EE18F8516 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2A5B841FB764DAA2AB09B2771DC1981 /* Pods-HahaStreamUnitTests-umbrella.h in Headers */,
+				F089E104306A0C7EE5C21BB0C5897067 /* Pods-Haha Extension-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +683,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E17F696FEF854F1E0E6365111CA106DA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDE08E3A3BF66620FF48F00ACD047724 /* Pods-HahaStreamUnitTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -651,27 +708,7 @@
 			);
 			name = Result;
 			productName = Result;
-			productReference = 20BF249B56D6F14DE1D16903EC27EFD6 /* Result.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		4B32D38EFCA4A6AD409FA1B5AE3415B6 /* Pods-HahaStreamUnitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2C9FC795441D67438C492B02518E3777 /* Build configuration list for PBXNativeTarget "Pods-HahaStreamUnitTests" */;
-			buildPhases = (
-				3F591EEBB9775FE90F665C18B3D3D6AC /* Sources */,
-				F37A82FD9BBB1AB5AAB6CB7BA5388644 /* Frameworks */,
-				2346043700F52904837179F2DB01AEBF /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				02734093059DF1984986B6B768EB592D /* PBXTargetDependency */,
-				05F96D6F7F856C087F80C5CFC9ABF281 /* PBXTargetDependency */,
-				732878AD785E38EC62CB80ADA9F24E24 /* PBXTargetDependency */,
-			);
-			name = "Pods-HahaStreamUnitTests";
-			productName = "Pods-HahaStreamUnitTests";
-			productReference = 809048DDF87A85C34513FAB64C7DE295 /* Pods_HahaStreamUnitTests.framework */;
+			productReference = 58FAC6C96A843A4D65A62CC637AEDC5C /* Result.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		52ACA0236F086E72B74F0A090A743D41 /* Moya */ = {
@@ -690,7 +727,24 @@
 			);
 			name = Moya;
 			productName = Moya;
-			productReference = 2CFEB62CE3B27B2A7F49958729B0C638 /* Moya.framework */;
+			productReference = 9F6F7C8A2C6D1A9D0AC34428AC419ACF /* Moya.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		52B3AC9DDDE095B4A61AC5CDE94A1DE3 /* Pods-HahaStreamUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 673437ED1F6DFB4123CC53952EA210AF /* Build configuration list for PBXNativeTarget "Pods-HahaStreamUnitTests" */;
+			buildPhases = (
+				9C051D4D28B881B227426934BC985EEA /* Sources */,
+				69493AA3699A005825A2739BA7FD994F /* Frameworks */,
+				E17F696FEF854F1E0E6365111CA106DA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-HahaStreamUnitTests";
+			productName = "Pods-HahaStreamUnitTests";
+			productReference = E5C6C073B38CF77680B89C87651AC71D /* Pods_HahaStreamUnitTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		83B7E8E66B42B9A9EAC64E335F2FBF05 /* Pods-Haha Stream */ = {
@@ -711,7 +765,7 @@
 			);
 			name = "Pods-Haha Stream";
 			productName = "Pods-Haha Stream";
-			productReference = CFC1C97BE76E28EF54DADDC619FA4601 /* Pods_Haha_Stream.framework */;
+			productReference = E4D5FD72EF0D33872B9EBA1E979575F6 /* Pods_Haha_Stream.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */ = {
@@ -728,7 +782,28 @@
 			);
 			name = Alamofire;
 			productName = Alamofire;
-			productReference = 4C033A1095D4ACBF131FC2BC7A796948 /* Alamofire.framework */;
+			productReference = 617F1C3B9920B1A9125104289CF757BF /* Alamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C1ED7093A174000563FCDCADBEE33BFA /* Pods-Haha Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D084172C96D3AE24C4C90192F8B7A15 /* Build configuration list for PBXNativeTarget "Pods-Haha Extension" */;
+			buildPhases = (
+				DC61D133F6CCEB2044BA5D24DEC42754 /* Sources */,
+				9A2B5CC60A54D68B031573733A9697C4 /* Frameworks */,
+				2B6316BE718B15543EC6DB8EE18F8516 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC2FC1614438D0E96912CB01CEEF03D0 /* PBXTargetDependency */,
+				E0BA85C95817635BC5D3CF36FF1A436F /* PBXTargetDependency */,
+				79235E565678EBE70C271D1A2CEB7F44 /* PBXTargetDependency */,
+				5822D088891E48C0B834E160CADCF4EE /* PBXTargetDependency */,
+			);
+			name = "Pods-Haha Extension";
+			productName = "Pods-Haha Extension";
+			productReference = 62629F8AEE3A294D003B55526BB6B273 /* Pods_Haha_Extension.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C4944FEC314D1A66588651D006273ADE /* Kingfisher */ = {
@@ -745,7 +820,7 @@
 			);
 			name = Kingfisher;
 			productName = Kingfisher;
-			productReference = C75F7570683425F61E2CA95EF730359C /* Kingfisher.framework */;
+			productReference = 48F8D4F70AE7F92969A924AAF24A672F /* Kingfisher.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -765,15 +840,16 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = D22488C5FAA4E7AD2FE61A5F599A5EF6 /* Products */;
+			productRefGroup = 4795512B98309C78EA3AE2D4D79BD6BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */,
 				C4944FEC314D1A66588651D006273ADE /* Kingfisher */,
 				52ACA0236F086E72B74F0A090A743D41 /* Moya */,
+				C1ED7093A174000563FCDCADBEE33BFA /* Pods-Haha Extension */,
 				83B7E8E66B42B9A9EAC64E335F2FBF05 /* Pods-Haha Stream */,
-				4B32D38EFCA4A6AD409FA1B5AE3415B6 /* Pods-HahaStreamUnitTests */,
+				52B3AC9DDDE095B4A61AC5CDE94A1DE3 /* Pods-HahaStreamUnitTests */,
 				1215771836B84E9F9899950098D2FF80 /* Result */,
 			);
 		};
@@ -805,14 +881,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3F591EEBB9775FE90F665C18B3D3D6AC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A842886D3979357E4DB1309B24FA0BAD /* Pods-HahaStreamUnitTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8F189E1B0F1DBFA352AE290E0C8964BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -823,11 +891,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C051D4D28B881B227426934BC985EEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CED94AE88BEA7A90E564677A1015CEA /* Pods-HahaStreamUnitTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CDF12C0A2951A0959485DA8C2B5E1EB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3AFB7CC8F1C58E94923CFF76358D56BF /* Pods-Haha Stream-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC61D133F6CCEB2044BA5D24DEC42754 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22CE3392376B2207E308166E2B76540D /* Pods-Haha Extension-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,18 +972,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		02734093059DF1984986B6B768EB592D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Alamofire;
-			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
-			targetProxy = 0B3DBE75D05B4AB93D9A077F3F299BE3 /* PBXContainerItemProxy */;
-		};
-		05F96D6F7F856C087F80C5CFC9ABF281 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Moya;
-			target = 52ACA0236F086E72B74F0A090A743D41 /* Moya */;
-			targetProxy = AFC21617013C07EF72572FFCA51A842F /* PBXContainerItemProxy */;
-		};
 		0A463A1C56CFE0CA72CBE56A25C1978B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Kingfisher;
@@ -912,11 +984,17 @@
 			target = 1215771836B84E9F9899950098D2FF80 /* Result */;
 			targetProxy = 4257252C3214AFC40F9F41A9ECBD1419 /* PBXContainerItemProxy */;
 		};
-		732878AD785E38EC62CB80ADA9F24E24 /* PBXTargetDependency */ = {
+		5822D088891E48C0B834E160CADCF4EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Result;
 			target = 1215771836B84E9F9899950098D2FF80 /* Result */;
-			targetProxy = 9869F1F9C5A6059A2D76F46F94547ABD /* PBXContainerItemProxy */;
+			targetProxy = FEB89F2667CB40A2BCA7578EBDCB955C /* PBXContainerItemProxy */;
+		};
+		79235E565678EBE70C271D1A2CEB7F44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Moya;
+			target = 52ACA0236F086E72B74F0A090A743D41 /* Moya */;
+			targetProxy = 1E6212DBBF532A9143B20A197A03E4CA /* PBXContainerItemProxy */;
 		};
 		7931FE7D75FC8F83A267E33603130255 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -930,11 +1008,23 @@
 			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
 			targetProxy = 416E924213AF02AE6A6EC230EEEF18FF /* PBXContainerItemProxy */;
 		};
+		BC2FC1614438D0E96912CB01CEEF03D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = A073C7B5F91EB8BA3CBF64F0964069FE /* PBXContainerItemProxy */;
+		};
 		CE84900BB2257A27D32DA739839ACCA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Result;
 			target = 1215771836B84E9F9899950098D2FF80 /* Result */;
 			targetProxy = 6D4FB90D4978FE465609DB279F595C09 /* PBXContainerItemProxy */;
+		};
+		E0BA85C95817635BC5D3CF36FF1A436F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kingfisher;
+			target = C4944FEC314D1A66588651D006273ADE /* Kingfisher */;
+			targetProxy = CFFC0A5DD9E0EF6B362DF7EC2E18C6F8 /* PBXContainerItemProxy */;
 		};
 		E52EC9774B6E70026A8FBB8EECBDC71D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -945,6 +1035,42 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		11D8456554F2F64591CCF2D83DF73E5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D0A1D0B4DF1F188CBA9B11E286E87B2 /* Pods-Haha Extension.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Haha Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Haha Extension/Pods-Haha Extension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Haha_Extension;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		127B0553742519E23100E12F448D7B84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -985,15 +1111,16 @@
 			};
 			name = Release;
 		};
-		164EF592D0B73D90EC90B25EFFB41E3B /* Debug */ = {
+		1317CCC733EAA3E230F8294BC00A1871 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2404A4E4D5BA573DB9C3B93B566626D8 /* Kingfisher.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1005,43 +1132,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = Kingfisher;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		1AB523DB1CD50994E1CBAD4E55FECBD7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1B85B5D8E310EDCD81021750CBD1EC6 /* Moya.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Moya/Moya-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Moya/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Moya/Moya.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Moya;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -1050,42 +1144,11 @@
 			};
 			name = Release;
 		};
-		1C024D55F8A04BD7EC7DB537F015423C /* Release */ = {
+		1EEF5D089F165D950DB1E77B6E931A2B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 084697C57EFBA25694BEFDC5D0001EE1 /* Alamofire.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		2246A518BD0B24B0311D56A9680605EB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 892C79BC1BE072417AF469E71CCA427D /* Pods-HahaStreamUnitTests.debug.xcconfig */;
-			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1097,22 +1160,19 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-HahaStreamUnitTests/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_HahaStreamUnitTests;
+				PRODUCT_NAME = Alamofire;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1120,7 +1180,7 @@
 		};
 		3E85F45983F9889F33840382AFB2014C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 847E4D92B865268C1D6892B94D70565C /* Pods-Haha Stream.debug.xcconfig */;
+			baseConfigurationReference = 2DA0FE8DBF6316CC46F0FF94B87BCB1D /* Pods-Haha Stream.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1154,38 +1214,40 @@
 			};
 			name = Debug;
 		};
-		4E4EE46271F5E7909F519392AADE324C /* Debug */ = {
+		5803E0124346C74ADA586A739FF1C177 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 084697C57EFBA25694BEFDC5D0001EE1 /* Alamofire.xcconfig */;
+			baseConfigurationReference = 3303CACDEDE1A5B442B1B0D8A24AFBD4 /* Pods-HahaStreamUnitTests.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-HahaStreamUnitTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Alamofire;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_HahaStreamUnitTests;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		5BA1D3775826187337FB7D0F220E3ECE /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1231,9 +1293,179 @@
 			};
 			name = Debug;
 		};
-		9632D6B23D3DCA9B70070B261B5CAF4D /* Debug */ = {
+		7AE29CC0865E0D9C9A4FC594731B32B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0223011E03B40B2519C80112154E4C3 /* Result.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Result/Result-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Result/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Result/Result.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Result;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		833D08A0EF934D0BA51F2F8A85246621 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 084697C57EFBA25694BEFDC5D0001EE1 /* Alamofire.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8522A9F5B933B217D4F55F36B2FF228A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2404A4E4D5BA573DB9C3B93B566626D8 /* Kingfisher.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Kingfisher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Kingfisher;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		86D8B299F75451ACBA035E081C9E5789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1B85B5D8E310EDCD81021750CBD1EC6 /* Moya.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Moya/Moya-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Moya/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Moya/Moya.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Moya;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		94D1FEFC8796C0D4124875981B7161D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06DB95FD3178F6FA3A9F3FFBF1E46D96 /* Pods-Haha Extension.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Haha Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Haha Extension/Pods-Haha Extension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Haha_Extension;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9B263DF969685300DCFA52283248E669 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB1C9312DBAC1BA0FE36BC27D60216CD /* Pods-HahaStreamUnitTests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1246,59 +1478,29 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Result/Result-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Result/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-HahaStreamUnitTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Result/Result.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Result;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_HahaStreamUnitTests;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		9D6912B1FAF4A6D27C6CF0889DC82E6D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2404A4E4D5BA573DB9C3B93B566626D8 /* Kingfisher.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Kingfisher/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Kingfisher;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		C5EF9AADDFE550D2F396CF786E4785A1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0A8CFBC410D745FB35AA68BDDDE2A8F /* Pods-Haha Stream.release.xcconfig */;
+			baseConfigurationReference = 7FF8BE9B5B9473AC98152FB3CF573579 /* Pods-Haha Stream.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1331,10 +1533,45 @@
 			};
 			name = Release;
 		};
-		D0F42B014103E53EEF2FAF1425BFC7F9 /* Debug */ = {
+		CB77AA7F6DE8D2CF2DBC76577FEF2561 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0223011E03B40B2519C80112154E4C3 /* Result.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Result/Result-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Result/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Result/Result.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Result;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D6AC5460C30A63692E778304E3FB3288 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E1B85B5D8E310EDCD81021750CBD1EC6 /* Moya.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1364,81 +1601,14 @@
 			};
 			name = Debug;
 		};
-		D1E51433777532DA418DBEB1297F2372 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88F7D3E2CBB99949D53422423C5FA57D /* Pods-HahaStreamUnitTests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-HahaStreamUnitTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_HahaStreamUnitTests;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		FAE3D5AA53DB0C9CCB3966337670C65F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0223011E03B40B2519C80112154E4C3 /* Result.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Result/Result-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Result/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Result/Result.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Result;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		06FAEB5F2DB2902622187A65FEB559F4 /* Build configuration list for PBXNativeTarget "Moya" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D0F42B014103E53EEF2FAF1425BFC7F9 /* Debug */,
-				1AB523DB1CD50994E1CBAD4E55FECBD7 /* Release */,
+				D6AC5460C30A63692E778304E3FB3288 /* Debug */,
+				86D8B299F75451ACBA035E081C9E5789 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1446,8 +1616,8 @@
 		10D67BA71D2F140988D177C56F8D3D5B /* Build configuration list for PBXNativeTarget "Result" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9632D6B23D3DCA9B70070B261B5CAF4D /* Debug */,
-				FAE3D5AA53DB0C9CCB3966337670C65F /* Release */,
+				CB77AA7F6DE8D2CF2DBC76577FEF2561 /* Debug */,
+				7AE29CC0865E0D9C9A4FC594731B32B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1457,15 +1627,6 @@
 			buildConfigurations = (
 				3E85F45983F9889F33840382AFB2014C /* Debug */,
 				C5EF9AADDFE550D2F396CF786E4785A1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2C9FC795441D67438C492B02518E3777 /* Build configuration list for PBXNativeTarget "Pods-HahaStreamUnitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2246A518BD0B24B0311D56A9680605EB /* Debug */,
-				D1E51433777532DA418DBEB1297F2372 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1482,8 +1643,17 @@
 		419E5D95491847CD79841B971A8A3277 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4E4EE46271F5E7909F519392AADE324C /* Debug */,
-				1C024D55F8A04BD7EC7DB537F015423C /* Release */,
+				1EEF5D089F165D950DB1E77B6E931A2B /* Debug */,
+				833D08A0EF934D0BA51F2F8A85246621 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		673437ED1F6DFB4123CC53952EA210AF /* Build configuration list for PBXNativeTarget "Pods-HahaStreamUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B263DF969685300DCFA52283248E669 /* Debug */,
+				5803E0124346C74ADA586A739FF1C177 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1491,8 +1661,17 @@
 		76E7EFBCEA1340954A03AA68051C2306 /* Build configuration list for PBXNativeTarget "Kingfisher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				164EF592D0B73D90EC90B25EFFB41E3B /* Debug */,
-				9D6912B1FAF4A6D27C6CF0889DC82E6D /* Release */,
+				8522A9F5B933B217D4F55F36B2FF228A /* Debug */,
+				1317CCC733EAA3E230F8294BC00A1871 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D084172C96D3AE24C4C90192F8B7A15 /* Build configuration list for PBXNativeTarget "Pods-Haha Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94D1FEFC8796C0D4124875981B7161D9 /* Debug */,
+				11D8456554F2F64591CCF2D83DF73E5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

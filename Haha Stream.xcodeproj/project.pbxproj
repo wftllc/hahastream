@@ -11,6 +11,28 @@
 		230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230CF2731E2EA31A001C0606 /* Assets.xcassets */; };
 		230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF27D1E2EA433001C0606 /* HahaService.swift */; };
 		230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */; };
+		23246CC81E3E60440057FA63 /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23246CC71E3E60440057FA63 /* TVServices.framework */; };
+		23246CCB1E3E60440057FA63 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23246CCA1E3E60440057FA63 /* ServiceProvider.swift */; };
+		23246CCF1E3E60440057FA63 /* Haha Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 23246CC61E3E60440057FA63 /* Haha Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		23246CD41E3E63AD0057FA63 /* HahaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */; };
+		23246CD51E3E63AD0057FA63 /* HahaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF27D1E2EA433001C0606 /* HahaService.swift */; };
+		23246CD61E3E63AD0057FA63 /* FromDictable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB021E30607000E276EB /* FromDictable.swift */; };
+		23246CD71E3E63AD0057FA63 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB031E30607000E276EB /* Game.swift */; };
+		23246CD81E3E63AD0057FA63 /* NowPlayingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307A8BF1E3442B3002F0061 /* NowPlayingItem.swift */; };
+		23246CD91E3E63AD0057FA63 /* HahaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB041E30607000E276EB /* HahaError.swift */; };
+		23246CDA1E3E63AD0057FA63 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB051E30607000E276EB /* Sport.swift */; };
+		23246CDB1E3E63AD0057FA63 /* VCS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E7462F1E33F9AE00498A08 /* VCS.swift */; };
+		23246CDC1E3E63AD0057FA63 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F4C131E32B5E100786A5C /* Channel.swift */; };
+		23246CDD1E3E63AD0057FA63 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB061E30607000E276EB /* Stream.swift */; };
+		23246CDF1E3E68C90057FA63 /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEB1E30602500E276EB /* AppProvider.swift */; };
+		23246D061E3FBF080057FA63 /* Game+LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23246D051E3FBF080057FA63 /* Game+LocalImage.swift */; };
+		23246D071E3FBF080057FA63 /* Game+LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23246D051E3FBF080057FA63 /* Game+LocalImage.swift */; };
+		232FBF751E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF741E3FD9B100294D26 /* Channel+LocalImage.swift */; };
+		232FBF761E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF741E3FD9B100294D26 /* Channel+LocalImage.swift */; };
+		232FBF781E3FDBB600294D26 /* LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF771E3FDBB600294D26 /* LocalImage.swift */; };
+		232FBF791E3FDBB600294D26 /* LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF771E3FDBB600294D26 /* LocalImage.swift */; };
+		232FBF801E40143A00294D26 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 232FBF7E1E40143A00294D26 /* Loading.storyboard */; };
+		232FBF811E40143A00294D26 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF7F1E40143A00294D26 /* LoadingViewController.swift */; };
 		233F4C141E32B5E100786A5C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F4C131E32B5E100786A5C /* Channel.swift */; };
 		2355AD541E32926800EAEF02 /* NowPlaying.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2355AD511E32926800EAEF02 /* NowPlaying.storyboard */; };
 		2355AD551E32926800EAEF02 /* NowPlayingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD521E32926800EAEF02 /* NowPlayingViewCell.swift */; };
@@ -50,6 +72,7 @@
 		23F6951D1E3270CA00B8E4FB /* HahaProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6951C1E3270CA00B8E4FB /* HahaProviderTest.swift */; };
 		23F6951F1E3274FC00B8E4FB /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23F6951E1E3274FC00B8E4FB /* Config.plist */; };
 		3F69EA497F60AD6E30D7BAA9 /* Pods_HahaStreamUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8F884DFF693A84A64CB7B5 /* Pods_HahaStreamUnitTests.framework */; };
+		8D8AD156026C5A5921386439 /* Pods_Haha_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99625038561208E4127B3BC /* Pods_Haha_Extension.framework */; };
 		E40B0FE8D5C36811466D2DD8 /* Pods_Haha_Stream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E8E50259AC4BE738873F72 /* Pods_Haha_Stream.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +84,28 @@
 			remoteGlobalIDString = 230CF2681E2EA31A001C0606;
 			remoteInfo = "Haha Stream";
 		};
+		23246CCD1E3E60440057FA63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 230CF2611E2EA31A001C0606 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23246CC51E3E60440057FA63;
+			remoteInfo = "Haha Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		23246CD31E3E60440057FA63 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				23246CCF1E3E60440057FA63 /* Haha Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2307A8BF1E3442B3002F0061 /* NowPlayingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NowPlayingItem.swift; path = HahaService/Models/NowPlayingItem.swift; sourceTree = "<group>"; };
@@ -72,6 +116,17 @@
 		230CF2851E2EA711001C0606 /* HahaStreamUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HahaStreamUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		230CF2891E2EA711001C0606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HahaProvider.swift; path = HahaService/HahaProvider.swift; sourceTree = "<group>"; };
+		23246CC61E3E60440057FA63 /* Haha Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Haha Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23246CC71E3E60440057FA63 /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
+		23246CCA1E3E60440057FA63 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		23246CCC1E3E60440057FA63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23246CE11E3E854E0057FA63 /* Haha Stream.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Haha Stream.entitlements"; sourceTree = "<group>"; };
+		23246CE21E3E85BE0057FA63 /* Haha Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Haha Extension.entitlements"; sourceTree = "<group>"; };
+		23246D051E3FBF080057FA63 /* Game+LocalImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Game+LocalImage.swift"; sourceTree = "<group>"; };
+		232FBF741E3FD9B100294D26 /* Channel+LocalImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+LocalImage.swift"; sourceTree = "<group>"; };
+		232FBF771E3FDBB600294D26 /* LocalImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalImage.swift; sourceTree = "<group>"; };
+		232FBF7E1E40143A00294D26 /* Loading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
+		232FBF7F1E40143A00294D26 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		233F4C121E32B05600786A5C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		233F4C131E32B5E100786A5C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = HahaService/Models/Channel.swift; sourceTree = "<group>"; };
 		2355AD511E32926800EAEF02 /* NowPlaying.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NowPlaying.storyboard; sourceTree = "<group>"; };
@@ -113,10 +168,13 @@
 		23F6951E1E3274FC00B8E4FB /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		48E8E50259AC4BE738873F72 /* Pods_Haha_Stream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haha_Stream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		539728FC1EEC4FF7101EB772 /* Pods-HahaStreamUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HahaStreamUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		6DC5C4978513D0F257C67E0E /* Pods-Haha Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haha Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Haha Extension/Pods-Haha Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		81A4AC4D58EE3FC972EF61F3 /* Pods-Haha Stream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haha Stream.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Haha Stream/Pods-Haha Stream.debug.xcconfig"; sourceTree = "<group>"; };
+		86C680C896595D1639158EAC /* Pods-Haha Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haha Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haha Extension/Pods-Haha Extension.release.xcconfig"; sourceTree = "<group>"; };
 		97D996BDD1273D20B05E984F /* Pods-Haha Stream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haha Stream.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haha Stream/Pods-Haha Stream.release.xcconfig"; sourceTree = "<group>"; };
 		E75F4C1D75835102C2340A0F /* Pods-HahaStreamUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HahaStreamUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8F884DFF693A84A64CB7B5 /* Pods_HahaStreamUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HahaStreamUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F99625038561208E4127B3BC /* Pods_Haha_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haha_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +194,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		23246CC31E3E60440057FA63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23246CC81E3E60440057FA63 /* TVServices.framework in Frameworks */,
+				8D8AD156026C5A5921386439 /* Pods_Haha_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -144,6 +211,7 @@
 			children = (
 				230CF26B1E2EA31A001C0606 /* Haha Stream */,
 				230CF2861E2EA711001C0606 /* HahaStreamUnitTests */,
+				23246CC91E3E60440057FA63 /* Haha Extension */,
 				230CF26A1E2EA31A001C0606 /* Products */,
 				DE7BE6BC4677E98AEDA6F08A /* Pods */,
 				3E7635665C6BDC747EE4EBB9 /* Frameworks */,
@@ -155,6 +223,7 @@
 			children = (
 				230CF2691E2EA31A001C0606 /* Haha Stream.app */,
 				230CF2851E2EA711001C0606 /* HahaStreamUnitTests.xctest */,
+				23246CC61E3E60440057FA63 /* Haha Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,9 +231,10 @@
 		230CF26B1E2EA31A001C0606 /* Haha Stream */ = {
 			isa = PBXGroup;
 			children = (
+				23246CE11E3E854E0057FA63 /* Haha Stream.entitlements */,
 				233F4C121E32B05600786A5C /* README.md */,
 				23DBFAE21E305D5900E276EB /* Features */,
-				230CF27C1E2EA40F001C0606 /* HahaService */,
+				230CF27C1E2EA40F001C0606 /* HahaProvider */,
 				23DBFB0E1E311C1F00E276EB /* Extensions */,
 				230CF2731E2EA31A001C0606 /* Assets.xcassets */,
 				230CF2751E2EA31A001C0606 /* Info.plist */,
@@ -172,14 +242,14 @@
 			path = "Haha Stream";
 			sourceTree = "<group>";
 		};
-		230CF27C1E2EA40F001C0606 /* HahaService */ = {
+		230CF27C1E2EA40F001C0606 /* HahaProvider */ = {
 			isa = PBXGroup;
 			children = (
 				230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */,
 				230CF27D1E2EA433001C0606 /* HahaService.swift */,
 				238F0D911E30350F00AF9351 /* Models */,
 			);
-			name = HahaService;
+			name = HahaProvider;
 			sourceTree = "<group>";
 		};
 		230CF2861E2EA711001C0606 /* HahaStreamUnitTests */ = {
@@ -192,6 +262,26 @@
 			);
 			path = HahaStreamUnitTests;
 			sourceTree = "<group>";
+		};
+		23246CC91E3E60440057FA63 /* Haha Extension */ = {
+			isa = PBXGroup;
+			children = (
+				23246CE21E3E85BE0057FA63 /* Haha Extension.entitlements */,
+				23246CCA1E3E60440057FA63 /* ServiceProvider.swift */,
+				23246CCC1E3E60440057FA63 /* Info.plist */,
+			);
+			path = "Haha Extension";
+			sourceTree = "<group>";
+		};
+		232FBF7D1E40143A00294D26 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				232FBF7E1E40143A00294D26 /* Loading.storyboard */,
+				232FBF7F1E40143A00294D26 /* LoadingViewController.swift */,
+			);
+			name = Loading;
+			path = "Haha Stream/Features/Loading";
+			sourceTree = SOURCE_ROOT;
 		};
 		2355AD501E32926800EAEF02 /* Now Playing */ = {
 			isa = PBXGroup;
@@ -260,6 +350,7 @@
 				23C626BC1E342C0900BDDACE /* Core */,
 				23DBFAE31E305D6B00E276EB /* Application */,
 				23C626B51E3426B600BDDACE /* Player */,
+				232FBF7D1E40143A00294D26 /* Loading */,
 				23DBFAE61E305DDF00E276EB /* Login */,
 				23DBFAE51E305DC900E276EB /* Home */,
 				2355AD501E32926800EAEF02 /* Now Playing */,
@@ -312,6 +403,9 @@
 		23DBFB0E1E311C1F00E276EB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				232FBF771E3FDBB600294D26 /* LocalImage.swift */,
+				23246D051E3FBF080057FA63 /* Game+LocalImage.swift */,
+				232FBF741E3FD9B100294D26 /* Channel+LocalImage.swift */,
 				23DBFB0F1E311C1F00E276EB /* Date.swift */,
 			);
 			path = Extensions;
@@ -322,6 +416,8 @@
 			children = (
 				48E8E50259AC4BE738873F72 /* Pods_Haha_Stream.framework */,
 				EA8F884DFF693A84A64CB7B5 /* Pods_HahaStreamUnitTests.framework */,
+				23246CC71E3E60440057FA63 /* TVServices.framework */,
+				F99625038561208E4127B3BC /* Pods_Haha_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -333,6 +429,8 @@
 				97D996BDD1273D20B05E984F /* Pods-Haha Stream.release.xcconfig */,
 				E75F4C1D75835102C2340A0F /* Pods-HahaStreamUnitTests.debug.xcconfig */,
 				539728FC1EEC4FF7101EB772 /* Pods-HahaStreamUnitTests.release.xcconfig */,
+				6DC5C4978513D0F257C67E0E /* Pods-Haha Extension.debug.xcconfig */,
+				86C680C896595D1639158EAC /* Pods-Haha Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -350,10 +448,12 @@
 				230CF2671E2EA31A001C0606 /* Resources */,
 				254CD0CEB6A54C042757C5B8 /* [CP] Embed Pods Frameworks */,
 				B4710AE7BC68052BB73648E6 /* [CP] Copy Pods Resources */,
+				23246CD31E3E60440057FA63 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				23246CCE1E3E60440057FA63 /* PBXTargetDependency */,
 			);
 			name = "Haha Stream";
 			productName = "Haha Stream";
@@ -381,6 +481,25 @@
 			productReference = 230CF2851E2EA711001C0606 /* HahaStreamUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		23246CC51E3E60440057FA63 /* Haha Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23246CD21E3E60440057FA63 /* Build configuration list for PBXNativeTarget "Haha Extension" */;
+			buildPhases = (
+				AE11F6E75E12D5896474A5F5 /* [CP] Check Pods Manifest.lock */,
+				23246CC21E3E60440057FA63 /* Sources */,
+				23246CC31E3E60440057FA63 /* Frameworks */,
+				23246CC41E3E60440057FA63 /* Resources */,
+				689DD4742B8FB94D61B937AE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Haha Extension";
+			productName = "Haha Extension";
+			productReference = 23246CC61E3E60440057FA63 /* Haha Extension.appex */;
+			productType = "com.apple.product-type.tv-app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -395,6 +514,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 9MQ56B2838;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					230CF2841E2EA711001C0606 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -402,6 +526,16 @@
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 230CF2681E2EA31A001C0606;
+					};
+					23246CC51E3E60440057FA63 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9MQ56B2838;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -420,6 +554,7 @@
 			targets = (
 				230CF2681E2EA31A001C0606 /* Haha Stream */,
 				230CF2841E2EA711001C0606 /* HahaStreamUnitTests */,
+				23246CC51E3E60440057FA63 /* Haha Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -429,6 +564,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232FBF801E40143A00294D26 /* Loading.storyboard in Resources */,
 				23DBFAF61E30603900E276EB /* Home.storyboard in Resources */,
 				23DBFAF21E30603000E276EB /* Login.storyboard in Resources */,
 				230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */,
@@ -445,6 +581,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				23F6951F1E3274FC00B8E4FB /* Config.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23246CC41E3E60440057FA63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +654,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		689DD4742B8FB94D61B937AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Haha Extension/Pods-Haha Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE11F6E75E12D5896474A5F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		B4710AE7BC68052BB73648E6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -557,6 +730,7 @@
 				230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */,
 				23DBFB071E30607000E276EB /* FromDictable.swift in Sources */,
 				23E746301E33F9AE00498A08 /* VCS.swift in Sources */,
+				232FBF751E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
 				23DBFB0B1E30607000E276EB /* Stream.swift in Sources */,
 				230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */,
 				23C1DE421E372A3600E53954 /* (null) in Sources */,
@@ -567,10 +741,13 @@
 				23C626B71E3426DA00BDDACE /* PlayerViewController.swift in Sources */,
 				23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */,
 				23DBFAFD1E30604200E276EB /* DateListViewController.swift in Sources */,
+				232FBF781E3FDBB600294D26 /* LocalImage.swift in Sources */,
 				23DBFB081E30607000E276EB /* Game.swift in Sources */,
 				23C1DE4A1E37371800E53954 /* VCSChannelListCell.swift in Sources */,
+				232FBF811E40143A00294D26 /* LoadingViewController.swift in Sources */,
 				23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */,
 				23C626C01E34350E00BDDACE /* ViewController+Haha.swift in Sources */,
+				23246D061E3FBF080057FA63 /* Game+LocalImage.swift in Sources */,
 				23DBFB011E30604200E276EB /* SportViewController.swift in Sources */,
 				23DBFAFE1E30604200E276EB /* GamesViewCell.swift in Sources */,
 				23C626BB1E342B2100BDDACE /* ViewController+Player.swift in Sources */,
@@ -591,6 +768,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		23246CC21E3E60440057FA63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23246CDF1E3E68C90057FA63 /* AppProvider.swift in Sources */,
+				23246CDD1E3E63AD0057FA63 /* Stream.swift in Sources */,
+				23246CDB1E3E63AD0057FA63 /* VCS.swift in Sources */,
+				23246CDC1E3E63AD0057FA63 /* Channel.swift in Sources */,
+				23246CD51E3E63AD0057FA63 /* HahaService.swift in Sources */,
+				23246CD91E3E63AD0057FA63 /* HahaError.swift in Sources */,
+				23246CD71E3E63AD0057FA63 /* Game.swift in Sources */,
+				23246CD61E3E63AD0057FA63 /* FromDictable.swift in Sources */,
+				23246CD41E3E63AD0057FA63 /* HahaProvider.swift in Sources */,
+				23246D071E3FBF080057FA63 /* Game+LocalImage.swift in Sources */,
+				232FBF791E3FDBB600294D26 /* LocalImage.swift in Sources */,
+				23246CD81E3E63AD0057FA63 /* NowPlayingItem.swift in Sources */,
+				232FBF761E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
+				23246CDA1E3E63AD0057FA63 /* Sport.swift in Sources */,
+				23246CCB1E3E60440057FA63 /* ServiceProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -598,6 +797,11 @@
 			isa = PBXTargetDependency;
 			target = 230CF2681E2EA31A001C0606 /* Haha Stream */;
 			targetProxy = 230CF28A1E2EA711001C0606 /* PBXContainerItemProxy */;
+		};
+		23246CCE1E3E60440057FA63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23246CC51E3E60440057FA63 /* Haha Extension */;
+			targetProxy = 23246CCD1E3E60440057FA63 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -700,6 +904,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Haha Stream/Haha Stream.entitlements";
 				DEVELOPMENT_TEAM = 9MQ56B2838;
 				INFOPLIST_FILE = "Haha Stream/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -716,6 +921,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Haha Stream/Haha Stream.entitlements";
 				DEVELOPMENT_TEAM = 9MQ56B2838;
 				INFOPLIST_FILE = "Haha Stream/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -762,6 +968,36 @@
 			};
 			name = Release;
 		};
+		23246CD01E3E60440057FA63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DC5C4978513D0F257C67E0E /* Pods-Haha Extension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Haha Extension/Haha Extension.entitlements";
+				DEVELOPMENT_TEAM = 9MQ56B2838;
+				INFOPLIST_FILE = "Haha Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wftllc.Haha-Stream.Haha-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		23246CD11E3E60440057FA63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86C680C896595D1639158EAC /* Pods-Haha Extension.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Haha Extension/Haha Extension.entitlements";
+				DEVELOPMENT_TEAM = 9MQ56B2838;
+				INFOPLIST_FILE = "Haha Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wftllc.Haha-Stream.Haha-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -788,6 +1024,15 @@
 			buildConfigurations = (
 				230CF28D1E2EA711001C0606 /* Debug */,
 				230CF28E1E2EA711001C0606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23246CD21E3E60440057FA63 /* Build configuration list for PBXNativeTarget "Haha Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23246CD01E3E60440057FA63 /* Debug */,
+				23246CD11E3E60440057FA63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

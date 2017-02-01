@@ -199,7 +199,7 @@ class HahaProvider:NSObject {
 		
 		return false;
 	}
-
+	
 	func getStreams(
 		sport: Sport,
 		game: Game,
@@ -209,7 +209,19 @@ class HahaProvider:NSObject {
 		)
 	{
 		
-		let endpoint = HahaService.getStreams(sport: sport.name.lowercased(), gameUUID: game.uuid);
+		getStreams(sportName: sport.name.lowercased(), gameUUID: game.uuid, success: successCallback, apiError: errorCallback, networkFailure: failureCallback)
+	}
+	
+	func getStreams(
+		sportName: String,
+		gameUUID: String,
+		success successCallback: @escaping ([Stream]) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		)
+	{
+		
+		let endpoint = HahaService.getStreams(sport: sportName, gameUUID: gameUUID);
 		
 		self.get(endpoint: endpoint,
 		         success: successCallback,
@@ -649,6 +661,22 @@ class HahaProvider:NSObject {
 		
 		let endpoint = HahaService.getStreamForChannel(sport: channel.sport!.name.lowercased(), channelId: channel.identifier);
 		
+		self.getOne(endpoint: endpoint,
+		            success: successCallback,
+		            apiError: errorCallback,
+		            networkFailure: failureCallback);
+	}
+	
+	
+	func getGame(
+		sportName: String,
+		gameUUID: String,
+		success successCallback: @escaping (Game?) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		)
+	{
+		let endpoint = HahaService.getGame(sport: sportName.lowercased(), uuid: gameUUID)
 		self.getOne(endpoint: endpoint,
 		            success: successCallback,
 		            apiError: errorCallback,

@@ -65,7 +65,8 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 			self.refreshData()
 		};
 	}
-		func refreshData() {
+	
+	func refreshData() {
 		self.provider.getNowPlaying(success: { (items) in
 			self.activityIndicator.stopAnimating()
 			self.items = items;
@@ -103,8 +104,8 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 				                                 options: nil,
 				                                 progressBlock: nil,
 				                                 completionHandler: nil)
-				//			cell.singleImageView.kf.setImage(with: game.singleImageURL)
 			}
+			//TODO: move to game?
 			if( ["NBA"].contains(game.sport.name) && game.awayTeamName != nil && game.homeTeamName != nil) {
 				//shorten game titles
 				cell.titleLabel.text = "\(game.awayTeamName!) @ \(game.homeTeamName!)"

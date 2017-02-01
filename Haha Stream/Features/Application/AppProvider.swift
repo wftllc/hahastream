@@ -1,14 +1,17 @@
 import UIKit
 
 class AppProvider: NSObject {
-	static var ApiKeyKey = "hehe_api_key";
+	private static let SuiteName = "group.com.wftllc.haha-stream.shared"
+	private static let ApiKeyKey = "hehe_api_key";
 
 	class var apiKey: String? {
 		get {
-			return UserDefaults.standard.string(forKey: ApiKeyKey)
+			let userDefaults = UserDefaults(suiteName: SuiteName);
+			return userDefaults?.string(forKey: ApiKeyKey)
 		}
 		set {
-			UserDefaults.standard.set(newValue, forKey: ApiKeyKey);
+			let userDefaults = UserDefaults(suiteName: SuiteName);
+			userDefaults?.set(newValue, forKey: ApiKeyKey);
 		}
 	}
 }

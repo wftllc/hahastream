@@ -1,4 +1,5 @@
 import Foundation
+
 /*
 "uuid": "44c7d1b836badda9",
 "home_team": {
@@ -37,13 +38,25 @@ final class Game: NSObject, FromDictable {
 	}
 	
 	public var upcoming: Bool {
-		return startDate.timeIntervalSinceNow > 0;
+		return startDate.timeIntervalSinceNow > 0 && !ready;
+	}
+	
+	public var startTimeString: String {
+		return Game.timeFormatter.string(from: startDate)
 	}
 	
 	static var dateFormatter: DateFormatter = {
 		let df = DateFormatter();
 		df.locale = Locale(identifier: "en_US_POSIX");
 		df.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSZ'"
+		return df;
+	}()
+	
+	static var timeFormatter: DateFormatter = {
+		let df = DateFormatter();
+		df.locale = Locale.autoupdatingCurrent
+		df.timeStyle = .short
+		df.dateStyle = .none
 		return df;
 	}()
 	
@@ -119,4 +132,14 @@ final class Game: NSObject, FromDictable {
 	public var singleImageURL: URL? {
 		return URL(string: "https://logos.hehestreams.xyz/image/vue_channels/\(self.uuid).png")
 	}
+	
+	public var playActionURL: URL? {
+		//TODO: url escape
+		return URL(string: "hahastream://play/game/\(self.sport.name)/\(self.uuid)")
+	}
+	
+	public var displayActionURL: URL? {
+		return URL(string: "hahastream://open/game/\(self.sport.name)/\(self.uuid)")
+	}
 }
+

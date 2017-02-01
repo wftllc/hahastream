@@ -24,6 +24,44 @@ class AppRouter: NSObject {
 		}
 	}
 	
+	public func openURL(_ url: URL) -> Bool {
+		print("open url \(url)");
+		
+		let pathComponents = url.pathComponents;
+		if pathComponents.count < 3 {
+			return false;
+		}
+		let type = pathComponents[1].lowercased();
+		let sport = pathComponents[2].lowercased()
+		let identifier = pathComponents[3].lowercased();
+		
+		print(type, identifier)
+		
+		if( type == "game" || type == "channel"  ) {
+			gotoHomeScreen();
+			guard let vc = self.window?.rootViewController as? HomeViewController else {
+				return false;
+			};
+			let loadingVC = self.loadingViewController()
+			DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+				
+			vc.present(loadingVC, animated: false, completion: {
+				if type == "game" {
+					loadingVC.selectGame(identifier, sport: sport);
+				}
+				else if type == "channel" {
+					if let channelNumber = Int(identifier) {
+						loadingVC.selectChannel(channelNumber, sport: sport)
+					}
+				}
+			});
+			}
+			return true;
+		}
+
+		return false;
+	}
+	
 	public func gotoLoginScreen() {
 		let vc = loginViewController();
 		self.window?.rootViewController = vc;
@@ -48,7 +86,7 @@ class AppRouter: NSObject {
 		let splitViewController = vc;
 		let leftNavController = splitViewController.viewControllers.first as! UINavigationController
 		let masterViewController = leftNavController.topViewController as! VCSChannelListViewController
-		let detailViewController = splitViewController.viewControllers.last as? AVPlayerViewController
+//		let detailViewController = splitViewController.viewControllers.last as? AVPlayerViewController
 		masterViewController.delegate = splitViewController;
 		//		masterViewController.sport = sport;
 //		detailViewController.sport = sport;
@@ -66,6 +104,12 @@ class AppRouter: NSObject {
 	
 	func nowPlayingViewController() -> NowPlayingViewController {
 		let vc = UIStoryboard(name: "NowPlaying", bundle: nil).instantiateInitialViewController() as! NowPlayingViewController
+		vc.provider = hahaProvider;
+		return vc;
+	}
+	
+	func loadingViewController() -> LoadingViewController {
+		let vc = UIStoryboard(name: "Loading", bundle: nil).instantiateInitialViewController() as! LoadingViewController
 		vc.provider = hahaProvider;
 		return vc;
 	}
@@ -90,6 +134,23 @@ class AppRouter: NSObject {
 	
 	func goToScreen(forSport sport: Sport) {
 		self.window?.rootViewController = viewController(forSport: sport);
+	}
+
+	func topViewController(controller: UIViewController?) -> UIViewController? {
+		let controller = controller ?? window?.rootViewController
+		
+		if let navigationController = controller as? UINavigationController {
+			return topViewController(controller: navigationController.visibleViewController)
+		}
+		if let tabController = controller as? UITabBarController {
+			if let selected = tabController.selectedViewController {
+				return topViewController(controller: selected)
+			}
+		}
+		if let presented = controller?.presentedViewController {
+			return topViewController(controller: presented)
+		}
+		return controller
 	}
 
 }

@@ -33,4 +33,13 @@ final class Channel: NSObject, FromDictable {
 	override var description : String {
 		return "\(title), \(identifier), \(active), \(notes)";
 	}
+	
+	public var playActionURL: URL? {
+		//TODO: url escape
+		return URL(string: "hahastream://play/channel/\(self.sport!.name)/\(self.identifier)")
+	}
+	
+	public var displayActionURL: URL? {
+		return URL(string: "hahastream://open/channel/\(self.sport!.name)/\(self.identifier)")
+	}
 }
