@@ -4,34 +4,38 @@ A native Hehestreams Apple TV/tvOS app. Need to know how to sideload to use it.
 
 # Device Support
 
-Requires 4th generation Apple TV (the new one, for tvOS support).
+Requires 4th generation Apple TV (the new one, for app support).
 
 This has been tested on tvOS 10.1/Apple TV 4th gen.
 
 # Build instructions
 
-Requirements:
+### Requirements:
 
 - Xcode 8.2+
 - Cocoapods
 - Apple Developer account
 
-To build:
+### To build:
 
 1. Clone repo
 2. run `pod install`
-3. Open .xcwordspace in Xcode
+3. Open the .xcworkspace in Xcode
 4. Select your team in the "Haha Stream" target settings
 5. Build and run!
 
-Get your API key:
+### To get "top shelf" behavior working:
+
+1. For **both** the "Haha Stream" and "Haha Extension" targets (select the root of the xcodeproject to view)
+2. Select the "Capabilities tab", and go to "App Groups"
+2. Remove the existing app group and add your own (e.g. "group.com.myname.haha-stream.shared")
+![Entitlements example](./entitlements-example.png)
+3. Open `AppProvider.swift` and change the `AppGroupName` value to the app group you came up with above
+4. You may need to build and run the `Haha Extension` scheme manually to get it working.
+
+### To get your API key:
 
 1. Login to hehestreams.xyz, visit "My Account", and find your API key.
-
-Todo: 
-
-- Implement custom seek behavior for livestreams
-- ...
 
 # Questions?
 
