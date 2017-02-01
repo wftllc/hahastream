@@ -57,7 +57,7 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
@@ -74,9 +74,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "230CF2681E2EA31A001C0606"
-            BuildableName = "Haha Stream.app"
-            BlueprintName = "Haha Stream"
+            BlueprintIdentifier = "23246CC51E3E60440057FA63"
+            BuildableName = "Haha Extension.appex"
+            BlueprintName = "Haha Extension"
             ReferencedContainer = "container:Haha Stream.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

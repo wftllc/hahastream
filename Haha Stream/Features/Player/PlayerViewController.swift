@@ -280,7 +280,7 @@ class PlayerViewController: AVPlayerViewController {
 			}
 		}
 		else if context == &playerItemContext {
-			guard let duration = change?[.newKey] as? CMTime else { return }
+//			guard let duration = change?[.newKey] as? CMTime else { return }
 		}
 	}
 }

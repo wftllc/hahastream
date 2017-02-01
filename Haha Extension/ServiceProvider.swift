@@ -8,11 +8,9 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 	var contentItems: [TVContentItem] = [];
 	
 	override init() {
-		print("ServiceProvider.init()")
 		provider = HahaProvider(apiKey: AppProvider.apiKey)
 		super.init()
 		start()
-		
 	}
 	
 	func start() {
