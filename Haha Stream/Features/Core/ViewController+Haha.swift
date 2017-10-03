@@ -32,7 +32,17 @@ extension UIViewController {
 		alertController.addAction(acceptAction)
 		present(alertController, animated: true, completion: nil);
 	}
-	
+
+	@objc func showAlert(title: String, message: String, onDismiss:(()->Void)? = nil) {
+		let acceptButtonTitle = NSLocalizedString("OK", comment: "")
+		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		let acceptAction = UIAlertAction(title: acceptButtonTitle, style: .default) { _ in
+			onDismiss?()
+		}
+		alertController.addAction(acceptAction)
+		present(alertController, animated: true, completion: nil);
+	}
+
 	
 	@objc func showLoginAlert(message: String) {
 		let title = "Authorization Problem"

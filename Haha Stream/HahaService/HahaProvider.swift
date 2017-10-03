@@ -19,12 +19,14 @@ class HahaProvider:NSObject {
 	
 	func setupProvider() {
 		let endpointClosure = { (target: HahaService) -> Endpoint<HahaService> in
-			var endpoint: Endpoint<HahaService> = Endpoint<HahaService>(
-				url: self.url(target),
-				sampleResponseClosure: {.networkResponse(200, target.sampleData)},
-				method: target.method,
-				task: target.task
-			);
+			var endpoint = MoyaProvider.defaultEndpointMapping(for: target);
+//			endpoint.url = self.url(target)
+//			var endpoint: Endpoint<HahaService> = Endpoint<HahaService>(
+//				url: self.url(target),
+//				sampleResponseClosure: {.networkResponse(200, target.sampleData)},
+//				method: target.method,
+//				task: target.task
+//			);
 			
 			if let apiKeyForced = self.apiKey {
 				endpoint = endpoint.adding(newHTTPHeaderFields: ["ApiKey": apiKeyForced]);
@@ -35,7 +37,27 @@ class HahaProvider:NSObject {
 		self.provider = MoyaProvider<HahaService>(endpointClosure: endpointClosure);
 		
 	}
+
+	func getDeviceRegistrationKey(
+		success successCallback: @escaping (DeviceKey?) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		) {
+		self.getOne(endpoint: .getDeviceKey(deviceUUID: UIDevice.current.identifierForVendor!.uuidString), success: successCallback, apiError: errorCallback, networkFailure: failureCallback);
+	}
 	
+	func activateDevice(
+		deviceKey: DeviceKey,
+		success successCallback: @escaping (DeviceActivation?) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		) {
+		self.getOne(endpoint: .activateDevice(deviceKey: deviceKey.key),
+		            success: successCallback,
+		            apiError: errorCallback,
+		            networkFailure: failureCallback);
+	}
+
 	func getSports(
 		success successCallback: @escaping ([Sport]) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,

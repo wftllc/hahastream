@@ -10,7 +10,8 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 	override init() {
 		provider = HahaProvider(apiKey: AppProvider.apiKey)
 		super.init()
-		start()
+//		start()
+		
 	}
 	
 	func start() {

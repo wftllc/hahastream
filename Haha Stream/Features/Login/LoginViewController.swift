@@ -19,7 +19,7 @@ class LoginViewController: HahaViewController, UITextFieldDelegate {
 		self.imageView.layer.shadowRadius = 20;
 		self.imageView.layer.shadowColor = UIColor.black.cgColor;
 		self.imageView.layer.shadowOpacity = 0.5;
-
+		
 		self.textField.text = AppProvider.apiKey;
 		self.textField.inputAccessoryView = self.textfieldAccessoryView;
 		self.apiKeyDisplayLabel.text = self.textField.text
@@ -38,7 +38,7 @@ class LoginViewController: HahaViewController, UITextFieldDelegate {
 			submitAPIKey(self.textField.text!)
 		}
 	}
-
+	
 	@IBAction func textFieldEditingChanged(_ sender: UITextField) {
 		self.apiKeyDisplayLabel.text = sender.text
 	}
@@ -72,9 +72,35 @@ class LoginViewController: HahaViewController, UITextFieldDelegate {
 			})
 		}
 	}
-
+	
+	func getAPIKey(fromDeviceKey deviceKey: DeviceKey) {
+		showLoading();
+		self.provider.activateDevice(deviceKey: deviceKey, success: { activation in
+			self.hideLoading()
+			self.submitAPIKey(activation!.apiKey)
+		}, apiError: { (error) in
+			self.hideLoading()
+			self.handleApiError(error);
+		}, networkFailure: { (error) in
+			self.hideLoading()
+			self.handleNetworkError(error);
+		})
+	}
 	@IBAction func signinDidTap(_ sender: Any) {
-		textField.becomeFirstResponder()
+		showLoading();
+		self.provider.getDeviceRegistrationKey(success: { (deviceKey) in
+			self.hideLoading()
+			self.showAlert(title: "Continue Registration", message: "Go to hehestreams.com/activate and enter \(deviceKey!.key), then hit OK") {
+					self.getAPIKey(fromDeviceKey: deviceKey!)
+			}
+		}, apiError: { (error) in
+			self.hideLoading()
+			self.handleApiError(error);
+		}, networkFailure: { (error) in
+			self.hideLoading()
+			self.handleNetworkError(error);
+		})
+//		textField.becomeFirstResponder()
 	}
 	
 	
