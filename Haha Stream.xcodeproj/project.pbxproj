@@ -39,7 +39,7 @@
 		2355AD561E32926800EAEF02 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */; };
 		23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */; };
 		23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */; };
-		23C1DE421E372A3600E53954 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		23C1DE421E372A3600E53954 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		23C1DE441E372B1B00E53954 /* ViewController+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */; };
 		23C1DE461E372DDF00E53954 /* VCSChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE451E372DDF00E53954 /* VCSChannelListViewController.swift */; };
 		23C1DE481E372F6C00E53954 /* VCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE471E372F6C00E53954 /* VCSViewController.swift */; };
@@ -507,7 +507,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "WFT Productions LLC";
 				TargetAttributes = {
 					230CF2681E2EA31A001C0606 = {
@@ -751,7 +751,7 @@
 				232FBF751E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
 				23DBFB0B1E30607000E276EB /* Stream.swift in Sources */,
 				230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */,
-				23C1DE421E372A3600E53954 /* BuildFile in Sources */,
+				23C1DE421E372A3600E53954 /* (null) in Sources */,
 				23DBFB091E30607000E276EB /* HahaError.swift in Sources */,
 				233F4C141E32B5E100786A5C /* Channel.swift in Sources */,
 				23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */,
@@ -833,7 +833,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -841,7 +843,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -882,7 +888,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -890,7 +898,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -919,7 +931,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81A4AC4D58EE3FC972EF61F3 /* Pods-Haha Stream.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Haha Stream/Haha Stream.entitlements";
@@ -936,7 +948,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 97D996BDD1273D20B05E984F /* Pods-Haha Stream.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Haha Stream/Haha Stream.entitlements";
