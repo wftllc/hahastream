@@ -27,11 +27,11 @@ open class Endpoint<Target> {
 
     /// Main initializer for `Endpoint`.
     public init(url: String,
-        sampleResponseClosure: @escaping SampleResponseClosure,
-        method: Moya.Method = Moya.Method.get,
-        parameters: [String: Any]? = nil,
-        parameterEncoding: Moya.ParameterEncoding = URLEncoding.default,
-        httpHeaderFields: [String: String]? = nil) {
+                sampleResponseClosure: @escaping SampleResponseClosure,
+                method: Moya.Method = Moya.Method.get,
+                parameters: [String: Any]? = nil,
+                parameterEncoding: Moya.ParameterEncoding = URLEncoding.default,
+                httpHeaderFields: [String: String]? = nil) {
 
         self.url = url
         self.sampleResponseClosure = sampleResponseClosure
@@ -110,8 +110,8 @@ extension Endpoint: Equatable, Hashable {
     }
 
     public static func == <T>(lhs: Endpoint<T>, rhs: Endpoint<T>) -> Bool {
-        if let _ = lhs.urlRequest, rhs.urlRequest == nil { return false }
-        if lhs.urlRequest == nil, let _ = rhs.urlRequest { return false }
+        if lhs.urlRequest != nil, rhs.urlRequest == nil { return false }
+        if lhs.urlRequest == nil, rhs.urlRequest != nil { return false }
         if lhs.urlRequest == nil, rhs.urlRequest == nil { return lhs.hashValue == rhs.hashValue }
         return (lhs.urlRequest == rhs.urlRequest)
     }

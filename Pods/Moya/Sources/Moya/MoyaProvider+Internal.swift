@@ -151,6 +151,7 @@ public extension MoyaProvider {
     final func notifyPluginsOfImpendingStub(for request: URLRequest, target: Target) {
         let alamoRequest = manager.request(request as URLRequestConvertible)
         plugins.forEach { $0.willSend(alamoRequest, target: target) }
+        alamoRequest.cancel()
     }
 }
 
@@ -234,7 +235,7 @@ private extension MoyaProvider {
         }
 
         // Perform the actual request
-        if let _ = progressCompletion {
+        if progressCompletion != nil {
             switch progressAlamoRequest {
             case let downloadRequest as DownloadRequest:
                 if let downloadRequest = downloadRequest.downloadProgress(closure: progressClosure) as? T {
