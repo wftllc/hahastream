@@ -102,22 +102,22 @@ class PlayerViewController: AVPlayerViewController {
 		print("duration",item.duration.desc)
 		print(item.asset)
 		print("tracks",item.tracks)
-		print("timeMetadata \(item.timedMetadata)")
+		if let _ = item.timedMetadata {
+			print("timeMetadata \(item.timedMetadata!)")
+		}
 		print("loadedKeys",item.automaticallyLoadedAssetKeys)
 		print("canFF",item.canPlayFastForward)
 		print("canFR",item.canPlayFastReverse)
 		print("forwardEndTime",item.forwardPlaybackEndTime.desc)
 		print("reverseEndTime",item.reversePlaybackEndTime.desc)
-		for tr in item.seekableTimeRanges {
-			if let tr = tr as CMTimeRange? {
-				print("seekableTime")
-				CMTimeRangeShow(tr)
-			}
-			else {
-				print("seekableTime ", tr)
-			}
+		for value in item.seekableTimeRanges {
+			let tr = value.timeRangeValue
+			print("seekableTime")
+			CMTimeRangeShow(tr)
 		}
-		print("currentDate \(item.currentDate())")
+		if item.currentDate() != nil {
+			print("currentDate \(item.currentDate()!)")
+		}
 		print("currentTime",item.currentTime().desc)
 		print(item.canUseNetworkResourcesForLiveStreamingWhilePaused)
 		print("externalMetadata",item.externalMetadata)
@@ -185,11 +185,11 @@ class PlayerViewController: AVPlayerViewController {
 		}
 	}
 	
-	func handleSwipeLeft(_ gestureRecognizer: UISwipeGestureRecognizer) {
+	@objc func handleSwipeLeft(_ gestureRecognizer: UISwipeGestureRecognizer) {
 		seekBy(-1)
 	}
 	
-	func handleSwipeRight(_ gestureRecognizer: UISwipeGestureRecognizer) {
+	@objc func handleSwipeRight(_ gestureRecognizer: UISwipeGestureRecognizer) {
 		seekBy(1)
 	}
 	
@@ -199,7 +199,7 @@ class PlayerViewController: AVPlayerViewController {
 	}
 	
 	public func playerViewController(_ playerViewController: AVPlayerViewController, willResumePlaybackAfterUserNavigatedFrom oldTime: CMTime, to targetTime: CMTime) {
-//		print("scrubbed from \(oldTime.seconds) to \(targetTime.seconds)");
+		//		print("scrubbed from \(oldTime.seconds) to \(targetTime.seconds)");
 	}
 	
 	//mark - player kvo
@@ -280,7 +280,7 @@ class PlayerViewController: AVPlayerViewController {
 			}
 		}
 		else if context == &playerItemContext {
-//			guard let duration = change?[.newKey] as? CMTime else { return }
+			//			guard let duration = change?[.newKey] as? CMTime else { return }
 		}
 	}
 }

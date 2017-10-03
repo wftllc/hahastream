@@ -513,6 +513,7 @@
 					230CF2681E2EA31A001C0606 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 9MQ56B2838;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -523,13 +524,14 @@
 					230CF2841E2EA711001C0606 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 9MQ56B2838;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 230CF2681E2EA31A001C0606;
 					};
 					23246CC51E3E60440057FA63 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 9MQ56B2838;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -940,7 +942,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wftllc.Haha-Stream";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -957,7 +960,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wftllc.Haha-Stream";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -975,7 +979,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HahaStreamUnitTests/HahaStreamUnitTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Haha Stream.app/Haha Stream";
 			};
 			name = Debug;
@@ -993,7 +998,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wftllc.HahaStreamUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HahaStreamUnitTests/HahaStreamUnitTests-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Haha Stream.app/Haha Stream";
 			};
 			name = Release;
@@ -1009,7 +1015,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wftllc.Haha-Stream.Haha-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1024,7 +1031,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wftllc.Haha-Stream.Haha-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

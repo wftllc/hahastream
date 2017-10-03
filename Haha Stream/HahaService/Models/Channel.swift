@@ -31,7 +31,7 @@ final class Channel: NSObject, FromDictable {
 	}
 	
 	override var description : String {
-		return "\(title), \(identifier), \(active), \(notes)";
+		return "\(title), \(identifier), \(active), \(String(describing: notes), String(describing: notes))";
 	}
 	
 	public var playActionURL: URL? {

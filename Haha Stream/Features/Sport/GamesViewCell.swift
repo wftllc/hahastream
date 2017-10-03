@@ -100,14 +100,14 @@ class GamesViewCell: UICollectionViewCell {
 	override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
 //		print("viewcell.didUpdateFocus from", context.previouslyFocusedView, "to", context.nextFocusedView);
 		if let cell = context.nextFocusedView as? GamesViewCell {
-			coordinator.addCoordinatedAnimations({() -> Void in
+			coordinator.addCoordinatedAnimations({
 				cell.showFocused()
-			}, completion: { _ in })
+			})
 		}
 		if let cell = context.previouslyFocusedView as? GamesViewCell {
-			coordinator.addCoordinatedAnimations({() -> Void in
+			coordinator.addCoordinatedAnimations({
 				cell.clearFocused();
-			}, completion: { _ in })
+			})
 		}
 		
 	}

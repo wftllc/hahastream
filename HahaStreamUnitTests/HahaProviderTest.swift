@@ -79,16 +79,16 @@ class HahaProviderTest: XCTestCase {
 	func testNowPlaying() {
 		let exp = expectation(description: "wait")
 		var games:[Game] = []
-		provider.getCurrentGames(success: { (gamesRes) in
-			games = gamesRes;
-			exp.fulfill()
-		}, apiError: { (error) in
-			XCTFail("apiError: \(error)")
-			exp.fulfill()
-		}, networkFailure: { (error) in
-			XCTFail("networkFailure: \(error)")
-			exp.fulfill()
-		})
+//		provider.getCurrentGames(success: { (gamesRes) in
+//			games = gamesRes;
+//			exp.fulfill()
+//		}, apiError: { (error) in
+//			XCTFail("apiError: \(error)")
+//			exp.fulfill()
+//		}, networkFailure: { (error) in
+//			XCTFail("networkFailure: \(error)")
+//			exp.fulfill()
+//		})
 		waitForExpectations(timeout: 25, handler: nil)
 		print(games)
 		XCTAssertGreaterThan(games.count, 0)

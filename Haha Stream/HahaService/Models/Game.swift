@@ -111,15 +111,16 @@ final class Game: NSObject, FromDictable {
 	}
 	
 	override var description : String {
-		return "\(title); \(awayTeam) @ \(homeTeam), \(ready), \(startDate)";
+		return "\(title); \(awayTeam ?? "Away") @ \(homeTeam ?? "Home"), \(ready), \(startDate)";
 	}
 	
 	public func cutNameInHalf(_ theName: String?) -> String? {
 		guard let name = theName else { return nil }
 		let halfwayPoint = (name.characters.count - 1) / 2
 		let halfwayIndex = name.index(name.startIndex, offsetBy: halfwayPoint)
-		let fixedHomeTeam = name.substring(to:halfwayIndex)
-		return fixedHomeTeam
+		let fixedHomeTeam = name[...halfwayIndex]
+//		let fixedHomeTeam = name.substring(to:halfwayIndex)
+		return String(fixedHomeTeam)
 	}
 	public var homeTeamName: String? {
 		return cutNameInHalf(homeTeam);

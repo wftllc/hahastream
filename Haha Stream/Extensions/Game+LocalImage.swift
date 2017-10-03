@@ -80,15 +80,15 @@ extension Game: LocalImage {
 		let str:NSString = NSString(string: self.startTimeString)
 		let style = NSMutableParagraphStyle();
 		style.alignment = .center
-		var attr: [String: Any] = [
-			NSParagraphStyleAttributeName: style,
-			NSForegroundColorAttributeName: UIColor.darkGray,
+		var attr: [NSAttributedStringKey: Any] = [
+			.paragraphStyle: style,
+			.foregroundColor: UIColor.darkGray,
 			]
 		if let font = UIFont(name: UIFont.preferredFont(forTextStyle: .title1).fontName, size: 90) {
-			attr[NSFontAttributeName] = font
+			attr[.font] = font
 		}
 		
-		let textSize = str.size(attributes: attr)
+		let textSize = str.size(withAttributes: attr)
 		
 		
 		let width = max(image1.size.width, image2.size.width)

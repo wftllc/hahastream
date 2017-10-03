@@ -75,7 +75,7 @@ extension HahaViewController {
 	}
 	
 
-	func onStreamChoiceCanceled() {
+	@objc func onStreamChoiceCanceled() {
 		
 	}
 	/// Shows an alert with "OK" and "Cancel" buttons.
@@ -116,7 +116,7 @@ extension HahaViewController {
 		present(alertController, animated: true, completion: nil)
 	}
 	
-	func playURL(_ url: URL) {
+	@objc func playURL(_ url: URL) {
 		// Create an AVPlayer, passing it the HTTP Live Streaming URL.
 		let player = AVPlayer(url: url)
 		

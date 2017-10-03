@@ -28,15 +28,15 @@ extension Channel: LocalImage {
 		let str:NSString = NSString(string: self.title)
 		let style = NSMutableParagraphStyle();
 		style.alignment = .center
-		var attr: [String: Any] = [
-			NSParagraphStyleAttributeName: style,
-			NSForegroundColorAttributeName: UIColor.darkGray,
+		var attr: [NSAttributedStringKey: Any] = [
+			.paragraphStyle: style,
+			.foregroundColor: UIColor.darkGray,
 			]
 		if let font = UIFont(name: UIFont.preferredFont(forTextStyle: .title1).fontName, size: 90) {
-			attr[NSFontAttributeName] = font
+			attr[.font] = font
 		}
 		
-		let textSize = str.size(attributes: attr)
+		let textSize = str.size(withAttributes: attr)
 		
 		
 		let contextSize = CGSize(width: width, height: height)
