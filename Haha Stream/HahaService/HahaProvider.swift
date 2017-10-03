@@ -243,10 +243,10 @@ class HahaProvider:NSObject {
 		)
 	{
 		
-		let endpoint = HahaService.getStreams(sport: sportName, gameUUID: gameUUID);
-		
-		self.get(endpoint: endpoint,
-		         success: successCallback,
+		let endpoint = HahaService.getStreamMetas(sport: sportName, gameUUID: gameUUID);
+		self.getOne(endpoint: endpoint, success: { (streamMeta: StreamMeta?) in
+			successCallback(streamMeta!.streams)
+		},
 		         apiError: errorCallback,
 		         networkFailure: failureCallback);
 	}
@@ -257,13 +257,13 @@ class HahaProvider:NSObject {
 		networkFailure failureCallback: @escaping (MoyaError) -> Void
 		)
 	{
-		
-		let endpoint = HahaService.getStreams(sport: "vcs", gameUUID: vcs.uuid);
-		
-		self.get(endpoint: endpoint,
-		         success: successCallback,
-		         apiError: errorCallback,
-		         networkFailure: failureCallback);
+		//TODO: implement
+//		let endpoint = HahaService.getStreams(sport: "vcs", gameUUID: vcs.uuid);
+//
+//		self.get(endpoint: endpoint,
+//		         success: successCallback,
+//		         apiError: errorCallback,
+//		         networkFailure: failureCallback);
 	}
 	
 	func getVCSChannels(
@@ -672,7 +672,22 @@ class HahaProvider:NSObject {
 		successCallback(results);
 	}
 	
-	
+	func getStream(
+		sport: Sport,
+		game: Game,
+		stream: Stream,
+		success successCallback: @escaping (Stream?) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+	)
+	{
+		let endpoint = HahaService.getStream(sport: sport.name.lowercased(), gameUUID: game.uuid, streamId: stream.id)
+		
+		self.getOne(endpoint: endpoint,
+		            success: successCallback,
+		            apiError: errorCallback,
+		            networkFailure: failureCallback);
+	}
 	func getStream(
 		channel: Channel,
 		success successCallback: @escaping (Stream?) -> Void,
@@ -774,9 +789,14 @@ class HahaProvider:NSObject {
 					do {
 						let json = try moyaResponse.mapJSON()
 						let dict = json as! [String: AnyObject]
-						let hahaError = HahaError.fromDictionary(dict)!
-						hahaError.underlyingResponse = moyaResponse;
+						if let hahaError = HahaError.fromDictionary(dict)
+						{
+							hahaError.underlyingResponse = moyaResponse;
 						errorCallback(hahaError);
+						}
+						else {
+							errorCallback(originalError)
+						}
 					}
 					catch {
 						errorCallback(originalError)

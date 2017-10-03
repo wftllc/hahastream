@@ -14,7 +14,7 @@ extension HahaViewController {
 				return;
 			}
 			//just put in the sport by hand, since it's not returned by api
-			game.sport = Sport(name: sport, path: "", status: true)
+			game.sport = Sport(name: sport, path: "")
 			self.selectGame(game);
 		}, apiError: apiErrorClosure,
 		   networkFailure: networkFailureClosure
@@ -25,7 +25,7 @@ extension HahaViewController {
 		showLoading(animated: true)
 		//fake it!
 		let channel = Channel(identifier: identifier, title: "\(sport) channel", notes: nil, active: true);
-		channel.sport = Sport(name: sport, path: "", status: true);
+		channel.sport = Sport(name: sport, path: "");
 		
 		provider.getStream(channel: channel, success: { (stream) in
 			self.hideLoading(animated: true, completion: {
@@ -45,9 +45,9 @@ extension HahaViewController {
 		showLoading(animated: true)
 		provider.getStreams(sport: game.sport, game: game, success: { (streams) in
 			if streams.count == 1 {
-				self.hideLoading(animated: true, completion: {
-					self.playURL(streams.first!.url)
-				});
+				self.hideLoading(animated: false, completion: {
+					self.playStream(stream: streams[0], game: game)
+				})
 			}
 			else {
 				self.hideLoading(animated: true, completion: { 
@@ -59,15 +59,11 @@ extension HahaViewController {
 		)
 	}
 
-	func playStream(source: String, game: Game) {
+	func playStream(stream: Stream, game: Game) {
 		showLoading(animated: true)
-		provider.getStreams(sport: game.sport, game: game, success: { (streams) in
+		provider.getStream(sport: game.sport, game: game, stream: stream, success: { (stream) in
 			self.hideLoading(animated: true, completion: {
-				guard let stream = streams.filter({$0.source == source}).first else {
-					self.showAlert(title: "Stream not Found", message: "A matching stream could not be found. Please try again.");
-					return;
-				}
-				self.playURL(stream.url);
+				self.playURL(stream!.url);
 			});
 		}, apiError: apiErrorClosure,
 		   networkFailure: networkFailureClosure
@@ -93,16 +89,17 @@ extension HahaViewController {
 		for stream in streams {
 			// Create the actions.
 			//			print("available stream \(stream)")
-			let title = "\(stream.source) stream";
+			let title = "\(stream.title) stream";
 			let acceptAction = UIAlertAction(title: title, style: .default) { _ in
 				//if stream expires in less than one second, refresh and play it
 				//				print("play stream \(stream)")
-				if( stream.expiresAt.timeIntervalSinceNow <= 1 ) {
-					self.playStream(source: stream.source, game: game);
-				}
-				else {
-					self.playURL(stream.url);
-				}
+//				if( stream.expiresAt.timeIntervalSinceNow <= 1 ) {
+//					self.playStream(source: stream.source, game: game);
+//				}
+//				else {
+				//TODO: fetch stream url!
+				self.playStream(stream: stream, game: game)
+//				}
 			}
 			alertController.addAction(acceptAction)
 		}

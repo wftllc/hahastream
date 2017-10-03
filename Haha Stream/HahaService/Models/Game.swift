@@ -65,17 +65,17 @@ final class Game: NSObject, FromDictable {
 	static func fromDictionary(_ dict:[String: Any]) -> Game? {
 		guard let uuid = dict["uuid"] as? String else { return nil }
 		
-		guard let free = dict["free"] as? Bool else { return nil }
-		guard let ready = dict["ready"] as? Bool else { return nil }
+		let free = dict["free"] as? Bool ?? false
+		guard let ready = dict["live"] as? Bool else { return nil }
 		guard let title = dict["title"] as? String else { return nil }
-		guard let startDateString = dict["start"] as? String else { return nil }
+		guard let startDateString = dict["start_in_gmt"] as? String else { return nil }
 		guard let date = self.dateFormatter.date(from: startDateString) else { return nil }
 		
-		let homeTeamDict = dict["home_team"] as? [String: Any]
-		let homeTeam = homeTeamDict?["display_name"] as? String
+		let homeTeamDict = dict["home"] as? [String: Any]
+		let homeTeam = homeTeamDict?["name"] as? String
 		let homeTeamLogoURL = URL(string: (homeTeamDict?["logo_url"] as? String ?? ""))
-		let awayTeamDict = dict["away_team"] as? [String: Any]
-		let awayTeam = awayTeamDict?["display_name"] as? String
+		let awayTeamDict = dict["away"] as? [String: Any]
+		let awayTeam = awayTeamDict?["name"] as? String
 		let awayTeamLogoURL = URL(string: (awayTeamDict?["logo_url"] as? String ?? ""))
 		return Game.init(uuid: uuid,
 		                 title: title,

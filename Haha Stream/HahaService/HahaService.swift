@@ -10,7 +10,8 @@ enum HahaService {
 	//	case getGamesByDate(sport: String, year: Int, month: Int, day: Int);
 	case getSports;
 	case getChannels(sport: String);
-	case getStreams(sport: String, gameUUID: String);
+	case getStreamMetas(sport: String, gameUUID: String);
+	case getStream(sport: String, gameUUID: String, streamId: String);
 	case getStreamForChannel(sport: String, channelId: Int);
 	case scrapeVCSChannels;
 }
@@ -45,8 +46,10 @@ extension HahaService: TargetType {
 			return "/\(sport.urlEscaped)/games";
 		case .getGamesNoDate(let sport):
 			return "/\(sport.urlEscaped)/games";
-		case .getStreams(let sport, let uuid):
+		case .getStreamMetas(let sport, let uuid):
 			return "/\(sport.urlEscaped)/games/\(uuid.urlEscaped)/streams";
+		case .getStream(let sport, let gameUuid, let streamId):
+			return "/\(sport.urlEscaped)/games/\(gameUuid.urlEscaped)/streams/\(streamId.urlEscaped)";
 		case .getChannels(let sport):
 			return "/\(sport.urlEscaped)/channels";
 		case .getStreamForChannel(let sport, let channelId):
@@ -76,7 +79,7 @@ extension HahaService: TargetType {
 			]
 		case .getGames(_, let year, let month, let day):
 			return [
-				"date": String(format: "%4d-%1d-%1d", year, month, day)
+				"date": String(format: "%2d-%02d-%1d", month, day, year)
 			]
 			
 		default:

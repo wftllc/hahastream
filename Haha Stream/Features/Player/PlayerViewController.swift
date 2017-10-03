@@ -17,6 +17,7 @@ class SeekOperation {
 	//	var targetMediaTime: CMTime
 	var increment: Int
 	
+
 	/*
 	tells is this op is still active. a seek is active if < SeekUxTimeSeconds
 	have elapsed since the seek completed
@@ -53,7 +54,18 @@ class PlayerViewController: AVPlayerViewController {
 	
 	var overlayView: PlayerOverlayView!;
 	
+	//TODO: clean up hacky unsafe pointerz
+	var a = 0
+	var b = 0
+	var c = 0
+	var selfContext:UnsafeMutableRawPointer
+	var playerContext:UnsafeMutableRawPointer
+	var playerItemContext:UnsafeMutableRawPointer
+
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+		self.selfContext = UnsafeMutableRawPointer(&a)
+		self.playerContext = UnsafeMutableRawPointer(&b)
+		self.playerItemContext = UnsafeMutableRawPointer(&c)
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		self.isSkipForwardEnabled = false;
 		self.isSkipBackwardEnabled = false;
@@ -204,10 +216,6 @@ class PlayerViewController: AVPlayerViewController {
 	
 	//mark - player kvo
 	
-	var selfContext = true
-	var playerContext = true
-	var playerItemContext = true
-	
 	deinit {
 		removeObservers()
 	}
@@ -215,34 +223,35 @@ class PlayerViewController: AVPlayerViewController {
 	
 	func removeObservers() {
 		unobservePlayer(player)
-		self.removeObserver(self, forKeyPath: #keyPath(player), context: &selfContext)
+		self.removeObserver(self, forKeyPath: #keyPath(player), context: selfContext)
 	}
 	
 	func setupObservers() {
-		self.addObserver(self, forKeyPath: #keyPath(player), options: [.initial, .new, .old], context:&selfContext)
+		self.addObserver(self, forKeyPath: #keyPath(player), options: [.initial, .new, .old], context:selfContext)
 	}
 	
 	func observePlayer(_ player: AVPlayer?) {
 		guard let player = player else { return }
-		player.addObserver(self, forKeyPath: "status", options: [.initial, .new, .old], context: &playerContext)
-		player.addObserver(self, forKeyPath: "currentItem", options: [.initial, .new, .old], context: &playerContext)
+		
+		player.addObserver(self, forKeyPath: "status", options: [.initial, .new, .old], context: playerContext)
+		player.addObserver(self, forKeyPath: "currentItem", options: [.initial, .new, .old], context: playerContext)
 	}
 	
 	func unobservePlayer(_ player: AVPlayer? ){
 		guard let player = player else { return }
 		unobservePlayerItem(player.currentItem)
-		player.removeObserver(self, forKeyPath: "status", context: &playerContext)
-		player.removeObserver(self, forKeyPath: "currentItem", context: &playerContext)
+		player.removeObserver(self, forKeyPath: "status", context: playerContext)
+		player.removeObserver(self, forKeyPath: "currentItem", context: playerContext)
 	}
 	
 	func observePlayerItem(_ item: AVPlayerItem?) {
 		guard let item = item else { return }
-		item.addObserver(self, forKeyPath: "duration", options: [.initial, .new, .old], context: &playerItemContext)
+		item.addObserver(self, forKeyPath: "duration", options: [.initial, .new, .old], context: playerItemContext)
 	}
 	
 	func unobservePlayerItem(_ item: AVPlayerItem?) {
 		guard let item = item else { return }
-		item.removeObserver(self, forKeyPath: "duration", context: &playerItemContext)
+		item.removeObserver(self, forKeyPath: "duration", context: playerItemContext)
 	}
 	
 	
@@ -259,11 +268,11 @@ class PlayerViewController: AVPlayerViewController {
 			return
 		}
 		
-		if context == &selfContext {
+		if context == selfContext {
 			unobservePlayer(change?[.oldKey] as? AVPlayer)
 			observePlayer(change?[.newKey] as? AVPlayer)
 		}
-		else if context == &playerContext {
+		else if context == playerContext {
 			if keyPath == "status" {
 				if let statusNumber = change?[.newKey] as? NSNumber {
 					let newStatus = AVPlayerItemStatus(rawValue: statusNumber.intValue)!
@@ -279,7 +288,7 @@ class PlayerViewController: AVPlayerViewController {
 				observePlayerItem(change?[.newKey] as? AVPlayerItem)
 			}
 		}
-		else if context == &playerItemContext {
+		else if context == playerItemContext {
 			//			guard let duration = change?[.newKey] as? CMTime else { return }
 		}
 	}
