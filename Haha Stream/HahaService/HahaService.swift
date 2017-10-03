@@ -14,6 +14,10 @@ enum HahaService {
 }
 
 extension HahaService: TargetType {
+	var headers: [String : String]? {
+		return [:]
+	}
+	
 	var baseURL: URL { return URL(string: "http://hehestreams.xyz/api/v1")! }
 	
 	var path: String {
@@ -45,7 +49,7 @@ extension HahaService: TargetType {
 		}
 	}
 	
-	var parameters: [String: Any]? {
+	var parameters: [String: Any] {
 		switch self {
 		case .getGames(_, let year, let month, let day):
 			return [
@@ -53,7 +57,7 @@ extension HahaService: TargetType {
 			]
 			
 		default:
-			return nil;
+			return [:];
 		}
 	}
 	
@@ -62,7 +66,7 @@ extension HahaService: TargetType {
 	}
 	
 	var task: Task {
-		return .request;
+		return .requestParameters(parameters: self.parameters, encoding: self.parameterEncoding)
 	}
 	
 	var sampleData: Data {

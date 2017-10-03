@@ -23,11 +23,11 @@ class HahaProvider:NSObject {
 				url: self.url(target),
 				sampleResponseClosure: {.networkResponse(200, target.sampleData)},
 				method: target.method,
-				parameters: target.parameters
+				task: target.task
 			);
 			
 			if let apiKeyForced = self.apiKey {
-				endpoint = endpoint.adding(httpHeaderFields: ["ApiKey": apiKeyForced]);
+				endpoint = endpoint.adding(newHTTPHeaderFields: ["ApiKey": apiKeyForced]);
 			}
 			return endpoint
 		}
