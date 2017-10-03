@@ -6,8 +6,8 @@ def shared_pods
 	use_frameworks!
 	
 	# Pods for Haha Stream
-	pod 'Moya', '~> 8.0.0'
-	pod 'Kingfisher', '~> 3.2.0'
+	pod 'Moya', '~> 9.0.0'
+	pod 'Kingfisher', '~> 4.1.0'
 end
 
 target 'Haha Stream' do
