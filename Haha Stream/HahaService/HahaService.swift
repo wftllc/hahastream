@@ -35,7 +35,7 @@ extension HahaService: TargetType {
 	var path: String {
 		switch self {
 		case .getDeviceKey(_):
-			return "devices/ping"
+			return "devices/register"
 		case .activateDevice(_):
 			return "devices/activate"
 		case .getSports:
