@@ -30,7 +30,7 @@ class HomeViewController: HahaTabBarController {
 			if haveVCS {
 				viewControllers.append(self.appRouter.vcsViewController())
 			}
-			viewControllers.append(self.appRouter.loginViewController())
+//			viewControllers.append(self.appRouter.loginViewController())
 			self.setViewControllers(viewControllers, animated: false)
 			self.setNeedsFocusUpdate();
 //			self.updateFocusIfNeeded();
