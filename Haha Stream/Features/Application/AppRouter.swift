@@ -10,13 +10,14 @@ class AppRouter: NSObject {
 		self.hahaProvider = HahaProvider(apiKey: AppProvider.apiKey);
 	}
 
-	public func handleLoginComplete() {
+	public func handleLoginComplete(withActivation activation: DeviceActivation) {
+		AppProvider.apiKey = activation.apiKey
 		self.hahaProvider = HahaProvider(apiKey: AppProvider.apiKey);
 		gotoFirstScreen();
 	}
 	
 	func gotoFirstScreen() {
-		if( AppProvider.apiKey == nil ) {
+		if( !AppProvider.isLoggedIn ) {
 			gotoLoginScreen()
 		}
 		else {
@@ -64,6 +65,7 @@ class AppRouter: NSObject {
 	
 	public func gotoLoginScreen() {
 		let vc = loginViewController();
+		
 		self.window?.rootViewController = vc;
 	}
 	
@@ -98,7 +100,10 @@ class AppRouter: NSObject {
 	
 	func loginViewController() -> LoginViewController {
 		let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController;
-		vc.provider = hahaProvider;
+		let interactor = LoginInteractor(provider: self.hahaProvider, router: self)
+		interactor.view = vc
+		vc.interactor = interactor
+//		vc.provider = hahaProvider;
 		return vc;
 	}
 	

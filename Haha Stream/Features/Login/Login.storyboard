@@ -6,10 +6,13 @@
     <dependencies>
         <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Account-->
         <scene sceneID="lh0-vg-3oi">
@@ -23,106 +26,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hehe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMp-Go-YWf">
-                                <rect key="frame" x="874" y="159" width="173" height="91"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hehe-logo-large" translatesAutoresizingMaskIntoConstraints="NO" id="6oa-Ve-HF6">
+                                <rect key="frame" x="-5" y="56" width="924" height="924"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z3-pw-P0a">
+                                <rect key="frame" x="935" y="362" width="809" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Go to hehestreams.com/activate
+and submit your activation code.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hehelogopadded750" translatesAutoresizingMaskIntoConstraints="NO" id="6oa-Ve-HF6">
-                                <rect key="frame" x="710" y="270" width="500" height="500"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="6oa-Ve-HF6" secondAttribute="height" multiplier="1:1" id="aKE-KH-Iop"/>
-                                    <constraint firstAttribute="width" constant="500" id="feB-pG-qzR"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgW-NG-wIt">
-                                <rect key="frame" x="571" y="850" width="779" height="131"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Activate this Apple TV"/>
-                                <connections>
-                                    <action selector="signinDidTap:" destination="gB0-dQ-nUc" eventType="primaryActionTriggered" id="krk-4f-IEO"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QTQ-ix-RWt">
-                                <rect key="frame" x="1378" y="883" width="64" height="64"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2h-op-ROc">
+                                <rect key="frame" x="1032" y="722" width="615" height="121"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="57"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WlX-AJ-Lpx">
+                                <rect key="frame" x="1307" y="750" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
-                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="API Key" textAlignment="justified" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIH-ig-abk">
-                                <rect key="frame" x="110" y="80" width="306" height="91"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activate your Apple TV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXs-Mo-4xl">
+                                <rect key="frame" x="927" y="155" width="824" height="121"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="85"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES"/>
-                                <connections>
-                                    <action selector="textFieldEditingChanged:" destination="gB0-dQ-nUc" eventType="editingChanged" id="Rj2-he-0X5"/>
-                                    <action selector="textfieldPrimaryActionTriggered:" destination="gB0-dQ-nUc" eventType="primaryActionTriggered" id="8Aj-R9-Djx"/>
-                                    <outlet property="delegate" destination="gB0-dQ-nUc" id="ble-2X-vra"/>
-                                </connections>
-                            </textField>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="There was a problem..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lp1-yL-QHX">
+                                <rect key="frame" x="935" y="851" width="809" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activation Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNG-CY-3n2">
+                                <rect key="frame" x="1008" y="619" width="662" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="kMp-Go-YWf" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="OAx-1l-0Uj"/>
-                            <constraint firstItem="BIH-ig-abk" firstAttribute="top" secondItem="23P-0j-2ar" secondAttribute="bottom" constant="20" id="VC2-J4-7x4"/>
-                            <constraint firstItem="kMp-Go-YWf" firstAttribute="top" secondItem="23P-0j-2ar" secondAttribute="bottom" constant="99" id="WkH-Vc-zga"/>
-                            <constraint firstItem="QTQ-ix-RWt" firstAttribute="centerY" secondItem="IgW-NG-wIt" secondAttribute="centerY" id="YbI-nK-1oX"/>
-                            <constraint firstItem="IgW-NG-wIt" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="bk1-2u-sQR"/>
-                            <constraint firstItem="6oa-Ve-HF6" firstAttribute="centerY" secondItem="Vn4-ll-MLc" secondAttribute="centerY" constant="-20" id="mWV-nh-Nhw"/>
-                            <constraint firstItem="QTQ-ix-RWt" firstAttribute="leading" secondItem="IgW-NG-wIt" secondAttribute="trailing" constant="28" id="sq1-5z-qqM"/>
-                            <constraint firstItem="IgW-NG-wIt" firstAttribute="top" secondItem="6oa-Ve-HF6" secondAttribute="bottom" constant="80" id="uWl-NR-7GS"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="BIH-ig-abk" secondAttribute="leading" id="va2-ND-bkL"/>
-                            <constraint firstItem="6oa-Ve-HF6" firstAttribute="centerX" secondItem="Vn4-ll-MLc" secondAttribute="centerX" id="yvR-7C-cWu"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" id="TqW-lD-RCp"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="QTQ-ix-RWt" id="15n-9y-kf3"/>
-                        <outlet property="apiKeyDisplayLabel" destination="W6c-Hq-2BP" id="F69-fh-21G"/>
+                        <outlet property="activationCodeLabel" destination="R2h-op-ROc" id="jba-SN-pDA"/>
+                        <outlet property="activityIndicator" destination="WlX-AJ-Lpx" id="mo1-3W-9NP"/>
+                        <outlet property="errorLabel" destination="Lp1-yL-QHX" id="I15-x7-RKa"/>
                         <outlet property="imageView" destination="6oa-Ve-HF6" id="zHP-tW-XV4"/>
-                        <outlet property="signinButton" destination="IgW-NG-wIt" id="SoJ-H5-luo"/>
-                        <outlet property="textField" destination="BIH-ig-abk" id="ZqK-CU-zYJ"/>
-                        <outlet property="textfieldAccessoryView" destination="OMf-tb-bxW" id="eYY-1u-KQO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BiJ-d2-bFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="OMf-tb-bxW">
-                    <rect key="frame" x="0.0" y="0.0" width="1920" height="400"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Visit &quot;My Account&quot; at hehestreams.xyz to find it." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yg-5A-rgC">
-                            <rect key="frame" x="457" y="144" width="1007" height="58"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your API Key" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssf-16-m16">
-                            <rect key="frame" x="667" y="45" width="587" height="91"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6c-Hq-2BP">
-                            <rect key="frame" x="873" y="288" width="175" height="91"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="W6c-Hq-2BP" firstAttribute="centerX" secondItem="OMf-tb-bxW" secondAttribute="centerX" id="25x-QT-k0T"/>
-                        <constraint firstItem="4yg-5A-rgC" firstAttribute="top" secondItem="Ssf-16-m16" secondAttribute="bottom" constant="8" id="8bW-2o-33x"/>
-                        <constraint firstItem="Ssf-16-m16" firstAttribute="top" secondItem="OMf-tb-bxW" secondAttribute="top" constant="45" id="Ev5-ND-vGT"/>
-                        <constraint firstItem="Ssf-16-m16" firstAttribute="centerX" secondItem="OMf-tb-bxW" secondAttribute="centerX" id="QIl-uZ-J18"/>
-                        <constraint firstAttribute="bottom" secondItem="W6c-Hq-2BP" secondAttribute="baseline" constant="40" id="Xpi-Ib-u26"/>
-                        <constraint firstItem="4yg-5A-rgC" firstAttribute="centerX" secondItem="OMf-tb-bxW" secondAttribute="centerX" id="xBg-p2-Yrr"/>
-                    </constraints>
-                </view>
             </objects>
             <point key="canvasLocation" x="-4790" y="490"/>
         </scene>
     </scenes>
     <resources>
-        <image name="hehelogopadded750" width="750" height="750"/>
+        <image name="hehe-logo-large" width="620" height="673"/>
     </resources>
 </document>

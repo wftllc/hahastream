@@ -25,7 +25,7 @@ extension HahaService: TargetType {
 			"X-Device-Name": device.name,
 			"X-Device-System": device.systemName,
 			"X-Device-CPU": "ARM/x86/x64",
-			"X-Id": device.identifierForVendor!.uuidString+String(format: "%d", arc4random()),
+			"X-Id": device.identifierForVendor!.uuidString,
 			"X-Device-Version": device.systemVersion,
 		]
 	}

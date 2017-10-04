@@ -35,6 +35,7 @@
 		232FBF801E40143A00294D26 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 232FBF7E1E40143A00294D26 /* Loading.storyboard */; };
 		232FBF811E40143A00294D26 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF7F1E40143A00294D26 /* LoadingViewController.swift */; };
 		233F4C141E32B5E100786A5C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F4C131E32B5E100786A5C /* Channel.swift */; };
+		2342FC531F8544EC00D0C295 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2342FC521F8544EC00D0C295 /* LoginInteractor.swift */; };
 		2349258D1F8412F50071185A /* DeviceActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258C1F8412F50071185A /* DeviceActivation.swift */; };
 		2349258E1F8412F50071185A /* DeviceActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258C1F8412F50071185A /* DeviceActivation.swift */; };
 		234925901F841ED20071185A /* StreamMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258F1F841ED20071185A /* StreamMeta.swift */; };
@@ -136,6 +137,7 @@
 		232FBF7F1E40143A00294D26 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		233F4C121E32B05600786A5C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		233F4C131E32B5E100786A5C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = HahaService/Models/Channel.swift; sourceTree = "<group>"; };
+		2342FC521F8544EC00D0C295 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = Features/Login/LoginInteractor.swift; sourceTree = "<group>"; };
 		2349258C1F8412F50071185A /* DeviceActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceActivation.swift; path = HahaService/Models/DeviceActivation.swift; sourceTree = "<group>"; };
 		2349258F1F841ED20071185A /* StreamMeta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamMeta.swift; sourceTree = "<group>"; };
 		2355AD511E32926800EAEF02 /* NowPlaying.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NowPlaying.storyboard; sourceTree = "<group>"; };
@@ -362,9 +364,9 @@
 				23C626BC1E342C0900BDDACE /* Core */,
 				23DBFAE31E305D6B00E276EB /* Application */,
 				23C626B51E3426B600BDDACE /* Player */,
+				23DBFAE51E305DC900E276EB /* Home */,
 				232FBF7D1E40143A00294D26 /* Loading */,
 				23DBFAE61E305DDF00E276EB /* Login */,
-				23DBFAE51E305DC900E276EB /* Home */,
 				2355AD501E32926800EAEF02 /* Now Playing */,
 				23C626AE1E341A2F00BDDACE /* VCS */,
 				23DBFAE41E305DA400E276EB /* Sport */,
@@ -408,6 +410,7 @@
 			children = (
 				23DBFAF01E30603000E276EB /* Login.storyboard */,
 				23DBFAF11E30603000E276EB /* LoginViewController.swift */,
+				2342FC521F8544EC00D0C295 /* LoginInteractor.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -781,6 +784,7 @@
 				234925901F841ED20071185A /* StreamMeta.swift in Sources */,
 				23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */,
 				23C626C01E34350E00BDDACE /* ViewController+Haha.swift in Sources */,
+				2342FC531F8544EC00D0C295 /* LoginInteractor.swift in Sources */,
 				2349258D1F8412F50071185A /* DeviceActivation.swift in Sources */,
 				23246D061E3FBF080057FA63 /* Game+LocalImage.swift in Sources */,
 				23DBFB011E30604200E276EB /* SportViewController.swift in Sources */,
