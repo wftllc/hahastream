@@ -1,24 +1,20 @@
 import Foundation
 
 final class Stream: NSObject, FromDictable {
-	public var id: String!;
-	public var title: String!;
-	public var url: URL!
-	
-	static func fromDictionary(_ dict:[String: Any]) -> Stream? {
-		let id = dict["id"] as? String
-		let title = dict["title"] as? String
-		var url: URL? = nil
-		if let s = dict["url"] as? String {
-			url = URL(string: s)
-		}
-		return Stream(id: id, title: title, url: url);
+	public var id: String;
+	public var title: String;
+
+	static func fromDictionary(_ dict:[String: Any]?) throws -> Self {
+		guard let dict = dict else { throw FromDictableError.keyError(key: "<root>") }
+
+		let id:String = try dict.value("id")
+		let title: String = try dict.value("title")
+		return self.init(id: id, title: title);
 	}
 	
-	required public init(id: String?, title: String?, url: URL?) {
+	required public init(id: String, title: String) {
 		self.id = id;
 		self.title = title;
-		self.url = url
 	}
 	
 	override var description : String {

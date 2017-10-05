@@ -3,16 +3,16 @@ import Foundation
 final class StreamMeta: NSObject, FromDictable {
 	public var streams: [Stream]
 	
-	static func fromDictionary(_ dict:[String: Any]) -> StreamMeta? {
-		//TODO: make this nicer.
-		guard let dicts = dict["streams"] as? [[String: Any]] else { return nil }
+	static func fromDictionary(_ dict:[String: Any]?) throws -> Self {
+		guard let dict = dict else { throw FromDictableError.keyError(key: "<root>") }
+		let dicts:[[String: Any]] = try dict.value("streams")
 		var a: [Stream] = []
 		for d in dicts {
-			a.append(Stream.fromDictionary(d)!)
+			a.append(try Stream.fromDictionary(d))
 		}
-		return StreamMeta(streams: a);
+		return self.init(streams: a);
 	}
-		
+	
 	required public init(streams: [Stream]) {
 		self.streams = streams
 	}

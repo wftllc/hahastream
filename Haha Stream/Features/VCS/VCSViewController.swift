@@ -22,25 +22,26 @@ class VCSViewController: HahaSplitViewController, UISplitViewControllerDelegate,
 
 
 	func vcsChannelListDidSelect(vcs: VCS) {
-		if vcs.uuid == activeVCS?.uuid {
-			
-		}
-		activeVCS = vcs;
-		provider.getVCSStreams(vcs: vcs, success: { (streams) in
-			if streams.count > 0 {
-				if( self.activeVCS?.uuid == vcs.uuid ) {
-					DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-						if( self.activeVCS?.uuid == vcs.uuid ) {
-							self.previewURL(streams.first!.url)
-						}
-					}
-				}
-			}
-		}, apiError: { (error) in
-			print(error)
-		}) { (error) in
-			print(error)
-		}
+		let __FIXME_REIMPLEMENT_THIS: Any?
+//		if vcs.uuid == activeVCS?.uuid {
+//
+//		}
+//		activeVCS = vcs;
+//		provider.getVCSStreams(vcs: vcs, success: { (streams) in
+//			if streams.count > 0 {
+//				if( self.activeVCS?.uuid == vcs.uuid ) {
+//					DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//						if( self.activeVCS?.uuid == vcs.uuid ) {
+//							self.previewURL(streams.first!.url)
+//						}
+//					}
+//				}
+//			}
+//		}, apiError: { (error) in
+//			print(error)
+//		}) { (error) in
+//			print(error)
+//		}
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {

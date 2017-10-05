@@ -62,14 +62,14 @@ final class Game: NSObject, FromDictable {
 	
 	//TODO: move team to its own class
 	
-	static func fromDictionary(_ dict:[String: Any]) -> Game? {
-		guard let uuid = dict["uuid"] as? String else { return nil }
+	static func fromDictionary(_ dict:[String: Any]?) throws -> Self {
+		guard let dict = dict else { throw FromDictableError.keyError(key: "<root>") }
+		let uuid: String = try dict.value("uuid")
 		
-		let free = dict["free"] as? Bool ?? false
-		guard let ready = dict["live"] as? Bool else { return nil }
-		guard let title = dict["title"] as? String else { return nil }
-		guard let startDateString = dict["start_in_gmt"] as? String else { return nil }
-		guard let date = self.dateFormatter.date(from: startDateString) else { return nil }
+		let ready: Bool = try dict.value("live")
+		let title: String = try dict.value("title")
+		let startDateString: String = try dict.value("start_in_gmt")
+		guard let date = self.dateFormatter.date(from: startDateString) else { throw FromDictableError.otherError(reason: "couldn't parse start_in_gmt") }
 		
 		let homeTeamDict = dict["home"] as? [String: Any]
 		let homeTeam = homeTeamDict?["name"] as? String
@@ -77,11 +77,11 @@ final class Game: NSObject, FromDictable {
 		let awayTeamDict = dict["away"] as? [String: Any]
 		let awayTeam = awayTeamDict?["name"] as? String
 		let awayTeamLogoURL = URL(string: (awayTeamDict?["logo_url"] as? String ?? ""))
-		return Game.init(uuid: uuid,
+		return self.init(uuid: uuid,
 		                 title: title,
 		                 ready: ready,
 		                 startDate: date,
-		                 free: free,
+		                 free: false,
 		                 homeTeam: homeTeam,
 		                 homeTeamLogoURL: homeTeamLogoURL,
 		                 awayTeam: awayTeam,

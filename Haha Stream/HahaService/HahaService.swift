@@ -11,7 +11,7 @@ enum HahaService {
 	case getSports;
 	case getChannels(sport: String);
 	case getStreamMetas(sport: String, gameUUID: String);
-	case getStream(sport: String, gameUUID: String, streamId: String);
+	case getURLForStream(streamId: String, sport: String, gameUUID: String);
 	case getStreamForChannel(sport: String, channelId: Int);
 	case scrapeVCSChannels;
 }
@@ -48,7 +48,7 @@ extension HahaService: TargetType {
 			return "/\(sport.urlEscaped)/games";
 		case .getStreamMetas(let sport, let uuid):
 			return "/\(sport.urlEscaped)/games/\(uuid.urlEscaped)/streams";
-		case .getStream(let sport, let gameUuid, let streamId):
+		case .getURLForStream(let streamId, let sport, let gameUuid):
 			return "/\(sport.urlEscaped)/games/\(gameUuid.urlEscaped)/streams/\(streamId.urlEscaped)";
 		case .getChannels(let sport):
 			return "/\(sport.urlEscaped)/channels";

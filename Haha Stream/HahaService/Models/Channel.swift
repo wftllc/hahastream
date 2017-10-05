@@ -15,12 +15,14 @@ final class Channel: NSObject, FromDictable {
 	public var notes: String?;
 	public var active: Bool;
 	
-	static func fromDictionary(_ dict:[String: Any]) -> Channel? {
-		guard let identifier = dict["id"] as? Int else { return nil }
-		guard let title = dict["title"] as? String else { return nil }
-		let notes = dict["notes"] as? String
-		guard let active = dict["active"] as? Bool else { return nil }
-		return Channel(identifier:identifier, title: title, notes: notes, active: active);
+	static func fromDictionary(_ dict:[String: Any]?) throws -> Self {
+		guard let dict = dict else { throw FromDictableError.keyError(key: "<root>") }
+
+		let identifier:Int = try dict.value("id")
+		let title: String = try dict.value("title")
+		let notes:String? = try dict.value("notes")
+		let active:Bool = try dict.value("active")
+		return self.init(identifier:identifier, title: title, notes: notes, active: active);
 	}
 		
 	required public init(identifier: Int, title: String, notes: String?, active: Bool) {

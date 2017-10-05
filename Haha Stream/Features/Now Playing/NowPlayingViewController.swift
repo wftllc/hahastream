@@ -170,7 +170,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 		provider.getStream(channel: channel, success: { (stream) in
 			self.hideLoading(animated: true, completion: {
 				if let stream = stream {
-					self.playURL(stream.url)
+//					self.playURL(stream.url!)
 				}
 				else {
 					self.showAlert(title: "No Stream", message: "Couldn't find stream for \(channel.title)");

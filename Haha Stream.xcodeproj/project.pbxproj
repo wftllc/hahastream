@@ -44,6 +44,10 @@
 		2355AD541E32926800EAEF02 /* NowPlaying.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2355AD511E32926800EAEF02 /* NowPlaying.storyboard */; };
 		2355AD551E32926800EAEF02 /* NowPlayingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD521E32926800EAEF02 /* NowPlayingViewCell.swift */; };
 		2355AD561E32926800EAEF02 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */; };
+		2366E4351F862BB40037D4A7 /* Dictionary+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */; };
+		2366E4371F8639840037D4A7 /* StreamURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366E4361F8639840037D4A7 /* StreamURL.swift */; };
+		2366E4381F8639FC0037D4A7 /* StreamURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366E4361F8639840037D4A7 /* StreamURL.swift */; };
+		237C25D61F861E5000987DF2 /* Dictionary+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */; };
 		23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */; };
 		23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */; };
 		23C1DE421E372A3600E53954 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -143,6 +147,8 @@
 		2355AD511E32926800EAEF02 /* NowPlaying.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NowPlaying.storyboard; sourceTree = "<group>"; };
 		2355AD521E32926800EAEF02 /* NowPlayingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewCell.swift; sourceTree = "<group>"; };
 		2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		2366E4361F8639840037D4A7 /* StreamURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamURL.swift; path = HahaService/Models/StreamURL.swift; sourceTree = "<group>"; };
+		237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+KeyPath.swift"; path = "HahaService/Dictionary+KeyPath.swift"; sourceTree = "<group>"; };
 		23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerOverlayView.xib; path = Features/Player/PlayerOverlayView.xib; sourceTree = "<group>"; };
 		23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerOverlayView.swift; path = Features/Player/PlayerOverlayView.swift; sourceTree = "<group>"; };
 		23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Errors.swift"; sourceTree = "<group>"; };
@@ -258,6 +264,7 @@
 			children = (
 				230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */,
 				230CF27D1E2EA433001C0606 /* HahaService.swift */,
+				237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */,
 				238F0D911E30350F00AF9351 /* Models */,
 			);
 			name = HahaProvider;
@@ -314,11 +321,12 @@
 				23DBFB041E30607000E276EB /* HahaError.swift */,
 				23DBFB051E30607000E276EB /* Sport.swift */,
 				2349258F1F841ED20071185A /* StreamMeta.swift */,
+				23DBFB061E30607000E276EB /* Stream.swift */,
+				2366E4361F8639840037D4A7 /* StreamURL.swift */,
 				23148CF21F840AC20063B404 /* DeviceKey.swift */,
 				2349258C1F8412F50071185A /* DeviceActivation.swift */,
 				23E7462F1E33F9AE00498A08 /* VCS.swift */,
 				233F4C131E32B5E100786A5C /* Channel.swift */,
-				23DBFB061E30607000E276EB /* Stream.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -775,6 +783,7 @@
 				2307A8C01E3442B3002F0061 /* NowPlayingItem.swift in Sources */,
 				23148CF31F840AC20063B404 /* DeviceKey.swift in Sources */,
 				23C626B71E3426DA00BDDACE /* PlayerViewController.swift in Sources */,
+				2366E4371F8639840037D4A7 /* StreamURL.swift in Sources */,
 				23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */,
 				23DBFAFD1E30604200E276EB /* DateListViewController.swift in Sources */,
 				232FBF781E3FDBB600294D26 /* LocalImage.swift in Sources */,
@@ -785,6 +794,7 @@
 				23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */,
 				23C626C01E34350E00BDDACE /* ViewController+Haha.swift in Sources */,
 				2342FC531F8544EC00D0C295 /* LoginInteractor.swift in Sources */,
+				237C25D61F861E5000987DF2 /* Dictionary+KeyPath.swift in Sources */,
 				2349258D1F8412F50071185A /* DeviceActivation.swift in Sources */,
 				23246D061E3FBF080057FA63 /* Game+LocalImage.swift in Sources */,
 				23DBFB011E30604200E276EB /* SportViewController.swift in Sources */,
@@ -812,11 +822,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				23246CDF1E3E68C90057FA63 /* AppProvider.swift in Sources */,
+				2366E4381F8639FC0037D4A7 /* StreamURL.swift in Sources */,
 				23246CDD1E3E63AD0057FA63 /* Stream.swift in Sources */,
 				23246CDB1E3E63AD0057FA63 /* VCS.swift in Sources */,
 				23148CF41F840D1B0063B404 /* DeviceKey.swift in Sources */,
 				23246CDC1E3E63AD0057FA63 /* Channel.swift in Sources */,
 				23246CD51E3E63AD0057FA63 /* HahaService.swift in Sources */,
+				2366E4351F862BB40037D4A7 /* Dictionary+KeyPath.swift in Sources */,
 				23246CD91E3E63AD0057FA63 /* HahaError.swift in Sources */,
 				23246CD71E3E63AD0057FA63 /* Game.swift in Sources */,
 				234925931F84247D0071185A /* HahaProvider.swift in Sources */,

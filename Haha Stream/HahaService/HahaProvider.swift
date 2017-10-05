@@ -20,13 +20,13 @@ class HahaProvider:NSObject {
 	func setupProvider() {
 		let endpointClosure = { (target: HahaService) -> Endpoint<HahaService> in
 			var endpoint = MoyaProvider.defaultEndpointMapping(for: target);
-//			endpoint.url = self.url(target)
-//			var endpoint: Endpoint<HahaService> = Endpoint<HahaService>(
-//				url: self.url(target),
-//				sampleResponseClosure: {.networkResponse(200, target.sampleData)},
-//				method: target.method,
-//				task: target.task
-//			);
+			//			endpoint.url = self.url(target)
+			//			var endpoint: Endpoint<HahaService> = Endpoint<HahaService>(
+			//				url: self.url(target),
+			//				sampleResponseClosure: {.networkResponse(200, target.sampleData)},
+			//				method: target.method,
+			//				task: target.task
+			//			);
 			
 			if let apiKeyForced = self.apiKey {
 				endpoint = endpoint.adding(newHTTPHeaderFields: ["ApiKey": apiKeyForced]);
@@ -37,7 +37,7 @@ class HahaProvider:NSObject {
 		self.provider = MoyaProvider<HahaService>(endpointClosure: endpointClosure);
 		
 	}
-
+	
 	func getDeviceRegistrationKey(
 		success successCallback: @escaping (DeviceKey?) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
@@ -57,7 +57,7 @@ class HahaProvider:NSObject {
 		            apiError: errorCallback,
 		            networkFailure: failureCallback);
 	}
-
+	
 	func getSports(
 		success successCallback: @escaping ([Sport]) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
@@ -99,7 +99,7 @@ class HahaProvider:NSObject {
 		         apiError: errorCallback,
 		         networkFailure: failureCallback);
 	}
-
+	
 	func getChannels(
 		sports: [Sport],
 		success successCallback: @escaping ([Channel]) -> Void,
@@ -192,7 +192,7 @@ class HahaProvider:NSObject {
 	
 	func processNowPlaying(games: [Game], channels: [Channel]) -> [NowPlayingItem] {
 		var results: [NowPlayingItem] = [];
-
+		
 		//this goes like: current games => channels => upcoming games
 		let channels = channels.filter{ $0.active }.sorted{ $0.title < $1.title }
 		
@@ -247,8 +247,8 @@ class HahaProvider:NSObject {
 		self.getOne(endpoint: endpoint, success: { (streamMeta: StreamMeta?) in
 			successCallback(streamMeta!.streams)
 		},
-		         apiError: errorCallback,
-		         networkFailure: failureCallback);
+		            apiError: errorCallback,
+		            networkFailure: failureCallback);
 	}
 	func getVCSStreams(
 		vcs: VCS,
@@ -258,12 +258,12 @@ class HahaProvider:NSObject {
 		)
 	{
 		//TODO: implement
-//		let endpoint = HahaService.getStreams(sport: "vcs", gameUUID: vcs.uuid);
-//
-//		self.get(endpoint: endpoint,
-//		         success: successCallback,
-//		         apiError: errorCallback,
-//		         networkFailure: failureCallback);
+		//		let endpoint = HahaService.getStreams(sport: "vcs", gameUUID: vcs.uuid);
+		//
+		//		self.get(endpoint: endpoint,
+		//		         success: successCallback,
+		//		         apiError: errorCallback,
+		//		         networkFailure: failureCallback);
 	}
 	
 	func getVCSChannels(
@@ -672,22 +672,24 @@ class HahaProvider:NSObject {
 		successCallback(results);
 	}
 	
-	func getStream(
-		sport: Sport,
+	func getURLForStream(
+		_ stream: Stream,
 		game: Game,
-		stream: Stream,
-		success successCallback: @escaping (Stream?) -> Void,
+		success successCallback: @escaping (StreamURL) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
 		networkFailure failureCallback: @escaping (MoyaError) -> Void
-	)
+		)
 	{
-		let endpoint = HahaService.getStream(sport: sport.name.lowercased(), gameUUID: game.uuid, streamId: stream.id)
+		let endpoint = HahaService.getURLForStream(streamId: stream.id,
+		                                           sport: game.sport.name.lowercased(),
+		                                           gameUUID: game.uuid)
 		
 		self.getOne(endpoint: endpoint,
 		            success: successCallback,
 		            apiError: errorCallback,
 		            networkFailure: failureCallback);
 	}
+	
 	func getStream(
 		channel: Channel,
 		success successCallback: @escaping (Stream?) -> Void,
@@ -722,21 +724,23 @@ class HahaProvider:NSObject {
 	
 	
 	func get<T:FromDictable>(endpoint: HahaService,
-	         success successCallback: @escaping ([T]) -> Void,
-	         apiError errorCallback: @escaping (Any) -> Void,
-	         networkFailure failureCallback: @escaping (MoyaError) -> Void
+	                         success: @escaping ([T]) -> Void,
+	                         apiError errorCallback: @escaping (Any) -> Void,
+	                         networkFailure failureCallback: @escaping (MoyaError) -> Void
 		) {
 		request(endpoint: endpoint,
 		        success: { dictionaries in
 							var array: [T] = [];
 							for dict in dictionaries {
-								guard let object = T.fromDictionary(dict) else {
-									print("couldn't parse",dict);
-									continue;
+								do {
+									let object = try T.fromDictionary(dict)
+									array.append(object)
 								}
-								array.append(object)
+								catch {
+									print("parse error; \(error)")
+								}
 							}
-							successCallback(array);
+							success(array);
 		},
 		        apiError: errorCallback,
 		        networkFailure: failureCallback
@@ -744,22 +748,22 @@ class HahaProvider:NSObject {
 	}
 	
 	func getOne<T:FromDictable>(endpoint: HahaService,
-	            success successCallback: @escaping (T?) -> Void,
-	            apiError errorCallback: @escaping (Any) -> Void,
-	            networkFailure failureCallback: @escaping (MoyaError) -> Void
+	                            success: @escaping (T) -> Void,
+	                            apiError: @escaping (Any) -> Void,
+	                            networkFailure failureCallback: @escaping (MoyaError) -> Void
 		) {
 		requestOne(endpoint: endpoint,
 		           success: { dict in
 								
-								if let object = T.fromDictionary(dict as [String: AnyObject]) {
-									successCallback(object);
+								do {
+									let object = try T.fromDictionary(dict)
+									success(object)
 								}
-								else {
-									print("couldn't parse \(dict)");
-									successCallback(nil);
+								catch {
+									apiError(error)
 								}
 		},
-		           apiError: errorCallback,
+		           apiError: apiError,
 		           networkFailure: failureCallback
 		);
 		
@@ -792,7 +796,7 @@ class HahaProvider:NSObject {
 						if let hahaError = HahaError.fromDictionary(dict)
 						{
 							hahaError.underlyingResponse = moyaResponse;
-						errorCallback(hahaError);
+							errorCallback(hahaError);
 						}
 						else {
 							errorCallback(originalError)
