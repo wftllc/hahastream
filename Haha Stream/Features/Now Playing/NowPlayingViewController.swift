@@ -91,28 +91,22 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 		let item = items[indexPath.item];
 		
 		if let game = item.game {
-			if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {
-				cell.homeImageView.kf.setImage(with: homeImageURL);
-				cell.awayImageView.kf.setImage(with: awayImageURL);
-				cell.singleImageView.image = nil
-			}
-			else {
-				cell.homeImageView.image = nil
-				cell.awayImageView.image = nil
-				cell.singleImageView.kf.setImage(with: game.singleImageURL,
-				                                 placeholder: Image(named: "hehelogo-transparent-750.png"),
-				                                 options: nil,
-				                                 progressBlock: nil,
-				                                 completionHandler: nil)
-			}
+//			if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {
+//				cell.homeImageView.kf.setImage(with: homeImageURL);
+//				cell.awayImageView.kf.setImage(with: awayImageURL);
+//				cell.singleImageView.image = nil
+//			}
+//			else {
+//				cell.homeImageView.image = nil
+//				cell.awayImageView.image = nil
+//				cell.singleImageView.kf.setImage(with: game.singleImageURL,
+//				                                 placeholder: Image(named: "hehelogo-transparent-750.png"),
+//				                                 options: nil,
+//				                                 progressBlock: nil,
+//				                                 completionHandler: nil)
+//			}
 			//TODO: move to game?
-			if( ["NBA"].contains(game.sport.name) && game.awayTeamName != nil && game.homeTeamName != nil) {
-				//shorten game titles
-				cell.titleLabel.text = "\(game.awayTeamName!) @ \(game.homeTeamName!)"
-			}
-			else {
-				cell.titleLabel.text = game.title
-			}
+			cell.titleLabel.text = game.title
 			if(game.ready) {
 				cell.updateTimeLabel(withDate: game.startDate);
 				cell.startAnimating(date: game.startDate)

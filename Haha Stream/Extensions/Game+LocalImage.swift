@@ -6,10 +6,12 @@ extension Game: LocalImage {
 	public typealias Completion = ((_ homeImage: Image?, _ awayImage: Image?, _ error: NSError?) -> ())
 	
 	fileprivate func fetchImages(_ completion: Completion?) {
+			completion?(nil, nil, nil)
 		
 		DispatchQueue.global().async {
+			var __FIXME_REIMPLEMENT_THIS: Any
+/*
 			let semaphore = DispatchSemaphore(value: 0);
-			
 			let res1 = ImageResource(downloadURL: self.awayTeamLogoURL!);
 			let res2 = ImageResource(downloadURL: self.homeTeamLogoURL!);
 			
@@ -36,8 +38,10 @@ extension Game: LocalImage {
 			
 			semaphore.wait()
 			semaphore.wait()
-			
 			completion?(image1, image2, outerError)
+			*/
+
+
 		}
 		
 	}

@@ -94,11 +94,11 @@ class GamesViewController: HahaViewController, DateListDelegate, UICollectionVie
 //		cell.homeTeamLabel.text = game.homeTeam;
 //		cell.awayTeamLabel.text = game.awayTeam;
 //		cell.timeLabel.text = dateFormatter.string(from: game.startDate);
-		cell.homeImageView.kf.setImage(with: game.homeTeamLogoURL);
-		cell.awayImageView.kf.setImage(with: game.awayTeamLogoURL);
+//		cell.homeImageView.kf.setImage(with: game.homeTeamLogoURL);
+//		cell.awayImageView.kf.setImage(with: game.awayTeamLogoURL);
 		if( ["NBA"].contains(self.sport.name) && game.awayTeamName != nil && game.homeTeamName != nil) {
 			//shorten game titles
-			cell.titleLabel.text = "\(game.awayTeamName!) @ \(game.homeTeamName!)"
+			cell.titleLabel.text = "\(game.awayTeamName) @ \(game.homeTeamName)"
 		}
 		else {
 			cell.titleLabel.text = game.title

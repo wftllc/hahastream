@@ -737,7 +737,7 @@ class HahaProvider:NSObject {
 									array.append(object)
 								}
 								catch {
-									print("parse error; \(error)")
+									print("parse error; \(T.self) \(error)")
 								}
 							}
 							success(array);
