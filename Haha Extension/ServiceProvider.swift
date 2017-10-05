@@ -8,6 +8,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 	var contentItems: [TVContentItem] = [];
 	
 	override init() {
+		
 		provider = HahaProvider(apiKey: AppProvider.apiKey)
 		super.init()
 //		start()
@@ -18,24 +19,28 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 		refresh();
 	}
 	
-	func refresh(after: TimeInterval) {
-		DispatchQueue.main.asyncAfter(deadline: .now() + after) {
+	func refresh(after: TimeInterval?) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + (after ?? 0)) {
 			self.refresh();
 		}
 	}
 	
 	func refresh() {
-		provider.getNowPlaying(success: { (nowPlayingItems) in
+		if !AppProvider.isLoggedIn {
+			self.refresh(after: self.RefreshTimeInterval);
+			return
+		}
+		provider.getNowPlaying(success: { [weak self] (nowPlayingItems) in
 			DispatchQueue.global(qos: .background).sync {
-				self.process(items: nowPlayingItems);
+				self?.process(items: nowPlayingItems);
 			}
-			self.refresh(after: self.RefreshTimeInterval);
-		}, apiError: { (error) in
+			self?.refresh(after: self?.RefreshTimeInterval);
+		}, apiError: { [weak self] (error) in
 			print(error)
-			self.refresh(after: self.RefreshTimeInterval);
-		}, networkFailure:  { (error) in
+			self?.refresh(after: self?.RefreshTimeInterval);
+		}, networkFailure:  { [weak self] (error) in
 			print(error)
-			self.refresh(after: self.RefreshTimeInterval);
+			self?.refresh(after: self?.RefreshTimeInterval);
 		})
 	}
 	

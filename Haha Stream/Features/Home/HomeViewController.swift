@@ -8,7 +8,7 @@ class HomeViewController: HahaTabBarController {
 		var viewControllers:[UIViewController] = []
 
 		viewControllers.append(self.appRouter.nowPlayingViewController());
-		
+
 		self.provider.getSports(success: { (theSports) in
 			let sports = theSports.sorted(by: { (a, b) -> Bool in
 				return a.name < b.name
