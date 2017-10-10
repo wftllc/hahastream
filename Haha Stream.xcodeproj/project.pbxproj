@@ -63,6 +63,7 @@
 		23C626BB1E342B2100BDDACE /* ViewController+Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626BA1E342B2100BDDACE /* ViewController+Player.swift */; };
 		23C626C01E34350E00BDDACE /* ViewController+Haha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626BF1E34350E00BDDACE /* ViewController+Haha.swift */; };
 		23C626C21E34383600BDDACE /* HahaViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626C11E34383600BDDACE /* HahaViewControllers.swift */; };
+		23D8575A1F8D6CFE00433790 /* NowPlayingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D857591F8D6CFE00433790 /* NowPlayingInteractor.swift */; };
 		23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEA1E30602500E276EB /* AppDelegate.swift */; };
 		23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEB1E30602500E276EB /* AppProvider.swift */; };
 		23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEC1E30602500E276EB /* AppRouter.swift */; };
@@ -164,6 +165,7 @@
 		23C626BA1E342B2100BDDACE /* ViewController+Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ViewController+Player.swift"; path = "Features/Player/ViewController+Player.swift"; sourceTree = "<group>"; };
 		23C626BF1E34350E00BDDACE /* ViewController+Haha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Haha.swift"; sourceTree = "<group>"; };
 		23C626C11E34383600BDDACE /* HahaViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HahaViewControllers.swift; sourceTree = "<group>"; };
+		23D857591F8D6CFE00433790 /* NowPlayingInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingInteractor.swift; sourceTree = "<group>"; };
 		23DBFAEA1E30602500E276EB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Features/Application/AppDelegate.swift; sourceTree = "<group>"; };
 		23DBFAEB1E30602500E276EB /* AppProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppProvider.swift; path = Features/Application/AppProvider.swift; sourceTree = "<group>"; };
 		23DBFAEC1E30602500E276EB /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRouter.swift; path = Features/Application/AppRouter.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 		2355AD501E32926800EAEF02 /* Now Playing */ = {
 			isa = PBXGroup;
 			children = (
+				23D857591F8D6CFE00433790 /* NowPlayingInteractor.swift */,
 				2355AD511E32926800EAEF02 /* NowPlaying.storyboard */,
 				2355AD521E32926800EAEF02 /* NowPlayingViewCell.swift */,
 				2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */,
@@ -796,6 +799,7 @@
 				23C1DE4A1E37371800E53954 /* VCSChannelListCell.swift in Sources */,
 				232FBF811E40143A00294D26 /* LoadingViewController.swift in Sources */,
 				234925901F841ED20071185A /* StreamMeta.swift in Sources */,
+				23D8575A1F8D6CFE00433790 /* NowPlayingInteractor.swift in Sources */,
 				23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */,
 				23C626C01E34350E00BDDACE /* ViewController+Haha.swift in Sources */,
 				2342FC531F8544EC00D0C295 /* LoginInteractor.swift in Sources */,

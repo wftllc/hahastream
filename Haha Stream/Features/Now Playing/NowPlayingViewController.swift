@@ -6,15 +6,13 @@ private let reuseIdentifier = "NowPlayingViewCell"
 
 
 class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-	let RefreshTimeInterval: TimeInterval = 300;
-	var timer: Timer?;
-	
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-	
-	public var items: [NowPlayingItem]!;
 	@IBOutlet weak var dateLabel: UILabel!
 	
+	var interactor: NowPlayingInteractor?
+	var items: [NowPlayingItem] = [];
+
 	var timeFormatter: DateFormatter = {
 		let df = DateFormatter();
 		df.locale = Locale.current;
@@ -33,49 +31,43 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	
 	//TODO - show something when no current results
 	override func viewDidLoad() {
-		print("nowPlayingViewController.viewDidLoad()");
 		super.viewDidLoad()
 		
-		self.items = [];
+		interactor?.viewDidLoad();
+		
+		
 		// Uncomment the following line to preserve selection between presentations
 		// self.clearsSelectionOnViewWillAppear = false
 
-		self.activityIndicator.startAnimating();
 		self.collectionView?.reloadData()
 	}
 	
+	override func showLoading(animated: Bool) {
+		self.activityIndicator.startAnimating();
+	}
+	
+	func hideLoading(animated: Bool) {
+		self.activityIndicator.stopAnimating();
+	}
+
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		refreshData()
-		startTimer()
+		interactor?.viewWillAppear(animated)
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillAppear(animated);
-		self.timer?.invalidate();
+		interactor?.viewWillDisappear(animated);
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
 		
-	func startTimer() {
-		self.timer?.invalidate()
-		self.timer = Timer.scheduledTimer(withTimeInterval: RefreshTimeInterval, repeats: true) { (timer) in
-			self.refreshData()
-		};
+	func updateView(items: [NowPlayingItem]) {
+		self.items = items
+		self.collectionView.reloadData()
 	}
-	
-	func refreshData() {
-		self.provider.getNowPlaying(success: { (items) in
-			self.activityIndicator.stopAnimating()
-			self.items = items;
-			self.collectionView?.reloadData();
-		}, apiError: apiErrorClosure,
-		   networkFailure: networkFailureClosure
-		)
-	}
-	
 	// MARK: UICollectionViewDataSource
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -105,8 +97,8 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 //				                                 progressBlock: nil,
 //				                                 completionHandler: nil)
 //			}
-			//TODO: move to game?
-			cell.titleLabel.text = game.title
+			
+			cell.titleLabel.text = "\(game.awayTeam.abbreviation) @ \(game.homeTeam.abbreviation)"
 			if(game.ready) {
 				cell.updateTimeLabel(withDate: game.startDate);
 				cell.startAnimating(date: game.startDate)
@@ -117,7 +109,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 		}
 		else {
 			let channel = item.channel!
-			cell.titleLabel.text = channel.title
+//			cell.titleLabel.text = channel.title
 			cell.timeLabel.text = nil;
 			cell.homeImageView.image = nil
 			cell.awayImageView.image = nil
@@ -145,35 +137,10 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let item = items[indexPath.item];
-		selectNowPlayingItem(item)
+		interactor?.viewDidSelect(item: item)
 	}
 	
-	func selectNowPlayingItem(_ item: NowPlayingItem) {
-		if let game = item.game {
-			selectGame(game);
-		}
-		else {
-			selectChannel(item.channel!);
-		}
-	}
 
-	
-	func selectChannel(_ channel: Channel) {
-		showLoading(animated: true);
-		
-		provider.getStream(channel: channel, success: { (stream) in
-			self.hideLoading(animated: true, completion: {
-				if let stream = stream {
-//					self.playURL(stream.url!)
-				}
-				else {
-					self.showAlert(title: "No Stream", message: "Couldn't find stream for \(channel.title)");
-				}
-			});
-		}, apiError: apiErrorClosure,
-		   networkFailure: networkFailureClosure
-		)
-	}
 
 	/*
 	// Uncomment this method to specify if the specified item should be selected

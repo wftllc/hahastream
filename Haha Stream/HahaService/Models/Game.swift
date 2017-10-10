@@ -9,6 +9,7 @@ class Game: NSObject, FromDictable {
 	public var ready: Bool;
 	public var ended: Bool
 	public var startDate: Date;
+	public var readyDate: Date;
 	public var free: Bool;
 	public var homeTeam: Team;
 	public var awayTeam: Team;
@@ -58,8 +59,15 @@ class Game: NSObject, FromDictable {
 		let sport = try Sport.fromDictionary(sportDict)
 		
 		let startDateString: String = try dict.value("start_in_gmt")
-		guard let date = self.dateFormatter.date(from: startDateString) else { throw FromDictableError.otherError(reason: "couldn't parse start_in_gmt") }
+		guard let date = self.dateFormatter.date(from: startDateString) else {
+			throw FromDictableError.otherError(reason: "couldn't parse start_in_gmt")
+		}
+		let readyDateString: String = try dict.value("ready_at")
+		guard let readyDate = self.dateFormatter.date(from: readyDateString) else {
+			throw FromDictableError.otherError(reason: "couldn't parse ready_at")
+		}
 		
+
 		
 		let homeTeam: Team = try Team.fromDictionary(dict.value("home_team"))
 		let awayTeam: Team = try Team.fromDictionary(dict.value("away_team"))
@@ -70,6 +78,7 @@ class Game: NSObject, FromDictable {
 		                 ready: ready,
 		                 ended: ended,
 		                 startDate: date,
+		                 readyDate: readyDate,
 		                 free: false,
 		                 homeTeam: homeTeam,
 		                 awayTeam: awayTeam
@@ -82,6 +91,7 @@ class Game: NSObject, FromDictable {
 	     ready: Bool,
 	     ended: Bool,
 	     startDate: Date,
+	     readyDate: Date,
 	     free: Bool,
 	     homeTeam: Team,
 	     awayTeam: Team
@@ -95,6 +105,7 @@ class Game: NSObject, FromDictable {
 		self.ended = ended
 		self.title = title;
 		self.startDate = startDate;
+		self.readyDate = readyDate;
 	}
 	
 	override var description : String {

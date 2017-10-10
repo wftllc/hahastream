@@ -109,7 +109,9 @@ class AppRouter: NSObject {
 	
 	func nowPlayingViewController() -> NowPlayingViewController {
 		let vc = UIStoryboard(name: "NowPlaying", bundle: nil).instantiateInitialViewController() as! NowPlayingViewController
-		vc.provider = hahaProvider;
+		let interactor = NowPlayingInteractor(provider: hahaProvider, router: self)
+		vc.interactor = interactor
+		interactor.view = vc
 		return vc;
 	}
 	

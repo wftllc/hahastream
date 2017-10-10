@@ -14,9 +14,9 @@ class NowPlayingViewCell: UICollectionViewCell {
 	@IBOutlet weak var homeImageView: UIImageView!
 	@IBOutlet weak var singleImageView: UIImageView!
 //	@IBOutlet weak var statusLabel: UILabel!
-	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var timeLabel: UILabel!
-
+	@IBOutlet weak var titleLabel: UILabel!
+	
 	var timer: Timer?;
 	
 	var horizontalMotionEffect: UIInterpolatingMotionEffect!
