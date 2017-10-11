@@ -64,6 +64,8 @@
 		23C626C01E34350E00BDDACE /* ViewController+Haha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626BF1E34350E00BDDACE /* ViewController+Haha.swift */; };
 		23C626C21E34383600BDDACE /* HahaViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C626C11E34383600BDDACE /* HahaViewControllers.swift */; };
 		23D8575A1F8D6CFE00433790 /* NowPlayingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D857591F8D6CFE00433790 /* NowPlayingInteractor.swift */; };
+		23D8575E1F8D77F300433790 /* InlineVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8575D1F8D77F300433790 /* InlineVideoPlayer.swift */; };
+		23D857601F8D797F00433790 /* InlineVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D8575F1F8D797F00433790 /* InlineVideoPlayerView.swift */; };
 		23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEA1E30602500E276EB /* AppDelegate.swift */; };
 		23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEB1E30602500E276EB /* AppProvider.swift */; };
 		23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEC1E30602500E276EB /* AppRouter.swift */; };
@@ -166,6 +168,8 @@
 		23C626BF1E34350E00BDDACE /* ViewController+Haha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Haha.swift"; sourceTree = "<group>"; };
 		23C626C11E34383600BDDACE /* HahaViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HahaViewControllers.swift; sourceTree = "<group>"; };
 		23D857591F8D6CFE00433790 /* NowPlayingInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingInteractor.swift; sourceTree = "<group>"; };
+		23D8575D1F8D77F300433790 /* InlineVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineVideoPlayer.swift; sourceTree = "<group>"; };
+		23D8575F1F8D797F00433790 /* InlineVideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineVideoPlayerView.swift; sourceTree = "<group>"; };
 		23DBFAEA1E30602500E276EB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Features/Application/AppDelegate.swift; sourceTree = "<group>"; };
 		23DBFAEB1E30602500E276EB /* AppProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppProvider.swift; path = Features/Application/AppProvider.swift; sourceTree = "<group>"; };
 		23DBFAEC1E30602500E276EB /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRouter.swift; path = Features/Application/AppRouter.swift; sourceTree = "<group>"; };
@@ -365,12 +369,22 @@
 		23C626BC1E342C0900BDDACE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				23D8575C1F8D77E000433790 /* InlineVideoPlayer */,
 				23C626C11E34383600BDDACE /* HahaViewControllers.swift */,
 				23C626BF1E34350E00BDDACE /* ViewController+Haha.swift */,
 				23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */,
 			);
 			name = Core;
 			path = Features/Core;
+			sourceTree = "<group>";
+		};
+		23D8575C1F8D77E000433790 /* InlineVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				23D8575D1F8D77F300433790 /* InlineVideoPlayer.swift */,
+				23D8575F1F8D797F00433790 /* InlineVideoPlayerView.swift */,
+			);
+			path = InlineVideoPlayer;
 			sourceTree = "<group>";
 		};
 		23DBFAE21E305D5900E276EB /* Features */ = {
@@ -785,8 +799,10 @@
 				230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */,
 				23C1DE421E372A3600E53954 /* (null) in Sources */,
 				23DBFB091E30607000E276EB /* HahaError.swift in Sources */,
+				23D857601F8D797F00433790 /* InlineVideoPlayerView.swift in Sources */,
 				233F4C141E32B5E100786A5C /* Channel.swift in Sources */,
 				23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */,
+				23D8575E1F8D77F300433790 /* InlineVideoPlayer.swift in Sources */,
 				2307A8C01E3442B3002F0061 /* NowPlayingItem.swift in Sources */,
 				23148CF31F840AC20063B404 /* DeviceKey.swift in Sources */,
 				23C626B71E3426DA00BDDACE /* PlayerViewController.swift in Sources */,
@@ -988,6 +1004,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
@@ -1006,6 +1023,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
 		};

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,8 +41,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtK-vF-xAj" userLabel="Middle View">
                                 <rect key="frame" x="0.0" y="152" width="1920" height="868"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="glo-om-2zi">
-                                        <rect key="frame" x="31" y="-51" width="1920" height="868"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="glo-om-2zi">
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="868"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="50" minimumInteritemSpacing="0.0" id="9o5-Q7-2rL">
                                             <size key="itemSize" width="308" height="750"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -178,12 +179,29 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V4s-GP-enG">
                                 <rect key="frame" x="928" y="508" width="64" height="64"/>
                             </activityIndicatorView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGA-0x-zwp" userLabel="Player Container">
+                                <rect key="frame" x="404" y="180" width="1272" height="716"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UvH-I3-7hE" customClass="InlineVideoPlayerView" customModule="Haha_Stream" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="1272" height="716"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HGA-0x-zwp" secondAttribute="height" multiplier="16:9" id="LX1-c6-eTb"/>
+                                    <constraint firstAttribute="height" constant="716" id="sA7-uN-KUN"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="H38-P0-X2G" firstAttribute="leading" secondItem="cXU-hH-MQd" secondAttribute="leading" id="3db-c4-O5m"/>
                             <constraint firstAttribute="trailing" secondItem="H38-P0-X2G" secondAttribute="trailing" id="486-1k-jhy"/>
+                            <constraint firstItem="HGA-0x-zwp" firstAttribute="centerY" secondItem="cXU-hH-MQd" secondAttribute="centerY" constant="-2" id="8UI-Ja-nRq"/>
                             <constraint firstItem="H38-P0-X2G" firstAttribute="top" secondItem="Dx6-PH-ThX" secondAttribute="bottom" id="D93-nG-qU2"/>
                             <constraint firstItem="TtK-vF-xAj" firstAttribute="top" secondItem="H38-P0-X2G" secondAttribute="bottom" id="FQQ-MK-eXv"/>
+                            <constraint firstItem="HGA-0x-zwp" firstAttribute="centerX" secondItem="cXU-hH-MQd" secondAttribute="centerX" constant="80" id="JrJ-qQ-TCm"/>
                             <constraint firstItem="V4s-GP-enG" firstAttribute="centerY" secondItem="cXU-hH-MQd" secondAttribute="centerY" id="Pww-zj-7DN"/>
                             <constraint firstItem="V4s-GP-enG" firstAttribute="centerX" secondItem="cXU-hH-MQd" secondAttribute="centerX" id="R7n-3E-7nD"/>
                             <constraint firstAttribute="trailing" secondItem="TtK-vF-xAj" secondAttribute="trailing" id="vW5-6r-vhJ"/>
@@ -196,6 +214,8 @@
                         <outlet property="activityIndicator" destination="V4s-GP-enG" id="SYv-Ci-iGw"/>
                         <outlet property="collectionView" destination="glo-om-2zi" id="eNt-7E-t0q"/>
                         <outlet property="dateLabel" destination="wv0-mh-6pg" id="HJr-VT-Mwe"/>
+                        <outlet property="inlinePlayerContainerView" destination="HGA-0x-zwp" id="hYJ-12-MOL"/>
+                        <outlet property="inlineVideoPlayerView" destination="UvH-I3-7hE" id="b7D-2U-SkJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbM-zd-nkB" userLabel="First Responder" sceneMemberID="firstResponder"/>

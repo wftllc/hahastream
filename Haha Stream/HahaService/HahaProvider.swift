@@ -223,6 +223,16 @@ class HahaProvider:NSObject {
 	}
 	
 	func getStreams(
+		game: Game,
+		success successCallback: @escaping ([Stream]) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		)
+	{
+		getStreams(sportName: game.sport.name.lowercased(), gameUUID: game.uuid, success: successCallback, apiError: errorCallback, networkFailure: failureCallback)
+	}
+
+	func getStreams(
 		sport: Sport,
 		game: Game,
 		success successCallback: @escaping ([Stream]) -> Void,

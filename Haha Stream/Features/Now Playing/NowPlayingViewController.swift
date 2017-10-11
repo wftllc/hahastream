@@ -9,10 +9,12 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var dateLabel: UILabel!
+	@IBOutlet weak var inlinePlayerContainerView: UIView!
+	@IBOutlet weak var inlineVideoPlayerView: InlineVideoPlayerView!
 	
 	var interactor: NowPlayingInteractor?
 	var items: [NowPlayingItem] = [];
-
+	
 	var timeFormatter: DateFormatter = {
 		let df = DateFormatter();
 		df.locale = Locale.current;
@@ -34,11 +36,16 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 		super.viewDidLoad()
 		
 		interactor?.viewDidLoad();
-		
-		
+		self.inlinePlayerContainerView.layer.masksToBounds = true
+		self.inlinePlayerContainerView.layer.cornerRadius = 8.0
+		self.inlinePlayerContainerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+		self.inlinePlayerContainerView.layer.shadowRadius = 12;
+		self.inlinePlayerContainerView.layer.shadowOpacity = 0.25;
+		self.inlinePlayerContainerView.layer.shadowOffset = CGSize(width:0, height:5);
+
 		// Uncomment the following line to preserve selection between presentations
 		// self.clearsSelectionOnViewWillAppear = false
-
+		
 		self.collectionView?.reloadData()
 	}
 	
@@ -49,7 +56,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	func hideLoading(animated: Bool) {
 		self.activityIndicator.stopAnimating();
 	}
-
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		interactor?.viewWillAppear(animated)
@@ -63,7 +70,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
-		
+	
 	func updateView(items: [NowPlayingItem]) {
 		self.items = items
 		self.collectionView.reloadData()
@@ -83,20 +90,20 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 		let item = items[indexPath.item];
 		
 		if let game = item.game {
-//			if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {
-//				cell.homeImageView.kf.setImage(with: homeImageURL);
-//				cell.awayImageView.kf.setImage(with: awayImageURL);
-//				cell.singleImageView.image = nil
-//			}
-//			else {
-//				cell.homeImageView.image = nil
-//				cell.awayImageView.image = nil
-//				cell.singleImageView.kf.setImage(with: game.singleImageURL,
-//				                                 placeholder: Image(named: "hehelogo-transparent-750.png"),
-//				                                 options: nil,
-//				                                 progressBlock: nil,
-//				                                 completionHandler: nil)
-//			}
+			//			if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {
+			//				cell.homeImageView.kf.setImage(with: homeImageURL);
+			//				cell.awayImageView.kf.setImage(with: awayImageURL);
+			//				cell.singleImageView.image = nil
+			//			}
+			//			else {
+			//				cell.homeImageView.image = nil
+			//				cell.awayImageView.image = nil
+			//				cell.singleImageView.kf.setImage(with: game.singleImageURL,
+			//				                                 placeholder: Image(named: "hehelogo-transparent-750.png"),
+			//				                                 options: nil,
+			//				                                 progressBlock: nil,
+			//				                                 completionHandler: nil)
+			//			}
 			
 			cell.titleLabel.text = "\(game.awayTeam.abbreviation) @ \(game.homeTeam.abbreviation)"
 			if(game.ready) {
@@ -109,7 +116,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 		}
 		else {
 			let channel = item.channel!
-//			cell.titleLabel.text = channel.title
+			//			cell.titleLabel.text = channel.title
 			cell.timeLabel.text = nil;
 			cell.homeImageView.image = nil
 			cell.awayImageView.image = nil
@@ -127,12 +134,32 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	}
 	// MARK: UICollectionViewDelegate
 	
-	func collectionView(_ collectionView: UICollectionView, shouldHighlightNowPlayingItemAt indexPath: IndexPath) -> Bool {
+	func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
 		return true
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, canFocusNowPlayingItemAt indexPath: IndexPath) -> Bool {
+	func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
 		return true;
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+		if let cell = context.previouslyFocusedView as? NowPlayingViewCell,
+			let indexPath = collectionView.indexPath(for: cell) {
+			interactor?.viewDidUnhighlight(item: items[indexPath.item])
+		}
+		if let cell = context.nextFocusedView as? NowPlayingViewCell,
+			let indexPath = collectionView.indexPath(for: cell) {
+			interactor?.viewDidHighlight(item: items[indexPath.item])
+		}
+		
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+		interactor?.viewDidHighlight(item: items[indexPath.item])
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+		interactor?.viewDidUnhighlight(item: items[indexPath.item])
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -140,28 +167,58 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 		interactor?.viewDidSelect(item: item)
 	}
 	
-
-
-	/*
-	// Uncomment this method to specify if the specified item should be selected
-	override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-	return true
-	}
-	*/
 	
-	/*
-	// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-	override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForNowPlayingItemAt indexPath: IndexPath) -> Bool {
-	return false
+	
+	//MARK: - Video
+	let VideoFadeAnimationDuration = 0.15
+	var playerLayerObservationContext: UnsafeMutableRawPointer?
+	var isObservingPlayerLayer = false
+	
+	func showVideo(player: AVPlayer) {
+		print("\(#function)")
+		inlineVideoPlayerView.player = player
+		addPlayerLayerObserver()
 	}
 	
-	override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forNowPlayingItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-	return false
+	func hideVideo() {
+		UIView.animate(withDuration: self.VideoFadeAnimationDuration, animations: {
+			self.inlinePlayerContainerView.alpha = 0.0
+		}, completion: { _ in
+			self.removePlayerLayerObserver()
+			self.inlineVideoPlayerView.player = nil
+		})
 	}
 	
-	override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forNowPlayingItemAt indexPath: IndexPath, withSender sender: Any?) {
-	
+	//observe player readiness
+	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+		if context != self.playerLayerObservationContext {
+			super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+			return
+		}
+		let ready = self.inlineVideoPlayerView.playerLayer.isReadyForDisplay
+		print("\(#function), \(ready)")
+		if ready {
+			self.removePlayerLayerObserver()
+			UIView.animate(withDuration: self.VideoFadeAnimationDuration, animations: {
+				self.inlinePlayerContainerView.alpha = 0.8
+			}, completion: { _ in
+			})
+		}
 	}
-	*/
+	
+	private func addPlayerLayerObserver() {
+		if isObservingPlayerLayer {
+			return
+		}
+		isObservingPlayerLayer = true
+		self.inlineVideoPlayerView.playerLayer.addObserver(self, forKeyPath: #keyPath(AVPlayerLayer.isReadyForDisplay), options: [.new, .initial], context: self.playerLayerObservationContext)
+	}
+	private func removePlayerLayerObserver() {
+		if !isObservingPlayerLayer {
+			return
+		}
+		isObservingPlayerLayer = false
+		self.inlineVideoPlayerView.playerLayer.removeObserver(self, forKeyPath: #keyPath(AVPlayerLayer.isReadyForDisplay), context: playerLayerObservationContext)
+	}
 	
 }

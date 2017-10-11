@@ -14,7 +14,8 @@ class NowPlayingInteractor: NSObject {
 	weak var view: NowPlayingViewController?
 	let provider: HahaProvider
 	let router: AppRouter?
-
+	var videoPlayer: InlineVideoPlayer?
+	
 	init(provider: HahaProvider, router: AppRouter) {
 		self.provider = provider
 		self.router = router
@@ -24,7 +25,7 @@ class NowPlayingInteractor: NSObject {
 	func viewDidLoad() {
 		refreshData();
 	}
-
+	
 	func viewWillAppear(_ animated: Bool) {
 		refreshData()
 		startTimer()
@@ -32,8 +33,9 @@ class NowPlayingInteractor: NSObject {
 	
 	func viewWillDisappear(_ animated: Bool) {
 		self.timer?.invalidate();
+		self.stopVideo()
 	}
-
+	
 	func startTimer() {
 		self.timer?.invalidate()
 		self.timer = Timer.scheduledTimer(withTimeInterval: RefreshTimeInterval, repeats: true) { (timer) in
@@ -50,7 +52,7 @@ class NowPlayingInteractor: NSObject {
 		   networkFailure: self.view!.networkFailureClosure
 		)
 	}
-
+	
 	func viewDidSelect(item: NowPlayingItem) {
 		if let game = item.game {
 			view?.selectGame(game);
@@ -58,6 +60,34 @@ class NowPlayingInteractor: NSObject {
 		else {
 			selectChannel(item.channel!);
 		}
+	}
+	
+	func viewDidHighlight(item: NowPlayingItem) {
+		guard let game = item.game else {
+			return
+		}
+		provider.getStreams(game: game, success: { (streams) in
+			guard let stream = streams.first else { return }
+			self.provider.getURLForStream(stream, game: game, success: { (url) in
+				self.previewVideo(url: url.url)
+			}, apiError: { (_) in
+				
+			}, networkFailure: { (_) in
+				
+			})
+		}, apiError: { _ in }, networkFailure: { _ in })
+		
+		//		provider.getStreams(sport: game.sport, game: game, success: { (streams) in
+		//			if let stream = streams {
+		//
+		//			}
+		//			previewVideo(url: URL(string: "http://lavenberg.com/test/demo.mp4")!)
+		//		});
+		//
+	}
+	
+	func viewDidUnhighlight(item: NowPlayingItem) {
+		stopVideo()
 	}
 	
 	
@@ -78,4 +108,27 @@ class NowPlayingInteractor: NSObject {
 		   networkFailure: self.view!.networkFailureClosure
 		)
 	}
+	
+	private func previewVideo(url: URL) {
+		print("\(#function) \(url.absoluteString))")
+		self.videoPlayer = InlineVideoPlayer(url: url)
+		videoPlayer?.load( ready: { [unowned self] in
+			self.videoPlayer?.play()
+			self.view?.showVideo(player: self.videoPlayer!.player!)
+			}, failure: { [unowned self] error in
+				print("video load failure: \(error)")
+				self.stopVideo()
+			}, progress: nil,
+			   completion: { [unowned self] in
+					self.stopVideo()
+		})
+	}
+	
+	private func stopVideo() {
+		print("\(#function)")
+		self.videoPlayer?.stop()
+		self.videoPlayer = nil
+		self.view?.hideVideo()
+	}
+	
 }
