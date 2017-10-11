@@ -34,6 +34,8 @@
 		232FBF791E3FDBB600294D26 /* LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF771E3FDBB600294D26 /* LocalImage.swift */; };
 		232FBF801E40143A00294D26 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 232FBF7E1E40143A00294D26 /* Loading.storyboard */; };
 		232FBF811E40143A00294D26 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF7F1E40143A00294D26 /* LoadingViewController.swift */; };
+		233F365B1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F365A1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift */; };
+		233F365C1F8E94C700A6C2E0 /* DeviceActivationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F365A1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift */; };
 		233F4C141E32B5E100786A5C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F4C131E32B5E100786A5C /* Channel.swift */; };
 		2342FC531F8544EC00D0C295 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2342FC521F8544EC00D0C295 /* LoginInteractor.swift */; };
 		2349258D1F8412F50071185A /* DeviceActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258C1F8412F50071185A /* DeviceActivation.swift */; };
@@ -52,7 +54,7 @@
 		237C25D61F861E5000987DF2 /* Dictionary+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */; };
 		23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */; };
 		23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */; };
-		23C1DE421E372A3600E53954 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		23C1DE421E372A3600E53954 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		23C1DE441E372B1B00E53954 /* ViewController+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */; };
 		23C1DE461E372DDF00E53954 /* VCSChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE451E372DDF00E53954 /* VCSChannelListViewController.swift */; };
 		23C1DE481E372F6C00E53954 /* VCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE471E372F6C00E53954 /* VCSViewController.swift */; };
@@ -144,6 +146,7 @@
 		232FBF771E3FDBB600294D26 /* LocalImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalImage.swift; sourceTree = "<group>"; };
 		232FBF7E1E40143A00294D26 /* Loading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		232FBF7F1E40143A00294D26 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		233F365A1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceActivationStatus.swift; path = HahaService/Models/DeviceActivationStatus.swift; sourceTree = "<group>"; };
 		233F4C121E32B05600786A5C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		233F4C131E32B5E100786A5C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = HahaService/Models/Channel.swift; sourceTree = "<group>"; };
 		2342FC521F8544EC00D0C295 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = Features/Login/LoginInteractor.swift; sourceTree = "<group>"; };
@@ -336,6 +339,7 @@
 				2366E4361F8639840037D4A7 /* StreamURL.swift */,
 				23148CF21F840AC20063B404 /* DeviceKey.swift */,
 				2349258C1F8412F50071185A /* DeviceActivation.swift */,
+				233F365A1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift */,
 				23E7462F1E33F9AE00498A08 /* VCS.swift */,
 				233F4C131E32B5E100786A5C /* Channel.swift */,
 			);
@@ -796,6 +800,7 @@
 				23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */,
 				23C626C21E34383600BDDACE /* HahaViewControllers.swift in Sources */,
 				23DBFAFF1E30604200E276EB /* GamesViewController.swift in Sources */,
+				233F365B1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift in Sources */,
 				23DBFAF31E30603000E276EB /* LoginViewController.swift in Sources */,
 				23C1DE481E372F6C00E53954 /* VCSViewController.swift in Sources */,
 				230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */,
@@ -804,7 +809,7 @@
 				232FBF751E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
 				23DBFB0B1E30607000E276EB /* Stream.swift in Sources */,
 				230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */,
-				23C1DE421E372A3600E53954 /* BuildFile in Sources */,
+				23C1DE421E372A3600E53954 /* (null) in Sources */,
 				23DBFB091E30607000E276EB /* HahaError.swift in Sources */,
 				23D857601F8D797F00433790 /* InlineVideoPlayerView.swift in Sources */,
 				233F4C141E32B5E100786A5C /* Channel.swift in Sources */,
@@ -874,6 +879,7 @@
 				232FBF761E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
 				23246CDA1E3E63AD0057FA63 /* Sport.swift in Sources */,
 				23246CCB1E3E60440057FA63 /* ServiceProvider.swift in Sources */,
+				233F365C1F8E94C700A6C2E0 /* DeviceActivationStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

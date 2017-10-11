@@ -19,7 +19,6 @@ This has been tested on tvOS 10.1/Apple TV 4th gen.
 ### To build:
 
 1. Clone repo
-2. run `pod install`
 3. Open the .xcworkspace in Xcode
 4. Select your team in the "Haha Stream" target settings
 5. Build and run!
@@ -33,9 +32,6 @@ This has been tested on tvOS 10.1/Apple TV 4th gen.
 3. Open `AppProvider.swift` and change the `AppGroupName` value to the app group you came up with above
 4. You may need to build and run the `Haha Extension` scheme manually to get it working.
 
-### To get your API key:
-
-1. Login to hehestreams.xyz, visit "My Account", and find your API key.
 
 # Questions?
 

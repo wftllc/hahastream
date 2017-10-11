@@ -51,11 +51,21 @@ class HahaProvider:NSObject {
 		success successCallback: @escaping (DeviceActivation) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
 		networkFailure failureCallback: @escaping (MoyaError) -> Void
-		) {
+		)
+	{
 		self.getOne(endpoint: .activateDevice(deviceKey: deviceKey.key),
 		            success: successCallback,
 		            apiError: errorCallback,
 		            networkFailure: failureCallback);
+	}
+	
+	func getDeviceActivationStatus(
+		success: @escaping (DeviceActivationStatus) -> Void,
+		apiError: @escaping (Any) -> Void,
+		networkFailure: @escaping (MoyaError) -> Void
+	)
+	{
+		self.getOne(endpoint: .getDeviceActivationStatus(), success: success, apiError: apiError, networkFailure: networkFailure)
 	}
 	
 	func getSports(

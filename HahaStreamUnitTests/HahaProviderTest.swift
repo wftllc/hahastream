@@ -30,7 +30,39 @@ class HahaProviderTest: XCTestCase {
 		super.tearDown()
 	}
 	
-	func testVCSScraping() {
+	func testLoggedIn() {
+		let exp = expectation(description: "wait")
+		self.provider.getDeviceActivationStatus(success: { status in
+			XCTAssert(status.isActivated)
+			exp.fulfill()
+		}, apiError: { (error) in
+			XCTFail("apiError: \(error)")
+			exp.fulfill()
+		}, networkFailure: { (error) in
+			XCTFail("networkFailure: \(error)")
+			exp.fulfill()
+		});
+		waitForExpectations(timeout: 25, handler: nil)
+	}
+	
+	func testNotLoggedIn() {
+		let exp = expectation(description: "wait")
+		self.provider.apiKey = nil
+		self.provider.getDeviceActivationStatus(success: { status in
+			XCTAssertFalse(status.isActivated)
+			exp.fulfill()
+		}, apiError: { (error) in
+			XCTFail("apiError: \(error)")
+			exp.fulfill()
+		}, networkFailure: { (error) in
+			XCTFail("networkFailure: \(error)")
+			exp.fulfill()
+		});
+		waitForExpectations(timeout: 25, handler: nil)
+	}
+
+	
+	func xtestVCSScraping() {
 		let exp = expectation(description: "wait")
 		var vcses:[VCS] = []
 		self.provider.getVCSChannels(success: { (result) in
@@ -47,8 +79,8 @@ class HahaProviderTest: XCTestCase {
 		waitForExpectations(timeout: 25, handler: nil)
 	}
 	
-	
-	func testChannels() {
+	//channels are under sports right now
+	func xtestChannels() {
 		let exp = expectation(description: "wait")
 		var channels:[Channel] = []
 		provider.getChannels(success: { (channelsRes) in
@@ -100,16 +132,19 @@ class HahaProviderTest: XCTestCase {
 		for item in items {
 			if let channel = item.channel {
 				foundChannel = true
-				provider.getStream(channel: channel, success: { (stream) in
-					XCTAssertNotNil(stream)
-					exp2.fulfill()
-				}, apiError: { (error) in
-					XCTFail("apiError: \(error)")
-					exp2.fulfill()
-				}, networkFailure: { (error) in
-					XCTFail("networkFailure: \(error)")
-					exp2.fulfill()
-				})
+				//nba tv seems to be always live
+				if channel.title == "NBA TV" {
+					provider.getStream(channel: channel, success: { (stream) in
+						XCTAssertNotNil(stream)
+						exp2.fulfill()
+					}, apiError: { (error) in
+						XCTFail("apiError: \(error)")
+						exp2.fulfill()
+					}, networkFailure: { (error) in
+						XCTFail("networkFailure: \(error)")
+						exp2.fulfill()
+					})
+				}
 			}
 			else if let _ = item.game {
 				foundGame = true
@@ -150,7 +185,6 @@ class HahaProviderTest: XCTestCase {
 			})
 			waitForExpectations(timeout: 25, handler: nil)
 		}
-		
 	}
 	
 	func loadApiKey() -> String? {
