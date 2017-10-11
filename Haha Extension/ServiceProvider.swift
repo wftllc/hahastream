@@ -31,9 +31,9 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 			self.refresh(after: self.RefreshTimeInterval);
 			return
 		}
-		provider.getNowPlaying(success: { [weak self] (nowPlayingItems) in
+		provider.getNowPlaying(success: { [weak self] (sections) in
 			DispatchQueue.global(qos: .background).sync {
-				self?.process(items: nowPlayingItems);
+				self?.process(items: sections[0]);
 			}
 			self?.refresh(after: self?.RefreshTimeInterval);
 		}, apiError: { [weak self] (error) in

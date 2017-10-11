@@ -4,6 +4,7 @@ class Channel: NSObject, FromDictable {
 	public var uuid: String;
 	public var title: String;
 	public var path: String
+	public var sport: Sport?
 
 	static func fromDictionary(_ dict:[String: Any]?) throws -> Self {
 		guard let dict = dict else { throw FromDictableError.keyError(key: "<root>") }
@@ -21,7 +22,8 @@ class Channel: NSObject, FromDictable {
 	}
 	
 	override var description : String {
-		return "\(title), \(path), \(uuid)";
+		let sportName = sport?.name ?? "<no sport>"
+		return "\(title), \(path), \(uuid), \(sportName)";
 	}
 	
 	public var playActionURL: URL? {

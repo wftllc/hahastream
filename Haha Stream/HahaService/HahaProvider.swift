@@ -186,7 +186,7 @@ class HahaProvider:NSObject {
 	
 	
 	func getNowPlaying(
-		success successCallback: @escaping ([NowPlayingItem]) -> Void,
+		success successCallback: @escaping ([[NowPlayingItem]]) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
 		networkFailure failureCallback: @escaping (MoyaError) -> Void
 		) {
@@ -202,6 +202,11 @@ class HahaProvider:NSObject {
 				}
 				for sport in sports {
 					self.getNowPlaying(sport: sport, date: date, success: { (items) in
+						items.forEach({ (item) in
+							if let channel = item.channel {
+								channel.sport = sport //add sport manually
+							}
+						})
 						allItems.append(contentsOf: items)
 						semaphore.signal()
 					}, apiError: { (error) in
@@ -214,33 +219,45 @@ class HahaProvider:NSObject {
 					semaphore.wait()
 				}
 				
-//				let results = self.processNowPlaying(games: allGames, channels: allChannels)
+				let sections = self.sortNowPlayingItemsIntoSections(items: allItems)
 				DispatchQueue.main.async {
-					successCallback(allItems)
+					successCallback(sections)
 				}
 			}
 		}, apiError: errorCallback, networkFailure: failureCallback);
 	}
 	
-	func processNowPlaying(games: [Game], channels: [Channel]) -> [NowPlayingItem] {
-		var results: [NowPlayingItem] = [];
+	func sortNowPlayingItemsIntoSections(items: [NowPlayingItem]) -> [[NowPlayingItem]] {
+		var ready: [NowPlayingItem] = []
+		var channels: [NowPlayingItem] = []
+		var upcoming: [NowPlayingItem] = []
 		
+		items.filter{ !($0.game?.ended == .some(true)) } .forEach { (item) in
+			if let game = item.game {
+				if game.ready {
+					ready.append(item)
+				}
+				else {
+					upcoming.append(item)
+				}
+			}
+			else if let _ = item.channel {
+				channels.append(item)
+			}
+		}
 		//this goes like: current games => channels => upcoming games
-//		let channels = channels.filter{ $0.active }.sorted{ $0.title < $1.title }
 		
-		//let's get all the "ready" and "active" games, meaning
-		//games that are ready and <4 hrs old
-		let readyGames = games.filter{ $0.active && $0.sport.name.lowercased() != "vcs" }
-		let upcomingGames = games.filter{ $0.upcoming && $0.sport.name.lowercased() != "vcs" }
+		ready = ready.sorted(by: gameSort)
+		upcoming = upcoming.sorted(by: gameSort)
+		channels = channels.sorted(by: channelSort)
 		
-		results.append(contentsOf: readyGames.sorted(by: gameSort).map{ NowPlayingItem(game: $0) })
-		results.append(contentsOf: channels.map { NowPlayingItem(channel: $0) })
-		results.append(contentsOf: upcomingGames.sorted(by: gameSort).map{ NowPlayingItem(game: $0) })
-		
-		return results;
+		return [ready, channels, upcoming];
 	}
 	
-	func gameSort(_ a: Game, _ b: Game) -> Bool {
+	func gameSort(_ a: NowPlayingItem, _ b: NowPlayingItem) -> Bool {
+		guard let a = a.game, let b = b.game else {
+			return false
+		}
 		if a.startDate != b.startDate {
 			return a.startDate < b.startDate
 		}
@@ -252,6 +269,13 @@ class HahaProvider:NSObject {
 		}
 		
 		return false;
+	}
+	
+	func channelSort(_ a: NowPlayingItem, _ b: NowPlayingItem) -> Bool {
+		guard let a = a.channel, let b = b.channel else {
+			return false
+		}
+		return a.title < b.title
 	}
 	
 	func getStreams(

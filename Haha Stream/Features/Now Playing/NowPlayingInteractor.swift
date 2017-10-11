@@ -45,9 +45,9 @@ class NowPlayingInteractor: NSObject {
 	
 	func refreshData() {
 		self.view?.showLoading(animated: true);
-		self.provider.getNowPlaying(success: { (items) in
+		self.provider.getNowPlaying(success: { (sections) in
 			self.view?.hideLoading(animated: true)
-			self.view?.updateView(items: items)
+			self.view?.updateView(sections: sections)
 		}, apiError: self.view!.apiErrorClosure,
 		   networkFailure: self.view!.networkFailureClosure
 		)
@@ -106,6 +106,7 @@ class NowPlayingInteractor: NSObject {
 	}
 	
 	private func previewVideo(url: URL) {
+		return;
 		print("\(#function) \(url.absoluteString))")
 		self.videoPlayer = InlineVideoPlayer(url: url)
 		videoPlayer?.load( ready: { [unowned self] in
@@ -121,6 +122,7 @@ class NowPlayingInteractor: NSObject {
 	}
 	
 	private func stopVideo() {
+		return;
 		print("\(#function)")
 		self.videoPlayer?.stop()
 		self.videoPlayer = nil

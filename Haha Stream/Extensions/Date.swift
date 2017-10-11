@@ -18,7 +18,7 @@ extension Date {
 		}
 		
 		if negative {
-			elapsed = "-\(elapsed)"
+			elapsed = "in \(elapsed)"
 		}
 		return elapsed;
 	}

@@ -16,7 +16,9 @@ class NowPlayingViewCell: UICollectionViewCell {
 //	@IBOutlet weak var statusLabel: UILabel!
 	@IBOutlet weak var timeLabel: UILabel!
 	@IBOutlet weak var titleLabel: UILabel!
-	
+	@IBOutlet weak var sportLabel: UILabel!	
+	@IBOutlet weak var atLabel: UILabel!
+
 	var timer: Timer?;
 	
 	var horizontalMotionEffect: UIInterpolatingMotionEffect!
