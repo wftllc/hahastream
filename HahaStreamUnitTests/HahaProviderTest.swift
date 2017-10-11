@@ -12,9 +12,12 @@ To make tests work, you MUST have a Config.plist included in the test bundle whi
 */
 class HahaProviderTest: XCTestCase {
 	let ApiKeyPath = "HahaProviderApiKey"
+
 	var provider: HahaProvider!;
+	
 	override func setUp() {
 		super.setUp()
+		
 		self.continueAfterFailure = false;
 		let apiKey = loadApiKey()
 		XCTAssertNotNil(apiKey)
@@ -40,6 +43,7 @@ class HahaProviderTest: XCTestCase {
 			XCTFail("networkFailure: \(error)")
 			exp.fulfill()
 		});
+		XCTAssertGreaterThan(vcses.count, 1)
 		waitForExpectations(timeout: 25, handler: nil)
 	}
 	
@@ -61,7 +65,6 @@ class HahaProviderTest: XCTestCase {
 		print(channels)
 		XCTAssertGreaterThan(channels.count, 0)
 		for channel in channels {
-			if( channel.active ) {
 				let exp = expectation(description: "wait")
 				provider.getStream(channel: channel, success: { (stream) in
 					exp.fulfill()
@@ -73,27 +76,50 @@ class HahaProviderTest: XCTestCase {
 					exp.fulfill()
 				})
 				waitForExpectations(timeout: 25, handler: nil)
-			}
 		}
 	}
 	
 	func testNowPlaying() {
 		let exp = expectation(description: "wait")
-		var games:[Game] = []
-//		provider.getCurrentGames(success: { (gamesRes) in
-//			games = gamesRes;
-//			exp.fulfill()
-//		}, apiError: { (error) in
-//			XCTFail("apiError: \(error)")
-//			exp.fulfill()
-//		}, networkFailure: { (error) in
-//			XCTFail("networkFailure: \(error)")
-//			exp.fulfill()
-//		})
+		var items:[NowPlayingItem] = []
+		provider.getNowPlaying(success: { (results) in
+			items = results;
+			exp.fulfill()
+		}, apiError: { (error) in
+			XCTFail("apiError: \(error)")
+			exp.fulfill()
+		}, networkFailure: { (error) in
+			XCTFail("networkFailure: \(error)")
+			exp.fulfill()
+		})
 		waitForExpectations(timeout: 25, handler: nil)
-		print(games)
-		XCTAssertGreaterThan(games.count, 0)
+		print(items)
+		var foundGame = false
+		var foundChannel = false
+		let exp2 = expectation(description: "channel stream")
+		for item in items {
+			if let channel = item.channel {
+				foundChannel = true
+				provider.getStream(channel: channel, success: { (stream) in
+					XCTAssertNotNil(stream)
+					exp2.fulfill()
+				}, apiError: { (error) in
+					XCTFail("apiError: \(error)")
+					exp2.fulfill()
+				}, networkFailure: { (error) in
+					XCTFail("networkFailure: \(error)")
+					exp2.fulfill()
+				})
+			}
+			else if let _ = item.game {
+				foundGame = true
+			}
+		}
+		XCTAssert(foundGame)
+		XCTAssert(foundChannel)
+		waitForExpectations(timeout: 25, handler: nil)
 	}
+	
 	func testSportsGamesStreamFetchingFlow() {
 		var exp = expectation(description: "wait")
 		var sports: [Sport] = []

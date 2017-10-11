@@ -48,7 +48,7 @@ class HahaProvider:NSObject {
 	
 	func activateDevice(
 		deviceKey: DeviceKey,
-		success successCallback: @escaping (DeviceActivation?) -> Void,
+		success successCallback: @escaping (DeviceActivation) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
 		networkFailure failureCallback: @escaping (MoyaError) -> Void
 		) {
@@ -67,6 +67,27 @@ class HahaProvider:NSObject {
 		self.get(endpoint: .getSports, success: successCallback, apiError: errorCallback, networkFailure: failureCallback);
 	}
 	
+	func getNowPlaying(
+		sport: Sport,
+		date: Date,
+		success: @escaping ([NowPlayingItem]) -> Void,
+		apiError: @escaping (Any) -> Void,
+		networkFailure: @escaping (MoyaError) -> Void
+		)
+	{
+		let endpoint: HahaService;
+		let calendar = Calendar.current;
+		let targetComponents = Set<Calendar.Component>(arrayLiteral: .year, .month, .day);
+		let dateComponents = calendar.dateComponents(targetComponents, from: date);
+		
+		endpoint = HahaService.getNowPlaying(sport: sport.name.lowercased(), year: dateComponents.year!, month: dateComponents.month!, day: dateComponents.day!)
+		
+		self.get(endpoint: endpoint,
+		         success: success,
+		         apiError: apiError,
+		         networkFailure: networkFailure);
+	}
+	
 	func getGames(
 		sport: Sport,
 		date: Date?,
@@ -75,7 +96,6 @@ class HahaProvider:NSObject {
 		networkFailure failureCallback: @escaping (MoyaError) -> Void
 		)
 	{
-		
 		let endpoint: HahaService;
 		if let forcedDate = date {
 			let calendar = Calendar.current;
@@ -113,9 +133,9 @@ class HahaProvider:NSObject {
 			for sport in sports {
 				self.get(endpoint: HahaService.getChannels(sport: sport.name.lowercased()),
 				         success: { (channels: [Channel]) in
-									for channel in channels {
-										channel.sport = sport;
-									}
+//									for channel in channels {
+//										channel.sport = sport;
+//									}
 									allChannels.append(contentsOf: channels);
 									semaphore.signal()
 				}, apiError: { (error) in
@@ -152,17 +172,16 @@ class HahaProvider:NSObject {
 		//get all sports, then get all games for today and the next/prev day if it is within 4 hrs
 		self.getSports(success: { (sports) in
 			DispatchQueue.global().async {
-				var allGames:[Game] = []
-				var allChannels:[Channel] = []
+				var allItems:[NowPlayingItem] = []
 				let semaphore = DispatchSemaphore(value: 0);
+				var date = Date();
+				//if 4 hours earlier is yesterday, let's get those games instead
+				if( Calendar.current.isDateInYesterday(Date(timeIntervalSinceNow:-4*60*60)) ) {
+					date.addTimeInterval(-4*60*60);
+				}
 				for sport in sports {
-					var date = Date();
-					//if 4 hours earlier is yesterday, let's get those games instead
-					if( Calendar.current.isDateInYesterday(Date(timeIntervalSinceNow:-4*60*60)) ) {
-						date.addTimeInterval(-4*60*60);
-					}
-					self.getGames(sport: sport, date: date, success: { (games) in
-						allGames.append(contentsOf: games);
+					self.getNowPlaying(sport: sport, date: date, success: { (items) in
+						allItems.append(contentsOf: items)
 						semaphore.signal()
 					}, apiError: { (error) in
 						semaphore.signal()
@@ -170,21 +189,13 @@ class HahaProvider:NSObject {
 						semaphore.signal()
 					});
 				}
-				self.getChannels(sports: sports, success: { (channels) in
-					allChannels.append(contentsOf:channels)
-					semaphore.signal()
-				}, apiError: { (error) in
-					semaphore.signal()
-				}, networkFailure: { (error) in
-					semaphore.signal()
-				});
-				for _ in 1...sports.count+1 {
+				for _ in 1...sports.count {
 					semaphore.wait()
 				}
 				
-				let results = self.processNowPlaying(games: allGames, channels: allChannels)
+//				let results = self.processNowPlaying(games: allGames, channels: allChannels)
 				DispatchQueue.main.async {
-					successCallback(results)
+					successCallback(allItems)
 				}
 			}
 		}, apiError: errorCallback, networkFailure: failureCallback);
@@ -194,7 +205,7 @@ class HahaProvider:NSObject {
 		var results: [NowPlayingItem] = [];
 		
 		//this goes like: current games => channels => upcoming games
-		let channels = channels.filter{ $0.active }.sorted{ $0.title < $1.title }
+//		let channels = channels.filter{ $0.active }.sorted{ $0.title < $1.title }
 		
 		//let's get all the "ready" and "active" games, meaning
 		//games that are ready and <4 hrs old
@@ -231,7 +242,7 @@ class HahaProvider:NSObject {
 	{
 		getStreams(sportName: game.sport.name.lowercased(), gameUUID: game.uuid, success: successCallback, apiError: errorCallback, networkFailure: failureCallback)
 	}
-
+	
 	func getStreams(
 		sport: Sport,
 		game: Game,
@@ -243,7 +254,23 @@ class HahaProvider:NSObject {
 		
 		getStreams(sportName: sport.name.lowercased(), gameUUID: game.uuid, success: successCallback, apiError: errorCallback, networkFailure: failureCallback)
 	}
-	
+
+	func getStream(
+		channel: Channel,
+		success successCallback: @escaping (Stream) -> Void,
+		apiError errorCallback: @escaping (Any) -> Void,
+		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		)
+	{
+		
+		let endpoint = HahaService.getChannelStreamMetas(channelUUID: channel.uuid)
+		self.getOne(endpoint: endpoint, success: { (streamMeta: StreamMeta?) in
+			successCallback(streamMeta!.streams.first!)
+		},
+		            apiError: errorCallback,
+		            networkFailure: failureCallback);
+	}
+
 	func getStreams(
 		sportName: String,
 		gameUUID: String,
@@ -699,7 +726,7 @@ class HahaProvider:NSObject {
 		            apiError: errorCallback,
 		            networkFailure: failureCallback);
 	}
-	
+/*
 	func getStream(
 		channel: Channel,
 		success successCallback: @escaping (Stream?) -> Void,
@@ -708,14 +735,14 @@ class HahaProvider:NSObject {
 		)
 	{
 		
-		let endpoint = HahaService.getStreamForChannel(sport: channel.sport!.name.lowercased(), channelId: channel.identifier);
+		let endpoint = HahaService.getStreamForChannel(channelId: channel.uuid);
 		
 		self.getOne(endpoint: endpoint,
 		            success: successCallback,
 		            apiError: errorCallback,
 		            networkFailure: failureCallback);
 	}
-	
+	*/
 	
 	func getGame(
 		sportName: String,

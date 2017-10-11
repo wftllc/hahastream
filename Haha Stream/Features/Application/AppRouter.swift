@@ -2,22 +2,28 @@ import UIKit
 import AVKit
 
 class AppRouter: NSObject {
-	var hahaProvider: HahaProvider!;
+	let appProvider: AppProvider
+	let hahaProvider: HahaProvider;
 	weak var window: UIWindow?;
 	
 	init(window: UIWindow?) {
+		
 		self.window = window
-		self.hahaProvider = HahaProvider(apiKey: AppProvider.apiKey);
+		self.appProvider = AppProvider()
+		self.hahaProvider = HahaProvider(apiKey: self.appProvider.apiKey);
 	}
 
 	public func handleLoginComplete(withActivation activation: DeviceActivation) {
-		AppProvider.apiKey = activation.apiKey
-		self.hahaProvider = HahaProvider(apiKey: AppProvider.apiKey);
+		appProvider.apiKey = activation.apiKey
+		self.hahaProvider.apiKey = appProvider.apiKey
 		gotoFirstScreen();
 	}
 	
 	func gotoFirstScreen() {
-		if( !AppProvider.isLoggedIn ) {
+		if( appProvider.isInUnitTestMode ) {
+			return
+		}
+		if( !appProvider.isLoggedIn ) {
 			gotoLoginScreen()
 		}
 		else {

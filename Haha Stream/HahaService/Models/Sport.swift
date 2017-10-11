@@ -19,7 +19,7 @@ final class Sport: NSObject, FromDictable {
 	}
 	
 	override var description : String {
-		return "\(name), \(path)";
+		return "\(name)";
 	}
 }
 

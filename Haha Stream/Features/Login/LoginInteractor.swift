@@ -59,14 +59,9 @@ class LoginInteractor: NSObject {
 	func pollForActivation(deviceKey: DeviceKey) {
 		print("\(#function)")
 		self.provider.activateDevice(deviceKey: deviceKey, success: { [weak self] activation in
-			print("activation \(activation)")
-			if let activation = activation {
-				self?.completeActivation(activation)
-			}
-			else {
-				self?.pollForActivation(deviceKey: deviceKey)
-			}
-			}, apiError: { [weak self] (error) in
+			print("activation \(activation.description)")
+			self?.completeActivation(activation)
+		}, apiError: { [weak self] (error) in
 				print("api error \(error)")
 				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+(self?.PollingInterval ?? 0)) {
 					self?.pollForActivation(deviceKey: deviceKey)

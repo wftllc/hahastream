@@ -3,13 +3,14 @@ import TVServices
 
 
 class ServiceProvider: NSObject, TVTopShelfProvider {
+	let appProvider: AppProvider
 	let provider: HahaProvider
-	let RefreshTimeInterval: TimeInterval = 30;
+	let RefreshTimeInterval: TimeInterval = 60;
 	var contentItems: [TVContentItem] = [];
 	
-	override init() {
-		
-		provider = HahaProvider(apiKey: AppProvider.apiKey)
+	init(appProvider: AppProvider, provider: HahaProvider) {
+		self.appProvider = appProvider
+		self.provider = provider
 		super.init()
 //		start()
 		
@@ -26,7 +27,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 	}
 	
 	func refresh() {
-		if !AppProvider.isLoggedIn {
+		if !self.appProvider.isLoggedIn {
 			self.refresh(after: self.RefreshTimeInterval);
 			return
 		}
@@ -129,7 +130,7 @@ extension TVContentItem {
 		self.init(contentIdentifier: identifier);
 		
 		self.title = game.title
-		self.imageURL = game.singleImageLocalURL;
+		self.setImageURL(game.singleImageLocalURL, forTraits: [.userInterfaceStyleLight])
 		self.imageShape = .poster
 		self.playURL = game.playActionURL
 		self.displayURL = game.displayActionURL;
@@ -137,12 +138,12 @@ extension TVContentItem {
 	}
 	
 	convenience init?(channel: Channel) {
-		guard let identifier = TVContentIdentifier(identifier: "com.wftllc.haha-stream.channel.\(channel.identifier)", container: nil) else {
+		guard let identifier = TVContentIdentifier(identifier: "com.wftllc.haha-stream.channel.\(channel.uuid)", container: nil) else {
 			fatalError("Error creating content identifier for game.")
 		}
 		self.init(contentIdentifier: identifier);
 		self.imageShape = .poster
-		self.imageURL = channel.singleImageLocalURL;
+		self.setImageURL(channel.singleImageLocalURL, forTraits: [.userInterfaceStyleLight])
 		self.playURL = channel.playActionURL
 		self.displayURL = channel.displayActionURL;
 		

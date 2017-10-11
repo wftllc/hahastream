@@ -27,7 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       language = ""
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "NO">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -43,7 +43,7 @@
                   Identifier = "HahaProviderTest/testChannels()">
                </Test>
                <Test
-                  Identifier = "HahaProviderTest/testNowPlaying()">
+                  Identifier = "HahaProviderTest/testSportsGamesStreamFetchingFlow()">
                </Test>
                <Test
                   Identifier = "HahaProviderTest/testVCSScraping()">
@@ -60,6 +60,18 @@
             ReferencedContainer = "container:Haha Stream.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "COM_WFTLLC_APP_IS_IN_UNIT_TEST_MODE"
+            value = "true"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

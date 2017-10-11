@@ -97,12 +97,8 @@ class NowPlayingInteractor: NSObject {
 		
 		provider.getStream(channel: channel, success: { (stream) in
 			self.view?.hideLoading(animated: true, completion: {
-				if let stream = stream {
-					//					self.playURL(stream.url!)
-				}
-				else {
-					self.view?.showAlert(title: "No Stream", message: "Couldn't find stream for \(channel.title)");
-				}
+				
+//				self.playURL(stream.url!)
 			});
 		}, apiError: self.view!.apiErrorClosure,
 		   networkFailure: self.view!.networkFailureClosure

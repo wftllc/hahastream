@@ -61,7 +61,7 @@ extension Channel: LocalImage {
 	}
 	
 	public var singleImageLocalURL: URL {
-		let name = "channel-\(self.sport?.name ?? "unknown")-\(self.identifier)"
+		let name = "channel-\(self.uuid)"
 		let fileURL = self.getCacheDirectory().appendingPathComponent(name).appendingPathExtension("png")
 		return fileURL;
 	}

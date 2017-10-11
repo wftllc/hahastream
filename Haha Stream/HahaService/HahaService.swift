@@ -5,14 +5,16 @@ enum HahaService {
 	case getDeviceKey(deviceUUID: String)
 	case activateDevice(deviceKey: String)
 	case getGamesNoDate(sport: String);
+	case getNowPlaying(sport: String, year: Int, month: Int, day: Int);
 	case getGames(sport: String, year: Int, month: Int, day: Int);
 	case getGame(sport: String, uuid: String)
 	//	case getGamesByDate(sport: String, year: Int, month: Int, day: Int);
 	case getSports;
 	case getChannels(sport: String);
+	case getChannelStreamMetas(channelUUID: String);
 	case getStreamMetas(sport: String, gameUUID: String);
 	case getURLForStream(streamId: String, sport: String, gameUUID: String);
-	case getStreamForChannel(sport: String, channelId: Int);
+//	case getStreamForChannel(channelId: String);
 	case scrapeVCSChannels;
 }
 
@@ -42,18 +44,20 @@ extension HahaService: TargetType {
 			return "users/services";
 		case .getGame(let sport, let uuid):
 			return "/\(sport.urlEscaped)/games/\(uuid.urlEscaped)";
+		case .getNowPlaying(let sport, _, _, _):
+			return "/\(sport.urlEscaped)/games";
 		case .getGames(let sport, _, _, _):
 			return "/\(sport.urlEscaped)/games";
 		case .getGamesNoDate(let sport):
 			return "/\(sport.urlEscaped)/games";
+		case .getChannelStreamMetas(let uuid):
+			return "/channels/\(uuid.urlEscaped)/streams";
 		case .getStreamMetas(let sport, let uuid):
 			return "/\(sport.urlEscaped)/games/\(uuid.urlEscaped)/streams";
 		case .getURLForStream(let streamId, let sport, let gameUuid):
 			return "/\(sport.urlEscaped)/games/\(gameUuid.urlEscaped)/streams/\(streamId.urlEscaped)";
 		case .getChannels(let sport):
 			return "/\(sport.urlEscaped)/channels";
-		case .getStreamForChannel(let sport, let channelId):
-			return "/\(sport.urlEscaped)/channels/\(channelId)";
 		case .scrapeVCSChannels:
 			return "vcs"
 		}
@@ -81,7 +85,11 @@ extension HahaService: TargetType {
 			return [
 				"date": String(format: "%2d-%02d-%1d", month, day, year)
 			]
-			
+		case .getNowPlaying(_, let year, let month, let day):
+			return [
+				"date": String(format: "%2d-%02d-%1d", month, day, year)
+			]
+
 		default:
 			return [:];
 		}

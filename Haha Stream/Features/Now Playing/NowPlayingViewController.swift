@@ -105,7 +105,9 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 			//				                                 completionHandler: nil)
 			//			}
 			
-			cell.titleLabel.text = "\(game.awayTeam.abbreviation) @ \(game.homeTeam.abbreviation)"
+			let away = game.awayTeam.abbreviation ?? String(game.awayTeam.name.prefix(3))
+			let home = game.homeTeam.abbreviation ?? String(game.homeTeam.name.prefix(3))
+			cell.titleLabel.text = "\(away) @ \(home)"
 			if(game.ready) {
 				cell.updateTimeLabel(withDate: game.startDate);
 				cell.startAnimating(date: game.startDate)
@@ -116,11 +118,11 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 		}
 		else {
 			let channel = item.channel!
-			//			cell.titleLabel.text = channel.title
+				cell.titleLabel.text = channel.title
 			cell.timeLabel.text = nil;
 			cell.homeImageView.image = nil
 			cell.awayImageView.image = nil
-			cell.singleImageView.image = Image(named: "hehelogo-transparent-750.png")
+//			cell.singleImageView.image = Image(named: "hehelogo-transparent-750.png")
 		}
 		return cell
 	}
