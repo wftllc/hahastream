@@ -2,8 +2,7 @@ import Foundation
 import UIKit
 import AVKit
 
-extension HahaViewController {
-	
+extension HahaViewController {	
 	func selectGame(_ gameUUID: String, sport: String) {
 		showLoading(animated: true)
 		provider.getGame(sportName: sport, gameUUID: gameUUID, success: { (game) in
@@ -45,7 +44,7 @@ extension HahaViewController {
 	
 	func selectGame(_ game: Game) {
 		showLoading(animated: true)
-		provider.getStreams(sport: game.sport, game: game, success: { (streams) in
+		provider.getStreams(game: game, success: { (streams) in
 			if streams.count == 1 {
 				self.hideLoading(animated: false, completion: {
 					self.playStream(stream: streams[0], game: game)

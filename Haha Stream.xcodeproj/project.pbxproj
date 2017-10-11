@@ -36,6 +36,9 @@
 		232FBF811E40143A00294D26 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF7F1E40143A00294D26 /* LoadingViewController.swift */; };
 		233F365B1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F365A1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift */; };
 		233F365C1F8E94C700A6C2E0 /* DeviceActivationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F365A1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift */; };
+		233F36631F8E989000A6C2E0 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233F36601F8E988F00A6C2E0 /* Account.storyboard */; };
+		233F36641F8E989000A6C2E0 /* AccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F36611F8E988F00A6C2E0 /* AccountInteractor.swift */; };
+		233F36651F8E989000A6C2E0 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F36621F8E988F00A6C2E0 /* AccountViewController.swift */; };
 		233F4C141E32B5E100786A5C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F4C131E32B5E100786A5C /* Channel.swift */; };
 		2342FC531F8544EC00D0C295 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2342FC521F8544EC00D0C295 /* LoginInteractor.swift */; };
 		2349258D1F8412F50071185A /* DeviceActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258C1F8412F50071185A /* DeviceActivation.swift */; };
@@ -147,6 +150,9 @@
 		232FBF7E1E40143A00294D26 /* Loading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		232FBF7F1E40143A00294D26 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		233F365A1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceActivationStatus.swift; path = HahaService/Models/DeviceActivationStatus.swift; sourceTree = "<group>"; };
+		233F36601F8E988F00A6C2E0 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		233F36611F8E988F00A6C2E0 /* AccountInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInteractor.swift; sourceTree = "<group>"; };
+		233F36621F8E988F00A6C2E0 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		233F4C121E32B05600786A5C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		233F4C131E32B5E100786A5C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = HahaService/Models/Channel.swift; sourceTree = "<group>"; };
 		2342FC521F8544EC00D0C295 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = Features/Login/LoginInteractor.swift; sourceTree = "<group>"; };
@@ -313,6 +319,17 @@
 			path = "Haha Stream/Features/Loading";
 			sourceTree = SOURCE_ROOT;
 		};
+		233F365F1F8E988F00A6C2E0 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				233F36601F8E988F00A6C2E0 /* Account.storyboard */,
+				233F36611F8E988F00A6C2E0 /* AccountInteractor.swift */,
+				233F36621F8E988F00A6C2E0 /* AccountViewController.swift */,
+			);
+			name = Account;
+			path = Features/Account;
+			sourceTree = "<group>";
+		};
 		2355AD501E32926800EAEF02 /* Now Playing */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +411,7 @@
 		23DBFAE21E305D5900E276EB /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				233F365F1F8E988F00A6C2E0 /* Account */,
 				23C626BC1E342C0900BDDACE /* Core */,
 				23DBFAE31E305D6B00E276EB /* Application */,
 				23C626B51E3426B600BDDACE /* Player */,
@@ -620,6 +638,7 @@
 				230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */,
 				23DBFB001E30604200E276EB /* Sport.storyboard in Resources */,
 				2355AD541E32926800EAEF02 /* NowPlaying.storyboard in Resources */,
+				233F36631F8E989000A6C2E0 /* Account.storyboard in Resources */,
 				23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */,
 				23C626B91E3426EB00BDDACE /* Player.storyboard in Resources */,
 				23C626B21E341A2F00BDDACE /* VCS.storyboard in Resources */,
@@ -822,9 +841,11 @@
 				23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */,
 				23DBFAFD1E30604200E276EB /* DateListViewController.swift in Sources */,
 				2366E43A1F863C350037D4A7 /* Team.swift in Sources */,
+				233F36641F8E989000A6C2E0 /* AccountInteractor.swift in Sources */,
 				232FBF781E3FDBB600294D26 /* LocalImage.swift in Sources */,
 				23DBFB081E30607000E276EB /* Game.swift in Sources */,
 				23C1DE4A1E37371800E53954 /* VCSChannelListCell.swift in Sources */,
+				233F36651F8E989000A6C2E0 /* AccountViewController.swift in Sources */,
 				232FBF811E40143A00294D26 /* LoadingViewController.swift in Sources */,
 				234925901F841ED20071185A /* StreamMeta.swift in Sources */,
 				23D8575A1F8D6CFE00433790 /* NowPlayingInteractor.swift in Sources */,

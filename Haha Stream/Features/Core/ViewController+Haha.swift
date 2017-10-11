@@ -42,6 +42,18 @@ extension UIViewController {
 		alertController.addAction(acceptAction)
 		present(alertController, animated: true, completion: nil);
 	}
+	@objc func showAlert(title: String, message: String, okTitle: String = "OK", onAccept:(()->Void)? = nil) {
+		let acceptButtonTitle = NSLocalizedString(okTitle, comment: "")
+		let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
+		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		let acceptAction = UIAlertAction(title: acceptButtonTitle, style: .destructive) { _ in
+			onAccept?()
+		}
+		alertController.addAction(acceptAction)
+		let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) 
+		alertController.addAction(cancelAction)
+		present(alertController, animated: true, completion: nil);
+	}
 
 	
 	@objc func showLoginAlert(message: String) {

@@ -4,6 +4,7 @@ import Moya
 enum HahaService {
 	case getDeviceKey(deviceUUID: String)
 	case activateDevice(deviceKey: String)
+	case deactivateDevice()
 	case getDeviceActivationStatus()
 	case getGamesNoDate(sport: String);
 	case getNowPlaying(sport: String, year: Int, month: Int, day: Int);
@@ -41,6 +42,8 @@ extension HahaService: TargetType {
 			return "devices/register"
 		case .activateDevice(_):
 			return "devices/activate"
+		case .deactivateDevice():
+			return "devices/deactivate"
 		case .getDeviceActivationStatus():
 			return "devices/check"
 		case .getSports:

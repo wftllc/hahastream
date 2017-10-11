@@ -46,6 +46,17 @@ class HahaProvider:NSObject {
 		self.getOne(endpoint: .getDeviceKey(deviceUUID: UIDevice.current.identifierForVendor!.uuidString), success: successCallback, apiError: errorCallback, networkFailure: failureCallback);
 	}
 	
+	func deactivateDevice(
+		success: @escaping () -> Void,
+		apiError: @escaping (Any) -> Void,
+		networkFailure: @escaping (MoyaError) -> Void
+		)
+	{
+		self.requestOne(endpoint: .deactivateDevice(), success: { (_) in
+			success()
+		}, apiError: apiError, networkFailure: networkFailure)
+	}
+	
 	func activateDevice(
 		deviceKey: DeviceKey,
 		success successCallback: @escaping (DeviceActivation) -> Void,
@@ -58,7 +69,7 @@ class HahaProvider:NSObject {
 		            apiError: errorCallback,
 		            networkFailure: failureCallback);
 	}
-	
+
 	func getDeviceActivationStatus(
 		success: @escaping (DeviceActivationStatus) -> Void,
 		apiError: @escaping (Any) -> Void,
@@ -253,18 +264,6 @@ class HahaProvider:NSObject {
 		getStreams(sportName: game.sport.name.lowercased(), gameUUID: game.uuid, success: successCallback, apiError: errorCallback, networkFailure: failureCallback)
 	}
 	
-	func getStreams(
-		sport: Sport,
-		game: Game,
-		success successCallback: @escaping ([Stream]) -> Void,
-		apiError errorCallback: @escaping (Any) -> Void,
-		networkFailure failureCallback: @escaping (MoyaError) -> Void
-		)
-	{
-		
-		getStreams(sportName: sport.name.lowercased(), gameUUID: game.uuid, success: successCallback, apiError: errorCallback, networkFailure: failureCallback)
-	}
-
 	func getStream(
 		channel: Channel,
 		success successCallback: @escaping (Stream) -> Void,
@@ -813,7 +812,6 @@ class HahaProvider:NSObject {
 		           apiError: apiError,
 		           networkFailure: failureCallback
 		);
-		
 	}
 	
 	

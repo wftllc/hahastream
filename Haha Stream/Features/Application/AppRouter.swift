@@ -18,7 +18,12 @@ class AppRouter: NSObject {
 		self.hahaProvider.apiKey = appProvider.apiKey
 		gotoFirstScreen();
 	}
-	
+	public func handleLogoutComplete() {
+		appProvider.apiKey = nil
+		self.hahaProvider.apiKey = appProvider.apiKey
+		gotoFirstScreen();
+	}
+
 	func gotoFirstScreen() {
 		if( appProvider.isInUnitTestMode ) {
 			return
@@ -102,17 +107,23 @@ class AppRouter: NSObject {
 		splitViewController.provider = self.hahaProvider
 		return vc;
 	}
-
+	
+	func accountViewController() -> AccountViewController {
+		let vc = UIStoryboard(name: "Account", bundle: nil).instantiateInitialViewController() as! AccountViewController;
+		let interactor = AccountInteractor(provider: self.hahaProvider, router: self)
+		interactor.view = vc
+		vc.interactor = interactor
+		return vc;
+	}
 	
 	func loginViewController() -> LoginViewController {
 		let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController;
 		let interactor = LoginInteractor(provider: self.hahaProvider, router: self)
 		interactor.view = vc
 		vc.interactor = interactor
-//		vc.provider = hahaProvider;
 		return vc;
 	}
-	
+
 	func nowPlayingViewController() -> NowPlayingViewController {
 		let vc = UIStoryboard(name: "NowPlaying", bundle: nil).instantiateInitialViewController() as! NowPlayingViewController
 		let interactor = NowPlayingInteractor(provider: hahaProvider, router: self)
