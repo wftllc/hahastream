@@ -52,7 +52,7 @@
 		237C25D61F861E5000987DF2 /* Dictionary+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */; };
 		23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */; };
 		23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */; };
-		23C1DE421E372A3600E53954 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		23C1DE421E372A3600E53954 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		23C1DE441E372B1B00E53954 /* ViewController+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */; };
 		23C1DE461E372DDF00E53954 /* VCSChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE451E372DDF00E53954 /* VCSChannelListViewController.swift */; };
 		23C1DE481E372F6C00E53954 /* VCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE471E372F6C00E53954 /* VCSViewController.swift */; };
@@ -646,9 +646,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HahaStreamUnitTests/Pods-HahaStreamUnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -797,7 +804,7 @@
 				232FBF751E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
 				23DBFB0B1E30607000E276EB /* Stream.swift in Sources */,
 				230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */,
-				23C1DE421E372A3600E53954 /* (null) in Sources */,
+				23C1DE421E372A3600E53954 /* BuildFile in Sources */,
 				23DBFB091E30607000E276EB /* HahaError.swift in Sources */,
 				23D857601F8D797F00433790 /* InlineVideoPlayerView.swift in Sources */,
 				233F4C141E32B5E100786A5C /* Channel.swift in Sources */,
@@ -937,7 +944,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
 		};
@@ -984,7 +991,7 @@
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 11.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

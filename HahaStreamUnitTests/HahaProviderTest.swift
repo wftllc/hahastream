@@ -1,6 +1,7 @@
 import XCTest
 import Foundation
 import UIKit
+import Moya
 
 @testable import Haha_Stream
 

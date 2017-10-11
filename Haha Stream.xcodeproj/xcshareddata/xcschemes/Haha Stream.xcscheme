@@ -46,7 +46,7 @@
                   Identifier = "HahaProviderTest/testNowPlaying()">
                </Test>
                <Test
-                  Identifier = "HahaProviderTest/testSportsGamesStreamFetchingFlow()">
+                  Identifier = "HahaProviderTest/testVCSScraping()">
                </Test>
             </SkippedTests>
          </TestableReference>
