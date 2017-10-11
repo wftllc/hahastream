@@ -47,7 +47,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 
 		interactor?.viewDidLoad();
 	}
-	
+	/*
 	override func showLoading(animated: Bool) {
 		self.activityIndicator.startAnimating();
 	}
@@ -55,6 +55,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	func hideLoading(animated: Bool) {
 		self.activityIndicator.stopAnimating();
 	}
+*/
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -68,6 +69,10 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
+	}
+	
+	override func playStream(stream: Stream, game: Game) {
+		interactor?.viewDidSelect(stream: stream, game: game)
 	}
 	
 	func updateView(sections: [[NowPlayingItem]]) {

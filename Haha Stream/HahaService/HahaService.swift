@@ -13,9 +13,9 @@ enum HahaService {
 	//	case getGamesByDate(sport: String, year: Int, month: Int, day: Int);
 	case getSports;
 	case getChannels(sport: String);
-	case getChannelStreamMetas(channelUUID: String);
-	case getStreamMetas(sport: String, gameUUID: String);
-	case getURLForStream(streamId: String, sport: String, gameUUID: String);
+	case getChannelStreams(channelId: String);
+	case getStreams(sport: String, gameId: String);
+	case getStreamURLForItem(itemId: String, streamId: String, sport: String?);
 //	case getStreamForChannel(channelId: String);
 	case scrapeVCSChannels;
 }
@@ -56,12 +56,17 @@ extension HahaService: TargetType {
 			return "/\(sport.urlEscaped)/games";
 		case .getGamesNoDate(let sport):
 			return "/\(sport.urlEscaped)/games";
-		case .getChannelStreamMetas(let uuid):
+		case .getChannelStreams(let uuid):
 			return "/channels/\(uuid.urlEscaped)/streams";
-		case .getStreamMetas(let sport, let uuid):
+		case .getStreams(let sport, let uuid):
 			return "/\(sport.urlEscaped)/games/\(uuid.urlEscaped)/streams";
-		case .getURLForStream(let streamId, let sport, let gameUuid):
-			return "/\(sport.urlEscaped)/games/\(gameUuid.urlEscaped)/streams/\(streamId.urlEscaped)";
+		case .getStreamURLForItem(let itemId, let streamId, let sport):
+			if let sport = sport {
+				return "/\(sport.urlEscaped)/games/\(itemId.urlEscaped)/streams/\(streamId.urlEscaped)";
+			}
+			else { //channel
+				return "/channels/\(itemId.urlEscaped)/streams/\(streamId.urlEscaped)";
+			}
 		case .getChannels(let sport):
 			return "/\(sport.urlEscaped)/channels";
 		case .scrapeVCSChannels:

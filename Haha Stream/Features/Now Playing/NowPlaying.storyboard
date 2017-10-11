@@ -229,7 +229,7 @@
                                     <constraint firstItem="glo-om-2zi" firstAttribute="leading" secondItem="TtK-vF-xAj" secondAttribute="leading" id="tUE-47-x8n"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V4s-GP-enG">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V4s-GP-enG">
                                 <rect key="frame" x="928" y="508" width="64" height="64"/>
                             </activityIndicatorView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGA-0x-zwp" userLabel="Player Container">

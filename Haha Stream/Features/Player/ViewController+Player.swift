@@ -2,7 +2,8 @@ import Foundation
 import UIKit
 import AVKit
 
-extension HahaViewController {	
+extension HahaViewController {
+	
 	func selectGame(_ gameUUID: String, sport: String) {
 		showLoading(animated: true)
 		provider.getGame(sportName: sport, gameUUID: gameUUID, success: { (game) in
@@ -60,9 +61,9 @@ extension HahaViewController {
 		)
 	}
 
-	func playStream(stream: Stream, game: Game) {
+	@objc func playStream(stream: Stream, game: Game) {
 		showLoading(animated: true)
-		provider.getURLForStream(stream, game: game, success: { (streamURL) in
+		provider.getStreamURL(forStream: stream, inGame: game, success: { (streamURL) in
 			self.hideLoading(animated: true, completion: {
 				self.playURL(streamURL.url);
 			});
@@ -75,7 +76,6 @@ extension HahaViewController {
 	@objc func onStreamChoiceCanceled() {
 		
 	}
-	/// Shows an alert with "OK" and "Cancel" buttons.
 	func showStreamChoiceAlert(game: Game, streams: [Stream]) {
 		let title = "Choose Stream"
 		let message: String;
@@ -86,19 +86,9 @@ extension HahaViewController {
 		
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		for stream in streams {
-			// Create the actions.
-			//			print("available stream \(stream)")
 			let title = "\(stream.title) stream";
 			let acceptAction = UIAlertAction(title: title, style: .default) { _ in
-				//if stream expires in less than one second, refresh and play it
-				//				print("play stream \(stream)")
-//				if( stream.expiresAt.timeIntervalSinceNow <= 1 ) {
-//					self.playStream(source: stream.source, game: game);
-//				}
-//				else {
-				//TODO: fetch stream url!
 				self.playStream(stream: stream, game: game)
-//				}
 			}
 			alertController.addAction(acceptAction)
 		}

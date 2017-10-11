@@ -13,7 +13,7 @@ extension UIViewController {
 		present(loadingController, animated: animated, completion: nil);
 	}
 	
-	@objc func hideLoading(animated: Bool, completion: (()->Void)?) {
+	@objc func hideLoading(animated: Bool, completion: (()->Void)? = nil) {
 		guard let _ = self.presentedViewController as? UIAlertController else {
 			if let c = completion {
 				c()
