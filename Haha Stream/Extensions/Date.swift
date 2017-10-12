@@ -10,8 +10,8 @@ extension Date {
 		let hoursElapsed = (timeSeconds % (60*60*60))/(60*60);
 
 		var elapsed: String;
-		if hoursElapsed > 0 {
-			elapsed = String(format: "%dh%02dm%02ds", hoursElapsed, minutesElapsed, secondsElapsed);
+		if abs(hoursElapsed) >= 1 {
+			elapsed = String(format: "%dh%02dm", hoursElapsed, minutesElapsed);
 		}
 		else {
 			elapsed = String(format: "%dm%02ds", minutesElapsed, secondsElapsed);

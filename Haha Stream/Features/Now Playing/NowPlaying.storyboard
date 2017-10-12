@@ -43,17 +43,17 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="glo-om-2zi">
                                         <rect key="frame" x="0.0" y="0.0" width="1920" height="868"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="50" minimumInteritemSpacing="0.0" id="9o5-Q7-2rL">
-                                            <size key="itemSize" width="308" height="750"/>
+                                            <size key="itemSize" width="308" height="795"/>
                                             <size key="headerReferenceSize" width="90" height="750"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="45" maxX="0.0" maxY="45"/>
+                                            <inset key="sectionInset" minX="0.0" minY="45" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NowPlayingViewCell" id="E6Y-nl-jKm" customClass="NowPlayingViewCell" customModule="Haha_Stream" customModuleProvider="target">
-                                                <rect key="frame" x="90" y="59" width="308" height="750"/>
+                                                <rect key="frame" x="90" y="59" width="308" height="795"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="308" height="750"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="308" height="795"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7D1-wp-ldk" userLabel="Images View">
@@ -122,17 +122,17 @@
                                                             <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="il8-dC-qsQ" userLabel="Bottom View">
-                                                            <rect key="frame" x="0.0" y="650" width="308" height="100"/>
+                                                            <rect key="frame" x="0.0" y="650" width="308" height="145"/>
                                                             <subviews>
                                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xP4-i3-xyi">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="308" height="100"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="308" height="145"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" id="Upn-UI-pav">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="308" height="100"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="308" height="145"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CLE @ BOS" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3m-r7-K4w">
-                                                                                <rect key="frame" x="0.0" y="6" width="308" height="46"/>
+                                                                                <rect key="frame" x="0.0" y="10" width="308" height="46"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                                 <nil key="textColor"/>
@@ -141,6 +141,22 @@
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:00 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zb-ph-CnB">
                                                                                 <rect key="frame" x="49" y="55" width="211" height="46"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:00 AM" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tnR-vO-Ryg">
+                                                                                <rect key="frame" x="0.0" y="55" width="308" height="46"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <color key="tintColor" red="0.59607843140000005" green="0.7725490196" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:00 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOf-4c-3Kv">
+                                                                                <rect key="frame" x="49" y="101" width="211" height="46"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <color key="tintColor" red="0.59607843140000005" green="0.7725490196" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -171,8 +187,10 @@
                                                     <outlet property="awayImageView" destination="HOs-gJ-t8e" id="h5d-cD-2io"/>
                                                     <outlet property="bottomView" destination="il8-dC-qsQ" id="kXu-6Q-tXA"/>
                                                     <outlet property="bottomVisualEffectView" destination="xP4-i3-xyi" id="xH1-K4-7rz"/>
+                                                    <outlet property="focusedDateLabel" destination="tnR-vO-Ryg" id="uey-HD-qgK"/>
                                                     <outlet property="homeImageView" destination="H6V-NH-qGN" id="T0T-W4-Nby"/>
                                                     <outlet property="innerVisualEffectView" destination="uhb-Cf-snl" id="iWo-cH-rju"/>
+                                                    <outlet property="readyLabel" destination="GOf-4c-3Kv" id="pvc-Eb-9iK"/>
                                                     <outlet property="sportLabel" destination="UCo-iq-Z0g" id="vgn-yR-V2B"/>
                                                     <outlet property="timeLabel" destination="1Zb-ph-CnB" id="WRj-xB-Cn3"/>
                                                     <outlet property="titleLabel" destination="J3m-r7-K4w" id="TQY-Y2-Ylt"/>

@@ -18,9 +18,11 @@ class NowPlayingViewCell: UICollectionViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var sportLabel: UILabel!	
 	@IBOutlet weak var atLabel: UILabel!
-
-	var timer: Timer?;
+	@IBOutlet weak var readyLabel: UILabel!
+	@IBOutlet weak var focusedDateLabel: UILabel!
 	
+	var timer: Timer?;
+	var shouldCancelAnimateLabels: Bool = false
 	var horizontalMotionEffect: UIInterpolatingMotionEffect!
 	
 	override func awakeFromNib() {
@@ -90,6 +92,13 @@ class NowPlayingViewCell: UICollectionViewCell {
 		self.innerVisualEffectView.effect = UIBlurEffect(style: UIBlurEffectStyle.light);
 		self.bottomVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.dark));
 		self.contentView.addMotionEffect(horizontalMotionEffect!)
+		
+		if !self.focusedDateLabel.isHidden {
+			self.focusedDateLabel.alpha = 1.0
+			self.timeLabel.alpha = 0.0
+			self.readyLabel.alpha = 0.0
+		}
+		
 	}
 	
 	func clearFocused() {
@@ -97,6 +106,31 @@ class NowPlayingViewCell: UICollectionViewCell {
 		self.innerVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.light));
 		self.bottomVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.regular));
 		self.contentView.removeMotionEffect(horizontalMotionEffect)
+		self.focusedDateLabel.alpha = 0.0
+		self.timeLabel.alpha = 1.0
+		self.readyLabel.alpha = 1.0
+	}
+	
+	func animateLabels(toggle: Bool) {
+		if self.shouldCancelAnimateLabels {
+			self.shouldCancelAnimateLabels = false
+			return
+		}
+		UIView.animate(withDuration: 0.6, delay: 3.0, options: [.beginFromCurrentState], animations: {
+			self.focusedDateLabel.alpha = toggle ? 0.0 : 1.0
+			self.timeLabel.alpha = toggle ? 1.0 : 0.0
+		}) { (complete) in
+//			print("\(#function) complete \(complete)")
+			if complete && !self.shouldCancelAnimateLabels {
+				self.animateLabels(toggle: !toggle)
+			}
+			self.shouldCancelAnimateLabels = false
+		}
+	}
+	
+	func cancelAnimateLabels() {
+		self.shouldCancelAnimateLabels = true
+		self.layer.removeAllAnimations()
 	}
 	
 	
@@ -105,11 +139,15 @@ class NowPlayingViewCell: UICollectionViewCell {
 		if let cell = context.nextFocusedView as? NowPlayingViewCell {
 			coordinator.addCoordinatedAnimations({
 				cell.showFocused()
+			}, completion: {
+				cell.animateLabels(toggle: true)
 			})
 		}
 		if let cell = context.previouslyFocusedView as? NowPlayingViewCell {
+			cell.cancelAnimateLabels()
 			coordinator.addCoordinatedAnimations({
 				cell.clearFocused();
+			}, completion: {
 			})
 		}
 		

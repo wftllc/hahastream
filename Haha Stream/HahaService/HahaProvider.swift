@@ -234,7 +234,7 @@ class HahaProvider:NSObject {
 		
 		items.filter{ !($0.game?.ended == .some(true)) } .forEach { (item) in
 			if let game = item.game {
-				if game.ready {
+				if game.isReady {
 					ready.append(item)
 				}
 				else {

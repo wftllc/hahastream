@@ -145,13 +145,23 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 			let home = game.homeTeam.abbreviation ?? String(game.homeTeam.name.prefix(3))
 			cell.titleLabel.text = "\(away) @ \(home)"
 			cell.sportLabel.text = game.sport.name
+			cell.focusedDateLabel.alpha = 0.0
 			cell.atLabel.isHidden = false
-			if(game.ready) {
+			if game.isReady {
 				cell.updateTimeLabel(withDate: game.startDate);
 				cell.startAnimating(date: game.startDate)
+				cell.readyLabel.isHidden = true
+				cell.focusedDateLabel.isHidden = false
+				cell.focusedDateLabel.text = "Now Playing"
+				cell.timeLabel.tintColor = cell.readyLabel.tintColor
 			}
 			else {
 				cell.timeLabel.text = timeFormatter.string(from: game.startDate);
+				cell.readyLabel.isHidden = false
+				cell.focusedDateLabel.isHidden = false
+				cell.readyLabel.text = timeFormatter.string(from: game.readyDate);
+				cell.focusedDateLabel.text = "Ready at \(timeFormatter.string(from: game.readyDate))"
+				cell.timeLabel.tintColor = nil
 			}
 		}
 		else {
@@ -162,6 +172,8 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 			cell.awayImageView.image = nil
 			cell.sportLabel.text = channel.sport?.name ?? ""
 			cell.atLabel.isHidden = true
+			cell.readyLabel.isHidden = true
+			cell.focusedDateLabel.isHidden = true
 
 //			cell.singleImageView.image = Image(named: "hehelogo-transparent-750.png")
 		}

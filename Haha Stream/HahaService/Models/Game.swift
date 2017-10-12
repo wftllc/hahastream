@@ -6,7 +6,10 @@ class Game: NSObject, FromDictable {
 	
 	public var uuid: String;
 	public var title: String;
-	public var ready: Bool;
+	private var ready: Bool;
+	public var isReady: Bool { get {
+		return ready || readyDate <= Date()
+		}}
 	public var ended: Bool
 	public var startDate: Date;
 	public var readyDate: Date;
