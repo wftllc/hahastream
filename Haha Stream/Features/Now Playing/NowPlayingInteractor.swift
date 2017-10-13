@@ -10,13 +10,11 @@ import UIKit
 
 protocol NowPlayingInteractor {
 	weak var view: NowPlayingView? { get set }
+	
 	func viewDidLoad()
-	
 	func viewWillAppear(_ animated: Bool)
-	
 	func viewWillDisappear(_ animated: Bool)
 	func viewDidSelect(item: NowPlayingItem)
-	
 	func viewDidSelect(stream: Stream, game: Game)
 }
 

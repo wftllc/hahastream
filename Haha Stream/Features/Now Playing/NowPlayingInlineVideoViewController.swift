@@ -9,32 +9,41 @@
 import UIKit
 import AVKit
 import Foundation
-/*
-class NowPlayingInlineVideoViewController<I: NowPlayingInlineVideoInteractor>: NowPlayingViewController<I> {
+
+
+protocol NowPlayingInlineVideoView: AnyObject {
+	var inlineInteractor: NowPlayingInlineVideoInteractor? { get set }
+	func showVideo(player: AVPlayer)
+	func hideVideo()
+}
+
+class NowPlayingInlineVideoViewController: NowPlayingViewController, NowPlayingInlineVideoView {
+	var inlineInteractor: NowPlayingInlineVideoInteractor?
+	
 	//MARK: - UICollectionViewDelegate
 	
 	func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
 		if let cell = context.previouslyFocusedView as? NowPlayingViewCell,
 			let indexPath = collectionView.indexPath(for: cell) {
 			let items = self.sections[indexPath.section]
-			interactor?.viewDidUnhighlight(item: items[indexPath.item])
+			inlineInteractor?.viewDidUnhighlight(item: items[indexPath.item])
 		}
 		if let cell = context.nextFocusedView as? NowPlayingViewCell,
 			let indexPath = collectionView.indexPath(for: cell) {
 			let items = self.sections[indexPath.section]
-			interactor?.viewDidHighlight(item: items[indexPath.item])
+			inlineInteractor?.viewDidHighlight(item: items[indexPath.item])
 		}
 	}
 	
 
 	func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
 		let items = self.sections[indexPath.section]
-		interactor?.viewDidHighlight(item: items[indexPath.item])
+		inlineInteractor?.viewDidHighlight(item: items[indexPath.item])
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
 		let items = self.sections[indexPath.section]
-		interactor?.viewDidUnhighlight(item: items[indexPath.item])
+		inlineInteractor?.viewDidUnhighlight(item: items[indexPath.item])
 	}
 
 	//MARK: - Video
@@ -81,6 +90,7 @@ class NowPlayingInlineVideoViewController<I: NowPlayingInlineVideoInteractor>: N
 		isObservingPlayerLayer = true
 		self.inlineVideoPlayerView.playerLayer.addObserver(self, forKeyPath: #keyPath(AVPlayerLayer.isReadyForDisplay), options: [.new, .initial], context: self.playerLayerObservationContext)
 	}
+
 	private func removePlayerLayerObserver() {
 		if !isObservingPlayerLayer {
 			return
@@ -90,4 +100,4 @@ class NowPlayingInlineVideoViewController<I: NowPlayingInlineVideoInteractor>: N
 	}
 
 }
-*/
+

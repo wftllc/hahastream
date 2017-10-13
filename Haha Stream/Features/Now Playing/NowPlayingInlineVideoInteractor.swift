@@ -7,13 +7,23 @@
 //
 
 import Foundation
-/*
-class NowPlayingInlineVideoInteractor: NowPlayingInteractor {
 
-	override func viewWillDisappear(_ animated: Bool) {
+protocol NowPlayingInlineVideoInteractor {
+	weak var view: NowPlayingInlineVideoView? { get set }
+	func viewDidHighlight(item: NowPlayingItem)
+	func viewDidUnhighlight(item: NowPlayingItem)
+}
+
+class NowPlayingInlineVideoInteractorImpl: NowPlayingInlineVideoInteractor {
+	var view: NowPlayingInlineVideoView?
+	var videoPlayer: InlineVideoPlayer?
+//	var view: NowPlayingInlineVideoView?
+	
+	
+	func viewWillDisappear(_ animated: Bool) {
 		self.stopVideo()
-			super.viewWillDisappear(animated)
 	}
+
 	func viewDidHighlight(item: NowPlayingItem) {
 		guard let game = item.game else {
 			return
@@ -41,6 +51,7 @@ class NowPlayingInlineVideoInteractor: NowPlayingInteractor {
 	func viewDidUnhighlight(item: NowPlayingItem) {
 		stopVideo()
 	}
+	
 	private func previewVideo(url: URL) {
 		print("\(#function) \(url.absoluteString))")
 		self.videoPlayer = InlineVideoPlayer(url: url)
@@ -63,4 +74,4 @@ class NowPlayingInlineVideoInteractor: NowPlayingInteractor {
 		self.view?.hideVideo()
 	}
 }
-*/
+
