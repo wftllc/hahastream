@@ -126,7 +126,7 @@ class AppRouter: NSObject {
 
 	func nowPlayingViewController() -> NowPlayingViewController {
 		let vc = UIStoryboard(name: "NowPlaying", bundle: nil).instantiateInitialViewController() as! NowPlayingViewController
-		let interactor = NowPlayingInteractor(provider: hahaProvider, router: self)
+		let interactor = NowPlayingInteractorImpl(provider: hahaProvider, router: self)
 		vc.interactor = interactor
 		interactor.view = vc
 		return vc;
@@ -145,12 +145,18 @@ class AppRouter: NSObject {
 
 		let splitViewController = vc;
 		let leftNavController = splitViewController.viewControllers.first as! UINavigationController
-		let masterViewController = leftNavController.topViewController as! DateListViewController
-		let detailViewController = splitViewController.viewControllers.last as! GamesViewController
-		masterViewController.delegate = detailViewController;
-//		masterViewController.sport = sport;
-		detailViewController.sport = sport;
-		detailViewController.provider = self.hahaProvider;
+
+		let nowPlayingViewController = splitViewController.viewControllers.last as! NowPlayingViewController
+
+//		let interactor = NowPlayingInteractorImpl(provider: hahaProvider, router: self, sport: sport)
+//		nowPlayingViewController.interactor = interactor
+//		interactor.view = nowPlayingViewController
+//		nowPlayingViewController.provider = self.hahaProvider;
+
+		let dateListViewController = leftNavController.topViewController as! DateListViewController
+		dateListViewController.delegate = nowPlayingViewController;
+		dateListViewController.sport = sport;
+
 		return vc;
 	}
 

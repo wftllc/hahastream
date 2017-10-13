@@ -1,11 +1,24 @@
 import UIKit
 import Kingfisher
-import AVKit
+import Moya
 
 private let reuseIdentifier = "NowPlayingViewCell"
 
+protocol NowPlayingView: AnyObject {
+	var interactor: NowPlayingInteractor? { get set }
+	func updateView(sections: [[NowPlayingItem]])
+	func showLoading(animated: Bool)
+	func hideLoading(animated: Bool, completion: (()->Void)?)
 
-class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+	func playURL(_ url: URL)
+	func showStreamChoiceAlert(game: Game, streams: [Stream])
+
+	var apiErrorClosure: (Any) -> Void { get }
+	var networkFailureClosure: (MoyaError) -> Void { get }
+}
+
+class NowPlayingViewController: HahaViewController, NowPlayingView, DateListDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+	
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var dateLabel: UILabel!
@@ -13,6 +26,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	@IBOutlet weak var inlineVideoPlayerView: InlineVideoPlayerView!
 	
 	var interactor: NowPlayingInteractor?
+
 	var sections: [[NowPlayingItem]] = [[]];
 	
 	var timeFormatter: DateFormatter = {
@@ -47,16 +61,7 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 
 		interactor?.viewDidLoad();
 	}
-	/*
-	override func showLoading(animated: Bool) {
-		self.activityIndicator.startAnimating();
-	}
-	
-	func hideLoading(animated: Bool) {
-		self.activityIndicator.stopAnimating();
-	}
-*/
-	
+
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		interactor?.viewWillAppear(animated)
@@ -75,10 +80,18 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 		interactor?.viewDidSelect(stream: stream, game: game)
 	}
 	
+	//MARK: interactor callbacks
 	func updateView(sections: [[NowPlayingItem]]) {
 		self.sections = sections
 		self.collectionView.reloadData()
 	}
+	
+	//Mark: DateListDelegate
+	
+	func dateListDidSelect(date: Date) {
+		
+	}
+
 	// MARK: UICollectionViewDataSource
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -92,25 +105,9 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 	
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 		let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NowPlayingHeader.ReuseIdentifier, for: indexPath) as! NowPlayingHeader
-//		var text = ""
-//		switch(indexPath.section) {
-//		case 0:
-//			text = "Now Playing"
-//		case 1:
-//			text = "Channels"
-//		case 2:
-//			text = "Upcoming"
-//		default:
-//			text = ""
-//		}
-//
-//		text = text.flatMap { (char) -> String? in
-//			return "\(char)\n"
-//		}.joined()
-//		let attr = header.label.attributedText?.attributes(at: 0, effectiveRange: nil)
-//		let s = NSAttributedString(string: text, attributes: attr)
+
 		header.lineView.isHidden = indexPath.section == 0
-		header.label.text = nil
+
 		return header
 	}
 	
@@ -180,108 +177,19 @@ class NowPlayingViewController: HahaViewController, UICollectionViewDelegate, UI
 		return cell
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forNowPlayingItemAt indexPath: IndexPath) {
-		
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forNowPlayingItemAt indexPath: IndexPath) {
-		
-	}
 	// MARK: UICollectionViewDelegate
 	
-	func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-		return true
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
-		return true;
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-		if let cell = context.previouslyFocusedView as? NowPlayingViewCell,
-			let indexPath = collectionView.indexPath(for: cell) {
-			let items = self.sections[indexPath.section]
-			interactor?.viewDidUnhighlight(item: items[indexPath.item])
-		}
-		if let cell = context.nextFocusedView as? NowPlayingViewCell,
-			let indexPath = collectionView.indexPath(for: cell) {
-			let items = self.sections[indexPath.section]
-			interactor?.viewDidHighlight(item: items[indexPath.item])
-		}		
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-		let items = self.sections[indexPath.section]
-		interactor?.viewDidHighlight(item: items[indexPath.item])
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-		let items = self.sections[indexPath.section]
-		interactor?.viewDidUnhighlight(item: items[indexPath.item])
-	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let items = self.sections[indexPath.section]
 		let item = items[indexPath.item];
 		interactor?.viewDidSelect(item: item)
 	}
-	
-	//MARK: - Video
-	let VideoFadeAnimationDuration = 0.15
-	var playerLayerObservationContext: UnsafeMutableRawPointer?
-	var isObservingPlayerLayer = false
-	
-	func showVideo(player: AVPlayer) {
-		print("\(#function)")
-		inlineVideoPlayerView.player = player
-		addPlayerLayerObserver()
-	}
-	
-	func hideVideo() {
-		UIView.animate(withDuration: self.VideoFadeAnimationDuration, animations: {
-			self.inlinePlayerContainerView.alpha = 0.0
-		}, completion: { _ in
-			self.removePlayerLayerObserver()
-			self.inlineVideoPlayerView.player = nil
-		})
-	}
-	
-	//observe player readiness
-	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-		if context != self.playerLayerObservationContext {
-			super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-			return
-		}
-		let ready = self.inlineVideoPlayerView.playerLayer.isReadyForDisplay
-		print("\(#function), \(ready)")
-		if ready {
-			self.removePlayerLayerObserver()
-			UIView.animate(withDuration: self.VideoFadeAnimationDuration, animations: {
-				self.inlinePlayerContainerView.alpha = 0.8
-			}, completion: { _ in
-			})
-		}
-	}
-	
-	private func addPlayerLayerObserver() {
-		if isObservingPlayerLayer {
-			return
-		}
-		isObservingPlayerLayer = true
-		self.inlineVideoPlayerView.playerLayer.addObserver(self, forKeyPath: #keyPath(AVPlayerLayer.isReadyForDisplay), options: [.new, .initial], context: self.playerLayerObservationContext)
-	}
-	private func removePlayerLayerObserver() {
-		if !isObservingPlayerLayer {
-			return
-		}
-		isObservingPlayerLayer = false
-		self.inlineVideoPlayerView.playerLayer.removeObserver(self, forKeyPath: #keyPath(AVPlayerLayer.isReadyForDisplay), context: playerLayerObservationContext)
-	}
+
 }
 
 class NowPlayingHeader: UICollectionReusableView {
 	public static let ReuseIdentifier = "NowPlayingHeader"
-	@IBOutlet weak var label: UILabel!
 
 	@IBOutlet weak var lineView: UIView!
 	override func awakeFromNib() {

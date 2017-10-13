@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SgT-Hi-mNa">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SgT-Hi-mNa">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
-        <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,14 +19,14 @@
                         <viewControllerLayoutGuide type="bottom" id="Bdx-2M-ndH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cXU-hH-MQd">
-                        <rect key="frame" x="0.0" y="0.0" width="1285" height="1080"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H38-P0-X2G" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="1285" height="150"/>
+                                <rect key="frame" x="0.0" y="60" width="1920" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January 18, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv0-mh-6pg">
-                                        <rect key="frame" x="40" y="43" width="1237" height="91"/>
+                                        <rect key="frame" x="40" y="43" width="1782" height="91"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -42,10 +40,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtK-vF-xAj" userLabel="Middle View">
-                                <rect key="frame" x="0.0" y="150" width="1285" height="780"/>
+                                <rect key="frame" x="0.0" y="210" width="1920" height="660"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="glo-om-2zi">
-                                        <rect key="frame" x="0.0" y="0.0" width="1285" height="780"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="660"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="80" minimumInteritemSpacing="0.0" id="9o5-Q7-2rL">
                                             <size key="itemSize" width="600" height="410"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -54,7 +52,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GamesViewCell" id="E6Y-nl-jKm" customClass="GamesViewCell" customModule="Haha_Stream" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="225" width="600" height="410"/>
+                                                <rect key="frame" x="50" y="165" width="600" height="410"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="410"/>
@@ -195,13 +193,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wO1-2y-ELZ" userLabel="Bottom View">
-                                <rect key="frame" x="0.0" y="930" width="1285" height="150"/>
+                                <rect key="frame" x="0.0" y="870" width="1920" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="10j-AJ-lxx"/>
                                 </constraints>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XMA-Ct-29i">
-                                <rect key="frame" x="343" y="508" width="64" height="64"/>
+                                <rect key="frame" x="660" y="508" width="64" height="64"/>
                             </activityIndicatorView>
                         </subviews>
                         <constraints>
@@ -227,9 +225,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbM-zd-nkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2359" y="1027"/>
+            <point key="canvasLocation" x="-1074" y="388"/>
         </scene>
-        <!--Dates-->
+        <!--NowPlaying-->
+        <scene sceneID="oaL-Uw-t6b">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NowPlaying" id="o1s-w5-U70" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wiK-mB-T1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-808" y="-422"/>
+        </scene>
+        <!--Sport Date List-->
         <scene sceneID="dJS-6v-dMy">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="FUE-e0-4v5" customClass="DateListViewController" customModule="Haha_Stream" customModuleProvider="target" sceneMemberID="viewController">
@@ -238,14 +244,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateRightDetailCell" textLabel="pE8-y5-pPT" style="IBUITableViewCellStyleDefault" id="e8g-bj-b9W">
-                                <rect key="frame" x="0.0" y="66" width="634" height="66"/>
+                                <rect key="frame" x="0.0" y="66" width="499" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e8g-bj-b9W" id="8X0-is-n4m">
-                                    <rect key="frame" x="0.0" y="0.0" width="618" height="66"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="499" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Jan 1, 1900" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pE8-y5-pPT">
-                                            <rect key="frame" x="20" y="0.0" width="578" height="66"/>
+                                            <rect key="frame" x="20" y="0.0" width="459" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                             <nil key="textColor"/>
@@ -260,18 +266,18 @@
                             <outlet property="delegate" destination="FUE-e0-4v5" id="7eQ-8P-oCC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Dates" id="Yyg-V3-qlU"/>
+                    <navigationItem key="navigationItem" title="Sport Date List" id="Yyg-V3-qlU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOe-Q3-bST" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2489" y="-1094"/>
+            <point key="canvasLocation" x="-3335" y="388"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QmO-b1-FBL">
             <objects>
                 <navigationController id="b2P-SB-ij8" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gWv-QQ-dM3">
-                        <rect key="frame" x="0.0" y="0.0" width="1920" height="145"/>
+                        <rect key="frame" x="0.0" y="0.0" width="634" height="145"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -280,7 +286,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ObP-Tr-arc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="349" y="-1094"/>
+            <point key="canvasLocation" x="-1104" y="-1313"/>
         </scene>
         <!--Sport View Controller-->
         <scene sceneID="C4K-gM-cXn">
@@ -288,13 +294,13 @@
                 <splitViewController id="SgT-Hi-mNa" customClass="SportViewController" customModule="Haha_Stream" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="b2P-SB-ij8" kind="relationship" relationship="masterViewController" id="zNq-I3-UKJ"/>
-                        <segue destination="THr-Ke-iTB" kind="relationship" relationship="detailViewController" id="WCL-NC-PzW"/>
+                        <segue destination="o1s-w5-U70" kind="relationship" relationship="detailViewController" id="Gdd-Zo-dBM"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgC-G4-NL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarItem title="Sport" id="1Qd-yi-fi3"/>
             </objects>
-            <point key="canvasLocation" x="-1791" y="-524"/>
+            <point key="canvasLocation" x="-3255" y="-1313"/>
         </scene>
     </scenes>
 </document>

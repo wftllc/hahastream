@@ -203,19 +203,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="868"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="characterWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hp3-cu-HOA">
-                                                    <rect key="frame" x="62" y="85" width="57" height="699"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="NOW PLAYING">
-                                                            <attributes>
-                                                                <font key="NSFont" size="65" name="SFUIDisplay-Semibold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" lineHeightMultiple="0.80000000000000004" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5az-j7-JYs">
                                                     <rect key="frame" x="45" y="63" width="1" height="646"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -230,7 +217,6 @@
                                                 <constraint firstItem="5az-j7-JYs" firstAttribute="top" secondItem="poz-Ub-YEo" secondAttribute="top" constant="63" id="I6U-yh-Ycz"/>
                                             </constraints>
                                             <connections>
-                                                <outlet property="label" destination="hp3-cu-HOA" id="NQW-J1-Sto"/>
                                                 <outlet property="lineView" destination="5az-j7-JYs" id="az9-bi-zjF"/>
                                             </connections>
                                         </collectionReusableView>
@@ -291,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbM-zd-nkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2359" y="1027"/>
+            <point key="canvasLocation" x="-2701" y="1026"/>
         </scene>
     </scenes>
     <resources>

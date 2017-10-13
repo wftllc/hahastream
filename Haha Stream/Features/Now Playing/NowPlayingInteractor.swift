@@ -8,19 +8,33 @@
 
 import UIKit
 
-class NowPlayingInteractor: NSObject {
+protocol NowPlayingInteractor {
+	weak var view: NowPlayingView? { get set }
+	func viewDidLoad()
+	
+	func viewWillAppear(_ animated: Bool)
+	
+	func viewWillDisappear(_ animated: Bool)
+	func viewDidSelect(item: NowPlayingItem)
+	
+	func viewDidSelect(stream: Stream, game: Game)
+}
+
+class NowPlayingInteractorImpl: NSObject, NowPlayingInteractor {
 	let RefreshTimeInterval: TimeInterval = 300;
+
+	weak var view: NowPlayingView?
+
 	var timer: Timer?;
-	weak var view: NowPlayingViewController?
 	let provider: HahaProvider
 	let router: AppRouter?
 	var videoPlayer: InlineVideoPlayer?
+	var sport: Sport?
 	
-	init(provider: HahaProvider, router: AppRouter) {
+	init(provider: HahaProvider, router: AppRouter, sport: Sport? = nil) {
 		self.provider = provider
 		self.router = router
 	}
-	
 	
 	func viewDidLoad() {
 		refreshData();
@@ -33,7 +47,6 @@ class NowPlayingInteractor: NSObject {
 	
 	func viewWillDisappear(_ animated: Bool) {
 		self.timer?.invalidate();
-		self.stopVideo()
 	}
 	
 	func startTimer() {
@@ -58,35 +71,6 @@ class NowPlayingInteractor: NSObject {
 	}
 	
 	
-	func viewDidHighlight(item: NowPlayingItem) {
-		return;
-		guard let game = item.game else {
-			return
-		}
-//		provider.getStreams(game: game, success: { (streams) in
-//			guard let stream = streams.first else { return }
-//			self.provider.getURLForStream(stream, game: game, success: { (url) in
-//				self.previewVideo(url: url.url)
-//			}, apiError: { (_) in
-//
-//			}, networkFailure: { (_) in
-//
-//			})
-//		}, apiError: { _ in }, networkFailure: { _ in })
-		
-		//		provider.getStreams(sport: game.sport, game: game, success: { (streams) in
-		//			if let stream = streams {
-		//
-		//			}
-		//			previewVideo(url: URL(string: "http://lavenberg.com/test/demo.mp4")!)
-		//		});
-		//
-	}
-	
-	func viewDidUnhighlight(item: NowPlayingItem) {
-		return;
-		stopVideo()
-	}
 	
 	func viewDidSelect(item: NowPlayingItem) {
 		if let game = item.game {
@@ -147,28 +131,5 @@ class NowPlayingInteractor: NSObject {
 		)
 	}
 	
-	private func previewVideo(url: URL) {
-		return;
-		print("\(#function) \(url.absoluteString))")
-		self.videoPlayer = InlineVideoPlayer(url: url)
-		videoPlayer?.load( ready: { [unowned self] in
-			self.videoPlayer?.play()
-			self.view?.showVideo(player: self.videoPlayer!.player!)
-			}, failure: { [unowned self] error in
-				print("video load failure: \(error)")
-				self.stopVideo()
-			}, progress: nil,
-			   completion: { [unowned self] in
-					self.stopVideo()
-		})
-	}
-	
-	private func stopVideo() {
-		return;
-		print("\(#function)")
-		self.videoPlayer?.stop()
-		self.videoPlayer = nil
-		self.view?.hideVideo()
-	}
 	
 }

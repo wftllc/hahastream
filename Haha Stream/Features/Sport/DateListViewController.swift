@@ -5,6 +5,7 @@ protocol DateListDelegate: class {
 }
 
 class DateListViewController: UITableViewController {
+	var sport: Sport!
 	weak var delegate: DateListDelegate?;
 	var dates:[Date]!;
 	let daysToShow = 1000;
@@ -25,7 +26,7 @@ class DateListViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		self.title = sport.name
 		setupDates();
 		tableView.reloadData();
 		tableView.remembersLastFocusedIndexPath = true;

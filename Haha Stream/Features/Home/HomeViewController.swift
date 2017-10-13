@@ -6,7 +6,7 @@ class HomeViewController: HahaTabBarController {
 		super.viewDidLoad()
 		
 		var viewControllers:[UIViewController] = []
-
+		
 		viewControllers.append(self.appRouter.nowPlayingViewController());
 
 		self.provider.getSports(success: { (theSports) in
@@ -27,10 +27,11 @@ class HomeViewController: HahaTabBarController {
 					viewControllers.append(vc)
 				}
 			}
+
 			if haveVCS {
 				viewControllers.append(self.appRouter.vcsViewController())
 			}
-			
+
 			viewControllers.append(self.appRouter.accountViewController())
 			
 			self.setViewControllers(viewControllers, animated: false)
