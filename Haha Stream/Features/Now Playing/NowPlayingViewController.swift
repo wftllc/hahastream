@@ -6,7 +6,7 @@ private let reuseIdentifier = "NowPlayingViewCell"
 
 protocol NowPlayingView: AnyObject {
 	var interactor: NowPlayingInteractor? { get set }
-	func updateView(sections: [[NowPlayingItem]])
+	func updateView(content: Content)
 	func showLoading(animated: Bool)
 	func hideLoading(animated: Bool, completion: (()->Void)?)
 
@@ -18,7 +18,6 @@ protocol NowPlayingView: AnyObject {
 }
 
 class NowPlayingViewController: HahaViewController, NowPlayingView, DateListDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
-	
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var dateLabel: UILabel!
@@ -27,7 +26,7 @@ class NowPlayingViewController: HahaViewController, NowPlayingView, DateListDele
 	
 	var interactor: NowPlayingInteractor?
 
-	var sections: [[NowPlayingItem]] = [[]];
+	var content: Content?
 	
 	var timeFormatter: DateFormatter = {
 		let df = DateFormatter();
@@ -81,26 +80,25 @@ class NowPlayingViewController: HahaViewController, NowPlayingView, DateListDele
 	}
 	
 	//MARK: interactor callbacks
-	func updateView(sections: [[NowPlayingItem]]) {
-		self.sections = sections
+	func updateView(content: Content) {
+		self.content = content
 		self.collectionView.reloadData()
 	}
 	
 	//Mark: DateListDelegate
 	
 	func dateListDidSelect(date: Date) {
-		
+		interactor?.viewDidSelect(date: date)
 	}
 
 	// MARK: UICollectionViewDataSource
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return self.sections.count
+		return self.content?.sections.count ?? 0
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		let items = self.sections[section]
-		return items.count;
+		return self.content?.items(inSection: section).count ?? 0
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -117,8 +115,10 @@ class NowPlayingViewController: HahaViewController, NowPlayingView, DateListDele
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NowPlayingViewCell;
-		let items = self.sections[indexPath.section]
-		let item = items[indexPath.item];
+
+		guard let item = self.content?.item(atIndexPath: indexPath) else {
+			return cell
+		}
 		
 		if let game = item.game {
 			//			if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {
@@ -144,7 +144,7 @@ class NowPlayingViewController: HahaViewController, NowPlayingView, DateListDele
 			cell.sportLabel.text = game.sport.name
 			cell.focusedDateLabel.alpha = 0.0
 			cell.atLabel.isHidden = false
-			if game.isReady {
+			if game.isActive {
 				cell.updateTimeLabel(withDate: game.startDate);
 				cell.startAnimating(date: game.startDate)
 				cell.readyLabel.isHidden = true
@@ -181,8 +181,9 @@ class NowPlayingViewController: HahaViewController, NowPlayingView, DateListDele
 	
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let items = self.sections[indexPath.section]
-		let item = items[indexPath.item];
+		guard let item = self.content?.item(atIndexPath: indexPath) else {
+			return
+		}
 		interactor?.viewDidSelect(item: item)
 	}
 

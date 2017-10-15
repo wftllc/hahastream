@@ -113,7 +113,7 @@ class HahaProviderTest: XCTestCase {
 	
 	func testNowPlaying() {
 		let exp = expectation(description: "wait")
-		var items:[NowPlayingItem] = []
+		var items:[ContentItem] = []
 		provider.getNowPlaying(success: { (results) in
 			items = results;
 			exp.fulfill()

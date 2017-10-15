@@ -31,9 +31,9 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 			self.refresh(after: self.RefreshTimeInterval);
 			return
 		}
-		provider.getNowPlaying(success: { [weak self] (sections) in
+		provider.getContent(success: { [weak self] (content) in
 			DispatchQueue.global(qos: .background).sync {
-				self?.process(items: sections[0]);
+				self?.process(items: content.nowPlaying);
 			}
 			self?.refresh(after: self?.RefreshTimeInterval);
 		}, apiError: { [weak self] (error) in
@@ -45,13 +45,13 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 		})
 	}
 	
-	func process(items: [NowPlayingItem]) {
+	func process(items: [ContentItem]) {
 		//sort back into ready, channels, and upcoming
 		let games = items.filter{ $0.game != nil }.map{ $0.game! }.filter{  $0.sport.name.lowercased() != "vcs" }
 		let channels = items.filter{ $0.channel != nil }.map{ $0.channel! }
 		
-		let readyGames = games.filter{ $0.active }
-		let upcomingGames:[Game] = games.filter{ $0.upcoming }
+		let readyGames = games.filter{ $0.isActive }
+		let upcomingGames:[Game] = games.filter{ $0.isUpcoming }
 		let finalItems:[LocalImage] = readyGames as [LocalImage] + upcomingGames as [LocalImage] + channels as [LocalImage]
 		
 		//apple tv seems to freak out (memory errors?) if we try to do too many of these at once, so we serialize it

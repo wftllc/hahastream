@@ -57,6 +57,9 @@
 		237C25D61F861E5000987DF2 /* Dictionary+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */; };
 		2390082E1F91198800C8042B /* NowPlayingInlineVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2390082D1F91198800C8042B /* NowPlayingInlineVideoViewController.swift */; };
 		239008301F911D8500C8042B /* NowPlayingInlineVideoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2390082F1F911D8500C8042B /* NowPlayingInlineVideoInteractor.swift */; };
+		2392BEFC1F9153970012446C /* NowPlayingSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392BEFB1F9153970012446C /* NowPlayingSections.swift */; };
+		2392BEFD1F9153970012446C /* NowPlayingSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392BEFB1F9153970012446C /* NowPlayingSections.swift */; };
+		2399394B1F941CDB00523509 /* Content+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399394A1F941CDB00523509 /* Content+ViewModel.swift */; };
 		23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */; };
 		23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */; };
 		23C1DE421E372A3600E53954 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -168,6 +171,8 @@
 		237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+KeyPath.swift"; path = "HahaService/Dictionary+KeyPath.swift"; sourceTree = "<group>"; };
 		2390082D1F91198800C8042B /* NowPlayingInlineVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingInlineVideoViewController.swift; sourceTree = "<group>"; };
 		2390082F1F911D8500C8042B /* NowPlayingInlineVideoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingInlineVideoInteractor.swift; sourceTree = "<group>"; };
+		2392BEFB1F9153970012446C /* NowPlayingSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NowPlayingSections.swift; path = HahaService/Models/NowPlayingSections.swift; sourceTree = "<group>"; };
+		2399394A1F941CDB00523509 /* Content+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content+ViewModel.swift"; sourceTree = "<group>"; };
 		23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlayerOverlayView.xib; path = Features/Player/PlayerOverlayView.xib; sourceTree = "<group>"; };
 		23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerOverlayView.swift; path = Features/Player/PlayerOverlayView.swift; sourceTree = "<group>"; };
 		23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Errors.swift"; sourceTree = "<group>"; };
@@ -337,6 +342,7 @@
 		2355AD501E32926800EAEF02 /* Now Playing */ = {
 			isa = PBXGroup;
 			children = (
+				2399394A1F941CDB00523509 /* Content+ViewModel.swift */,
 				2355AD511E32926800EAEF02 /* NowPlaying.storyboard */,
 				2355AD521E32926800EAEF02 /* NowPlayingViewCell.swift */,
 				2355AD531E32926800EAEF02 /* NowPlayingViewController.swift */,
@@ -354,6 +360,7 @@
 				23DBFB021E30607000E276EB /* FromDictable.swift */,
 				23DBFB031E30607000E276EB /* Game.swift */,
 				2307A8BF1E3442B3002F0061 /* NowPlayingItem.swift */,
+				2392BEFB1F9153970012446C /* NowPlayingSections.swift */,
 				23DBFB041E30607000E276EB /* HahaError.swift */,
 				23DBFB051E30607000E276EB /* Sport.swift */,
 				2349258F1F841ED20071185A /* StreamMeta.swift */,
@@ -840,6 +847,7 @@
 				23DBFB091E30607000E276EB /* HahaError.swift in Sources */,
 				23D857601F8D797F00433790 /* InlineVideoPlayerView.swift in Sources */,
 				233F4C141E32B5E100786A5C /* Channel.swift in Sources */,
+				2392BEFC1F9153970012446C /* NowPlayingSections.swift in Sources */,
 				23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */,
 				23D8575E1F8D77F300433790 /* InlineVideoPlayer.swift in Sources */,
 				2307A8C01E3442B3002F0061 /* NowPlayingItem.swift in Sources */,
@@ -868,6 +876,7 @@
 				23C626BB1E342B2100BDDACE /* ViewController+Player.swift in Sources */,
 				2355AD551E32926800EAEF02 /* NowPlayingViewCell.swift in Sources */,
 				23DBFB111E311C1F00E276EB /* Date.swift in Sources */,
+				2399394B1F941CDB00523509 /* Content+ViewModel.swift in Sources */,
 				2355AD561E32926800EAEF02 /* NowPlayingViewController.swift in Sources */,
 				23C1DE441E372B1B00E53954 /* ViewController+Errors.swift in Sources */,
 				23DBFB0A1E30607000E276EB /* Sport.swift in Sources */,
@@ -905,6 +914,7 @@
 				232FBF791E3FDBB600294D26 /* LocalImage.swift in Sources */,
 				23246CD81E3E63AD0057FA63 /* NowPlayingItem.swift in Sources */,
 				2349258E1F8412F50071185A /* DeviceActivation.swift in Sources */,
+				2392BEFD1F9153970012446C /* NowPlayingSections.swift in Sources */,
 				232FBF761E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
 				23246CDA1E3E63AD0057FA63 /* Sport.swift in Sources */,
 				23246CCB1E3E60440057FA63 /* ServiceProvider.swift in Sources */,

@@ -1,6 +1,6 @@
 import Foundation
 
-class NowPlayingItem: NSObject, FromDictable {
+class ContentItem: NSObject, FromDictable {
 	public var game: Game?
 	public var channel: Channel?
 	

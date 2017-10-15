@@ -99,7 +99,7 @@ class GamesViewController: HahaViewController, DateListDelegate, UICollectionVie
 		
 		cell.titleLabel.text = game.title
 		
-		if(game.isReady) {
+		if(game.isActive) {
 			cell.updateTimeLabel(withDate: game.startDate);
 			cell.startAnimating(date: game.startDate)
 		}

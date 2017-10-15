@@ -10,8 +10,8 @@ import Foundation
 
 protocol NowPlayingInlineVideoInteractor {
 	weak var view: NowPlayingInlineVideoView? { get set }
-	func viewDidHighlight(item: NowPlayingItem)
-	func viewDidUnhighlight(item: NowPlayingItem)
+	func viewDidHighlight(item: ContentItem)
+	func viewDidUnhighlight(item: ContentItem)
 }
 
 class NowPlayingInlineVideoInteractorImpl: NowPlayingInlineVideoInteractor {
@@ -24,7 +24,7 @@ class NowPlayingInlineVideoInteractorImpl: NowPlayingInlineVideoInteractor {
 		self.stopVideo()
 	}
 
-	func viewDidHighlight(item: NowPlayingItem) {
+	func viewDidHighlight(item: ContentItem) {
 		guard let game = item.game else {
 			return
 		}
@@ -48,7 +48,7 @@ class NowPlayingInlineVideoInteractorImpl: NowPlayingInlineVideoInteractor {
 		//
 	}
 	
-	func viewDidUnhighlight(item: NowPlayingItem) {
+	func viewDidUnhighlight(item: ContentItem) {
 		stopVideo()
 	}
 	

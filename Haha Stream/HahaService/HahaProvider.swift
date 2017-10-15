@@ -88,27 +88,6 @@ class HahaProvider:NSObject {
 		self.get(endpoint: .getSports, success: successCallback, apiError: errorCallback, networkFailure: failureCallback);
 	}
 	
-	func getNowPlaying(
-		sport: Sport,
-		date: Date,
-		success: @escaping ([NowPlayingItem]) -> Void,
-		apiError: @escaping (Any) -> Void,
-		networkFailure: @escaping (MoyaError) -> Void
-		)
-	{
-		let endpoint: HahaService;
-		let calendar = Calendar.current;
-		let targetComponents = Set<Calendar.Component>(arrayLiteral: .year, .month, .day);
-		let dateComponents = calendar.dateComponents(targetComponents, from: date);
-		
-		endpoint = HahaService.getNowPlaying(sport: sport.name.lowercased(), year: dateComponents.year!, month: dateComponents.month!, day: dateComponents.day!)
-		
-		self.get(endpoint: endpoint,
-		         success: success,
-		         apiError: apiError,
-		         networkFailure: networkFailure);
-	}
-	
 	func getGames(
 		sport: Sport,
 		date: Date?,
@@ -185,29 +164,19 @@ class HahaProvider:NSObject {
 	}
 	
 	
-	func getNowPlaying(
-		success successCallback: @escaping ([[NowPlayingItem]]) -> Void,
+	func getContent(
+		success successCallback: @escaping (Content) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
 		networkFailure failureCallback: @escaping (MoyaError) -> Void
 		) {
 		//get all sports, then get all games for today and the next/prev day if it is within 4 hrs
 		self.getSports(success: { (sports) in
 			DispatchQueue.global().async {
-				var allItems:[NowPlayingItem] = []
+				let allContent = Content()
 				let semaphore = DispatchSemaphore(value: 0);
-				var date = Date();
-				//if 4 hours earlier is yesterday, let's get those games instead
-				if( Calendar.current.isDateInYesterday(Date(timeIntervalSinceNow:-4*60*60)) ) {
-					date.addTimeInterval(-4*60*60);
-				}
 				for sport in sports {
-					self.getNowPlaying(sport: sport, date: date, success: { (items) in
-						items.forEach({ (item) in
-							if let channel = item.channel {
-								channel.sport = sport //add sport manually
-							}
-						})
-						allItems.append(contentsOf: items)
+					self.getContent(sport: sport, date: nil, success: { (content) in
+						allContent.merge(withContent: content)
 						semaphore.signal()
 					}, apiError: { (error) in
 						semaphore.signal()
@@ -219,64 +188,49 @@ class HahaProvider:NSObject {
 					semaphore.wait()
 				}
 				
-				let sections = self.sortNowPlayingItemsIntoSections(items: allItems)
 				DispatchQueue.main.async {
-					successCallback(sections)
+					successCallback(allContent)
 				}
 			}
 		}, apiError: errorCallback, networkFailure: failureCallback);
 	}
 	
-	func sortNowPlayingItemsIntoSections(items: [NowPlayingItem]) -> [[NowPlayingItem]] {
-		var ready: [NowPlayingItem] = []
-		var channels: [NowPlayingItem] = []
-		var upcoming: [NowPlayingItem] = []
+	func getContent(
+		sport: Sport,
+		date: Date?,
+		success: @escaping (Content) -> Void,
+		apiError: @escaping (Any) -> Void,
+		networkFailure: @escaping (MoyaError) -> Void
+		)
+	{
+		let endpoint: HahaService;
+		let calendar = Calendar.current;
+
+//		let date4hoursAgo = Date(timeIntervalSinceNow:-4*60*60)
+//		let date = date ?? (Calendar.current.isDateInYesterday(date4hoursAgo) ? date4hoursAgo : Date())
 		
-		items.filter{ !($0.game?.ended == .some(true)) } .forEach { (item) in
-			if let game = item.game {
-				if game.isReady {
-					ready.append(item)
-				}
-				else {
-					upcoming.append(item)
-				}
-			}
-			else if let _ = item.channel {
-				channels.append(item)
-			}
+		if let date = date {
+			let targetComponents = Set<Calendar.Component>(arrayLiteral: .year, .month, .day);
+			let dateComponents = calendar.dateComponents(targetComponents, from: date);
+			endpoint = HahaService.getGames(sport: sport.name.lowercased(), year: dateComponents.year!, month: dateComponents.month!, day: dateComponents.day!)
 		}
-		//this goes like: current games => channels => upcoming games
+		else {
+			endpoint = HahaService.getGamesNoDate(sport: sport.name.lowercased())
+		}
 		
-		ready = ready.sorted(by: gameSort)
-		upcoming = upcoming.sorted(by: gameSort)
-		channels = channels.sorted(by: channelSort)
-		
-		return [ready, channels, upcoming];
+		self.get(endpoint: endpoint,
+		         success: { (items: [ContentItem]) in
+							items.forEach({ (item) in
+								if let channel = item.channel {
+									channel.sport = sport //add sport manually
+								}
+							})
+							success(Content.content(bySortingItems: items))
+						},
+		         apiError: apiError,
+		         networkFailure: networkFailure);
 	}
-	
-	func gameSort(_ a: NowPlayingItem, _ b: NowPlayingItem) -> Bool {
-		guard let a = a.game, let b = b.game else {
-			return false
-		}
-		if a.startDate != b.startDate {
-			return a.startDate < b.startDate
-		}
-		if a.sport.name != b.sport.name {
-			return a.sport.name < b.sport.name;
-		}
-		if a.title < b.title {
-			return true;
-		}
-		
-		return false;
-	}
-	
-	func channelSort(_ a: NowPlayingItem, _ b: NowPlayingItem) -> Bool {
-		guard let a = a.channel, let b = b.channel else {
-			return false
-		}
-		return a.title < b.title
-	}
+
 	
 	//MARK: - Streams
 	

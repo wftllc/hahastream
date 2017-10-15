@@ -14,11 +14,13 @@ protocol NowPlayingInteractor {
 	func viewDidLoad()
 	func viewWillAppear(_ animated: Bool)
 	func viewWillDisappear(_ animated: Bool)
-	func viewDidSelect(item: NowPlayingItem)
+	func viewDidSelect(item: ContentItem)
 	func viewDidSelect(stream: Stream, game: Game)
+	func viewDidSelect(date: Date)
 }
 
 class NowPlayingInteractorImpl: NSObject, NowPlayingInteractor {
+	
 	let RefreshTimeInterval: TimeInterval = 300;
 
 	weak var view: NowPlayingView?
@@ -28,14 +30,16 @@ class NowPlayingInteractorImpl: NSObject, NowPlayingInteractor {
 	let router: AppRouter?
 	var videoPlayer: InlineVideoPlayer?
 	var sport: Sport?
+	var date: Date?
 	
 	init(provider: HahaProvider, router: AppRouter, sport: Sport? = nil) {
 		self.provider = provider
 		self.router = router
+		self.sport = sport
 	}
 	
 	func viewDidLoad() {
-		refreshData();
+		refreshData(showLoading: true);
 	}
 	
 	func viewWillAppear(_ animated: Bool) {
@@ -58,19 +62,33 @@ class NowPlayingInteractorImpl: NSObject, NowPlayingInteractor {
 		if showLoading {
 			self.view?.showLoading(animated: true);
 		}
-		self.provider.getNowPlaying(success: { (sections) in
-			if showLoading {
-				self.view?.hideLoading(animated: true, completion: nil)
-			}
-			self.view?.updateView(sections: sections)
-		}, apiError: self.view!.apiErrorClosure,
-		   networkFailure: self.view!.networkFailureClosure
-		)
+		if let sport = sport {
+			self.provider.getContent(
+				sport: sport,
+				date: self.date,
+				success: { (content) in
+					if showLoading {
+						self.view?.hideLoading(animated: true, completion: nil)
+					}
+					self.view?.updateView(content: content)
+			}, apiError: self.view!.apiErrorClosure,
+			   networkFailure: self.view!.networkFailureClosure
+			)
+		}
+		else {
+			self.provider.getContent(
+				success: { (content) in
+					if showLoading {
+						self.view?.hideLoading(animated: true, completion: nil)
+					}
+					self.view?.updateView(content: content)
+			}, apiError: self.view!.apiErrorClosure,
+			   networkFailure: self.view!.networkFailureClosure
+			)
+		}
 	}
 	
-	
-	
-	func viewDidSelect(item: NowPlayingItem) {
+	func viewDidSelect(item: ContentItem) {
 		if let game = item.game {
 			selectGame(game);
 		}
@@ -82,6 +100,11 @@ class NowPlayingInteractorImpl: NSObject, NowPlayingInteractor {
 	func viewDidSelect(stream: Stream, game: Game) {
 		view?.showLoading(animated: true)
 		self.play(stream: stream, inGame: game)
+	}
+
+	func viewDidSelect(date: Date) {
+		self.date = date
+		self.refreshData(showLoading: true)
 	}
 
 	func selectGame(_ game: Game) {

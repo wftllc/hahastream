@@ -148,10 +148,10 @@ class AppRouter: NSObject {
 
 		let nowPlayingViewController = splitViewController.viewControllers.last as! NowPlayingViewController
 
-//		let interactor = NowPlayingInteractorImpl(provider: hahaProvider, router: self, sport: sport)
-//		nowPlayingViewController.interactor = interactor
-//		interactor.view = nowPlayingViewController
-//		nowPlayingViewController.provider = self.hahaProvider;
+		let interactor = NowPlayingInteractorImpl(provider: hahaProvider, router: self, sport: sport)
+		nowPlayingViewController.interactor = interactor
+		interactor.view = nowPlayingViewController
+		nowPlayingViewController.provider = self.hahaProvider;
 
 		let dateListViewController = leftNavController.topViewController as! DateListViewController
 		dateListViewController.delegate = nowPlayingViewController;
@@ -159,8 +159,6 @@ class AppRouter: NSObject {
 
 		return vc;
 	}
-
-	
 	
 	func goToScreen(forSport sport: Sport) {
 		self.window?.rootViewController = viewController(forSport: sport);

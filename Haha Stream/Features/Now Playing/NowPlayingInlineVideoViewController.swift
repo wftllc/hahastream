@@ -25,25 +25,33 @@ class NowPlayingInlineVideoViewController: NowPlayingViewController, NowPlayingI
 	func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
 		if let cell = context.previouslyFocusedView as? NowPlayingViewCell,
 			let indexPath = collectionView.indexPath(for: cell) {
-			let items = self.sections[indexPath.section]
-			inlineInteractor?.viewDidUnhighlight(item: items[indexPath.item])
+			guard let item = self.content?.item(atIndexPath: indexPath) else {
+				return
+			}
+			inlineInteractor?.viewDidUnhighlight(item: item)
 		}
 		if let cell = context.nextFocusedView as? NowPlayingViewCell,
 			let indexPath = collectionView.indexPath(for: cell) {
-			let items = self.sections[indexPath.section]
-			inlineInteractor?.viewDidHighlight(item: items[indexPath.item])
+			guard let item = self.content?.item(atIndexPath: indexPath) else {
+				return
+			}
+			inlineInteractor?.viewDidHighlight(item: item)
 		}
 	}
 	
 
 	func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-		let items = self.sections[indexPath.section]
-		inlineInteractor?.viewDidHighlight(item: items[indexPath.item])
+		guard let item = self.content?.item(atIndexPath: indexPath) else {
+			return
+		}
+		inlineInteractor?.viewDidHighlight(item: item)
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-		let items = self.sections[indexPath.section]
-		inlineInteractor?.viewDidUnhighlight(item: items[indexPath.item])
+		guard let item = self.content?.item(atIndexPath: indexPath) else {
+			return
+		}
+		inlineInteractor?.viewDidUnhighlight(item: item)
 	}
 
 	//MARK: - Video

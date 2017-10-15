@@ -3,14 +3,14 @@ import Foundation
 
 class Game: NSObject, FromDictable {
 	let MaximumTimeIntervalToBeConsideredActive:TimeInterval = -4*60*60;
-	
+
 	public var uuid: String;
 	public var title: String;
 	private var ready: Bool;
-	public var isReady: Bool { get {
+	private var isReady: Bool { get {
 		return ready || readyDate <= Date()
-		}}
-	public var ended: Bool
+	}}
+	private var ended: Bool
 	public var startDate: Date;
 	public var readyDate: Date;
 	public var free: Bool;
@@ -18,12 +18,12 @@ class Game: NSObject, FromDictable {
 	public var awayTeam: Team;
 	public var sport: Sport;
 	
-	public var active: Bool {
-		return ready && startDate.timeIntervalSinceNow > MaximumTimeIntervalToBeConsideredActive
+	public var isActive: Bool {
+		return isReady && startDate.timeIntervalSinceNow > MaximumTimeIntervalToBeConsideredActive
 	}
 	
-	public var upcoming: Bool {
-		return startDate.timeIntervalSinceNow > 0 && !ready;
+	public var isUpcoming: Bool {
+		return startDate.timeIntervalSinceNow > 0;
 	}
 	
 	public var startTimeString: String {
