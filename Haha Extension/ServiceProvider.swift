@@ -31,7 +31,7 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 			self.refresh(after: self.RefreshTimeInterval);
 			return
 		}
-		provider.getContent(success: { [weak self] (content) in
+		provider.getContentList(success: { [weak self] (content) in
 			DispatchQueue.global(qos: .background).sync {
 				self?.process(items: content.nowPlaying);
 			}

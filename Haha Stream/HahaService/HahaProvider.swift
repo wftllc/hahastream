@@ -164,19 +164,19 @@ class HahaProvider:NSObject {
 	}
 	
 	
-	func getContent(
-		success successCallback: @escaping (Content) -> Void,
+	func getContentList(
+		success successCallback: @escaping (ContentList) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
 		networkFailure failureCallback: @escaping (MoyaError) -> Void
 		) {
 		//get all sports, then get all games for today and the next/prev day if it is within 4 hrs
 		self.getSports(success: { (sports) in
 			DispatchQueue.global().async {
-				let allContent = Content()
+				let allContentList = ContentList()
 				let semaphore = DispatchSemaphore(value: 0);
 				for sport in sports {
-					self.getContent(sport: sport, date: nil, success: { (content) in
-						allContent.merge(withContent: content)
+					self.getContentList(sport: sport, date: nil, success: { (contentList) in
+						allContentList.merge(withContentList: contentList)
 						semaphore.signal()
 					}, apiError: { (error) in
 						semaphore.signal()
@@ -189,16 +189,16 @@ class HahaProvider:NSObject {
 				}
 				
 				DispatchQueue.main.async {
-					successCallback(allContent)
+					successCallback(allContentList)
 				}
 			}
 		}, apiError: errorCallback, networkFailure: failureCallback);
 	}
 	
-	func getContent(
+	func getContentList(
 		sport: Sport,
 		date: Date?,
-		success: @escaping (Content) -> Void,
+		success: @escaping (ContentList) -> Void,
 		apiError: @escaping (Any) -> Void,
 		networkFailure: @escaping (MoyaError) -> Void
 		)
@@ -225,7 +225,7 @@ class HahaProvider:NSObject {
 									channel.sport = sport //add sport manually
 								}
 							})
-							success(Content.content(bySortingItems: items))
+							success(ContentList.contentList(bySortingItems: items))
 						},
 		         apiError: apiError,
 		         networkFailure: networkFailure);

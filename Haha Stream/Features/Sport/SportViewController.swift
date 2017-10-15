@@ -9,7 +9,7 @@ class SportViewController: UISplitViewController {
 		if let dateVC = self.viewControllers[0] as? DateListViewController{
 			print("got dateVC")
 		}
-		else if let nowPlayingVC = self.viewControllers[1] as? NowPlayingViewController {
+		else if let nowPlayingVC = self.viewControllers[1] as? ContentListViewController {
 			print("got nowPlayingVC")
 		}
 	}
@@ -25,7 +25,7 @@ class SportViewController: UISplitViewController {
 		if let dateVC = segue.destination as? DateListViewController{
 			print("got dateVC")
 		}
-		else if let nowPlayingVC = segue.destination as? NowPlayingViewController {
+		else if let nowPlayingVC = segue.destination as? ContentListViewController {
 			print("got nowPlayingVC")
 		}
 	// Get the new view controller using segue.destinationViewController.

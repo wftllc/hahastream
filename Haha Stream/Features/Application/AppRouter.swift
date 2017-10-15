@@ -124,9 +124,9 @@ class AppRouter: NSObject {
 		return vc;
 	}
 
-	func nowPlayingViewController() -> NowPlayingViewController {
-		let vc = UIStoryboard(name: "NowPlaying", bundle: nil).instantiateInitialViewController() as! NowPlayingViewController
-		let interactor = NowPlayingInteractorImpl(provider: hahaProvider, router: self)
+	func nowPlayingViewController() -> ContentListViewController {
+		let vc = UIStoryboard(name: "ContentList", bundle: nil).instantiateInitialViewController() as! ContentListViewController
+		let interactor = ContentListInteractorImpl(provider: hahaProvider, router: self)
 		vc.interactor = interactor
 		interactor.view = vc
 		return vc;
@@ -146,9 +146,9 @@ class AppRouter: NSObject {
 		let splitViewController = vc;
 		let leftNavController = splitViewController.viewControllers.first as! UINavigationController
 
-		let nowPlayingViewController = splitViewController.viewControllers.last as! NowPlayingViewController
+		let nowPlayingViewController = splitViewController.viewControllers.last as! ContentListViewController
 
-		let interactor = NowPlayingInteractorImpl(provider: hahaProvider, router: self, sport: sport)
+		let interactor = ContentListInteractorImpl(provider: hahaProvider, router: self, sport: sport)
 		nowPlayingViewController.interactor = interactor
 		interactor.view = nowPlayingViewController
 		nowPlayingViewController.provider = self.hahaProvider;

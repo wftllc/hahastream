@@ -1,14 +1,6 @@
-//
-//  NowPlayingSections.swift
-//  Haha Stream
-//
-//  Created by Jake Lavenberg on 10/13/17.
-//  Copyright © 2017 WFT Productions LLC. All rights reserved.
-//
-
 import Foundation
 
-class Content: NSObject {
+class ContentList: NSObject {
 	
 	var nowPlaying: [ContentItem] = []
 	var channels: [ContentItem] = []
@@ -23,19 +15,19 @@ class Content: NSObject {
 		self.ended = ended
 	}
 	
-	func merge(withContent content: Content) {
-		nowPlaying.append(contentsOf: content.nowPlaying)
-		nowPlaying = nowPlaying.sorted(by: Content.gameSort)
-		channels.append(contentsOf: content.channels)
-		channels = channels.sorted(by: Content.channelSort)
-		upcoming.append(contentsOf: content.upcoming)
-		upcoming = upcoming.sorted(by: Content.gameSort)
-		ended.append(contentsOf: content.ended)
-		ended = ended.sorted(by: Content.gameSort)
+	func merge(withContentList contentList: ContentList) {
+		nowPlaying.append(contentsOf: contentList.nowPlaying)
+		nowPlaying = nowPlaying.sorted(by: ContentList.gameSort)
+		channels.append(contentsOf: contentList.channels)
+		channels = channels.sorted(by: ContentList.channelSort)
+		upcoming.append(contentsOf: contentList.upcoming)
+		upcoming = upcoming.sorted(by: ContentList.gameSort)
+		ended.append(contentsOf: contentList.ended)
+		ended = ended.sorted(by: ContentList.gameSort)
 	}
 	
 	
-	class func content(bySortingItems items: [ContentItem]) -> Content {
+	class func contentList(bySortingItems items: [ContentItem]) -> ContentList {
 		var active: [ContentItem] = []
 		var channels: [ContentItem] = []
 		var upcoming: [ContentItem] = []
@@ -64,7 +56,7 @@ class Content: NSObject {
 		ended = ended.sorted(by: gameSort)
 		channels = channels.sorted(by: channelSort)
 		
-		return Content(nowPlaying: active, channels: channels, upcoming: upcoming, ended: ended)
+		return ContentList(nowPlaying: active, channels: channels, upcoming: upcoming, ended: ended)
 	}
 	
 	private class func gameSort(_ a: ContentItem, _ b: ContentItem) -> Bool {
