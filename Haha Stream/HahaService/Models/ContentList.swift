@@ -28,7 +28,6 @@ class ContentList: NSObject {
 		ended = ended.sorted(by: ContentList.gameSort)
 	}
 	
-	
 	class func contentList(bySortingItems items: [ContentItem]) -> ContentList {
 		var active: [ContentItem] = []
 		var channels: [ContentItem] = []

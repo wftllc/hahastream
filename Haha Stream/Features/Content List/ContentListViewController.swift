@@ -23,6 +23,7 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 	@IBOutlet weak var dateLabel: UILabel!
 	@IBOutlet weak var inlinePlayerContainerView: UIView!
 	@IBOutlet weak var inlineVideoPlayerView: InlineVideoPlayerView!
+	@IBOutlet weak var noResultsLabel: UILabel!
 	
 	var interactor: ContentListInteractor?
 
@@ -68,6 +69,7 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 	override func showLoading(animated: Bool) {
 		self.activityIndicator.startAnimating()
 		UIView.animate(withDuration: animated ? 0.25 : 0) {
+			self.noResultsLabel.alpha = 0
 			self.collectionView.alpha = 0
 		}
 	}
@@ -76,6 +78,7 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 		self.activityIndicator.stopAnimating()
 		let duration = animated ? 0.25 : 0
 		UIView.animate(withDuration: duration, animations: {
+			self.noResultsLabel.alpha = 1
 			self.collectionView.alpha = 1
 		}) { (_) in
 			completion?()
@@ -87,6 +90,7 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 		self.contentList = contentList
 		self.dateLabel.text = contentList.title
 		self.collectionView.reloadData()
+		self.noResultsLabel.isHidden = self.contentList?.sections.count != 0
 	}
 	
 	//MARK: - DateListDelegate

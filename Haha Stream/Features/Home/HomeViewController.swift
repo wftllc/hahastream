@@ -14,17 +14,22 @@ class HomeViewController: HahaTabBarController {
 
 			viewControllers.append(self.appRouter.nowPlayingViewController());
 
+			var haveVCS = false;
 			for sport in sports {
 				let tabBarItem = UITabBarItem(title: sport.name, image: nil, selectedImage: nil)
 				let vc:UIViewController
-				if sport.name.lowercased() == "vue" {
-					viewControllers.insert(self.appRouter.vcsViewController(), at: 0)
+				if sport.name.lowercased() == "vcs" {
+					haveVCS = true
 				}
 				else {
 					vc = self.appRouter.viewController(forSport: sport)
 					vc.tabBarItem = tabBarItem
 					viewControllers.append(vc)
 				}
+			}
+
+			if haveVCS {
+				viewControllers.append(self.appRouter.vcsViewController())
 			}
 			
 			viewControllers.append(self.appRouter.accountViewController())

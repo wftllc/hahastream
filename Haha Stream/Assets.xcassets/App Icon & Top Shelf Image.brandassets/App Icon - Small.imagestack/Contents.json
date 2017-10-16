@@ -1,19 +1,19 @@
 {
   "layers" : [
     {
-      "filename" : "layer-9.imagestacklayer"
+      "filename" : "star.imagestacklayer"
     },
     {
-      "filename" : "layer-4.imagestacklayer"
+      "filename" : "bottom.imagestacklayer"
     },
     {
-      "filename" : "layer-3.imagestacklayer"
+      "filename" : "face.imagestacklayer"
     },
     {
-      "filename" : "layer-2.imagestacklayer"
+      "filename" : "bg.imagestacklayer"
     },
     {
-      "filename" : "layer4.imagestacklayer"
+      "filename" : "background.imagestacklayer"
     }
   ],
   "info" : {

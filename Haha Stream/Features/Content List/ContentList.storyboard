@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="THr-Ke-iTB">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -37,6 +40,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtK-vF-xAj" userLabel="Middle View">
                                 <rect key="frame" x="0.0" y="152" width="1920" height="868"/>
                                 <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oP9-dr-G1k">
+                                        <rect key="frame" x="90" y="400" width="283" height="69"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="glo-om-2zi">
                                         <rect key="frame" x="0.0" y="0.0" width="1920" height="868"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="50" minimumInteritemSpacing="0.0" id="9o5-Q7-2rL">
@@ -225,8 +234,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="glo-om-2zi" secondAttribute="trailing" id="9eF-Z8-yTi"/>
+                                    <constraint firstItem="oP9-dr-G1k" firstAttribute="leading" secondItem="TtK-vF-xAj" secondAttribute="leading" constant="90" id="OyV-HQ-ofE"/>
                                     <constraint firstItem="glo-om-2zi" firstAttribute="top" secondItem="TtK-vF-xAj" secondAttribute="top" id="TcI-KB-Qyu"/>
                                     <constraint firstAttribute="bottom" secondItem="glo-om-2zi" secondAttribute="bottom" id="bcE-kl-4Mt"/>
+                                    <constraint firstItem="oP9-dr-G1k" firstAttribute="centerY" secondItem="TtK-vF-xAj" secondAttribute="centerY" id="iTA-WR-l06"/>
                                     <constraint firstItem="glo-om-2zi" firstAttribute="leading" secondItem="TtK-vF-xAj" secondAttribute="leading" id="tUE-47-x8n"/>
                                 </constraints>
                             </view>
@@ -270,6 +281,7 @@
                         <outlet property="dateLabel" destination="wv0-mh-6pg" id="HJr-VT-Mwe"/>
                         <outlet property="inlinePlayerContainerView" destination="HGA-0x-zwp" id="hYJ-12-MOL"/>
                         <outlet property="inlineVideoPlayerView" destination="UvH-I3-7hE" id="b7D-2U-SkJ"/>
+                        <outlet property="noResultsLabel" destination="oP9-dr-G1k" id="73S-IF-teX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbM-zd-nkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
