@@ -38,6 +38,8 @@ class HahaProvider:NSObject {
 		
 	}
 	
+	//MARK: - Device activation
+	
 	func getDeviceRegistrationKey(
 		success successCallback: @escaping (DeviceKey?) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
@@ -79,6 +81,8 @@ class HahaProvider:NSObject {
 		self.getOne(endpoint: .getDeviceActivationStatus(), success: success, apiError: apiError, networkFailure: networkFailure)
 	}
 	
+	//MARK: - Services/Sports
+	
 	func getSports(
 		success successCallback: @escaping ([Sport]) -> Void,
 		apiError errorCallback: @escaping (Any) -> Void,
@@ -88,37 +92,7 @@ class HahaProvider:NSObject {
 		self.get(endpoint: .getSports, success: successCallback, apiError: errorCallback, networkFailure: failureCallback);
 	}
 	
-	func getGames(
-		sport: Sport,
-		date: Date?,
-		success successCallback: @escaping ([Game]) -> Void,
-		apiError errorCallback: @escaping (Any) -> Void,
-		networkFailure failureCallback: @escaping (MoyaError) -> Void
-		)
-	{
-		let endpoint: HahaService;
-		if let forcedDate = date {
-			let calendar = Calendar.current;
-			let targetComponents = Set<Calendar.Component>(arrayLiteral: .year, .month, .day);
-			let dateComponents = calendar.dateComponents(targetComponents, from: forcedDate);
-			
-			endpoint = HahaService.getGames(sport: sport.name.lowercased(),
-			                                year: dateComponents.year!, month: dateComponents.month!, day: dateComponents.day!)
-		}
-		else {
-			endpoint = HahaService.getGamesNoDate(sport: sport.name.lowercased())
-		}
-		
-		self.get(endpoint: endpoint,
-		         success: { (games: [Game]) in
-							for game in games {
-								game.sport = sport;
-							}
-							successCallback(games);
-		},
-		         apiError: errorCallback,
-		         networkFailure: failureCallback);
-	}
+	//MARK: - Channels
 	
 	func getChannels(
 		sports: [Sport],
@@ -163,6 +137,8 @@ class HahaProvider:NSObject {
 		}, apiError: errorCallback, networkFailure: failureCallback);
 	}
 	
+	
+	//MARK: - Content Lists
 	
 	func getContentList(
 		success successCallback: @escaping (ContentList) -> Void,
@@ -374,6 +350,8 @@ class HahaProvider:NSObject {
 		successCallback(results);
 	}
 	
+	//MARK: - Game/Content Items
+	
 	func getGame(
 		sportName: String,
 		gameUUID: String,
@@ -388,6 +366,8 @@ class HahaProvider:NSObject {
 		            apiError: errorCallback,
 		            networkFailure: failureCallback);
 	}
+	
+	//MARK: - helpers
 	
 	
 	func get<T:FromDictable>(endpoint: HahaService,
