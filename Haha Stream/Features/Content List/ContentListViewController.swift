@@ -17,7 +17,7 @@ protocol ContentListView: AnyObject {
 	var networkFailureClosure: (MoyaError) -> Void { get }
 }
 
-class ContentListViewController: HahaViewController, ContentListView, DateListDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class ContentListViewController: HahaViewController, ContentListView, DateListDelegate, NFLDateListDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var dateLabel: UILabel!
@@ -89,12 +89,17 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 		self.collectionView.reloadData()
 	}
 	
-	//Mark: DateListDelegate
+	//MARK: - DateListDelegate
 	
 	func dateListDidSelect(date: Date) {
 		interactor?.viewDidSelect(date: date)
 	}
 
+	//MARK: - NFLDateListDelegate
+	func nflDateDidSelect(_ week: NFLWeek) {
+		interactor?.viewDidSelect(nflWeek: week)
+	}
+	
 	// MARK: UICollectionViewDataSource
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {

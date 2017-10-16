@@ -2,6 +2,7 @@ import Foundation
 
 class ContentList: NSObject {
 	var date: Date?
+	var nflWeek: NFLWeek?
 	var nowPlaying: [ContentItem] = []
 	var channels: [ContentItem] = []
 	var upcoming: [ContentItem] = []

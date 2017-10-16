@@ -17,6 +17,7 @@ protocol ContentListInteractor {
 	func viewDidSelect(item: ContentItem)
 	func viewDidSelect(stream: Stream, game: Game)
 	func viewDidSelect(date: Date)
+	func viewDidSelect(nflWeek: NFLWeek)
 }
 
 class ContentListInteractorImpl: NSObject, ContentListInteractor {
@@ -31,6 +32,7 @@ class ContentListInteractorImpl: NSObject, ContentListInteractor {
 	var videoPlayer: InlineVideoPlayer?
 	var sport: Sport?
 	var date: Date?
+	var nflWeek: NFLWeek?
 	
 	init(provider: HahaProvider, router: AppRouter, sport: Sport? = nil) {
 		self.provider = provider
@@ -63,17 +65,31 @@ class ContentListInteractorImpl: NSObject, ContentListInteractor {
 			self.view?.showLoading(animated: true);
 		}
 		if let sport = sport {
-			self.provider.getContentList(
-				sport: sport,
-				date: self.date,
-				success: { (contentList) in
-					if showLoading {
-						self.view?.hideLoading(animated: true, completion: nil)
-					}
-					self.view?.updateView(contentList: contentList)
-			}, apiError: self.view!.apiErrorClosure,
-			   networkFailure: self.view!.networkFailureClosure
-			)
+			if let nflWeek = nflWeek, sport.name.lowercased() == "nfl" {
+				self.provider.getNFLContentList(week: nflWeek,
+					success: { (contentList) in
+						if showLoading {
+							self.view?.hideLoading(animated: true, completion: nil)
+						}
+						self.view?.updateView(contentList: contentList)
+				}, apiError: self.view!.apiErrorClosure,
+				   networkFailure: self.view!.networkFailureClosure
+				)
+
+			}
+			else {
+				self.provider.getContentList(
+					sport: sport,
+					date: self.date,
+					success: { (contentList) in
+						if showLoading {
+							self.view?.hideLoading(animated: true, completion: nil)
+						}
+						self.view?.updateView(contentList: contentList)
+				}, apiError: self.view!.apiErrorClosure,
+					 networkFailure: self.view!.networkFailureClosure
+				)
+			}
 		}
 		else {
 			self.provider.getContentList(
@@ -104,6 +120,11 @@ class ContentListInteractorImpl: NSObject, ContentListInteractor {
 
 	func viewDidSelect(date: Date) {
 		self.date = date		
+		self.refreshData(showLoading: true)
+	}
+	
+	func viewDidSelect(nflWeek: NFLWeek) {
+		self.nflWeek = nflWeek
 		self.refreshData(showLoading: true)
 	}
 

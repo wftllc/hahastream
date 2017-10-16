@@ -138,10 +138,8 @@ class AppRouter: NSObject {
 		return vc;
 	}
 	
-	func viewController(forSport sport: Sport) -> SportViewController {
-		let vc = UIStoryboard(name: "Sport", bundle: nil).instantiateInitialViewController() as! SportViewController;
-		vc.sport = sport;
-		vc.provider = self.hahaProvider;
+	func viewController(forSport sport: Sport) -> UISplitViewController {
+		let vc = UIStoryboard(name: "Sport", bundle: nil).instantiateInitialViewController() as! UISplitViewController;
 
 		let splitViewController = vc;
 		let leftNavController = splitViewController.viewControllers.first as! UINavigationController
@@ -153,9 +151,17 @@ class AppRouter: NSObject {
 		interactor.view = nowPlayingViewController
 		nowPlayingViewController.provider = self.hahaProvider;
 
-		let dateListViewController = leftNavController.topViewController as! DateListViewController
-		dateListViewController.delegate = nowPlayingViewController;
-		dateListViewController.sport = sport;
+		if sport.name.lowercased() == "nfl" {
+			let nflDateListViewController = UIStoryboard(name: "NFLDateList", bundle: nil).instantiateInitialViewController() as! NFLDateListViewController
+			nflDateListViewController.nflDelegate = nowPlayingViewController
+			nflDateListViewController.sport = sport
+			leftNavController.setViewControllers([nflDateListViewController], animated: false)
+		}
+		else {
+			let dateListViewController = leftNavController.topViewController as! DateListViewController
+			dateListViewController.delegate = nowPlayingViewController;
+			dateListViewController.sport = sport;
+		}
 
 		return vc;
 	}

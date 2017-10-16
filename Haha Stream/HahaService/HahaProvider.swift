@@ -204,12 +204,12 @@ class HahaProvider:NSObject {
 		)
 	{
 		let endpoint: HahaService;
-		let calendar = Calendar.current;
-
-//		let date4hoursAgo = Date(timeIntervalSinceNow:-4*60*60)
-//		let date = date ?? (Calendar.current.isDateInYesterday(date4hoursAgo) ? date4hoursAgo : Date())
+		
+		//		let date4hoursAgo = Date(timeIntervalSinceNow:-4*60*60)
+		//		let date = date ?? (Calendar.current.isDateInYesterday(date4hoursAgo) ? date4hoursAgo : Date())
 		
 		if let date = date {
+			let calendar = Calendar.current;
 			let targetComponents = Set<Calendar.Component>(arrayLiteral: .year, .month, .day);
 			let dateComponents = calendar.dateComponents(targetComponents, from: date);
 			endpoint = HahaService.getGames(sport: sport.name.lowercased(), year: dateComponents.year!, month: dateComponents.month!, day: dateComponents.day!)
@@ -228,7 +228,42 @@ class HahaProvider:NSObject {
 							let contentList = ContentList.contentList(bySortingItems: items)
 							contentList.date = date
 							success(contentList)
-						},
+		},
+		         apiError: apiError,
+		         networkFailure: networkFailure);
+	}
+
+	
+	func getNFLContentList(
+		week: NFLWeek?,
+		success: @escaping (ContentList) -> Void,
+		apiError: @escaping (Any) -> Void,
+		networkFailure: @escaping (MoyaError) -> Void
+		)
+	{
+		let endpoint: HahaService;
+		let sport = Sport(name: "NFL", path: "/services/nfl")
+		//		let date4hoursAgo = Date(timeIntervalSinceNow:-4*60*60)
+		//		let date = date ?? (Calendar.current.isDateInYesterday(date4hoursAgo) ? date4hoursAgo : Date())
+		
+		if let week = week {
+			endpoint = HahaService.getNFLGames(year: week.year, seasonType: week.type.rawValue, week: week.week)
+		}
+		else {
+			endpoint = HahaService.getGamesNoDate(sport: "nfl")
+		}
+		
+		self.get(endpoint: endpoint,
+		         success: { (items: [ContentItem]) in
+							items.forEach({ (item) in
+								if let channel = item.channel {
+									channel.sport = sport //add sport manually
+								}
+							})
+							let contentList = ContentList.contentList(bySortingItems: items)
+							contentList.nflWeek = week
+							success(contentList)
+		},
 		         apiError: apiError,
 		         networkFailure: networkFailure);
 	}

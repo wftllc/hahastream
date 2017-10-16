@@ -54,6 +54,12 @@
 		2366E4381F8639FC0037D4A7 /* StreamURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366E4361F8639840037D4A7 /* StreamURL.swift */; };
 		2366E43A1F863C350037D4A7 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366E4391F863C350037D4A7 /* Team.swift */; };
 		2366E43B1F863C350037D4A7 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366E4391F863C350037D4A7 /* Team.swift */; };
+		23697E0B1F9445410017919D /* DateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23697E0A1F9445410017919D /* DateListViewController.swift */; };
+		23697E0D1F944CF60017919D /* NFLDateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23697E0C1F944CF60017919D /* NFLDateListViewController.swift */; };
+		23697E0F1F944D170017919D /* NFLWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23697E0E1F944D170017919D /* NFLWeek.swift */; };
+		23697E101F944D330017919D /* NFLWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23697E0E1F944D170017919D /* NFLWeek.swift */; };
+		23697E121F944E8E0017919D /* Sport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23697E111F944E8E0017919D /* Sport.storyboard */; };
+		23697E141F9450DA0017919D /* NFLDateList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23697E131F9450DA0017919D /* NFLDateList.storyboard */; };
 		237C25D61F861E5000987DF2 /* Dictionary+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */; };
 		2390082E1F91198800C8042B /* ContentListInlineVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2390082D1F91198800C8042B /* ContentListInlineVideoViewController.swift */; };
 		239008301F911D8500C8042B /* ContentListInlineVideoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2390082F1F911D8500C8042B /* ContentListInlineVideoInteractor.swift */; };
@@ -83,11 +89,7 @@
 		23DBFAF31E30603000E276EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF11E30603000E276EB /* LoginViewController.swift */; };
 		23DBFAF61E30603900E276EB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DBFAF41E30603900E276EB /* Home.storyboard */; };
 		23DBFAF71E30603900E276EB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF51E30603900E276EB /* HomeViewController.swift */; };
-		23DBFAFD1E30604200E276EB /* DateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF81E30604200E276EB /* DateListViewController.swift */; };
 		23DBFAFE1E30604200E276EB /* GamesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF91E30604200E276EB /* GamesViewCell.swift */; };
-		23DBFAFF1E30604200E276EB /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAFA1E30604200E276EB /* GamesViewController.swift */; };
-		23DBFB001E30604200E276EB /* Sport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DBFAFB1E30604200E276EB /* Sport.storyboard */; };
-		23DBFB011E30604200E276EB /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAFC1E30604200E276EB /* SportViewController.swift */; };
 		23DBFB071E30607000E276EB /* FromDictable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB021E30607000E276EB /* FromDictable.swift */; };
 		23DBFB081E30607000E276EB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB031E30607000E276EB /* Game.swift */; };
 		23DBFB091E30607000E276EB /* HahaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB041E30607000E276EB /* HahaError.swift */; };
@@ -168,6 +170,11 @@
 		2355AD531E32926800EAEF02 /* ContentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListViewController.swift; sourceTree = "<group>"; };
 		2366E4361F8639840037D4A7 /* StreamURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamURL.swift; path = HahaService/Models/StreamURL.swift; sourceTree = "<group>"; };
 		2366E4391F863C350037D4A7 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		23697E0A1F9445410017919D /* DateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateListViewController.swift; path = Features/Sport/DateListViewController.swift; sourceTree = "<group>"; };
+		23697E0C1F944CF60017919D /* NFLDateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NFLDateListViewController.swift; path = Features/Sport/NFLDateListViewController.swift; sourceTree = "<group>"; };
+		23697E0E1F944D170017919D /* NFLWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NFLWeek.swift; path = Features/Sport/NFLWeek.swift; sourceTree = "<group>"; };
+		23697E111F944E8E0017919D /* Sport.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Sport.storyboard; path = Features/Sport/Sport.storyboard; sourceTree = "<group>"; };
+		23697E131F9450DA0017919D /* NFLDateList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = NFLDateList.storyboard; path = Features/Sport/NFLDateList.storyboard; sourceTree = "<group>"; };
 		237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+KeyPath.swift"; path = "HahaService/Dictionary+KeyPath.swift"; sourceTree = "<group>"; };
 		2390082D1F91198800C8042B /* ContentListInlineVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListInlineVideoViewController.swift; sourceTree = "<group>"; };
 		2390082F1F911D8500C8042B /* ContentListInlineVideoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListInlineVideoInteractor.swift; sourceTree = "<group>"; };
@@ -195,11 +202,7 @@
 		23DBFAF11E30603000E276EB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Features/Login/LoginViewController.swift; sourceTree = "<group>"; };
 		23DBFAF41E30603900E276EB /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Features/Home/Home.storyboard; sourceTree = "<group>"; };
 		23DBFAF51E30603900E276EB /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Features/Home/HomeViewController.swift; sourceTree = "<group>"; };
-		23DBFAF81E30604200E276EB /* DateListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateListViewController.swift; path = Features/Sport/DateListViewController.swift; sourceTree = "<group>"; };
 		23DBFAF91E30604200E276EB /* GamesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GamesViewCell.swift; path = Features/Sport/GamesViewCell.swift; sourceTree = "<group>"; };
-		23DBFAFA1E30604200E276EB /* GamesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GamesViewController.swift; path = Features/Sport/GamesViewController.swift; sourceTree = "<group>"; };
-		23DBFAFB1E30604200E276EB /* Sport.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Sport.storyboard; path = Features/Sport/Sport.storyboard; sourceTree = "<group>"; };
-		23DBFAFC1E30604200E276EB /* SportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SportViewController.swift; path = Features/Sport/SportViewController.swift; sourceTree = "<group>"; };
 		23DBFB021E30607000E276EB /* FromDictable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FromDictable.swift; path = HahaService/Models/FromDictable.swift; sourceTree = "<group>"; };
 		23DBFB031E30607000E276EB /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = HahaService/Models/Game.swift; sourceTree = "<group>"; };
 		23DBFB041E30607000E276EB /* HahaError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HahaError.swift; path = HahaService/Models/HahaError.swift; sourceTree = "<group>"; };
@@ -451,11 +454,12 @@
 		23DBFAE41E305DA400E276EB /* Sport */ = {
 			isa = PBXGroup;
 			children = (
-				23DBFAFB1E30604200E276EB /* Sport.storyboard */,
-				23DBFAFC1E30604200E276EB /* SportViewController.swift */,
-				23DBFAF81E30604200E276EB /* DateListViewController.swift */,
+				23697E111F944E8E0017919D /* Sport.storyboard */,
+				23697E131F9450DA0017919D /* NFLDateList.storyboard */,
+				23697E0A1F9445410017919D /* DateListViewController.swift */,
 				23DBFAF91E30604200E276EB /* GamesViewCell.swift */,
-				23DBFAFA1E30604200E276EB /* GamesViewController.swift */,
+				23697E0E1F944D170017919D /* NFLWeek.swift */,
+				23697E0C1F944CF60017919D /* NFLDateListViewController.swift */,
 			);
 			name = Sport;
 			sourceTree = "<group>";
@@ -649,8 +653,9 @@
 				23DBFAF61E30603900E276EB /* Home.storyboard in Resources */,
 				23DBFAF21E30603000E276EB /* Login.storyboard in Resources */,
 				230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */,
-				23DBFB001E30604200E276EB /* Sport.storyboard in Resources */,
 				2355AD541E32926800EAEF02 /* ContentList.storyboard in Resources */,
+				23697E141F9450DA0017919D /* NFLDateList.storyboard in Resources */,
+				23697E121F944E8E0017919D /* Sport.storyboard in Resources */,
 				233F36631F8E989000A6C2E0 /* Account.storyboard in Resources */,
 				23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */,
 				23C626B91E3426EB00BDDACE /* Player.storyboard in Resources */,
@@ -831,14 +836,16 @@
 				23C1DE461E372DDF00E53954 /* VCSChannelListViewController.swift in Sources */,
 				23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */,
 				23C626C21E34383600BDDACE /* HahaViewControllers.swift in Sources */,
-				23DBFAFF1E30604200E276EB /* GamesViewController.swift in Sources */,
+				23697E0D1F944CF60017919D /* NFLDateListViewController.swift in Sources */,
 				239008301F911D8500C8042B /* ContentListInlineVideoInteractor.swift in Sources */,
 				233F365B1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift in Sources */,
 				23DBFAF31E30603000E276EB /* LoginViewController.swift in Sources */,
 				23C1DE481E372F6C00E53954 /* VCSViewController.swift in Sources */,
+				23697E0B1F9445410017919D /* DateListViewController.swift in Sources */,
 				2390082E1F91198800C8042B /* ContentListInlineVideoViewController.swift in Sources */,
 				230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */,
 				23DBFB071E30607000E276EB /* FromDictable.swift in Sources */,
+				23697E0F1F944D170017919D /* NFLWeek.swift in Sources */,
 				23E746301E33F9AE00498A08 /* VCS.swift in Sources */,
 				232FBF751E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
 				23DBFB0B1E30607000E276EB /* Stream.swift in Sources */,
@@ -855,7 +862,6 @@
 				23C626B71E3426DA00BDDACE /* PlayerViewController.swift in Sources */,
 				2366E4371F8639840037D4A7 /* StreamURL.swift in Sources */,
 				23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */,
-				23DBFAFD1E30604200E276EB /* DateListViewController.swift in Sources */,
 				2366E43A1F863C350037D4A7 /* Team.swift in Sources */,
 				233F36641F8E989000A6C2E0 /* AccountInteractor.swift in Sources */,
 				232FBF781E3FDBB600294D26 /* LocalImage.swift in Sources */,
@@ -871,7 +877,6 @@
 				237C25D61F861E5000987DF2 /* Dictionary+KeyPath.swift in Sources */,
 				2349258D1F8412F50071185A /* DeviceActivation.swift in Sources */,
 				23246D061E3FBF080057FA63 /* Game+LocalImage.swift in Sources */,
-				23DBFB011E30604200E276EB /* SportViewController.swift in Sources */,
 				23DBFAFE1E30604200E276EB /* GamesViewCell.swift in Sources */,
 				23C626BB1E342B2100BDDACE /* ViewController+Player.swift in Sources */,
 				2355AD551E32926800EAEF02 /* ContentListViewCell.swift in Sources */,
@@ -916,6 +921,7 @@
 				2349258E1F8412F50071185A /* DeviceActivation.swift in Sources */,
 				2392BEFD1F9153970012446C /* ContentList.swift in Sources */,
 				232FBF761E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
+				23697E101F944D330017919D /* NFLWeek.swift in Sources */,
 				23246CDA1E3E63AD0057FA63 /* Sport.swift in Sources */,
 				23246CCB1E3E60440057FA63 /* ServiceProvider.swift in Sources */,
 				233F365C1F8E94C700A6C2E0 /* DeviceActivationStatus.swift in Sources */,
