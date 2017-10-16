@@ -79,8 +79,8 @@ extension HahaViewController {
 	func showStreamChoiceAlert(game: Game, streams: [Stream]) {
 		let title = "Choose Stream"
 		let message: String;
-		let awayTeam = game.awayTeam.name
-		let homeTeam = game.homeTeam.name
+		let awayTeam = game.awayTeam.name ?? game.awayTeam.abbreviation ?? "???"
+		let homeTeam = game.homeTeam.name ?? game.homeTeam.abbreviation ?? "???"
 		message = "\(awayTeam) at \(homeTeam)";
 		
 		

@@ -23,10 +23,17 @@ enum HahaService {
 extension HahaService: TargetType {
 	var headers: [String : String]? {
 		let device = UIDevice.current
+		/*
+To get App version: NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+To get Build version: NSString *buildVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+		*/
+		
+		let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "Unknown"
+		let buildVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "Unknown"
 		return [ //TODO: load these from os sources as appropriate
 			"X-App" : "TvOS App",
-			"X-App-Version": "1.1b1",
-			"X-Device-Name": device.name,
+			"X-App-Version": "\(appVersion)b\(buildVersion)",
+			"X-Device-Name": device.model,
 			"X-Device-System": device.systemName,
 			"X-Device-CPU": "ARM/x86/x64",
 			"X-Id": device.identifierForVendor!.uuidString,

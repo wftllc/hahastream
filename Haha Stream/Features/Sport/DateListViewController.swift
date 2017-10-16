@@ -23,16 +23,25 @@ class DateListViewController: UITableViewController {
 		df.dateFormat = "EEE";
 		return df;
 	}()
+
+	func refreshData() {
+		setupDates();
+		tableView.reloadData();
+		tableView.remembersLastFocusedIndexPath = true;
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = sport.name
-		setupDates();
-		tableView.reloadData();
-		tableView.remembersLastFocusedIndexPath = true;
+		refreshData()
 		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 		self.tableView.selectRow(at: IndexPath(row: 1, section: 0), animated: false, scrollPosition: .none);
 		}
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		refreshData()
 	}
 	
 	override func indexPathForPreferredFocusedView(in tableView: UITableView) -> IndexPath? {
