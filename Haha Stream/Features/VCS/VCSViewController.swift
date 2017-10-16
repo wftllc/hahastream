@@ -2,7 +2,7 @@ import UIKit
 import AVKit
 
 class VCSViewController: HahaSplitViewController, UISplitViewControllerDelegate, VCSChannelListDelegate {
-	var activeVCS: VCS?;
+	var activeVCS: Channel?;
 	var playerViewController: AVPlayerViewController? {
 		return self.viewControllers.last as? AVPlayerViewController
 	}
@@ -17,33 +17,27 @@ class VCSViewController: HahaSplitViewController, UISplitViewControllerDelegate,
 		// Dispose of any resources that can be recreated.
 	}
 
-	func vcsChannelListDidFocus(vcs: VCS) {
+	func vcsChannelListDidFocus(channel: Channel) {
 	}
 
 
-	func vcsChannelListDidSelect(vcs: VCS) {
-		let __FIXME_REIMPLEMENT_THIS: Any?
-//		if vcs.uuid == activeVCS?.uuid {
-//
-//		}
-//		activeVCS = vcs;
-//		provider.getVCSStreams(vcs: vcs, success: { (streams) in
-//			if streams.count > 0 {
-//				if( self.activeVCS?.uuid == vcs.uuid ) {
-//					DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//						if( self.activeVCS?.uuid == vcs.uuid ) {
-//							self.previewURL(streams.first!.url)
-//						}
-//					}
-//				}
-//			}
-//		}, apiError: { (error) in
-//			print(error)
-//		}) { (error) in
-//			print(error)
-//		}
+	func vcsChannelListDidSelect(channel: Channel) {
+		if channel.uuid == activeVCS?.uuid {
+			return;
+		}
+		activeVCS = channel;
+		provider.getStream(channel: channel, success: { (stream) in
+			if( self.activeVCS?.uuid != channel.uuid ) {
+				return;
+			}
+			self.provider.getStreamURL(forStream: stream, inChannel: channel, success: { (streamURL) in
+				if( self.activeVCS?.uuid != channel.uuid ) {
+					return;
+				}
+				self.previewURL(streamURL.url)
+			}, apiError: self.apiErrorClosure, networkFailure: self.networkFailureClosure)
+		}, apiError: self.apiErrorClosure, networkFailure: self.networkFailureClosure)
 	}
-
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		self.playerViewController?.player?.pause()

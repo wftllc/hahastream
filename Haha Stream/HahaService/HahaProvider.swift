@@ -93,7 +93,7 @@ class HahaProvider:NSObject {
 	}
 	
 	//MARK: - Channels
-	
+	/*
 	func getChannels(
 		sports: [Sport],
 		success successCallback: @escaping ([Channel]) -> Void,
@@ -126,15 +126,15 @@ class HahaProvider:NSObject {
 			}
 		}
 	}
+	*/
 	func getChannels(
-		success successCallback: @escaping ([Channel]) -> Void,
-		apiError errorCallback: @escaping (Any) -> Void,
-		networkFailure failureCallback: @escaping (MoyaError) -> Void
+		success: @escaping ([Channel]) -> Void,
+		apiError: @escaping (Any) -> Void,
+		networkFailure: @escaping (MoyaError) -> Void
 		)
 	{
-		self.getSports(success: { (sports) in
-			self.getChannels(sports: sports, success: successCallback, apiError: errorCallback, networkFailure: failureCallback);
-		}, apiError: errorCallback, networkFailure: failureCallback);
+		let endpoint = HahaService.getChannels
+		self.get(endpoint: endpoint, success: success, apiError: apiError, networkFailure: networkFailure)
 	}
 	
 	
@@ -331,19 +331,6 @@ class HahaProvider:NSObject {
 		self.getOne(endpoint: endpoint, success: success, apiError: apiError, networkFailure: networkFailure);
 	}
 		
-	func getVCSChannels(
-		success successCallback: @escaping ([VCS]) -> Void,
-		apiError errorCallback: @escaping (Any) -> Void,
-		networkFailure failureCallback: @escaping (MoyaError) -> Void
-		)
-	{
-		var results:[VCS] = []
-		
-		results.sort { (a, b) -> Bool in
-			return a.name < b.name;
-		}
-		successCallback(results);
-	}
 	
 	//MARK: - Game/Content Items
 	

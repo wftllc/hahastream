@@ -12,7 +12,7 @@ enum HahaService {
 	case getGame(sport: String, uuid: String)
 	//	case getGamesByDate(sport: String, year: Int, month: Int, day: Int);
 	case getSports;
-	case getChannels(sport: String);
+	case getChannels;
 	case getChannelStreams(channelId: String);
 	case getStreams(sport: String, gameId: String);
 	case getStreamURLForItem(itemId: String, streamId: String, sport: String?);
@@ -74,8 +74,8 @@ To get Build version: NSString *buildVersion = [[[NSBundle mainBundle] infoDicti
 			else { //channel
 				return "/channels/\(itemId.urlEscaped)/streams/\(streamId.urlEscaped)";
 			}
-		case .getChannels(let sport):
-			return "/\(sport.urlEscaped)/channels";
+		case .getChannels:
+			return "/channels";
 		case .scrapeVCSChannels:
 			return "vcs"
 		}
