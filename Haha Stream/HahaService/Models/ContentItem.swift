@@ -31,4 +31,19 @@ class ContentItem: NSObject, FromDictable {
 			return channel!.description
 		}
 	}
+	
+	override func isEqual(_ object: Any?) -> Bool {
+		guard let item = object as? ContentItem else {
+			return false
+		}
+		if self.game != nil {
+			return item.game?.uuid == self.game?.uuid
+		}
+		else if self.channel != nil {
+			return item.channel?.uuid == self.channel?.uuid
+		}
+		else {
+			return false
+		}
+	}
 }

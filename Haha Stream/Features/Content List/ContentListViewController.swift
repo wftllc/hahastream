@@ -6,13 +6,13 @@ private let reuseIdentifier = "ContentListViewCell"
 
 protocol ContentListView: AnyObject {
 	var interactor: ContentListInteractor? { get set }
-	func updateView(contentList: ContentList)
+	func updateView(contentList: ContentList, lastSelectedItem: ContentItem?)
 	func showLoading(animated: Bool)
 	func hideLoading(animated: Bool, completion: (()->Void)?)
-
+	
 	func playURL(_ url: URL)
 	func showStreamChoiceAlert(game: Game, streams: [Stream])
-
+	
 	var apiErrorClosure: (Any) -> Void { get }
 	var networkFailureClosure: (MoyaError) -> Void { get }
 }
@@ -26,10 +26,14 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 	@IBOutlet weak var noResultsLabel: UILabel!
 	
 	var interactor: ContentListInteractor?
-
+	
 	var contentList: ContentList?
+	var preferredFocusIndexPath: IndexPath?
 	
-	
+	override var preferredFocusEnvironments: [UIFocusEnvironment] { get {
+		let def = super.preferredFocusEnvironments;
+		return self.collectionView.preferredFocusEnvironments + def
+	}}
 	//TODO - show something when no current results
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -40,14 +44,16 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 		self.inlinePlayerContainerView.layer.shadowRadius = 12;
 		self.inlinePlayerContainerView.layer.shadowOpacity = 0.25;
 		self.inlinePlayerContainerView.layer.shadowOffset = CGSize(width:0, height:5);
-
+		
 		// Uncomment the following line to preserve selection between presentations
-		// self.clearsSelectionOnViewWillAppear = false
-
+		self.restoresFocusAfterTransition = false
+		self.collectionView.remembersLastFocusedIndexPath = true
+//		self.clearsSelectionOnViewWillAppear = false
+		
 		self.dateLabel.text = ""
 		interactor?.viewDidLoad();
 	}
-
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		interactor?.viewWillAppear(animated)
@@ -85,10 +91,14 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 		}
 	}
 	
-	//MARK: interactor callbacks
-	func updateView(contentList: ContentList) {
+	//MARK: - interactor callbacks
+	func updateView(contentList: ContentList, lastSelectedItem: ContentItem?) {
 		self.contentList = contentList
 		self.dateLabel.text = contentList.title
+
+		if let item = lastSelectedItem {
+			self.preferredFocusIndexPath = contentList.indexPath(forItem: item)
+		}
 		self.collectionView.reloadData()
 		self.noResultsLabel.isHidden = self.contentList?.sections.count != 0
 	}
@@ -98,7 +108,7 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 	func dateListDidSelect(date: Date) {
 		interactor?.viewDidSelect(date: date)
 	}
-
+	
 	//MARK: - NFLDateListDelegate
 	func nflDateDidSelect(_ week: NFLWeek) {
 		interactor?.viewDidSelect(nflWeek: week)
@@ -116,28 +126,27 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 	
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 		let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ContentListHeader.ReuseIdentifier, for: indexPath) as! ContentListHeader
-
+		
 		header.lineView.isHidden = indexPath.section == 0
-
+		
 		return header
-	}
-	
-	func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath? {
-		return IndexPath(item: 0, section: 0)
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ContentListViewCell;
-
+		
 		guard let item = self.contentList?.item(atIndexPath: indexPath) else {
 			return cell
 		}
 		
 		cell.update(withContentItem: item, inSection: contentList!.sections[indexPath.section])
-
+		
 		return cell
 	}
 	
+	func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> IndexPath? {
+		return self.preferredFocusIndexPath
+	}
 	// MARK: UICollectionViewDelegate
 	
 	
@@ -147,12 +156,12 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 		}
 		interactor?.viewDidSelect(item: item)
 	}
-
+	
 }
 
 class ContentListHeader: UICollectionReusableView {
 	public static let ReuseIdentifier = "ContentListHeader"
-
+	
 	@IBOutlet weak var lineView: UIView!
 	override func awakeFromNib() {
 		super.awakeFromNib()

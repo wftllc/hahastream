@@ -42,6 +42,21 @@ extension ContentList {
 		return a
 	}
 	
+	func indexPath(forItem item: ContentItem) -> IndexPath? {
+		var sectionIndex = 0
+		for _ in sections {
+			var itemIndex = 0
+			for otherItem in items(inSection: sectionIndex) {
+				if item == otherItem {
+					return IndexPath(item: itemIndex, section: sectionIndex)
+				}
+				itemIndex += 1
+			}
+			sectionIndex += 1
+		}
+		return nil
+	}
+	
 	func items(inSection section: Int) -> [ContentItem] {
 		let section = self.sections[section]
 		switch section {

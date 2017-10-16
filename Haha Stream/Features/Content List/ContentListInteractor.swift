@@ -33,6 +33,7 @@ class ContentListInteractorImpl: NSObject, ContentListInteractor {
 	var sport: Sport?
 	var date: Date?
 	var nflWeek: NFLWeek?
+	var lastSelectedItem: ContentItem?
 	
 	init(provider: HahaProvider, router: AppRouter, sport: Sport? = nil) {
 		self.provider = provider
@@ -71,7 +72,7 @@ class ContentListInteractorImpl: NSObject, ContentListInteractor {
 						if showLoading {
 							self.view?.hideLoading(animated: true, completion: nil)
 						}
-						self.view?.updateView(contentList: contentList)
+						self.view?.updateView(contentList: contentList, lastSelectedItem: self.lastSelectedItem)
 				}, apiError: self.view!.apiErrorClosure,
 				   networkFailure: self.view!.networkFailureClosure
 				)
@@ -85,7 +86,7 @@ class ContentListInteractorImpl: NSObject, ContentListInteractor {
 						if showLoading {
 							self.view?.hideLoading(animated: true, completion: nil)
 						}
-						self.view?.updateView(contentList: contentList)
+						self.view?.updateView(contentList: contentList, lastSelectedItem: self.lastSelectedItem)
 				}, apiError: self.view!.apiErrorClosure,
 					 networkFailure: self.view!.networkFailureClosure
 				)
@@ -97,7 +98,7 @@ class ContentListInteractorImpl: NSObject, ContentListInteractor {
 					if showLoading {
 						self.view?.hideLoading(animated: true, completion: nil)
 					}
-					self.view?.updateView(contentList: contentList)
+					self.view?.updateView(contentList: contentList, lastSelectedItem: self.lastSelectedItem)
 			}, apiError: self.view!.apiErrorClosure,
 			   networkFailure: self.view!.networkFailureClosure
 			)
@@ -105,6 +106,7 @@ class ContentListInteractorImpl: NSObject, ContentListInteractor {
 	}
 	
 	func viewDidSelect(item: ContentItem) {
+		self.lastSelectedItem = item
 		if let game = item.game {
 			selectGame(game);
 		}

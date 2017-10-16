@@ -81,7 +81,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgC-G4-NL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarItem title="Sport" id="1Qd-yi-fi3"/>
             </objects>
-            <point key="canvasLocation" x="-3255" y="-1313"/>
+            <point key="canvasLocation" x="-3253" y="-1313"/>
         </scene>
     </scenes>
 </document>
