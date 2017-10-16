@@ -1,14 +1,15 @@
 import Foundation
 
 class ContentList: NSObject {
-	
+	var date: Date?
 	var nowPlaying: [ContentItem] = []
 	var channels: [ContentItem] = []
 	var upcoming: [ContentItem] = []
 	var ended: [ContentItem] = []
 	
-	convenience init(nowPlaying: [ContentItem], channels: [ContentItem], upcoming: [ContentItem], ended: [ContentItem]) {
+	convenience init(date: Date? = nil, nowPlaying: [ContentItem], channels: [ContentItem], upcoming: [ContentItem], ended: [ContentItem]) {
 		self.init()
+		self.date = date
 		self.nowPlaying = nowPlaying
 		self.channels = channels
 		self.upcoming = upcoming

@@ -225,7 +225,9 @@ class HahaProvider:NSObject {
 									channel.sport = sport //add sport manually
 								}
 							})
-							success(ContentList.contentList(bySortingItems: items))
+							let contentList = ContentList.contentList(bySortingItems: items)
+							contentList.date = date
+							success(contentList)
 						},
 		         apiError: apiError,
 		         networkFailure: networkFailure);

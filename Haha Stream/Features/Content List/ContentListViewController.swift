@@ -28,21 +28,6 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 
 	var contentList: ContentList?
 	
-	var timeFormatter: DateFormatter = {
-		let df = DateFormatter();
-		df.locale = Locale.current;
-		df.dateStyle = .none;
-		df.timeStyle = .short;
-		return df;
-	}()
-	
-	var dateFormatter: DateFormatter = {
-		let df = DateFormatter();
-		df.locale = Locale.current;
-		df.dateStyle = .long;
-		df.timeStyle = .none;
-		return df;
-	}()
 	
 	//TODO - show something when no current results
 	override func viewDidLoad() {
@@ -77,6 +62,23 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 	
 	override func playStream(stream: Stream, game: Game) {
 		interactor?.viewDidSelect(stream: stream, game: game)
+	}
+	
+	override func showLoading(animated: Bool) {
+		self.activityIndicator.startAnimating()
+		UIView.animate(withDuration: animated ? 0.25 : 0) {
+			self.collectionView.alpha = 0
+		}
+	}
+	
+	override func hideLoading(animated: Bool, completion: (() -> Void)?) {
+		self.activityIndicator.stopAnimating()
+		let duration = animated ? 0.25 : 0
+		UIView.animate(withDuration: duration, animations: {
+			self.collectionView.alpha = 1
+		}) { (_) in
+			completion?()
+		}
 	}
 	
 	//MARK: interactor callbacks
@@ -120,60 +122,8 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 			return cell
 		}
 		
-		if let game = item.game {
-			//			if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {
-			//				cell.homeImageView.kf.setImage(with: homeImageURL);
-			//				cell.awayImageView.kf.setImage(with: awayImageURL);
-			//				cell.singleImageView.image = nil
-			//			}
-			//			else {
-			//				cell.homeImageView.image = nil
-			//				cell.awayImageView.image = nil
-			//				cell.singleImageView.kf.setImage(with: game.singleImageURL,
-			//				                                 placeholder: Image(named: "hehelogo-transparent-750.png"),
-			//				                                 options: nil,
-			//				                                 progressBlock: nil,
-			//				                                 completionHandler: nil)
-			//			}
+		cell.update(withContentItem: item, inSection: contentList!.sections[indexPath.section])
 
-			cell.homeImageView.image = UIImage(named: "hehe-logo-trimmed")
-			cell.awayImageView.image = UIImage(named: "hehe-logo-trimmed")
-			let away = game.awayTeam.abbreviation ?? String(game.awayTeam.name.prefix(3))
-			let home = game.homeTeam.abbreviation ?? String(game.homeTeam.name.prefix(3))
-			cell.titleLabel.text = "\(away) @ \(home)"
-			cell.sportLabel.text = game.sport.name
-			cell.focusedDateLabel.alpha = 0.0
-			cell.atLabel.isHidden = false
-			if game.isActive {
-				cell.updateTimeLabel(withDate: game.startDate);
-				cell.startAnimating(date: game.startDate)
-				cell.readyLabel.isHidden = true
-				cell.focusedDateLabel.isHidden = false
-				cell.focusedDateLabel.text = "Now Playing"
-				cell.timeLabel.tintColor = cell.readyLabel.tintColor
-			}
-			else {
-				cell.timeLabel.text = timeFormatter.string(from: game.startDate);
-				cell.readyLabel.isHidden = false
-				cell.focusedDateLabel.isHidden = false
-				cell.readyLabel.text = timeFormatter.string(from: game.readyDate);
-				cell.focusedDateLabel.text = "Ready at \(timeFormatter.string(from: game.readyDate))"
-				cell.timeLabel.tintColor = nil
-			}
-		}
-		else {
-			let channel = item.channel!
-				cell.titleLabel.text = channel.title
-			cell.timeLabel.text = nil;
-			cell.homeImageView.image = nil
-			cell.awayImageView.image = nil
-			cell.sportLabel.text = channel.sport?.name ?? ""
-			cell.atLabel.isHidden = true
-			cell.readyLabel.isHidden = true
-			cell.focusedDateLabel.isHidden = true
-
-//			cell.singleImageView.image = Image(named: "hehelogo-transparent-750.png")
-		}
 		return cell
 	}
 	

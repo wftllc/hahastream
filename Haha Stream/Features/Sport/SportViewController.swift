@@ -6,12 +6,6 @@ class SportViewController: UISplitViewController {
 	;
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		if let dateVC = self.viewControllers[0] as? DateListViewController{
-			print("got dateVC")
-		}
-		else if let nowPlayingVC = self.viewControllers[1] as? ContentListViewController {
-			print("got nowPlayingVC")
-		}
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -20,16 +14,5 @@ class SportViewController: UISplitViewController {
 	}
 	
 	// MARK: - Navigation
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if let dateVC = segue.destination as? DateListViewController{
-			print("got dateVC")
-		}
-		else if let nowPlayingVC = segue.destination as? ContentListViewController {
-			print("got nowPlayingVC")
-		}
-	// Get the new view controller using segue.destinationViewController.
-	// Pass the selected object to the new view controller.
-	}
 	
 }

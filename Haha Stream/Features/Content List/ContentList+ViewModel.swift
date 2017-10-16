@@ -21,7 +21,8 @@ extension ContentList {
 		if self.nowPlaying.count > 0 {
 			a.append(.nowPlaying)
 		}
-		if self.channels.count > 0 {
+		//only show channels if we're looking at the "right now" content list
+		if self.channels.count > 0 && self.date == nil {
 			a.append(.channels)
 		}
 		if self.upcoming.count > 0 {

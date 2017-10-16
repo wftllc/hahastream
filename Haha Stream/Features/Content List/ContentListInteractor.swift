@@ -103,7 +103,7 @@ class ContentListInteractorImpl: NSObject, ContentListInteractor {
 	}
 
 	func viewDidSelect(date: Date) {
-		self.date = date
+		self.date = date		
 		self.refreshData(showLoading: true)
 	}
 

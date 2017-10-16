@@ -12,6 +12,8 @@ class HomeViewController: HahaTabBarController {
 				return a.name < b.name
 			})
 
+			viewControllers.append(self.appRouter.nowPlayingViewController());
+
 			var haveVCS = false;
 			for sport in sports {
 				let tabBarItem = UITabBarItem(title: sport.name, image: nil, selectedImage: nil)
@@ -30,8 +32,6 @@ class HomeViewController: HahaTabBarController {
 				viewControllers.append(self.appRouter.vcsViewController())
 			}
 			
-			viewControllers.append(self.appRouter.nowPlayingViewController());
-
 			viewControllers.append(self.appRouter.accountViewController())
 			
 			self.setViewControllers(viewControllers, animated: false)
