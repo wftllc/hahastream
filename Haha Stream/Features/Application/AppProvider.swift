@@ -33,6 +33,7 @@ class AppProvider: NSObject {
 		set {
 			let userDefaults = UserDefaults(suiteName: type(of: self).AppGroupName);
 			userDefaults?.set(newValue, forKey: type(of: self).ApiKeyKey);
+			userDefaults?.synchronize()
 		}
 	}
 }

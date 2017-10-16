@@ -35,6 +35,9 @@ class AccountInteractor: NSObject {
 		self.provider.deactivateDevice(success: {
 			self.view?.hideLoading(animated: false, completion: {
 				self.router?.handleLogoutComplete()
+				self.view?.showAlert(title: "Deactivated", message: "Press OK to Continue", onDismiss: {
+					self.router?.gotoFirstScreen()
+				})
 			})
 		}, apiError: self.view!.apiErrorClosure, networkFailure: self.view!.networkFailureClosure)
 	}

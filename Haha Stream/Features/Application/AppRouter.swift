@@ -20,8 +20,7 @@ class AppRouter: NSObject {
 	}
 	public func handleLogoutComplete() {
 		appProvider.apiKey = nil
-		self.hahaProvider.apiKey = appProvider.apiKey
-		gotoFirstScreen();
+		self.hahaProvider.apiKey = nil
 	}
 
 	func gotoFirstScreen() {

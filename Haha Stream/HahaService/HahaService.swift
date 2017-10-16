@@ -36,7 +36,7 @@ To get Build version: NSString *buildVersion = [[[NSBundle mainBundle] infoDicti
 			"X-Device-Name": device.model,
 			"X-Device-System": device.systemName,
 			"X-Device-CPU": "ARM/x86/x64",
-			"X-Id": device.identifierForVendor!.uuidString,
+			"X-Id": "\(device.identifierForVendor!.uuidString)-b",
 			"X-Device-Version": device.systemVersion,
 		]
 	}
