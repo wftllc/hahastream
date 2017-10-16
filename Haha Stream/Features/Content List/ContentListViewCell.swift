@@ -40,7 +40,8 @@ class ContentListViewCell: UICollectionViewCell {
 	var timer: Timer?;
 	var shouldCancelAnimateLabels: Bool = false
 	var horizontalMotionEffect: UIInterpolatingMotionEffect!
-	
+	var verticalMotionEffect: UIInterpolatingMotionEffect!
+
 	override func awakeFromNib() {
 		super.awakeFromNib();
 		self.visualEffectView.layer.cornerRadius = 7.0;
@@ -56,13 +57,14 @@ class ContentListViewCell: UICollectionViewCell {
 		self.horizontalMotionEffect.minimumRelativeValue = -6
 		self.horizontalMotionEffect.maximumRelativeValue = 6
 
+		
+		self.verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+		verticalMotionEffect.minimumRelativeValue = -3
+		verticalMotionEffect.maximumRelativeValue = 3
+
 		self.clearFocused()
 
 		
-//		let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-//		verticalMotionEffect.minimumRelativeValue = -3
-//		verticalMotionEffect.maximumRelativeValue = 3
-//		self.contentView.addMotionEffect(verticalMotionEffect)
 //		self.contentView.backgroundColor = UIColor.white.withAlphaComponent(1.0);
 //		self.showFocused();
 //		self.homeImageView.adjustsImageWhenAncestorFocused = true;
@@ -107,14 +109,14 @@ class ContentListViewCell: UICollectionViewCell {
 //		self.topView.layer.shadowOffset = CGSize(width:0, height:15);
 		self.innerVisualEffectView.effect = UIBlurEffect(style: UIBlurEffectStyle.light);
 		self.bottomVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.dark));
-		self.contentView.addMotionEffect(horizontalMotionEffect!)
-		
+		self.contentView.addMotionEffect(horizontalMotionEffect)
+		self.contentView.addMotionEffect(verticalMotionEffect)
+
 		if !self.focusedDateLabel.isHidden {
 			self.focusedDateLabel.alpha = 1.0
 			self.timeLabel.alpha = 0.0
 			self.readyLabel.alpha = 0.0
-		}
-		
+		}		
 	}
 	
 	func clearFocused() {
@@ -122,6 +124,7 @@ class ContentListViewCell: UICollectionViewCell {
 		self.innerVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.light));
 		self.bottomVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.regular));
 		self.contentView.removeMotionEffect(horizontalMotionEffect)
+		self.contentView.removeMotionEffect(verticalMotionEffect)
 		self.focusedDateLabel.alpha = 0.0
 		self.timeLabel.alpha = 1.0
 		self.readyLabel.alpha = 1.0

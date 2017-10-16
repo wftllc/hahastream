@@ -18,7 +18,7 @@ class HomeViewController: HahaTabBarController {
 			for sport in sports {
 				let tabBarItem = UITabBarItem(title: sport.name, image: nil, selectedImage: nil)
 				let vc:UIViewController
-				if sport.name.lowercased() == "vcs" {
+				if sport.name.lowercased() == "vue" {
 					haveVCS = true
 				}
 				else {

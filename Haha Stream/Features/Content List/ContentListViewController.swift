@@ -48,6 +48,7 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 		// Uncomment the following line to preserve selection between presentations
 		self.restoresFocusAfterTransition = false
 		self.collectionView.remembersLastFocusedIndexPath = true
+		self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 90)
 //		self.clearsSelectionOnViewWillAppear = false
 		
 		self.dateLabel.text = ""

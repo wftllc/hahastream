@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="13196" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
-        <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,17 +36,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="652" height="128"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Swipe to Seek" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXv-RD-cGC">
-                                            <rect key="frame" x="76" y="18" width="500" height="91"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to Seek" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXv-RD-cGC">
+                                            <rect key="frame" x="735" y="840" width="450" height="91"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                             <color key="textColor" white="1" alpha="0.90013469830000004" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="PXv-RD-cGC" firstAttribute="centerX" secondItem="tAp-5d-7vM" secondAttribute="centerX" id="COA-tV-5dw"/>
-                                        <constraint firstItem="PXv-RD-cGC" firstAttribute="centerY" secondItem="tAp-5d-7vM" secondAttribute="centerY" id="zGB-3Q-xKX"/>
-                                    </constraints>
                                 </view>
                                 <vibrancyEffect>
                                     <blurEffect style="prominent"/>
@@ -56,7 +51,9 @@
                         </subviews>
                     </view>
                     <constraints>
+                        <constraint firstItem="PXv-RD-cGC" firstAttribute="centerY" secondItem="zE3-90-rhk" secondAttribute="centerY" id="H0O-PT-CKt"/>
                         <constraint firstAttribute="height" constant="128" id="PaB-HS-aat"/>
+                        <constraint firstItem="PXv-RD-cGC" firstAttribute="centerX" secondItem="zE3-90-rhk" secondAttribute="centerX" id="X1E-8B-SH4"/>
                         <constraint firstAttribute="width" constant="652" id="sFg-Rh-FLK"/>
                     </constraints>
                     <blurEffect style="regular"/>
