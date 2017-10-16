@@ -43,6 +43,7 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 		// Uncomment the following line to preserve selection between presentations
 		// self.clearsSelectionOnViewWillAppear = false
 
+		self.dateLabel.text = ""
 		interactor?.viewDidLoad();
 	}
 
@@ -84,6 +85,7 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 	//MARK: interactor callbacks
 	func updateView(contentList: ContentList) {
 		self.contentList = contentList
+		self.dateLabel.text = contentList.title
 		self.collectionView.reloadData()
 	}
 	

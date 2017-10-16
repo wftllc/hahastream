@@ -25,9 +25,9 @@ class ContentListInlineVideoInteractorImpl: ContentListInlineVideoInteractor {
 	}
 
 	func viewDidHighlight(item: ContentItem) {
-		guard let game = item.game else {
-			return
-		}
+//		guard let game = item.game else {
+//			return
+//		}
 		//		provider.getStreams(game: game, success: { (streams) in
 		//			guard let stream = streams.first else { return }
 		//			self.provider.getURLForStream(stream, game: game, success: { (url) in

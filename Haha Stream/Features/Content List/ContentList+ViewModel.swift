@@ -9,6 +9,14 @@
 import Foundation
 
 extension ContentList {
+	var dateFormatter: DateFormatter {
+		let df = DateFormatter();
+		df.locale = Locale.current;
+		df.dateStyle = .long;
+		df.timeStyle = .none;
+		return df;
+	}
+
 	enum Section {
 		case nowPlaying
 		case channels
@@ -53,5 +61,11 @@ extension ContentList {
 		return self.items(inSection: indexPath.section)[indexPath.item]
 	}
 	
+	var title: String {
+		guard let date = date else {
+			return "Now Playing"
+		}
+		return self.dateFormatter.string(from: date)
+	}
 
 }
