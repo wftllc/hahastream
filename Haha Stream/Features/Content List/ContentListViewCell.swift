@@ -13,8 +13,9 @@ class ContentListViewCell: UICollectionViewCell {
 	static var dateFormatter: DateFormatter = {
 		let df = DateFormatter();
 		df.locale = Locale.current;
-		df.dateStyle = .long;
-		df.timeStyle = .none;
+		df.setLocalizedDateFormatFromTemplate("EEE, dMM")
+//		df.dateStyle = .short;
+//		df.timeStyle = .none;
 		return df;
 	}()
 
@@ -153,8 +154,9 @@ class ContentListViewCell: UICollectionViewCell {
 		
 		homeImageView.image = UIImage(named: "hehe-logo-trimmed")
 		awayImageView.image = UIImage(named: "hehe-logo-trimmed")
-		let away = game.awayTeam.abbreviation ?? String(game.awayTeam.name.prefix(3))
-		let home = game.homeTeam.abbreviation ?? String(game.homeTeam.name.prefix(3))
+		
+		let away = game.awayTeam.abbreviation ?? String((game.awayTeam.name ?? "???").prefix(3))
+		let home = game.homeTeam.abbreviation ?? String((game.homeTeam.name ?? "???").prefix(3))
 		titleLabel.text = "\(away) @ \(home)"
 		sportLabel.text = game.sport.name
 		focusedDateLabel.alpha = 0.0
@@ -168,12 +170,22 @@ class ContentListViewCell: UICollectionViewCell {
 			timeLabel.tintColor = readyLabel.tintColor
 		}
 		else if section == .upcoming {
-			timeLabel.text = type(of: self).timeFormatter.string(from: game.startDate);
-			readyLabel.isHidden = false
-			focusedDateLabel.isHidden = false
-			readyLabel.text = type(of: self).timeFormatter.string(from: game.readyDate);
-			focusedDateLabel.text = "Ready at \(type(of: self).timeFormatter.string(from: game.readyDate))"
-			timeLabel.tintColor = nil
+			if game.startDate.isToday {
+				readyLabel.isHidden = false
+				focusedDateLabel.isHidden = false
+				timeLabel.tintColor = nil
+				timeLabel.text = type(of: self).timeFormatter.string(from: game.startDate);
+				readyLabel.text = type(of: self).timeFormatter.string(from: game.readyDate);
+				focusedDateLabel.text = "Ready at \(type(of: self).timeFormatter.string(from: game.readyDate))"
+			}
+			else {
+				readyLabel.isHidden = true
+				focusedDateLabel.isHidden = true
+				timeLabel.tintColor = nil
+				timeLabel.text = type(of: self).dateFormatter.string(from: game.startDate);
+//				readyLabel.text = type(of: self).timeFormatter.string(from: game.readyDate);
+//				focusedDateLabel.text = "Ready at \(type(of: self).timeFormatter.string(from: game.readyDate))"
+			}
 		}
 		else {
 			timeLabel.text = ""

@@ -7,7 +7,7 @@ enum HahaService {
 	case deactivateDevice()
 	case getDeviceActivationStatus()
 	case getGamesNoDate(sport: String);
-	case getNFLGames(year: Int, seasonType: Int, week: Int)
+	case getNFLGames(week: NFLWeek?)
 	case getGames(sport: String, year: Int, month: Int, day: Int);
 	case getGame(sport: String, uuid: String)
 	//	case getGamesByDate(sport: String, year: Int, month: Int, day: Int);
@@ -54,7 +54,7 @@ extension HahaService: TargetType {
 			return "/\(sport.urlEscaped)/games";
 		case .getGamesNoDate(let sport):
 			return "/\(sport.urlEscaped)/games"
-		case .getNFLGames(_, _ , _):
+		case .getNFLGames(_):
 			return "/nfl/games"
 		case .getChannelStreams(let uuid):
 			return "/channels/\(uuid.urlEscaped)/streams";
@@ -96,11 +96,14 @@ extension HahaService: TargetType {
 			return [
 				"date": String(format: "%2d-%02d-%1d", month, day, year)
 			]
-		case .getNFLGames(let year, let seasonType, let week):
+		case .getNFLGames(let nflWeek):
+			guard let nflWeek = nflWeek else { return [:] }
+			//pre-week# or reg-week#
+			//season=2016&week=pre-2
+			let prefix = nflWeek.type == .preSeason ? "pre" : "reg"
 			return [
-				"season": year,
-				"type": seasonType,
-				"week": week
+				"season": nflWeek.year,
+				"week": "\(prefix)-\(nflWeek.week)"
 			]
 		default:
 			return [:];

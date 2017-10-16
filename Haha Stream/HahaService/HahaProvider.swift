@@ -217,17 +217,12 @@ class HahaProvider:NSObject {
 		networkFailure: @escaping (MoyaError) -> Void
 		)
 	{
-		let endpoint: HahaService;
 		let sport = Sport(name: "NFL", path: "/services/nfl")
 		//		let date4hoursAgo = Date(timeIntervalSinceNow:-4*60*60)
 		//		let date = date ?? (Calendar.current.isDateInYesterday(date4hoursAgo) ? date4hoursAgo : Date())
 		
-		if let week = week {
-			endpoint = HahaService.getNFLGames(year: week.year, seasonType: week.type.rawValue, week: week.week)
-		}
-		else {
-			endpoint = HahaService.getGamesNoDate(sport: "nfl")
-		}
+		
+		let endpoint = HahaService.getNFLGames(week: week)
 		
 		self.get(endpoint: endpoint,
 		         success: { (items: [ContentItem]) in

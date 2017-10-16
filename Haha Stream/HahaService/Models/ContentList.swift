@@ -65,14 +65,19 @@ class ContentList: NSObject {
 		guard let a = a.game, let b = b.game else {
 			return false
 		}
-		if a.startDate != b.startDate {
-			return a.startDate < b.startDate
+		if a.isActive || a.isUpcoming {
+			if a.startDate != b.startDate {
+				return a.startDate < b.startDate
+			}
 		}
 		if a.sport.name != b.sport.name {
 			return a.sport.name < b.sport.name;
 		}
+		if let a = a.homeTeam.abbreviation, let b = b.homeTeam.abbreviation {
+			return a < b
+		}
 		if a.title < b.title {
-			return true;
+			return true
 		}
 		
 		return false;

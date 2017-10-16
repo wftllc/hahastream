@@ -13,6 +13,7 @@ class HomeViewController: HahaTabBarController {
 			})
 
 			viewControllers.append(self.appRouter.nowPlayingViewController());
+			
 
 			var haveVCS = false;
 			for sport in sports {
@@ -24,7 +25,12 @@ class HomeViewController: HahaTabBarController {
 				else {
 					vc = self.appRouter.viewController(forSport: sport)
 					vc.tabBarItem = tabBarItem
-					viewControllers.append(vc)
+					if sport.name == "NFL" {
+						viewControllers.insert(vc, at: 0)
+					}
+					else {
+						viewControllers.append(vc)
+					}
 				}
 			}
 

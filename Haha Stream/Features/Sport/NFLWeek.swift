@@ -6,7 +6,21 @@ struct NFLWeek {
 	var type: NFLWeekType
 	var week: Int
 	var title: String { get {
-		return "\(year) \(type.title) \(week)"
+		if type == .preSeason && week == 0 {
+			return "\(year) Hall of Fame Game"
+		}
+		else if type == .preSeason {
+			return "\(year) \(type.title) Week \(week)"
+		}
+		else if type == .regularSeason {
+			return "\(year) Week \(week)"
+		}
+		else if let postseasonWeek = NFLPostseasonWeek(rawValue: week) {
+			return "\(year) \(postseasonWeek.title)"
+		}
+		else {
+			return "\(year) \(type.title) \(week)"
+		}
 		}}
 }
 

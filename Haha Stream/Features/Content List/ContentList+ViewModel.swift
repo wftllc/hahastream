@@ -30,7 +30,7 @@ extension ContentList {
 			a.append(.nowPlaying)
 		}
 		//only show channels if we're looking at the "right now" content list
-		if self.channels.count > 0 && self.date == nil {
+		if self.channels.count > 0 && self.date == nil && self.nflWeek == nil {
 			a.append(.channels)
 		}
 		if self.upcoming.count > 0 {
@@ -62,10 +62,15 @@ extension ContentList {
 	}
 	
 	var title: String {
-		guard let date = date else {
+		if let date = date {
+			return self.dateFormatter.string(from: date)
+		}
+		else if let nflWeek = nflWeek {
+			return nflWeek.title
+		}
+		else {
 			return "Now Playing"
 		}
-		return self.dateFormatter.string(from: date)
 	}
 
 }

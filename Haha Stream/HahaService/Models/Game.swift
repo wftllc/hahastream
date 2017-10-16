@@ -30,10 +30,9 @@ class Game: NSObject, FromDictable {
 		return Game.timeFormatter.string(from: startDate)
 	}
 	
-	static var dateFormatter: DateFormatter = {
-		let df = DateFormatter();
-		df.locale = Locale(identifier: "en_US_POSIX");
-		df.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSZ'"
+	static var dateFormatter: ISO8601DateFormatter = {
+		let df = ISO8601DateFormatter();
+		df.formatOptions = [.withFullDate, .withTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
 		return df;
 	}()
 	
@@ -45,12 +44,6 @@ class Game: NSObject, FromDictable {
 		return df;
 	}()
 	
-//	//TODO: move team to its own class
-//	init(dict:[String: Any]?) throws {
-//		guard let dict = dict else { throw FromDictableError.keyError(key: "<root>") }
-//		self.uuid = try dict.value("uuid");
-//		
-//	}
 	static func fromDictionary(_ dict:[String: Any]?) throws -> Self {
 		guard let dict = dict else { throw FromDictableError.keyError(key: "<root>") }
 		
@@ -115,14 +108,6 @@ class Game: NSObject, FromDictable {
 		return "\(title)";
 	}
 	
-	
-	public var homeTeamName: String {
-		return self.homeTeam.name
-	}
-	
-	public var awayTeamName: String {
-		return self.awayTeam.name
-	}
 	
 	public var singleImageURL: URL? {
 		return URL(string: "https://logos.hehestreams.xyz/image/vue_channels/\(self.uuid).png")
