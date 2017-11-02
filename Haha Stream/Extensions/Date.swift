@@ -20,6 +20,9 @@ extension Date {
 		if negative {
 			elapsed = "in \(elapsed)"
 		}
+		else {
+			elapsed = "+\(elapsed)"
+		}
 		return elapsed;
 	}
 	var isToday: Bool {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2307A8C01E3442B3002F0061 /* ContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307A8BF1E3442B3002F0061 /* ContentItem.swift */; };
+		230A04111FA6C83E00CFFC38 /* SeekOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230A04101FA6C83E00CFFC38 /* SeekOperation.swift */; };
 		230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230CF2731E2EA31A001C0606 /* Assets.xcassets */; };
 		230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF27D1E2EA433001C0606 /* HahaService.swift */; };
 		230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */; };
@@ -40,12 +41,14 @@
 		233F36641F8E989000A6C2E0 /* AccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F36611F8E988F00A6C2E0 /* AccountInteractor.swift */; };
 		233F36651F8E989000A6C2E0 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F36621F8E988F00A6C2E0 /* AccountViewController.swift */; };
 		233F4C141E32B5E100786A5C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F4C131E32B5E100786A5C /* Channel.swift */; };
-		2342FC531F8544EC00D0C295 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2342FC521F8544EC00D0C295 /* LoginInteractor.swift */; };
 		2349258D1F8412F50071185A /* DeviceActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258C1F8412F50071185A /* DeviceActivation.swift */; };
 		2349258E1F8412F50071185A /* DeviceActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258C1F8412F50071185A /* DeviceActivation.swift */; };
 		234925901F841ED20071185A /* StreamMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258F1F841ED20071185A /* StreamMeta.swift */; };
 		234925911F841ED20071185A /* StreamMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258F1F841ED20071185A /* StreamMeta.swift */; };
 		234925931F84247D0071185A /* HahaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */; };
+		234D85CF1FA66276008110A7 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234D85CC1FA66276008110A7 /* LoginInteractor.swift */; };
+		234D85D01FA66276008110A7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234D85CD1FA66276008110A7 /* Login.storyboard */; };
+		234D85D11FA66276008110A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234D85CE1FA66276008110A7 /* LoginViewController.swift */; };
 		2355AD541E32926800EAEF02 /* ContentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2355AD511E32926800EAEF02 /* ContentList.storyboard */; };
 		2355AD551E32926800EAEF02 /* ContentListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD521E32926800EAEF02 /* ContentListViewCell.swift */; };
 		2355AD561E32926800EAEF02 /* ContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD531E32926800EAEF02 /* ContentListViewController.swift */; };
@@ -85,8 +88,6 @@
 		23DBFAED1E30602500E276EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEA1E30602500E276EB /* AppDelegate.swift */; };
 		23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEB1E30602500E276EB /* AppProvider.swift */; };
 		23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEC1E30602500E276EB /* AppRouter.swift */; };
-		23DBFAF21E30603000E276EB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DBFAF01E30603000E276EB /* Login.storyboard */; };
-		23DBFAF31E30603000E276EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF11E30603000E276EB /* LoginViewController.swift */; };
 		23DBFAF61E30603900E276EB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DBFAF41E30603900E276EB /* Home.storyboard */; };
 		23DBFAF71E30603900E276EB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF51E30603900E276EB /* HomeViewController.swift */; };
 		23DBFAFE1E30604200E276EB /* GamesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAF91E30604200E276EB /* GamesViewCell.swift */; };
@@ -137,6 +138,7 @@
 
 /* Begin PBXFileReference section */
 		2307A8BF1E3442B3002F0061 /* ContentItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentItem.swift; path = HahaService/Models/ContentItem.swift; sourceTree = "<group>"; };
+		230A04101FA6C83E00CFFC38 /* SeekOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeekOperation.swift; path = Features/Player/SeekOperation.swift; sourceTree = "<group>"; };
 		230CF2691E2EA31A001C0606 /* Haha Stream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Haha Stream.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		230CF2731E2EA31A001C0606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		230CF2751E2EA31A001C0606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -162,9 +164,11 @@
 		233F36621F8E988F00A6C2E0 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		233F4C121E32B05600786A5C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		233F4C131E32B5E100786A5C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Channel.swift; path = HahaService/Models/Channel.swift; sourceTree = "<group>"; };
-		2342FC521F8544EC00D0C295 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = Features/Login/LoginInteractor.swift; sourceTree = "<group>"; };
 		2349258C1F8412F50071185A /* DeviceActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceActivation.swift; path = HahaService/Models/DeviceActivation.swift; sourceTree = "<group>"; };
 		2349258F1F841ED20071185A /* StreamMeta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamMeta.swift; sourceTree = "<group>"; };
+		234D85CC1FA66276008110A7 /* LoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		234D85CD1FA66276008110A7 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		234D85CE1FA66276008110A7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2355AD511E32926800EAEF02 /* ContentList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContentList.storyboard; sourceTree = "<group>"; };
 		2355AD521E32926800EAEF02 /* ContentListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListViewCell.swift; sourceTree = "<group>"; };
 		2355AD531E32926800EAEF02 /* ContentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListViewController.swift; sourceTree = "<group>"; };
@@ -198,8 +202,6 @@
 		23DBFAEA1E30602500E276EB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Features/Application/AppDelegate.swift; sourceTree = "<group>"; };
 		23DBFAEB1E30602500E276EB /* AppProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppProvider.swift; path = Features/Application/AppProvider.swift; sourceTree = "<group>"; };
 		23DBFAEC1E30602500E276EB /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppRouter.swift; path = Features/Application/AppRouter.swift; sourceTree = "<group>"; };
-		23DBFAF01E30603000E276EB /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Features/Login/Login.storyboard; sourceTree = "<group>"; };
-		23DBFAF11E30603000E276EB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Features/Login/LoginViewController.swift; sourceTree = "<group>"; };
 		23DBFAF41E30603900E276EB /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Features/Home/Home.storyboard; sourceTree = "<group>"; };
 		23DBFAF51E30603900E276EB /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Features/Home/HomeViewController.swift; sourceTree = "<group>"; };
 		23DBFAF91E30604200E276EB /* GamesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GamesViewCell.swift; path = Features/Sport/GamesViewCell.swift; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				23C626B61E3426DA00BDDACE /* PlayerViewController.swift */,
+				230A04101FA6C83E00CFFC38 /* SeekOperation.swift */,
 				23C626BA1E342B2100BDDACE /* ViewController+Player.swift */,
 				23C626B81E3426EB00BDDACE /* Player.storyboard */,
 				23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */,
@@ -476,11 +479,12 @@
 		23DBFAE61E305DDF00E276EB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				23DBFAF01E30603000E276EB /* Login.storyboard */,
-				23DBFAF11E30603000E276EB /* LoginViewController.swift */,
-				2342FC521F8544EC00D0C295 /* LoginInteractor.swift */,
+				234D85CD1FA66276008110A7 /* Login.storyboard */,
+				234D85CC1FA66276008110A7 /* LoginInteractor.swift */,
+				234D85CE1FA66276008110A7 /* LoginViewController.swift */,
 			);
 			name = Login;
+			path = Features/Login;
 			sourceTree = "<group>";
 		};
 		23DBFB0E1E311C1F00E276EB /* Extensions */ = {
@@ -651,7 +655,6 @@
 			files = (
 				232FBF801E40143A00294D26 /* Loading.storyboard in Resources */,
 				23DBFAF61E30603900E276EB /* Home.storyboard in Resources */,
-				23DBFAF21E30603000E276EB /* Login.storyboard in Resources */,
 				230CF2741E2EA31A001C0606 /* Assets.xcassets in Resources */,
 				2355AD541E32926800EAEF02 /* ContentList.storyboard in Resources */,
 				23697E141F9450DA0017919D /* NFLDateList.storyboard in Resources */,
@@ -660,6 +663,7 @@
 				23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */,
 				23C626B91E3426EB00BDDACE /* Player.storyboard in Resources */,
 				23C626B21E341A2F00BDDACE /* VCS.storyboard in Resources */,
+				234D85D01FA66276008110A7 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,7 +843,6 @@
 				23697E0D1F944CF60017919D /* NFLDateListViewController.swift in Sources */,
 				239008301F911D8500C8042B /* ContentListInlineVideoInteractor.swift in Sources */,
 				233F365B1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift in Sources */,
-				23DBFAF31E30603000E276EB /* LoginViewController.swift in Sources */,
 				23C1DE481E372F6C00E53954 /* VCSViewController.swift in Sources */,
 				23697E0B1F9445410017919D /* DateListViewController.swift in Sources */,
 				2390082E1F91198800C8042B /* ContentListInlineVideoViewController.swift in Sources */,
@@ -859,6 +862,7 @@
 				23D8575E1F8D77F300433790 /* InlineVideoPlayer.swift in Sources */,
 				2307A8C01E3442B3002F0061 /* ContentItem.swift in Sources */,
 				23148CF31F840AC20063B404 /* DeviceKey.swift in Sources */,
+				234D85D11FA66276008110A7 /* LoginViewController.swift in Sources */,
 				23C626B71E3426DA00BDDACE /* PlayerViewController.swift in Sources */,
 				2366E4371F8639840037D4A7 /* StreamURL.swift in Sources */,
 				23DBFAEE1E30602500E276EB /* AppProvider.swift in Sources */,
@@ -870,10 +874,11 @@
 				233F36651F8E989000A6C2E0 /* AccountViewController.swift in Sources */,
 				232FBF811E40143A00294D26 /* LoadingViewController.swift in Sources */,
 				234925901F841ED20071185A /* StreamMeta.swift in Sources */,
+				230A04111FA6C83E00CFFC38 /* SeekOperation.swift in Sources */,
+				234D85CF1FA66276008110A7 /* LoginInteractor.swift in Sources */,
 				23D8575A1F8D6CFE00433790 /* ContentListInteractor.swift in Sources */,
 				23DBFAEF1E30602500E276EB /* AppRouter.swift in Sources */,
 				23C626C01E34350E00BDDACE /* ViewController+Haha.swift in Sources */,
-				2342FC531F8544EC00D0C295 /* LoginInteractor.swift in Sources */,
 				237C25D61F861E5000987DF2 /* Dictionary+KeyPath.swift in Sources */,
 				2349258D1F8412F50071185A /* DeviceActivation.swift in Sources */,
 				23246D061E3FBF080057FA63 /* Game+LocalImage.swift in Sources */,

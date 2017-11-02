@@ -1,15 +1,7 @@
-//
-//  ContentListInteractor.swift
-//  Haha Stream
-//
-//  Created by Jake Lavenberg on 10/4/17.
-//  Copyright © 2017 WFT Productions LLC. All rights reserved.
-//
-
 import UIKit
 
 protocol ContentListInteractor {
-	weak var view: ContentListView? { get set }
+	weak var view: ContentListView? { get }
 	
 	func viewDidLoad()
 	func viewWillAppear(_ animated: Bool)
@@ -21,21 +13,24 @@ protocol ContentListInteractor {
 }
 
 class ContentListInteractorImpl: NSObject, ContentListInteractor {
-	
 	let RefreshTimeInterval: TimeInterval = 300;
 
-	weak var view: ContentListView?
-
-	var timer: Timer?;
+	var view: ContentListView? { get {
+		return self.viewStorage
+		}
+	}
+	weak var viewStorage: ContentListView?
 	let provider: HahaProvider
 	let router: AppRouter?
-	var videoPlayer: InlineVideoPlayer?
 	var sport: Sport?
+
+	var timer: Timer?;
 	var date: Date?
 	var nflWeek: NFLWeek?
 	var lastSelectedItem: ContentItem?
 	
-	init(provider: HahaProvider, router: AppRouter, sport: Sport? = nil) {
+	init(view: ContentListView?, provider: HahaProvider, router: AppRouter, sport: Sport? = nil) {
+		self.viewStorage = view
 		self.provider = provider
 		self.router = router
 		self.sport = sport
@@ -175,5 +170,8 @@ class ContentListInteractorImpl: NSObject, ContentListInteractor {
 		)
 	}
 	
+	func play(streamURL: StreamURL) {
+		self.view?.playURL(streamURL.url);
+	}
 	
 }

@@ -1,11 +1,3 @@
-//
-//  InlineVideoPlayer.swift
-//  Haha Stream
-//
-//  Created by Jake Lavenberg on 10/10/17.
-//  Copyright © 2017 WFT Productions LLC. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 
@@ -23,20 +15,18 @@ class InlineVideoPlayer: NSObject {
 	private var progressBlock: ((Int) -> Void)?
 	private var completionBlock: (() -> Void)?
 	
-	private var isObservingPlayerItem = false
-	private var a = 0 //sorry about this haxx
-	private var playerItemObservationContext:UnsafeMutableRawPointer
 	private var timeObserver: Any?
 	private var observer: NSObjectProtocol?
 	var player: AVPlayer?
-	
+
+	var playerItemObservation: NSKeyValueObservation?
+
 	override var debugDescription: String {
 		return (self.player?.currentItem?.asset as? AVURLAsset)?.url.absoluteString ?? "Player: No current player"
 	}
 	
 	required init(url:URL) {
 		self.url = url
-		self.playerItemObservationContext = UnsafeMutableRawPointer(&a)
 	}
 	
 	func load(
@@ -60,7 +50,6 @@ class InlineVideoPlayer: NSObject {
 		let asset = AVURLAsset(url: url)
 		let playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: ["tracks", "duration"])
 		
-		
 		self.player = AVPlayer(playerItem: playerItem)
 		self.player?.isMuted = true
 		self.observer = NotificationCenter.default.addObserver(
@@ -73,45 +62,29 @@ class InlineVideoPlayer: NSObject {
 				}
 		}
 		
-		isObservingPlayerItem = true
-		playerItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.new, .initial], context: self.playerItemObservationContext)
+		self.playerItemObservation = playerItem.observe(\.status) { [weak self] object, change in
+			print("\(object) got change \(change)")
+			guard let status = self?.player?.currentItem?.status else { return }
+			if status == .readyToPlay {
+				let block = self?.readyBlock
+				self?.readyBlock = nil
+				DispatchQueue.main.async {
+					block?()
+				}
+			}
+			else if status == .failed {
+				DispatchQueue.main.async {
+					self?.failureBlock?(Error.foundationError(error: playerItem.error))
+				}
+			}
+		}
 	}
 	
 	private func removeObservers() {
-		if let playerItem = self.player?.currentItem, isObservingPlayerItem {
-			isObservingPlayerItem = false
-			playerItem.removeObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), context: playerItemObservationContext)
-		}
+		self.playerItemObservation = nil
 		if let observer = self.observer {
 			NotificationCenter.default.removeObserver(observer)
 			self.observer = nil
-		}
-		
-	}
-	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-		if context != playerItemObservationContext {
-			super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-			return
-		}
-		
-		guard let playerItem = self.player?.currentItem else {
-			return
-		}
-		
-		let status = playerItem.status
-		
-		print("InlineVideoPlayer.\(status.rawValue)")
-		if status == .readyToPlay {
-			let block = self.readyBlock
-			self.readyBlock = nil
-			DispatchQueue.main.async {
-				block?()
-			}
-		}
-		else if status == .failed {
-			DispatchQueue.main.async {
-				self.failureBlock?(Error.foundationError(error: playerItem.error))
-			}
 		}
 	}
 	

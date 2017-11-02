@@ -5,7 +5,7 @@ import Moya
 private let reuseIdentifier = "ContentListViewCell"
 
 protocol ContentListView: AnyObject {
-	var interactor: ContentListInteractor? { get set }
+	var interactor: ContentListInteractor? { get }
 	func updateView(contentList: ContentList, lastSelectedItem: ContentItem?)
 	func showLoading(animated: Bool)
 	func hideLoading(animated: Bool, completion: (()->Void)?)
@@ -25,7 +25,12 @@ class ContentListViewController: HahaViewController, ContentListView, DateListDe
 	@IBOutlet weak var inlineVideoPlayerView: InlineVideoPlayerView!
 	@IBOutlet weak var noResultsLabel: UILabel!
 	
-	var interactor: ContentListInteractor?
+	var interactor: ContentListInteractor? { get {
+		return self.interactorStorage
+		}
+	}
+	var interactorStorage: ContentListInteractor?
+	
 	
 	var contentList: ContentList?
 	var preferredFocusIndexPath: IndexPath?

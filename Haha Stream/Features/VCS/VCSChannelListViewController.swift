@@ -27,10 +27,10 @@ class VCSChannelListViewController: HahaTableViewController {
 		
 	}
 	
-	override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
-//		print("shouldUpdateFocus: \(context.previouslyFocusedView) => \(context.nextFocusedView)")
-		return super.shouldUpdateFocus(in: context)
-	}
+//	override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
+////		print("shouldUpdateFocus: \(context.previouslyFocusedView) => \(context.nextFocusedView)")
+//		return super.shouldUpdateFocus(in: context)
+//	}
 	
 	override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
 //		print("didUpdateFocus: \(context.previouslyFocusedView) => \(context.nextFocusedView)")

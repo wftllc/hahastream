@@ -1,5 +1,6 @@
 import UIKit
 import CoreGraphics
+import Kingfisher
 
 class ContentListViewCell: UICollectionViewCell {
 	static var timeFormatter: DateFormatter = {
@@ -28,6 +29,7 @@ class ContentListViewCell: UICollectionViewCell {
 //	@IBOutlet weak var awayTeamLabel: UILabel!
 	@IBOutlet weak var awayImageView: UIImageView!
 	@IBOutlet weak var homeImageView: UIImageView!
+	@IBOutlet weak var sportImageView: UIImageView!
 	@IBOutlet weak var singleImageView: UIImageView!
 //	@IBOutlet weak var statusLabel: UILabel!
 	@IBOutlet weak var timeLabel: UILabel!
@@ -51,8 +53,6 @@ class ContentListViewCell: UICollectionViewCell {
 		self.topView.layer.shadowOpacity = 0.25;
 		self.topView.layer.shadowOffset = CGSize(width:0, height:5);
 
-		
-//
 		self.horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
 		self.horizontalMotionEffect.minimumRelativeValue = -6
 		self.horizontalMotionEffect.maximumRelativeValue = 6
@@ -112,11 +112,11 @@ class ContentListViewCell: UICollectionViewCell {
 		self.contentView.addMotionEffect(horizontalMotionEffect)
 		self.contentView.addMotionEffect(verticalMotionEffect)
 
-		if !self.focusedDateLabel.isHidden {
-			self.focusedDateLabel.alpha = 1.0
-			self.timeLabel.alpha = 0.0
-			self.readyLabel.alpha = 0.0
-		}		
+//		if !self.focusedDateLabel.isHidden {
+//			self.focusedDateLabel.alpha = 1.0
+//			self.timeLabel.alpha = 0.0
+//			self.readyLabel.alpha = 0.0
+//		}
 	}
 	
 	func clearFocused() {
@@ -125,9 +125,9 @@ class ContentListViewCell: UICollectionViewCell {
 		self.bottomVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.regular));
 		self.contentView.removeMotionEffect(horizontalMotionEffect)
 		self.contentView.removeMotionEffect(verticalMotionEffect)
-		self.focusedDateLabel.alpha = 0.0
-		self.timeLabel.alpha = 1.0
-		self.readyLabel.alpha = 1.0
+//		self.focusedDateLabel.alpha = 0.0
+//		self.timeLabel.alpha = 1.0
+//		self.readyLabel.alpha = 1.0
 	}
 	
 	func update(withContentItem item: ContentItem, inSection section: ContentList.Section) {
@@ -140,23 +140,24 @@ class ContentListViewCell: UICollectionViewCell {
 	}
 	
 	func update(withGame game: Game, inSection section: ContentList.Section) {
-		//			if let homeImageURL = game.homeTeamLogoURL, let awayImageURL = game.awayTeamLogoURL {
-		//				homeImageView.kf.setImage(with: homeImageURL);
-		//				awayImageView.kf.setImage(with: awayImageURL);
-		//				singleImageView.image = nil
-		//			}
-		//			else {
-		//				homeImageView.image = nil
-		//				awayImageView.image = nil
-		//				singleImageView.kf.setImage(with: game.singleImageURL,
-		//				                                 placeholder: Image(named: "hehelogo-transparent-750.png"),
-		//				                                 options: nil,
-		//				                                 progressBlock: nil,
-		//				                                 completionHandler: nil)
-		//			}
+		//hehestreams.com/images/sports/NBA.png hehestreams.com/images/teams/nba/CLE.png
+		let baseURI = "http://hehestreams.com/images/teams/\(game.sport.name.lowercased())"
+		let placeholder = UIImage(named: "sport-placeholder")
+		if let team = game.homeTeam.abbreviation?.uppercased(), let url = URL(string: "\(baseURI)/\(team).png") {
+			homeImageView.kf.setImage(with: url, placeholder: placeholder, options: [.transition(.fade(0.2))])
+		}
+		else {
+			homeImageView.image = placeholder
+		}
+
+		if let team = game.awayTeam.abbreviation?.uppercased(), let url = URL(string: "\(baseURI)/\(team).png") {
+			awayImageView.kf.setImage(with: url, placeholder: placeholder, options: [.transition(.fade(0.2))])
+		}
+		else {
+			awayImageView.image = placeholder
+		}
 		
-		homeImageView.image = UIImage(named: "hehe-logo-trimmed")
-		awayImageView.image = UIImage(named: "hehe-logo-trimmed")
+		updateSportImage(withSport: game.sport)
 		
 		let away = game.awayTeam.abbreviation ?? String((game.awayTeam.name ?? "???").prefix(3))
 		let home = game.homeTeam.abbreviation ?? String((game.homeTeam.name ?? "???").prefix(3))
@@ -199,6 +200,26 @@ class ContentListViewCell: UICollectionViewCell {
 		}
 	}
 	
+	private func updateSportImage(withSport sport: Sport?) {
+		//hehestreams.com/images/sports/NBA.png hehestreams.com/images/teams/nba/CLE.png
+
+		if let sport = sport, let url = URL(string: "http://hehestreams.com/images/sports/\(sport.name.uppercased()).png") {
+			let processor = ResizingImageProcessor(referenceSize: CGSize(width: 50, height: 50), mode: .aspectFit)
+			sportImageView.kf.setImage(with: url, options: [.processor(processor)]) {
+				(image, error, cacheType, imageUrl) in
+				guard let image = image else { return }
+				let margin: CGFloat = 8
+				self.sportImageView.frame = CGRect(x: self.topView.bounds.size.width-image.size.width-margin,
+				                                   y: self.topView.bounds.size.height-image.size.height-margin,
+				                                   width: image.size.width,
+				                                   height: image.size.height)
+			}
+		}
+		else {
+			sportImageView.image = nil
+		}
+	}
+	
 	func update(withChannel channel: Channel, inSection section: ContentList.Section) {
 		titleLabel.text = channel.title
 		timeLabel.text = nil;
@@ -208,7 +229,8 @@ class ContentListViewCell: UICollectionViewCell {
 		atLabel.isHidden = true
 		readyLabel.isHidden = true
 		focusedDateLabel.isHidden = true
-
+		
+		updateSportImage(withSport: channel.sport)
 	}
 /*
 label animating is not working well -- it keeps animating after leavint the cell

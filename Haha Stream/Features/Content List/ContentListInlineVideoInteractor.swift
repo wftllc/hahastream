@@ -1,63 +1,57 @@
-//
-//  ContentListInteractiveVideoInteractor.swift
-//  Haha Stream
-//
-//  Created by Jake Lavenberg on 10/13/17.
-//  Copyright © 2017 WFT Productions LLC. All rights reserved.
-//
-
 import Foundation
 
-protocol ContentListInlineVideoInteractor {
-	weak var view: ContentListInlineVideoView? { get set }
+protocol ContentListInlineVideoInteractor: ContentListInteractor {
+	weak var inlineView: ContentListInlineVideoView? { get }
 	func viewDidHighlight(item: ContentItem)
 	func viewDidUnhighlight(item: ContentItem)
+	func viewDidTapInlinePreview()
 }
 
-class ContentListInlineVideoInteractorImpl: ContentListInlineVideoInteractor {
-	var view: ContentListInlineVideoView?
+class ContentListInlineVideoInteractorImpl: ContentListInteractorImpl, ContentListInlineVideoInteractor  {
+	var inlineView: ContentListInlineVideoView? { get {
+		return self.viewStorage as? ContentListInlineVideoView
+		}
+	}
+
 	var videoPlayer: InlineVideoPlayer?
-//	var view: ContentListInlineVideoView?
+	var highlightedGame: Game?
 	
-	
-	func viewWillDisappear(_ animated: Bool) {
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
 		self.stopVideo()
 	}
 
 	func viewDidHighlight(item: ContentItem) {
-//		guard let game = item.game else {
-//			return
-//		}
-		//		provider.getStreams(game: game, success: { (streams) in
-		//			guard let stream = streams.first else { return }
-		//			self.provider.getURLForStream(stream, game: game, success: { (url) in
-		//				self.previewVideo(url: url.url)
-		//			}, apiError: { (_) in
-		//
-		//			}, networkFailure: { (_) in
-		//
-		//			})
-		//		}, apiError: { _ in }, networkFailure: { _ in })
-		
-		//		provider.getStreams(sport: game.sport, game: game, success: { (streams) in
-		//			if let stream = streams {
-		//
-		//			}
-		//			previewVideo(url: URL(string: "http://lavenberg.com/test/demo.mp4")!)
-		//		});
-		//
+		guard let game = item.game else {
+			return
+		}
+		highlightedGame = game
+		provider.getStreams(game: game, success: { [weak self] (streams) in
+			self?.provider.getStreamURL(forStream: streams[0], inGame: game, success: { (streamURL) in
+				if self?.highlightedGame == game {
+					self?.previewVideo(url: streamURL.url)
+				}
+			}, apiError: { _ in },
+				 networkFailure: { _ in }
+			)
+		}, apiError: { _ in },
+		   networkFailure: { _ in }
+		)
 	}
 	
 	func viewDidUnhighlight(item: ContentItem) {
 		stopVideo()
 	}
 	
+	func viewDidTapInlinePreview() {
+	}
+
 	private func previewVideo(url: URL) {
 		print("\(#function) \(url.absoluteString))")
 		self.videoPlayer = InlineVideoPlayer(url: url)
 		videoPlayer?.load( ready: { [unowned self] in
 			self.videoPlayer?.play()
-			self.view?.showVideo(player: self.videoPlayer!.player!)
+			self.inlineView?.showVideo(player: self.videoPlayer!.player!)
 			}, failure: { [unowned self] error in
 				print("video load failure: \(error)")
 				self.stopVideo()
@@ -71,7 +65,7 @@ class ContentListInlineVideoInteractorImpl: ContentListInlineVideoInteractor {
 		print("\(#function)")
 		self.videoPlayer?.stop()
 		self.videoPlayer = nil
-		self.view?.hideVideo()
+		self.inlineView?.hideVideo()
 	}
 }
 

@@ -1,25 +1,38 @@
-//
-//  ContentListViewController+InlineVideo.swift
-//  Haha Stream
-//
-//  Created by Jake Lavenberg on 10/13/17.
-//  Copyright © 2017 WFT Productions LLC. All rights reserved.
-//
-
 import UIKit
 import AVKit
 import Foundation
 
 
-protocol ContentListInlineVideoView: AnyObject {
-	var inlineInteractor: ContentListInlineVideoInteractor? { get set }
+protocol ContentListInlineVideoView: ContentListView {
+	var inlineInteractor: ContentListInlineVideoInteractor? { get }
 	func showVideo(player: AVPlayer)
 	func hideVideo()
 }
 
 class ContentListInlineVideoViewController: ContentListViewController, ContentListInlineVideoView {
-	var inlineInteractor: ContentListInlineVideoInteractor?
+	var inlineInteractor: ContentListInlineVideoInteractor? { get {
+		return self.interactorStorage as? ContentListInlineVideoInteractor
+		}
+	}
 	
+	override func viewDidLoad() {
+		super.viewDidLoad()		
+		self.inlinePlayerContainerView.layer.shadowRadius = 12;
+		self.inlinePlayerContainerView.layer.shadowOpacity = 0.75;
+		self.inlinePlayerContainerView.layer.shadowOffset = CGSize(width:0, height:10);
+		self.inlinePlayerContainerView.layer.masksToBounds = false
+//		self.inlinePlayerContainerView.addFo
+	}
+	
+	//MARK: - IBActions
+	
+	//MARK: - Focus
+
+//	override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
+//		let result = super.shouldUpdateFocus(in: context)
+//		print("\(#function), \(context)\n\t=>\(result)")
+//		return result
+//	}
 	//MARK: - UICollectionViewDelegate
 	
 	func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
@@ -85,8 +98,9 @@ class ContentListInlineVideoViewController: ContentListViewController, ContentLi
 		if ready {
 			self.removePlayerLayerObserver()
 			UIView.animate(withDuration: self.VideoFadeAnimationDuration, animations: {
-				self.inlinePlayerContainerView.alpha = 0.8
+				self.inlinePlayerContainerView.alpha = 1.0
 			}, completion: { _ in
+				self.setNeedsFocusUpdate()
 			})
 		}
 	}

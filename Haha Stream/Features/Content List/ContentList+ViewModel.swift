@@ -1,11 +1,3 @@
-//
-//  ContentList+ViewModel.swift
-//  Haha Stream
-//
-//  Created by Jake Lavenberg on 10/15/17.
-//  Copyright © 2017 WFT Productions LLC. All rights reserved.
-//
-
 import Foundation
 
 extension ContentList {

@@ -9,49 +9,9 @@ Inline docs don't care as much?
 import UIKit
 import AVKit
 
-class SeekOperation {
-	static public let SeekUXTimeoutSeconds: TimeInterval = -1.5
-	
-	var completionDate: Date?
-	var initialMediaTime: CMTime
-	//	var targetMediaTime: CMTime
-	var increment: Int
-	
-
-	/*
-	tells is this op is still active. a seek is active if < SeekUxTimeSeconds
-	have elapsed since the seek completed
-	*/
-	var active: Bool {
-		return self.completionDate == nil || self.completionDate!.timeIntervalSinceNow > SeekOperation.SeekUXTimeoutSeconds
-	}
-	
-	init(initialMediaTime: CMTime, increment: Int) {
-		self.initialMediaTime = initialMediaTime
-		self.increment = increment;
-	}
-	
-	func incrementBy(_ by: Int) {
-		//TODO: seek gets asymmetrical around the transition points when changing direction
-		
-		//reset completion date
-		self.completionDate = nil
-		switch(abs(increment)) {
-		case 0..<6: // 0 .. <3 min in 0:30s
-			self.increment += by;
-		case 6..<10: //3 .. <5 min in 1m
-			self.increment += by * 2
-		case 10..<60: //5 .. < 30 min by 5m
-			self.increment += by * 2 * 5;
-		default: // 10 min incr
-			self.increment += by * 2 * 10;
-		}
-	}
-}
-
-class PlayerViewController: AVPlayerViewController {
+class PlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelegate {
 	var seekOperation: SeekOperation?
-	
+	var isSeekingEnabled = true
 	var overlayView: PlayerOverlayView!;
 	
 	//TODO: clean up hacky unsafe pointerz
@@ -67,8 +27,8 @@ class PlayerViewController: AVPlayerViewController {
 		self.playerContext = UnsafeMutableRawPointer(&b)
 		self.playerItemContext = UnsafeMutableRawPointer(&c)
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-		self.isSkipForwardEnabled = false;
-		self.isSkipBackwardEnabled = false;
+//		self.isSkipForwardEnabled = false;
+//		self.isSkipBackwardEnabled = false;
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -79,7 +39,8 @@ class PlayerViewController: AVPlayerViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		requiresLinearPlayback = false;
-		
+		skippingBehavior = .skipItem
+		delegate = self
 		self.overlayView = PlayerOverlayView().fromNibNamed("PlayerOverlayView")
 		
 		overlayView.alpha = 0.0;
@@ -112,7 +73,7 @@ class PlayerViewController: AVPlayerViewController {
 		guard let item = self.player?.currentItem else { return }
 		print(item)
 		print("duration",item.duration.desc)
-		print(item.asset)
+		print("asset", item.asset)
 		print("tracks",item.tracks)
 		if let _ = item.timedMetadata {
 			print("timeMetadata \(item.timedMetadata!)")
@@ -122,17 +83,37 @@ class PlayerViewController: AVPlayerViewController {
 		print("canFR",item.canPlayFastReverse)
 		print("forwardEndTime",item.forwardPlaybackEndTime.desc)
 		print("reverseEndTime",item.reversePlaybackEndTime.desc)
+		print("preferredForwardBufferDuration: \(item.preferredForwardBufferDuration)")
 		for value in item.seekableTimeRanges {
 			let tr = value.timeRangeValue
-			print("seekableTime")
+			print("-- seekableTimeRange:")
 			CMTimeRangeShow(tr)
 		}
+		for value in item.loadedTimeRanges {
+			let tr = value.timeRangeValue
+			print("--- loadedTimeRanges:")
+			CMTimeRangeShow(tr)
+		}
+
 		if item.currentDate() != nil {
 			print("currentDate \(item.currentDate()!)")
 		}
 		print("currentTime",item.currentTime().desc)
-		print(item.canUseNetworkResourcesForLiveStreamingWhilePaused)
+		print("canUseNetworkResourcesForLiveStreamingWhilePaused", item.canUseNetworkResourcesForLiveStreamingWhilePaused)
+		let beginTime = item.seekableTimeRanges.sorted(by: { (leftV, rightV) -> Bool in
+			let left = leftV.timeRangeValue, right = rightV.timeRangeValue
+			return left.start < right.start
+		}).first
+		let endTime = item.seekableTimeRanges.sorted(by: { (leftV, rightV) -> Bool in
+			let left = leftV.timeRangeValue, right = rightV.timeRangeValue
+			return left.end > right.end
+		}).first
+		
+		print("beginTime: \(beginTime?.description ?? "")")
+		print("endTime: \(endTime?.description ?? "")")
+
 		print("externalMetadata",item.externalMetadata)
+		
 		
 		print("--asset--")
 		let asset = item.asset
@@ -146,43 +127,89 @@ class PlayerViewController: AVPlayerViewController {
 		once = true;
 		UIView.animate(withDuration: 0.5, delay: 1, options:[], animations: {
 			self.overlayView.visualEffectView.alpha = 1.0;
-		}) { (finished) in
-			UIView.animate(withDuration: 0.5, delay: 3, animations: {
-				self.overlayView.visualEffectView.alpha = 0.0;
-			});
-		}
+		})
+		UIView.animate(withDuration: 0.5, delay: 3.5, animations: {
+			self.overlayView.visualEffectView.alpha = 0.0;
+		});
+
 	}
+	
 	func seekBy(_ increment: Int) {
+		if !isSeekingEnabled {
+			return
+		}
+//		print("\(#function) \(increment)")
 		guard let player = self.player else {
 			return;
 		}
 		
 		if( self.seekOperation == nil || !self.seekOperation!.active ) {
 			//new seek op!
-			self.seekOperation = SeekOperation(initialMediaTime: player.currentTime(), increment: 0)
+			self.seekOperation = SeekOperation(initialMediaTime: player.currentTime())
 		}
 		
 		guard let seekOp = self.seekOperation else { return }
 		
-		seekOp.incrementBy(increment);
+		guard let seekableTimeRanges = player.currentItem?.seekableTimeRanges.map({ $0.timeRangeValue }) else { return }
 		
-		let offsetSeconds: Int = seekOp.increment * 30;
-		let targetSeekTime = CMTime(seconds: seekOp.initialMediaTime.seconds+Double(offsetSeconds), preferredTimescale: seekOp.initialMediaTime.timescale);
+
+		let proposedSeekTime = seekOp.proposedSeekTime(withAdditionalSwipes: increment)
+//		print("proposedSeekTime by \(seekOp.swipes+increment): \(proposedSeekTime.seconds)")
+//		print("seekOp.target: \(seekOp.targetSeekTime.seconds)")
+
+		var actualSeekTime: CMTime!
+		var offsetText = ""
+
+		//validate values and clamp to real starts/ends
+		if proposedSeekTime < seekOp.initialMediaTime {
+			guard let startTime = seekableTimeRanges.sorted(by: { $0.start < $1.start }).first?.start else {
+				return
+			}
+//			print("startTime: \(startTime.seconds)")
+			if proposedSeekTime < startTime {
+				seekOp.swipe(0)
+				actualSeekTime = startTime
+				offsetText = "At start"
+			}
+			else {
+				seekOp.swipe(increment)
+				let s = abs(seekOp.offsetSeconds) % 60
+				let m = abs(seekOp.offsetSeconds) / 60
+				offsetText = String(format:"%@%0d:%02d", seekOp.offsetSeconds > 0 ? "+" : "-", m, s)
+			}
+		}
+		else {
+			guard let endTime = seekableTimeRanges.sorted(by: { $0.end > $1.end }).first?.end else {
+				return
+			}
+//			print("endTime: \(endTime.seconds)")
+			
+			if proposedSeekTime > endTime {
+				seekOp.swipe(0)
+				actualSeekTime = endTime
+				offsetText = "At end"
+			}
+			else {
+				seekOp.swipe(increment)
+				let s = abs(seekOp.offsetSeconds) % 60
+				let m = abs(seekOp.offsetSeconds) / 60
+				offsetText = String(format:"%@%0d:%02d", seekOp.offsetSeconds > 0 ? "+" : "-", m, s)
+			}
+		}
 		
-		let s = abs(offsetSeconds) % 60
-		let m = abs(offsetSeconds) / 60
-		let text = String(format:"%@%0d:%02d", offsetSeconds > 0 ? "+" : "-", m, s)
-		self.overlayView.label.text = text;
+		actualSeekTime = actualSeekTime ?? seekOp.targetSeekTime
+
+		self.overlayView.label.text = offsetText;
 		
 		let options: UIViewAnimationOptions = [.curveEaseOut, .beginFromCurrentState]
+		self.overlayView.visualEffectView.isHidden = true
 		UIView.animate(withDuration: 0.15, delay: 0,
 		               options: options,
 		               animations: {
-										self.overlayView.visualEffectView.alpha = 0.0;
 										self.overlayView.label.alpha = 1.0;
 		}, completion:nil)
 		
-		player.seek(to: targetSeekTime) { finished in
+		player.seek(to: actualSeekTime) { finished in
 			if finished {
 				let options: UIViewAnimationOptions = [UIViewAnimationOptions.curveEaseInOut, .beginFromCurrentState]
 				seekOp.completionDate = Date();
@@ -214,7 +241,34 @@ class PlayerViewController: AVPlayerViewController {
 		//		print("scrubbed from \(oldTime.seconds) to \(targetTime.seconds)");
 	}
 	
-	//mark - player kvo
+	func playerViewController(_ playerViewController: AVPlayerViewController, willTransitionToVisibilityOfTransportBar visible: Bool, with coordinator: AVPlayerViewControllerAnimationCoordinator) {		
+		print("transportBar visible: \(visible)")
+		if visible {
+			disableSeeking()
+		}
+		else {
+			enableSeeking()
+		}
+	}
+	
+	func disableSeeking() {
+		isSeekingEnabled = false
+		seekOperation?.cancel()
+	}
+	
+	func enableSeeking() {
+		isSeekingEnabled = true
+	}
+	//MARK: - AVPlayerViewControllerDelegate
+	
+	func skipToNextItem(for playerViewController: AVPlayerViewController) {
+		seekBy(1)
+	}
+	
+	func skipToPreviousItem(for playerViewController: AVPlayerViewController) {
+		seekBy(-1)
+	}
+	//mark: - player kvo
 	
 	deinit {
 		removeObservers()
@@ -246,6 +300,7 @@ class PlayerViewController: AVPlayerViewController {
 	
 	func observePlayerItem(_ item: AVPlayerItem?) {
 		guard let item = item else { return }
+		item.canUseNetworkResourcesForLiveStreamingWhilePaused = true
 		item.addObserver(self, forKeyPath: "duration", options: [.initial, .new, .old], context: playerItemContext)
 	}
 	
@@ -277,6 +332,9 @@ class PlayerViewController: AVPlayerViewController {
 				if let statusNumber = change?[.newKey] as? NSNumber {
 					let newStatus = AVPlayerItemStatus(rawValue: statusNumber.intValue)!
 					if newStatus == .readyToPlay {
+						DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2, execute: {
+//							self.debugItem()
+						})
 						DispatchQueue.main.async {
 							self.showIntro()
 						}

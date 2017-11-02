@@ -61,9 +61,6 @@ class AppRouter: NSObject {
 					loadingVC.selectGame(identifier, sport: sport);
 				}
 				else if type == "channel" {
-					if let channelNumber = Int(identifier) {
-						loadingVC.selectChannel(channelNumber, sport: sport)
-					}
 				}
 			});
 			}
@@ -124,10 +121,15 @@ class AppRouter: NSObject {
 	}
 
 	func nowPlayingViewController() -> ContentListViewController {
-		let vc = UIStoryboard(name: "ContentList", bundle: nil).instantiateInitialViewController() as! ContentListViewController
-		let interactor = ContentListInteractorImpl(provider: hahaProvider, router: self)
-		vc.interactor = interactor
-		interactor.view = vc
+		let vc = UIStoryboard(name: "ContentList", bundle: nil).instantiateInitialViewController() as! ContentListInlineVideoViewController
+		let interactor = ContentListInlineVideoInteractorImpl(view: vc, provider: hahaProvider, router: self)
+		vc.interactorStorage = interactor
+//		interactor.view = vc
+		
+//		let inlineInteractor = ContentListInlineVideoInteractorImpl(provider: hahaProvider)
+//		vc.inlineInteractor = inlineInteractor
+//		inlineInteractor.view = vc
+		
 		return vc;
 	}
 	
@@ -145,9 +147,8 @@ class AppRouter: NSObject {
 
 		let nowPlayingViewController = splitViewController.viewControllers.last as! ContentListViewController
 
-		let interactor = ContentListInteractorImpl(provider: hahaProvider, router: self, sport: sport)
-		nowPlayingViewController.interactor = interactor
-		interactor.view = nowPlayingViewController
+		let interactor = ContentListInteractorImpl(view: nowPlayingViewController, provider: hahaProvider, router: self, sport: sport)
+		nowPlayingViewController.interactorStorage = interactor
 		nowPlayingViewController.provider = self.hahaProvider;
 
 		if sport.name.lowercased() == "nfl" {

@@ -21,28 +21,7 @@ extension HahaViewController {
 		)
 	}
 	
-	func selectChannel(_ identifier: Int, sport: String) {
-		let __FIXME_REIMPLEMENT_THIS: Any? = nil
 
-//		showLoading(animated: true)
-//		//fake it!
-//		let channel = Channel(identifier: identifier, title: "\(sport) channel", notes: nil, active: true);
-//		channel.sport = Sport(name: sport, path: "");
-//
-//		provider.getStream(channel: channel, success: { (stream) in
-//			self.hideLoading(animated: true, completion: {
-//				if let stream = stream {
-//					self.playURL(stream.url)
-//				}
-//				else {
-//					self.showAlert(title: "No Stream", message: "Couldn't find stream for \(channel.title)");
-//				}
-//			});
-//		}, apiError: apiErrorClosure,
-//		   networkFailure: networkFailureClosure
-//		)
-	}
-	
 	func selectGame(_ game: Game) {
 		showLoading(animated: true)
 		provider.getStreams(game: game, success: { (streams) in

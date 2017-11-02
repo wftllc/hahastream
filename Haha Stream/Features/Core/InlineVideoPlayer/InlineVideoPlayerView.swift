@@ -1,11 +1,3 @@
-//
-//  InlineVideoPlayerView.swift
-//  Haha Stream
-//
-//  Created by Jake Lavenberg on 10/10/17.
-//  Copyright © 2017 WFT Productions LLC. All rights reserved.
-//
-
 import UIKit
 import AVKit
 
