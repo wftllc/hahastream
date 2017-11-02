@@ -599,7 +599,6 @@
 				TargetAttributes = {
 					230CF2681E2EA31A001C0606 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9MQ56B2838;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1060,7 +1059,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Haha Stream/Haha Stream.entitlements";
-				DEVELOPMENT_TEAM = 9MQ56B2838;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Haha Stream/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wftllc.Haha-Stream";
@@ -1079,7 +1078,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Haha Stream/Haha Stream.entitlements";
-				DEVELOPMENT_TEAM = 9MQ56B2838;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Haha Stream/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wftllc.Haha-Stream";
