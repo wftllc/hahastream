@@ -241,24 +241,24 @@ class PlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelega
 		//		print("scrubbed from \(oldTime.seconds) to \(targetTime.seconds)");
 	}
 	
-	func playerViewController(_ playerViewController: AVPlayerViewController, willTransitionToVisibilityOfTransportBar visible: Bool, with coordinator: AVPlayerViewControllerAnimationCoordinator) {		
-		print("transportBar visible: \(visible)")
-		if visible {
-			disableSeeking()
-		}
-		else {
-			enableSeeking()
-		}
-	}
-	
-	func disableSeeking() {
-		isSeekingEnabled = false
-		seekOperation?.cancel()
-	}
-	
-	func enableSeeking() {
-		isSeekingEnabled = true
-	}
+//	func playerViewController(_ playerViewController: AVPlayerViewController, willTransitionToVisibilityOfTransportBar visible: Bool, with coordinator: AVPlayerViewControllerAnimationCoordinator) {		
+//		print("transportBar visible: \(visible)")
+//		if visible {
+//			disableSeeking()
+//		}
+//		else {
+//			enableSeeking()
+//		}
+//	}
+//	
+//	func disableSeeking() {
+//		isSeekingEnabled = false
+//		seekOperation?.cancel()
+//	}
+//	
+//	func enableSeeking() {
+//		isSeekingEnabled = true
+//	}
 	//MARK: - AVPlayerViewControllerDelegate
 	
 	func skipToNextItem(for playerViewController: AVPlayerViewController) {
