@@ -6,8 +6,8 @@ class AppProvider: NSObject {
 		case unitTests
 		case uiTests
 	}
-	public static let AppIsInUnitTestModeKey = "COM_WFTLLC_APP_IS_IN_UNIT_TEST_MODE"
-	private static let AppGroupName = "group.com.wftllc.haha-stream.shared"
+	public static let AppIsInUnitTestModeKey = "COM_HAHA_APP_IS_IN_UNIT_TEST_MODE"
+	private static let AppGroupName = "group.com.haha.tvos.shared"
 	private static let ApiKeyKey = "hehe_api_key";
 
 	let isInUnitTestMode: Bool

@@ -35,7 +35,7 @@ This has been tested on tvOS 10.1/Apple TV 4th gen.
 
 # Questions?
 
-[Create an issue](https://github.com/wftllc/hahastream/issues)
+Create an issue
 
 # Acknowledgements
 

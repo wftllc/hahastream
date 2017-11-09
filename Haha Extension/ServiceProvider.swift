@@ -80,17 +80,17 @@ class ServiceProvider: NSObject, TVTopShelfProvider {
 		//TODO: notification of login to get api key? (or is just using latest OK?)
 		
 		
-		guard let ident = TVContentIdentifier(identifier: "com.wftllc.haha-stream.games-ready", container: nil) else { fatalError("Error creating content identifier for section item.") }
+		guard let ident = TVContentIdentifier(identifier: "com.haha.tvos.games-ready", container: nil) else { fatalError("Error creating content identifier for section item.") }
 		guard let readySection = TVContentItem(contentIdentifier: ident) else { fatalError("Error creating section content item.") }
 		readySection.title = "Now Playing"
 		readySection.topShelfItems = readyGames.flatMap{ TVContentItem(game: $0) }
 		
-		guard let ident2 = TVContentIdentifier(identifier: "com.wftllc.haha-stream.channels", container: nil) else { fatalError("Error creating content identifier for section item.") }
+		guard let ident2 = TVContentIdentifier(identifier: "com.haha.tvos.channels", container: nil) else { fatalError("Error creating content identifier for section item.") }
 		guard let channelSection = TVContentItem(contentIdentifier: ident2) else { fatalError("Error creating section content item.") }
 		channelSection.title = "Channels"
 		channelSection.topShelfItems = channels.flatMap{ TVContentItem(channel: $0) }
 		
-		guard let ident3 = TVContentIdentifier(identifier: "com.wftllc.haha-stream.games-upcoming", container: nil) else { fatalError("Error creating content identifier for section item.") }
+		guard let ident3 = TVContentIdentifier(identifier: "com.haha.tvos.games-upcoming", container: nil) else { fatalError("Error creating content identifier for section item.") }
 		guard let upcomingSection = TVContentItem(contentIdentifier: ident3) else { fatalError("Error creating section content item.") }
 		upcomingSection.title = "Upcoming"
 		upcomingSection.topShelfItems = upcomingGames.flatMap{ TVContentItem(game: $0) }
@@ -124,7 +124,7 @@ extension TVContentItem {
 	contentItem.imageShape = imageShape
 	*/
 	convenience init?(game: Game) {
-		guard let identifier = TVContentIdentifier(identifier: "com.wftllc.haha-stream.game.\(game.uuid)", container: nil) else {
+		guard let identifier = TVContentIdentifier(identifier: "com.haha.tvos.game.\(game.uuid)", container: nil) else {
 			fatalError("Error creating content identifier for game.")
 		}
 		self.init(contentIdentifier: identifier);
@@ -138,7 +138,7 @@ extension TVContentItem {
 	}
 	
 	convenience init?(channel: Channel) {
-		guard let identifier = TVContentIdentifier(identifier: "com.wftllc.haha-stream.channel.\(channel.uuid)", container: nil) else {
+		guard let identifier = TVContentIdentifier(identifier: "com.haha.tvos.channel.\(channel.uuid)", container: nil) else {
 			fatalError("Error creating content identifier for game.")
 		}
 		self.init(contentIdentifier: identifier);

@@ -67,7 +67,7 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "COM_WFTLLC_APP_IS_IN_UNIT_TEST_MODE"
+            key = "COM_HAHA_APP_IS_IN_UNIT_TEST_MODE"
             value = "true"
             isEnabled = "YES">
          </EnvironmentVariable>
