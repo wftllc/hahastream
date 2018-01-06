@@ -27,6 +27,7 @@ class ContentListViewCell: UICollectionViewCell {
 	@IBOutlet weak var innerVisualEffectView: UIVisualEffectView!
 //	@IBOutlet weak var homeTeamLabel: UILabel!
 //	@IBOutlet weak var awayTeamLabel: UILabel!
+	@IBOutlet weak var imagesView: UIView!
 	@IBOutlet weak var awayImageView: UIImageView!
 	@IBOutlet weak var homeImageView: UIImageView!
 	@IBOutlet weak var sportImageView: UIImageView!
@@ -46,8 +47,8 @@ class ContentListViewCell: UICollectionViewCell {
 
 	override func awakeFromNib() {
 		super.awakeFromNib();
-		self.visualEffectView.layer.cornerRadius = 7.0;
-		self.visualEffectView.layer.masksToBounds = true;
+		self.imagesView.layer.cornerRadius = 7.0;
+		self.imagesView.layer.masksToBounds = true;
 		
 		self.topView.layer.shadowRadius = 12;
 		self.topView.layer.shadowOpacity = 0.25;
@@ -107,10 +108,10 @@ class ContentListViewCell: UICollectionViewCell {
 		self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
 //		self.topView.layer.shadowRadius = 12;
 //		self.topView.layer.shadowOffset = CGSize(width:0, height:15);
-		self.innerVisualEffectView.effect = UIBlurEffect(style: UIBlurEffectStyle.light);
-		self.bottomVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.dark));
-		self.contentView.addMotionEffect(horizontalMotionEffect)
-		self.contentView.addMotionEffect(verticalMotionEffect)
+//		self.innerVisualEffectView.effect = UIBlurEffect(style: UIBlurEffectStyle.light);
+//		self.bottomVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.dark));
+		self.imagesView.addMotionEffect(horizontalMotionEffect)
+		self.imagesView.addMotionEffect(verticalMotionEffect)
 
 //		if !self.focusedDateLabel.isHidden {
 //			self.focusedDateLabel.alpha = 1.0
@@ -121,10 +122,10 @@ class ContentListViewCell: UICollectionViewCell {
 	
 	func clearFocused() {
 		self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-		self.innerVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.light));
-		self.bottomVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.regular));
-		self.contentView.removeMotionEffect(horizontalMotionEffect)
-		self.contentView.removeMotionEffect(verticalMotionEffect)
+//		self.innerVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.light));
+//		self.bottomVisualEffectView.effect = UIVibrancyEffect(blurEffect: UIBlurEffect(style: UIBlurEffectStyle.regular));
+		self.imagesView.removeMotionEffect(horizontalMotionEffect)
+		self.imagesView.removeMotionEffect(verticalMotionEffect)
 //		self.focusedDateLabel.alpha = 0.0
 //		self.timeLabel.alpha = 1.0
 //		self.readyLabel.alpha = 1.0
