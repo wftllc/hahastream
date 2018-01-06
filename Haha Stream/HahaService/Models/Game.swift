@@ -55,8 +55,7 @@ class Game: NSObject, FromDictable {
 		let sport = try Sport.fromDictionary(sportDict)
 		
 		let startDateString: String = try dict.value("start_in_gmt")
-		var __FIXME_WORKAROUND_GAME_DATETIME_BUG = false
-		guard let date = self.dateFormatter.date(from: startDateString)?.addingTimeInterval(-60*60) else {
+		guard let date = self.dateFormatter.date(from: startDateString) else {
 			throw FromDictableError.otherError(reason: "couldn't parse start_in_gmt")
 		}
 		

@@ -48,12 +48,12 @@ class SeekOperation {
 			value = absSwipes * 15
 		case 3..<7: // 0 .. 6 swipes min in 0:30s (0s => 3 min)
 			value = 30 + 30 * (absSwipes-2) 
-		case 7..<14: // 3 min => 10 min; 1 min interval
-			value = 180 + 60 * (absSwipes-6)
-		case 14..<18: //10 min => 30 min; 5 min interval
-			value = 600 + 300 * (absSwipes-13)
-		default: //20+ 10 min incr
-			value = 1800 + (absSwipes-17) * 600
+		case 7..<15: // 3 min => 10 min; 1 min interval
+			value = 120 + 60 * (absSwipes-6)
+		case 15..<19: //10 min => 30 min; 5 min interval
+			value = 600 + 300 * (absSwipes-14)
+		default: //30+ 15 min incr
+			value = 1800 + (absSwipes-18) * 900
 		}
 		
 		return swipes < 0 ? -value : value

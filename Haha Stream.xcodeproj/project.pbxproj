@@ -13,64 +13,38 @@
 		230CF27E1E2EA433001C0606 /* HahaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF27D1E2EA433001C0606 /* HahaService.swift */; };
 		230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */; };
 		23148CF31F840AC20063B404 /* DeviceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23148CF21F840AC20063B404 /* DeviceKey.swift */; };
-		23148CF41F840D1B0063B404 /* DeviceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23148CF21F840AC20063B404 /* DeviceKey.swift */; };
-		23246CC81E3E60440057FA63 /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23246CC71E3E60440057FA63 /* TVServices.framework */; };
-		23246CCB1E3E60440057FA63 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23246CCA1E3E60440057FA63 /* ServiceProvider.swift */; };
-		23246CD51E3E63AD0057FA63 /* HahaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF27D1E2EA433001C0606 /* HahaService.swift */; };
-		23246CD61E3E63AD0057FA63 /* FromDictable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB021E30607000E276EB /* FromDictable.swift */; };
-		23246CD71E3E63AD0057FA63 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB031E30607000E276EB /* Game.swift */; };
-		23246CD81E3E63AD0057FA63 /* ContentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2307A8BF1E3442B3002F0061 /* ContentItem.swift */; };
-		23246CD91E3E63AD0057FA63 /* HahaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB041E30607000E276EB /* HahaError.swift */; };
-		23246CDA1E3E63AD0057FA63 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB051E30607000E276EB /* Sport.swift */; };
-		23246CDB1E3E63AD0057FA63 /* VCS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E7462F1E33F9AE00498A08 /* VCS.swift */; };
-		23246CDC1E3E63AD0057FA63 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F4C131E32B5E100786A5C /* Channel.swift */; };
-		23246CDD1E3E63AD0057FA63 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB061E30607000E276EB /* Stream.swift */; };
-		23246CDF1E3E68C90057FA63 /* AppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFAEB1E30602500E276EB /* AppProvider.swift */; };
 		23246D061E3FBF080057FA63 /* Game+LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23246D051E3FBF080057FA63 /* Game+LocalImage.swift */; };
-		23246D071E3FBF080057FA63 /* Game+LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23246D051E3FBF080057FA63 /* Game+LocalImage.swift */; };
 		232FBF751E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF741E3FD9B100294D26 /* Channel+LocalImage.swift */; };
-		232FBF761E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF741E3FD9B100294D26 /* Channel+LocalImage.swift */; };
 		232FBF781E3FDBB600294D26 /* LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF771E3FDBB600294D26 /* LocalImage.swift */; };
-		232FBF791E3FDBB600294D26 /* LocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF771E3FDBB600294D26 /* LocalImage.swift */; };
 		232FBF801E40143A00294D26 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 232FBF7E1E40143A00294D26 /* Loading.storyboard */; };
 		232FBF811E40143A00294D26 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232FBF7F1E40143A00294D26 /* LoadingViewController.swift */; };
 		233F365B1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F365A1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift */; };
-		233F365C1F8E94C700A6C2E0 /* DeviceActivationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F365A1F8E93CD00A6C2E0 /* DeviceActivationStatus.swift */; };
 		233F36631F8E989000A6C2E0 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233F36601F8E988F00A6C2E0 /* Account.storyboard */; };
 		233F36641F8E989000A6C2E0 /* AccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F36611F8E988F00A6C2E0 /* AccountInteractor.swift */; };
 		233F36651F8E989000A6C2E0 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F36621F8E988F00A6C2E0 /* AccountViewController.swift */; };
 		233F4C141E32B5E100786A5C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233F4C131E32B5E100786A5C /* Channel.swift */; };
 		2349258D1F8412F50071185A /* DeviceActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258C1F8412F50071185A /* DeviceActivation.swift */; };
-		2349258E1F8412F50071185A /* DeviceActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258C1F8412F50071185A /* DeviceActivation.swift */; };
 		234925901F841ED20071185A /* StreamMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258F1F841ED20071185A /* StreamMeta.swift */; };
-		234925911F841ED20071185A /* StreamMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349258F1F841ED20071185A /* StreamMeta.swift */; };
-		234925931F84247D0071185A /* HahaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */; };
 		234D85CF1FA66276008110A7 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234D85CC1FA66276008110A7 /* LoginInteractor.swift */; };
 		234D85D01FA66276008110A7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234D85CD1FA66276008110A7 /* Login.storyboard */; };
 		234D85D11FA66276008110A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234D85CE1FA66276008110A7 /* LoginViewController.swift */; };
 		2355AD541E32926800EAEF02 /* ContentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2355AD511E32926800EAEF02 /* ContentList.storyboard */; };
 		2355AD551E32926800EAEF02 /* ContentListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD521E32926800EAEF02 /* ContentListViewCell.swift */; };
 		2355AD561E32926800EAEF02 /* ContentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355AD531E32926800EAEF02 /* ContentListViewController.swift */; };
-		2366E4351F862BB40037D4A7 /* Dictionary+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */; };
 		2366E4371F8639840037D4A7 /* StreamURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366E4361F8639840037D4A7 /* StreamURL.swift */; };
-		2366E4381F8639FC0037D4A7 /* StreamURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366E4361F8639840037D4A7 /* StreamURL.swift */; };
 		2366E43A1F863C350037D4A7 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366E4391F863C350037D4A7 /* Team.swift */; };
-		2366E43B1F863C350037D4A7 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2366E4391F863C350037D4A7 /* Team.swift */; };
 		23697E0B1F9445410017919D /* DateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23697E0A1F9445410017919D /* DateListViewController.swift */; };
 		23697E0D1F944CF60017919D /* NFLDateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23697E0C1F944CF60017919D /* NFLDateListViewController.swift */; };
 		23697E0F1F944D170017919D /* NFLWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23697E0E1F944D170017919D /* NFLWeek.swift */; };
-		23697E101F944D330017919D /* NFLWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23697E0E1F944D170017919D /* NFLWeek.swift */; };
 		23697E121F944E8E0017919D /* Sport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23697E111F944E8E0017919D /* Sport.storyboard */; };
 		23697E141F9450DA0017919D /* NFLDateList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23697E131F9450DA0017919D /* NFLDateList.storyboard */; };
 		237C25D61F861E5000987DF2 /* Dictionary+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C25D51F861E5000987DF2 /* Dictionary+KeyPath.swift */; };
 		2390082E1F91198800C8042B /* ContentListInlineVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2390082D1F91198800C8042B /* ContentListInlineVideoViewController.swift */; };
 		239008301F911D8500C8042B /* ContentListInlineVideoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2390082F1F911D8500C8042B /* ContentListInlineVideoInteractor.swift */; };
 		2392BEFC1F9153970012446C /* ContentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392BEFB1F9153970012446C /* ContentList.swift */; };
-		2392BEFD1F9153970012446C /* ContentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392BEFB1F9153970012446C /* ContentList.swift */; };
 		2399394B1F941CDB00523509 /* ContentList+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399394A1F941CDB00523509 /* ContentList+ViewModel.swift */; };
 		23C1DE3E1E34708C00E53954 /* PlayerOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C1DE3D1E34708C00E53954 /* PlayerOverlayView.xib */; };
 		23C1DE401E34736100E53954 /* PlayerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE3F1E34736100E53954 /* PlayerOverlayView.swift */; };
-		23C1DE421E372A3600E53954 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		23C1DE441E372B1B00E53954 /* ViewController+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE431E372B1B00E53954 /* ViewController+Errors.swift */; };
 		23C1DE461E372DDF00E53954 /* VCSChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE451E372DDF00E53954 /* VCSChannelListViewController.swift */; };
 		23C1DE481E372F6C00E53954 /* VCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C1DE471E372F6C00E53954 /* VCSViewController.swift */; };
@@ -97,7 +71,6 @@
 		23DBFB0B1E30607000E276EB /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB061E30607000E276EB /* Stream.swift */; };
 		23DBFB111E311C1F00E276EB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBFB0F1E311C1F00E276EB /* Date.swift */; };
 		23E746301E33F9AE00498A08 /* VCS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E7462F1E33F9AE00498A08 /* VCS.swift */; };
-		8D8AD156026C5A5921386439 /* Pods_Haha_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99625038561208E4127B3BC /* Pods_Haha_Extension.framework */; };
 		E40B0FE8D5C36811466D2DD8 /* Pods_Haha_Stream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E8E50259AC4BE738873F72 /* Pods_Haha_Stream.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +84,6 @@
 		230CF2891E2EA711001C0606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		230CF28F1E2EAAA2001C0606 /* HahaProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HahaProvider.swift; path = HahaService/HahaProvider.swift; sourceTree = "<group>"; };
 		23148CF21F840AC20063B404 /* DeviceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceKey.swift; path = HahaService/Models/DeviceKey.swift; sourceTree = "<group>"; };
-		23246CC61E3E60440057FA63 /* Haha Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Haha Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23246CC71E3E60440057FA63 /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
 		23246CCA1E3E60440057FA63 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		23246CCC1E3E60440057FA63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -198,15 +170,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		23246CC31E3E60440057FA63 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23246CC81E3E60440057FA63 /* TVServices.framework in Frameworks */,
-				8D8AD156026C5A5921386439 /* Pods_Haha_Extension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -226,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				230CF2691E2EA31A001C0606 /* Haha Stream.app */,
-				23246CC61E3E60440057FA63 /* Haha Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -498,25 +460,6 @@
 			productReference = 230CF2691E2EA31A001C0606 /* Haha Stream.app */;
 			productType = "com.apple.product-type.application";
 		};
-		23246CC51E3E60440057FA63 /* Haha Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 23246CD21E3E60440057FA63 /* Build configuration list for PBXNativeTarget "Haha Extension" */;
-			buildPhases = (
-				AE11F6E75E12D5896474A5F5 /* [CP] Check Pods Manifest.lock */,
-				23246CC21E3E60440057FA63 /* Sources */,
-				23246CC31E3E60440057FA63 /* Frameworks */,
-				23246CC41E3E60440057FA63 /* Resources */,
-				689DD4742B8FB94D61B937AE /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Haha Extension";
-			productName = "Haha Extension";
-			productReference = 23246CC61E3E60440057FA63 /* Haha Extension.appex */;
-			productType = "com.apple.product-type.tv-app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -528,21 +471,12 @@
 				TargetAttributes = {
 					230CF2681E2EA31A001C0606 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9MQ56B2838;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
-					23246CC51E3E60440057FA63 = {
-						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -562,7 +496,6 @@
 			projectRoot = "";
 			targets = (
 				230CF2681E2EA31A001C0606 /* Haha Stream */,
-				23246CC51E3E60440057FA63 /* Haha Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -583,13 +516,6 @@
 				23C626B91E3426EB00BDDACE /* Player.storyboard in Resources */,
 				23C626B21E341A2F00BDDACE /* VCS.storyboard in Resources */,
 				234D85D01FA66276008110A7 /* Login.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23246CC41E3E60440057FA63 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,39 +544,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Haha Stream/Pods-Haha Stream-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		689DD4742B8FB94D61B937AE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Haha Extension/Pods-Haha Extension-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AE11F6E75E12D5896474A5F5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Haha Extension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B4710AE7BC68052BB73648E6 /* [CP] Copy Pods Resources */ = {
@@ -709,7 +602,6 @@
 				232FBF751E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
 				23DBFB0B1E30607000E276EB /* Stream.swift in Sources */,
 				230CF2901E2EAAA2001C0606 /* HahaProvider.swift in Sources */,
-				23C1DE421E372A3600E53954 /* (null) in Sources */,
 				23DBFB091E30607000E276EB /* HahaError.swift in Sources */,
 				23D857601F8D797F00433790 /* InlineVideoPlayerView.swift in Sources */,
 				233F4C141E32B5E100786A5C /* Channel.swift in Sources */,
@@ -747,37 +639,6 @@
 				23C1DE441E372B1B00E53954 /* ViewController+Errors.swift in Sources */,
 				23DBFB0A1E30607000E276EB /* Sport.swift in Sources */,
 				23DBFAF71E30603900E276EB /* HomeViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23246CC21E3E60440057FA63 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23246CDF1E3E68C90057FA63 /* AppProvider.swift in Sources */,
-				2366E4381F8639FC0037D4A7 /* StreamURL.swift in Sources */,
-				23246CDD1E3E63AD0057FA63 /* Stream.swift in Sources */,
-				23246CDB1E3E63AD0057FA63 /* VCS.swift in Sources */,
-				23148CF41F840D1B0063B404 /* DeviceKey.swift in Sources */,
-				23246CDC1E3E63AD0057FA63 /* Channel.swift in Sources */,
-				23246CD51E3E63AD0057FA63 /* HahaService.swift in Sources */,
-				2366E4351F862BB40037D4A7 /* Dictionary+KeyPath.swift in Sources */,
-				23246CD91E3E63AD0057FA63 /* HahaError.swift in Sources */,
-				2366E43B1F863C350037D4A7 /* Team.swift in Sources */,
-				23246CD71E3E63AD0057FA63 /* Game.swift in Sources */,
-				234925931F84247D0071185A /* HahaProvider.swift in Sources */,
-				23246CD61E3E63AD0057FA63 /* FromDictable.swift in Sources */,
-				234925911F841ED20071185A /* StreamMeta.swift in Sources */,
-				23246D071E3FBF080057FA63 /* Game+LocalImage.swift in Sources */,
-				232FBF791E3FDBB600294D26 /* LocalImage.swift in Sources */,
-				23246CD81E3E63AD0057FA63 /* ContentItem.swift in Sources */,
-				2349258E1F8412F50071185A /* DeviceActivation.swift in Sources */,
-				2392BEFD1F9153970012446C /* ContentList.swift in Sources */,
-				232FBF761E3FD9B100294D26 /* Channel+LocalImage.swift in Sources */,
-				23697E101F944D330017919D /* NFLWeek.swift in Sources */,
-				23246CDA1E3E63AD0057FA63 /* Sport.swift in Sources */,
-				23246CCB1E3E60440057FA63 /* ServiceProvider.swift in Sources */,
-				233F365C1F8E94C700A6C2E0 /* DeviceActivationStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,10 +756,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9MQ56B2838;
 				INFOPLIST_FILE = "Haha Stream/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.haha.tvos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hehestreams;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -915,47 +776,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9MQ56B2838;
 				INFOPLIST_FILE = "Haha Stream/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.haha.tvos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hehestreams;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TVOS_DEPLOYMENT_TARGET = 11.0;
-			};
-			name = Release;
-		};
-		23246CD01E3E60440057FA63 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DC5C4978513D0F257C67E0E /* Pods-Haha Extension.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Haha Extension/Haha Extension.entitlements";
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Haha Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.haha.tvos.Haha-Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		23246CD11E3E60440057FA63 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86C680C896595D1639158EAC /* Pods-Haha Extension.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Haha Extension/Haha Extension.entitlements";
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Haha Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.haha.tvos.Haha-Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -976,15 +805,6 @@
 			buildConfigurations = (
 				230CF2791E2EA31A001C0606 /* Debug */,
 				230CF27A1E2EA31A001C0606 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		23246CD21E3E60440057FA63 /* Build configuration list for PBXNativeTarget "Haha Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				23246CD01E3E60440057FA63 /* Debug */,
-				23246CD11E3E60440057FA63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

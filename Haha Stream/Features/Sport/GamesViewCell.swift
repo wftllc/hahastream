@@ -38,9 +38,9 @@ class GamesViewCell: UICollectionViewCell {
 		self.clearFocused()
 
 		
-//		let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-//		verticalMotionEffect.minimumRelativeValue = -3
-//		verticalMotionEffect.maximumRelativeValue = 3
+		let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+		verticalMotionEffect.minimumRelativeValue = -3
+		verticalMotionEffect.maximumRelativeValue = 3
 //		self.contentView.addMotionEffect(verticalMotionEffect)
 //		self.contentView.backgroundColor = UIColor.white.withAlphaComponent(1.0);
 //		self.showFocused();

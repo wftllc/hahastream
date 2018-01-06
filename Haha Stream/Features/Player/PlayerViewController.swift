@@ -22,6 +22,9 @@ class PlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelega
 	var playerContext:UnsafeMutableRawPointer
 	var playerItemContext:UnsafeMutableRawPointer
 
+	var longPressGestureRecognizer: UILongPressGestureRecognizer!
+	var tapGestureRecognizer: UITapGestureRecognizer!
+	var isUserControllingNativeTransportBar = false
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		self.selfContext = UnsafeMutableRawPointer(&a)
 		self.playerContext = UnsafeMutableRawPointer(&b)
@@ -34,7 +37,16 @@ class PlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelega
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+	@objc func didTap(_ sender: Any) {
+		isUserControllingNativeTransportBar = !isUserControllingNativeTransportBar
+		print("\(#function), \(isUserControllingNativeTransportBar)")
+//		isSeekingEnabled = !isUserControllingNativeTransportBar
+	}
 	
+	func didLongPress(_ sender: Any) {
+		print("\(#function)")
+		
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -46,7 +58,11 @@ class PlayerViewController: AVPlayerViewController, AVPlayerViewControllerDelega
 		overlayView.alpha = 0.0;
 		self.contentOverlayView?.addSubview(overlayView)
 		
+		self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
 		
+//		self.longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didLongPress(_:)))
+		self.view.addGestureRecognizer(tapGestureRecognizer)
+//		self.view.addGestureRecognizer(longPressGestureRecognizer)
 		let swipeRecognizerL = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeLeft(_:)))
 		let swipeRecognizerR = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeRight(_:)))
 		
