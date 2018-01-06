@@ -23,6 +23,13 @@ class LoginInteractor: NSObject {
 
 	func pollForRegistrationKey() {
 		print("\(#function); identifier: \(UIDevice.current.identifierForVendor!.uuidString)")
+		guard let ident = UIDevice.current.identifierForVendor?.uuidString else {
+			view?.updateView(activationCode: nil, error: "identifierForVendor is nil; trying again...")
+			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+self.PollingInterval) {
+				self.pollForRegistrationKey()
+			}
+			return;
+		}
 		self.provider.getDeviceRegistrationKey(success: { [weak self] (deviceKey) in
 			if let deviceKey = deviceKey {
 				self?.view?.updateView(activationCode: deviceKey.key, error: nil)
