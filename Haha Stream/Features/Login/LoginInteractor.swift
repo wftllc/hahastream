@@ -22,7 +22,7 @@ class LoginInteractor: NSObject {
 	//	=> logged in, store api key
 
 	func pollForRegistrationKey() {
-		print("\(#function)")
+		print("\(#function); identifier: \(UIDevice.current.identifierForVendor!.uuidString)")
 		self.provider.getDeviceRegistrationKey(success: { [weak self] (deviceKey) in
 			if let deviceKey = deviceKey {
 				self?.view?.updateView(activationCode: deviceKey.key, error: nil)
