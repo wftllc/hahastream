@@ -30,7 +30,7 @@ To get Build version: NSString *buildVersion = [[[NSBundle mainBundle] infoDicti
 		
 		let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "Unknown"
 		let buildVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "Unknown"
-		return [ //TODO: load these from os sources as appropriate
+		let headers = [ //TODO: load these from os sources as appropriate
 			"X-App" : "TvOS App (\(device.name))",
 			"X-App-Version": "\(appVersion)b\(buildVersion)",
 			"X-Device-Name": device.model,
@@ -39,6 +39,8 @@ To get Build version: NSString *buildVersion = [[[NSBundle mainBundle] infoDicti
 			"X-Id": "\(device.identifierForVendor!.uuidString)-b",
 			"X-Device-Version": device.systemVersion,
 		]
+		print("Headers: \(headers)")
+		return headers
 	}
 	
 	var baseURL: URL { return URL(string: "https://hehestreams.com/api/v1")! }
