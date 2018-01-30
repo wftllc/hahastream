@@ -23,7 +23,7 @@ class LoginInteractor: NSObject {
 	
 	func pollForRegistrationKey() {
 		print("\(#function); identifier: \(UIDevice.current.identifierForVendor!.uuidString)")
-		guard let ident = UIDevice.current.identifierForVendor?.uuidString else {
+		guard let _ = UIDevice.current.identifierForVendor?.uuidString else {
 			let error = "identifierForVendor is nil; trying again..."
 			print("\(#function); \(error)")
 			view?.updateView(activationCode: nil, error: error)
@@ -33,7 +33,7 @@ class LoginInteractor: NSObject {
 			return;
 		}
 		self.provider.getDeviceRegistrationKey(success: { [weak self] (deviceKey) in
-			print("getDeviceRegistrationKey() success: \(deviceKey?.description)")
+			print("getDeviceRegistrationKey() success: \(deviceKey?.description ?? "no device key")")
 			if let deviceKey = deviceKey {
 				self?.view?.updateView(activationCode: deviceKey.key, error: nil)
 				self?.pollForActivation(deviceKey: deviceKey)
