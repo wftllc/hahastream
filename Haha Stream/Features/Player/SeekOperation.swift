@@ -43,12 +43,15 @@ class SeekOperation {
 	func totalValue(forSwipes swipes: Int) -> Int {
 		let absSwipes = abs(swipes)
 		let value: Int
+
 		switch(absSwipes) {
 		case 0:
-			value = absSwipes * 10
-		case 1..<3:
-			value = 10+absSwipes * 15
-		case 3..<7: // 0 .. 6 swipes min in 0:30s (0s => 3 min)
+			value = 0
+		case 1:
+			value = 10
+		case 2..<3: //just 10 - 30 seconds :)
+			value = 10+absSwipes * 20
+		case 3..<7: // 3 .. 6 swipes min in 0:30s (30s => 3 min)
 			value = 30 + 30 * (absSwipes-2) 
 		case 7..<15: // 3 min => 10 min; 1 min interval
 			value = 120 + 60 * (absSwipes-6)
