@@ -24,17 +24,18 @@ class NFLDateListViewController: DateListViewController {
 //		return IndexPath(item: 1, section: 0);
 //	}
 	
+	//TODO: get current season dynamically
 	override func setupDates() {
-		let years = [2017, 2016, 2015, 2014, 2013, 2012, 2011]
+		let years = [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011]
 		let weekTypes:[NFLWeekType] = [.playoffs, .regularSeason, .preSeason]
 		
-		//figure out current nfl week (based on tuesday 9/4/17)
-		let week1 = Date(timeIntervalSince1970: 1504562400)
+		//figure out current nfl week (based on week1 as tuesday 9/4/18)
+		let week1 = Date(timeIntervalSince1970: 1536019200)
 		let weeksSinceWeek1 = -week1.timeIntervalSinceNow/60/60/24/7
 		for year in years {
 			for weekType in weekTypes {
 				for week in weekType.weeks.reversed() {
-					if year < 2017 || Double(week-2) < weeksSinceWeek1 {
+					if year < 2018 || Double(week-2) < weeksSinceWeek1 {
 						data.append(NFLWeek(year: year, type: weekType, week: week))
 					}
 				}
